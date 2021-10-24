@@ -3151,6 +3151,12 @@ row.wrap.sb .col {
     max-width: 100%
 }
 
+.centerpiece {
+    display: block;
+    margin: auto;
+    max-width: 100%
+}
+
 span.title {
 	color: var(--title-color);
 }

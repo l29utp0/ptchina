@@ -71,7 +71,7 @@ a:active, a:hover {
 	filter: invert(90%) sepia(100%) saturate(100) hue-rotate(194deg);
 }
 
-.logo {
+.centerpiece {
 
-	content: url(https://ptchan.org/asset/i/5ba0114fa31dd25b779bdd9b5caa11511eb597ef398130ed68ab744f382a1013.png);
+	content: url(/asset/i/5ba0114fa31dd25b779bdd9b5caa11511eb597ef398130ed68ab744f382a1013.png);
   }
