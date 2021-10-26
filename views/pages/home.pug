@@ -35,13 +35,19 @@ block content
 	if hotThreads && hotThreads.length > 0
 		.table-container.flex-center.mv-5
 			table.posttable
-				tr(colspan=2) 
+				tr(colspan=3) 
 				each post in hotThreads
 					tr
 						td 🔥#{post.replyposts}
 						td 
-							a.quote(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`) #{`${post.subject} ${post.nomarkup.substring(0,50)}${post.message.length > 50 ? '...' : ''}`}
+							if post.nomarkup != null
+								a.quote(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`) #{`${post.subject} ${post.nomarkup && post.nomarkup.substring(0,90)}${post.nomarkup && post.nomarkup.length > 90 ? '...' : ''}`}
+							if post.nomarkup === null
+								a.quote(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`) (Sem texto)
 
+						td
+							- const newsDate = new Date(post.bumped);
+							time.right.reltime(datetime=newsDate.toISOString()) #{newsDate.toLocaleString(undefined, {hourCycle:'h23'})}
 	if boards && boards.length > 0
 		+boardtable(true, false)
 			each board in boards
