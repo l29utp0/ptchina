@@ -240,7 +240,7 @@ module.exports = {
 		let [ totalStats, boards, fileStats, recentNews, hotThreads ] = await Promise.all([
 			Boards.totalStats(), //overall total posts ever made
 			Boards.boardSort(0, 20), //top 20 boards sorted by users, pph, total posts
-			Files.activeContent(), //size ans number of files
+			Files.activeContent(), //size and number of files
 			News.find(maxRecentNews), //some recent newsposts
 			Posts.db.find({'board': {$in: listedBoards}, 'thread': null, 'date': {$gte: (new Date(Date.now() - (7 * 24 * 60 * 60 * 1000)))}}).sort({'replyposts':-1}).limit(10).toArray(), //top 10 threads last 7 days
 		]);
