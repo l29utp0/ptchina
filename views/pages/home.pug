@@ -41,7 +41,7 @@ block content
 						td 🔥#{post.replyposts}
 						td 
 							if post.nomarkup != null
-								a.quote(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`) #{`${post.subject} ${post.nomarkup && post.nomarkup.substring(0,70)}${post.nomarkup && post.nomarkup.length > 70 ? '...' : ''}`}
+								a.quote(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`) #{`${post.subject} ${post.nomarkup && post.nomarkup.substring(0,50)}${post.nomarkup && post.nomarkup.length > 50 ? '...' : ''}`}
 							if post.nomarkup === null
 								a.quote(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`) (Sem texto)
 
