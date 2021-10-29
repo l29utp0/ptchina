@@ -38,7 +38,7 @@ block content
 				tr(colspan=3) 
 				each post in hotThreads
 					tr
-						td 🔥#{post.replyposts}
+						td 🔥#{post.replyposts + post.replyfiles}
 						td 
 							if post.nomarkup != null
 								a.quote(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`) #{`${post.subject.substring(0,30)}${post.subject && post.subject.length > 30 ? '...' : ''} ${post.nomarkup && post.nomarkup.substring(0,50)}${post.nomarkup && post.nomarkup.length > 50 ? '...' : ''}`}
