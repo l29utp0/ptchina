@@ -9,13 +9,13 @@ block content
 		form.form-post(action='/forms/login' method='POST')
 			input(type='hidden' name='goto' value=goto)
 			.row
-				.label Username
+				.label Usuário
 				input(type='text', name='username', maxlength='50' required)
 			.row
-				.label Password
+				.label Senha
 				input(type='password', name='password', maxlength='100' required)
-			input(type='submit', value='submit')
+			input(type='submit', value='enviar')
 		if enableUserAccountCreation
-			p: a(href='/register.html') Register
-		p: a(href='/changepassword.html') Change Password
+			p: a(href='/register.html') Registrar
+		p: a(href='/changepassword.html') Alterar senha
 
