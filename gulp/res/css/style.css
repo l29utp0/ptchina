@@ -973,20 +973,23 @@ input:invalid, textarea:invalid {
 	-moz-appearance: none;
 	appearance: none;
 	cursor: pointer;
-	width: 1.5em;
-	height: 1em;
+	width: 0.5em;
+	height: 0.5em;
 	color: var(--font-color);
-	border: none;
+	border: solid var(--font-color) ;
+	border-width: 0 2px 2px 0;  
 	background: transparent;
 	position: relative;
 	top: 2px;
 	font-size: 9pt;
-	border-bottom: .5em solid transparent;
+	/*border-bottom: .5em solid transparent;
 	border-right: .5em solid transparent;
 	border-left: calc(2 * .5em * 0.866) solid var(--font-color);
-	border-top: .5em solid transparent;
+	border-top: .5em solid transparent;*/
 	vertical-align: top;
 	margin-left: 3px;
+	padding: 3px; 
+	transform: rotate(45deg);
 }
 
 .catalog-tile.hidden {
