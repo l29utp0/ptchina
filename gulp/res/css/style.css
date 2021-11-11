@@ -1522,7 +1522,7 @@ row.wrap.sb .col {
 
 	.postmenu {
 		float: right;
-		min-height: 1em;
+		min-height: 0.5em;
 	}
 
 	.filelabel {
