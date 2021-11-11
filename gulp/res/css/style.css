@@ -1416,6 +1416,8 @@ row.wrap.sb .col {
 		vertical-align: top;
 		margin-left: 3px;
 		width: 1em;
+		float: right;
+		min-height: 0.5em;
 	}
 	#settings::after {
 		content: "\2699"!important;
@@ -1518,11 +1520,6 @@ row.wrap.sb .col {
 	input[type="range"], input[type="number"], input[type="text"], input[type="submit"], input[type="password"], input[type="file"], .postform-style, select, #dragHandle {
 		min-height: 2.25em;
 		box-sizing: border-box;
-	}
-
-	.postmenu {
-		float: right;
-		min-height: 1em;
 	}
 
 	.filelabel {
