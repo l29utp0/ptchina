@@ -16,7 +16,7 @@ const fortunes = ['Vais adquirir sexo consensual', 'ｷﾀ━━━━━━(ﾟ
  'Vais encontrar o verdadeiro amor nar segunda dimensão', 'Toma os comprimidos', 'Os desenhos japoneses e as suas consequências foram um desastre para a humanidade',
  'Vais desenvoler esquizofrenia', 'Mais medicação, menos teorias da conspiração', 'Comerás sopa de macaco e serás feliz', 'Os teus dados vão ser entregues à Rússia',
  'As esporrinhas vão ser o teu fim'];
-//são 56 no total 1 oct
+//são 56 no total
 module.exports = {
 
 	regex: /##sorte/mi,
