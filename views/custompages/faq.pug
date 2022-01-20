@@ -38,7 +38,7 @@ block content
 					b Tábuas, utilizadores & permissões
 					ul.mv-0
 						li: a(href='#make-a-board') Como faço uma tábua?
-						//li: a(href='#staff-and-permissions') Como é que o staff, utilizadores e permissões funcionam?
+						li: a(href='#staff-and-permissions') Contas
 						//li: a(href='#antispam') What do the board settings for antispam do?
 					b Política de privacide e cookies/local storage.
 					ul.mv-0
@@ -94,15 +94,19 @@ block content
 				td.post-message
 					p
 						a(href='mailto:info@ptchan.org') info@ptchan.org
+					p
+						a(href='https://matrix.to/#/#ptch:matrix.org') Sala Matrix
 	.table-container.flex-center.mv-5
-		.anchor#source
+		.anchor#Source
 		table
 			tr
-				th: a(href='#Source') Source
+				th: a(href='#Source') Source & API
 			tr
 				td
 					p
 						a(href='https://gitgud.io/l29utp0/ptchina' target='_blank') https://gitgud.io/l29utp0/ptchina
+					p
+						a(href='http://fatchan.gitgud.site/jschan-docs/' target='_blank') http://fatchan.gitgud.site/jschan-docs/
 
 
 	.table-container.flex-center.mv-5
@@ -154,7 +158,7 @@ block content
 		.anchor#captcha
 		table
 			tr
-				th: a(href='#captcha') Como resolvo o CAPTCHA?
+				th: a(href='#captcha') Como resolvo o CAPTCHA xadrez?
 			tr
 				td
 					p
@@ -220,7 +224,7 @@ block content
 					p Um Tripcode é uma forma de identidade.
 
 					b Capcode
-					p Um Capcode é uma forma de identificação para utilizadores registados e com algum tipo de função. Isto inclui admins, staff global, donos de tábuas e moderadores.
+					p Um Capcode é uma forma de identificação para utilizadores registados e com algum tipo de função no site.
 	.table-container.flex-center.mv-5
 		.anchor#post-styling
 		table
@@ -270,6 +274,10 @@ block content
 				td
 					img(src='/file/dice.png' height='16' width='16')
 					span.dice (##2d9+3) 2 dados de 9 e modificador +3 = 10
+			tr
+				td ##sorte
+				td
+					span.sorte Sorte: Boa sorte
 			tr
 				td https://example.com
 				td: a(href='#!') https://example.com
@@ -366,32 +374,24 @@ block content
 						|  uma conta, depois 
 						a(href='/create.html') cria uma tábua
 						|. Evita fazer tábuas excessivas ou que já existam.
-	//.table-container.flex-center.mv-5
+	.table-container.flex-center.mv-5
 		.anchor#staff-and-permissions
 		table
 			tr
-				th: a(href='#staff-and-permissions') Como é que o staff, utilizadores e permissões funcionam?
+				th: a(href='#staff-and-permissions') Contas
 			tr
 				td
 					p
-						| There are 5 levels of permissions on the site with 0 being the highest level of privilege and 4 the lowest. In this list "Regular user" refers to somebody who is either not logged in or is not owner/mod of the board. For example if a user creates their own board, they do not have the "Board owner" permissions on other boards. Each board can have one owner and multiple moderators. Ownership can be transferred.
-						ol(start='0')
-							li Admin: All permissions
-							li Global staff: All permissions on all boards excluding account management and news updates
-							li Board owner: Permissions to board-specific settings, reports, banners and bans and some post actions
-							li Board moderator: Permissions to manage board-specific reports, bans and some post actions
-							li Regular user: Permissions to report/delete/spoiler posts
-						| Post actions refers to reporting, deleting, stickying, etc. More details on these permissions:
-						ol(start='0')
-							li Admin: All actions
-							li Global staff: All below, delete files, delete-by-ip-global and global ban
-							li Board owner: Same as board moderator
-							li Board moderator: All below, move/merge, ban, delete-by-ip, sticky/sage/lock/cycle
-							li Regular user: Reports, and post spoiler/delete/unlink if the board has them enabled
-						| Administrators have the ability to assign a permission level directly to users through the global management page. Typically a user is level 4 (regular user), 1 (global staff) or 0 (administrator).
-						| Level 2 and 3 are usually only applicable to users when on a board they are owner or moderator. However, level 2 or 3 can be assigned manually to create global board owners or global board moderators
-						| who have board owner or moderation permissions on all boards, but without access to the global moderation interfaces. If assigning global board owners (level 2), they will have access to the board settings
-						| and the ability to reassign board owners.
+						| Em ordem de importância e poder existem 4 níveis de conta, que são representados por um capcode encarnado ao lado do nome em cada publicação:
+						ul(style='list-style-type: none')
+							li.span.post-capcode *✓
+							p Administração do site.
+							li.span.post-capcode Sysop✓
+							p Staff global do site.
+							li.span.post-capcode Admin✓
+							p Administrador de uma tábua.
+							li.span.post-capcode Mod✓
+							p Moderador de uma tábua.
 	//.table-container.flex-center.mv-5
 		.anchor#antispam
 		table
@@ -423,7 +423,7 @@ block content
 			tr
 				td.post-message
 					p 
-						| Os endereços IP são anonimizados e apenas estão disponíveis no seu formato original à administração, ficam associados à publicação e são automaticamente eliminados quando a publicação sai da tábua ou depois de 7 dias.
+						| Os endereços IP são anonimizados e apenas estão disponíveis no seu formato original à administração do site, ficam associados à publicação e são automaticamente eliminados quando a publicação sai da tábua ou depois de 7 dias.
 					p
 						| Todos os cookies e local storage utilizados pelo ptchan são apenas para o seu correto funcionamento e personalização. O ptchan não usa cookies de terceiros ou tracking publicitário.
 		.table-container.flex-center.mv-5
@@ -443,7 +443,11 @@ block content
 				td Cookie
 				td Captcha
 			tr
-				td wpcc
+				td bypassid
+				td Cookie
+				td Bypass
+			tr
+				td ptchc
 				td Cookie
 				td Consentimento cookies
 			tr
@@ -511,11 +515,11 @@ block content
 				td Local Storage
 				td Personalização
 			tr
-				td name
+				td localtime
 				td Local Storage
 				td Personalização
 			tr
-				td localtime
+				td name
 				td Local Storage
 				td Personalização
 			tr
@@ -528,6 +532,10 @@ block content
 				td Personalização
 			tr
 				td notifications
+				td Local Storage
+				td Personalização
+			tr
+				td overboardsettings
 				td Local Storage
 				td Personalização
 			tr
@@ -547,7 +555,16 @@ block content
 				td Local Storage
 				td Personalização
 			tr
+				td threadwatcher-minimise
+				td Local Storage
+				td Personalização
+
+			tr
 				td volume
+				td Local Storage
+				td Personalização
+			tr
+				td watchlist
 				td Local Storage
 				td Personalização
 			tr
