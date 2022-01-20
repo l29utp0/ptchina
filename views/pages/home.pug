@@ -11,7 +11,7 @@ block content
 	
 		table
 			tr
-				th.alt Sobre
+				th Sobre
 			tr
 				td
 					pre.no-m-p
@@ -77,9 +77,9 @@ block content
 							| Existem #[span.bold #{localStats.total-localStats.unlisted}] tábuas públicas, #[span.bold #{localStats.total}] no total. Foram feitas #[span.bold #{localStats.ppd}] publicações#{localStats.ppd === 1 ? ' ' : ''} no último dia, #[span.bold #{localStats.pph}] na última hora, #[span.bold #{localStats.posts}] no total.
 							| #[span.bold #{fileStats.count}] #{fileStats.count === 1 ? '' : ''}Ficheiros #[span.bold #{fileStats.totalSizeString}].
 							| 
-							a(href='http://jieq75a6uwqbj5sjzaxlnd7xwgs35audjmkk4g3gfjwosfrz7cp47xid.onion') Tor
-							| 
-							a(href='http://yg8tt1wnsgmkjxkhm5oxc4h3tgtch1q3yycngx8h8xwg3ef7bjco.loki') Loki
+							a(href='http://jieq75a6uwqbj5sjzaxlnd7xwgs35audjmkk4g3gfjwosfrz7cp47xid.onion') 🧅Tor
+							//| 
+							//a(href='http://yg8tt1wnsgmkjxkhm5oxc4h3tgtch1q3yycngx8h8xwg3ef7bjco.loki') Loki
 		if enableWebring === true && webringStats != null
 			.table-container.flex-center.mv-10.text-center
 				table(style='max-width:450px')
