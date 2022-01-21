@@ -48,7 +48,7 @@ textarea,
 	 border:2px inset var(--post-color);
 }
 #postform {
-	padding: 2px
+	padding: 2px;
 }
 .nav-item {
 	line-height: 1.75em!important;
@@ -60,7 +60,7 @@ textarea,
 	border: 2px outset lightgray;
 }
 .close {
-	font-weight: bold
+	font-weight: bold;
 }
 .navbar a {
 	color:black;
@@ -86,11 +86,11 @@ textarea,
 	left: 7px;
 }
 .navbar a:first-of-type {
-	padding-left: 30px
+	padding-left: 30px;
 }
 .stickynav {
 	top: 5px;
-	bottom: unset
+	bottom: unset;
 }
 main {
 	margin: 0;
@@ -115,7 +115,7 @@ hr {
 	padding: 3px 5px 3px 3px;
 }
 .board-description {
-	color:var(--board-title)
+	color:var(--board-title);
 }
 .modal {
 	padding:3px;
