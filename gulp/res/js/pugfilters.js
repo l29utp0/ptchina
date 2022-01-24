@@ -6,7 +6,7 @@ var pug_match_html=/["&<>]/;function filters(locals) {var pug_html = "", pug_mix
     (function (filterArr) {
       pug_mixins["filters"] = pug_interp = function(filterArr){
 var block = (this && this.block), attributes = (this && this.attributes) || {};
-const filterTypeMap = { single: 'Single', fid: 'ID', fname: 'Name', ftrip: 'Tripcode', fnamer: 'Name', ftripr: 'Tripcode', fsub: 'Subject', fsubr: 'Subject', fmsg: 'Message', fmsgr: 'Message' }
+const filterTypeMap = { single: 'Single', fid: 'ID', fname: 'Nome', ftrip: 'Tripcode', fnamer: 'Nome', ftripr: 'Tripcode', fsub: 'Assunto', fsubr: 'Assunto', fmsg: 'Mensagem', fmsgr: 'Mensagem' }
 if (filterArr.length > 0) {
 // iterate filterArr
 ;(function(){
@@ -28,7 +28,7 @@ pug_html = pug_html + "\u003Ctr\u003E\u003Ctd\u003E" + (pug_escape(null == (pug_
 
 }
 else {
-pug_html = pug_html + "\u003Ctd colspan=\"4\"\u003ENo Filters\u003C\u002Ftd\u003E";
+pug_html = pug_html + "\u003Ctd colspan=\"4\"\u003ESem Filtros\u003C\u002Ftd\u003E";
 }
 };
 pug_mixins["filters"](filterArr);

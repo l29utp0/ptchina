@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			if (updateId && updateId !== idString) { continue; }
 			const count = idMap.get(idString);
 			idElems[i].setAttribute('data-count', ` (${count})`);
-			idElems[i].setAttribute('title', `Double click to highlight (${count})`);
+			idElems[i].setAttribute('title', `Carrega duas vezes para ver (${count})`);
 		}
 	}
 
@@ -48,8 +48,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			const numFiles = +statsElem.children[1].innerText.match(/^(\d+)/g);
 			const filesTotal = numFiles + newFiles;
 			const postTotal = numPosts + 1;
-			statsElem.children[0].innerText = `${postTotal} repl${postTotal === 1 ? 'y' : 'ies'}`;
-			statsElem.children[1].innerText = `${filesTotal} file${filesTotal === 1 ? '' : 's'}`;
+			statsElem.children[0].innerText = `${postTotal} respost${postTotal === 1 ? 'a' : 'as'}`;
+			statsElem.children[1].innerText = `${filesTotal} ficheiro${filesTotal === 1 ? '' : 's'}`;
 			if (e.detail.json.userId) {
 				const userId = e.detail.post.querySelector('.user-id');
 				idElems.push(userId);

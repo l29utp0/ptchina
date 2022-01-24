@@ -1,19 +1,19 @@
 mixin globalmanagenav(selected)
 	nav.pages
-		a(href='reports.html' class=(selected === 'reports' ? 'bold' : '')) [Reports]
+		a(href='reports.html' class=(selected === 'reports' ? 'bold' : '')) [Denúncias]
 		|  
 		a(href='bans.html' class=(selected === 'bans' ? 'bold' : '')) [Bans]
 		|  
-		a(href='recent.html' class=(selected === 'recent' ? 'bold' : '')) [Recent]
+		a(href='recent.html' class=(selected === 'recent' ? 'bold' : '')) [Recentes]
 		|  
-		a(href='boards.html' class=(selected === 'boards' ? 'bold' : '')) [Boards]
+		a(href='boards.html' class=(selected === 'boards' ? 'bold' : '')) [Tábuas]
 		|  
 		a(href='globallogs.html' class=(selected === 'logs' ? 'bold' : '')) [Logs]
 		if permLevel === 0
 			|  
-			a(href='accounts.html' class=(selected === 'accounts' ? 'bold' : '')) [Accounts]
+			a(href='accounts.html' class=(selected === 'accounts' ? 'bold' : '')) [Contas]
 			|  
-			a(href='news.html' class=(selected === 'news' ? 'bold' : '')) [News]
+			a(href='news.html' class=(selected === 'news' ? 'bold' : '')) [Notícias]
 			|  
-			a(href='settings.html' class=(selected === 'settings' ? 'bold' : '')) [Settings]
+			a(href='settings.html' class=(selected === 'settings' ? 'bold' : '')) [Opções]
 

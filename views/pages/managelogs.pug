@@ -5,7 +5,7 @@ include ../mixins/managenav.pug
 include ../mixins/boardheader.pug
 
 block head
-	title /#{board._id}/ - Manage
+	title /#{board._id}/ - Gerir
 
 block content
 	+boardheader('Logs')
@@ -13,7 +13,7 @@ block content
 	+managenav('logs')
 	hr(size=1)
 	.form-wrapper.flexleft
-		h4.no-m-p Search:
+		h4.no-m-p Procurar:
 		form.form-post.mv-5(action=`/${board._id}/manage/logs.html` method='GET')
 			input(type='hidden' value=page)
 			.row
@@ -25,12 +25,12 @@ block content
 			.table-container.flex-center.mv-10.text-center
 				table.fw
 						tr
-							th Date
+							th Data
 							th User
 							th IP
-							th Actions
-							th Posts
-							th Log Message
+							th Ações
+							th Publicações
+							th Mensagem log
 						for log in logs
 							tr
 								- const logDate = new Date(log.date);
@@ -54,4 +54,4 @@ block content
 			.pages.mv-5
 				include ../includes/pages.pug
 		else
-			p No logs.
+			p Sem logs.

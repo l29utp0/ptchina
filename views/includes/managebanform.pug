@@ -1,5 +1,5 @@
 if bans.length === 0
-	p No bans.
+	p Sem bans.
 else
 	input(type='hidden' name='_csrf' value=csrf)
 	include ../includes/bantable.pug
@@ -7,11 +7,11 @@ else
 			+ban(ban)
 	.action-wrapper.mv-10
 		.row
-			.label Unban
+			.label Remover Ban
 			label.postform-style.ph-5
 				input(type='radio' name='option' value='unban' checked='checked')
 		.row
-			.label Deny Appeal
+			.label Negar Recurso
 			label.postform-style.ph-5
 				input(type='radio' name='option' value='deny_appeal')
 	input(type='submit' value='submit')

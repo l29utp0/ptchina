@@ -1,30 +1,30 @@
 details.toggle-label#actionform
-	summary.collapse#action-menu Show Post Actions
+	summary.collapse#action-menu Moderação
 	.actions
-		h4.no-m-p Actions:
+		h4.no-m-p Acões:
 		if board.settings.userPostDelete
 			label
 				input.post-check(type='checkbox', name='delete' value='1')
-				| Delete Posts
+				| Apagar Publicação
 		if board.settings.userPostUnlink
 			label
 				input.post-check(type='checkbox', name='unlink_file' value='1')
-				| Unlink Files
+				| Unlink Ficheiros
 		if board.settings.userPostSpoiler
 			label
 				input.post-check(type='checkbox', name='spoiler' value='1')
-				| Spoiler Files
+				| Spoiler Ficheiros
 		if board.settings.userPostSpoiler || board.settings.userPostUnlink || board.settings.userPostDelete
 			label
-				input#password(type='password', name='postpassword', placeholder='Post password' autocomplete='off')
+				input#password(type='password', name='postpassword', placeholder='Password' autocomplete='off')
 		label
 			input.post-check(type='checkbox', name='report' value='1')
-			| Report
+			| Denunciar
 		label
 			input.post-check(type='checkbox', name='global_report' value='1')
-			| Global Report
+			| Denúncia Global
 		label
-			input#report(type='text', name='report_reason', placeholder='Report reason' autocomplete='off')
+			input#report(type='text', name='report_reason', placeholder='Motivo' autocomplete='off')
 	.actions
 		h4.no-m-p Captcha:
 		include ./captcha.pug

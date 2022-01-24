@@ -194,7 +194,7 @@ class postFormHandler {
 			e.preventDefault();
 		}
 		this.submit.disabled = true;
-		this.submit.value = 'Processing...';
+		this.submit.value = 'A carregar...';
 		if (this.files && this.files.length > 0) {
 			//show progress on file uploads
 			xhr.onloadstart = () => {
@@ -272,14 +272,14 @@ class postFormHandler {
 					if (xhr.status === 413) {
 						//not json, must be nginx response
 						doModal({
-							'title': 'Payload Too Large',
-							'message': 'Your upload was too large',
+							'title': 'Limite excedido',
+							'message': 'O teu upload é demasiado grande',
 						});
 					} else if (json) {
-						if (!this.captchaField && json.message === 'Incorrect captcha answer') {
+						if (!this.captchaField && json.message === 'Captcha incorreto') {
 							captchaController.addMissingCaptcha();
 							this.captchaField = true;
-						} else if (json.message === 'Captcha expired') {
+						} else if (json.message === 'Captcha expirado') {
 							const captcha = this.form.querySelector('.captcharefresh');
 							if (captcha) {
 								captcha.dispatchEvent(new Event('click'));
@@ -409,9 +409,9 @@ class postFormHandler {
 		if (this.files && this.files.length === 0) {
 			this.fileUploadList.textContent = '';
 			this.fileUploadList.style.display = 'none';
-			this.fileLabelText.nodeValue = `Select/Drop/Paste file${this.multipleFiles ? 's' : ''}`;
+			this.fileLabelText.nodeValue = `Seleciona/Arrasta/Cola ficheiro${this.multipleFiles ? 's' : ''}`;
 		} else {
-			this.fileLabelText.nodeValue = `${this.files.length} file${this.files.length > 1 ? 's' : ''} selected`;
+			this.fileLabelText.nodeValue = `${this.files.length} ficheiro${this.files.length > 1 ? 's' : ''} selecionado${this.files.length > 1 ? 's' : ''}`;
 		}
 		this.fileInput.value = null;
 	}

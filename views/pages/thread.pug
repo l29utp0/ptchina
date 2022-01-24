@@ -62,15 +62,15 @@ block content
 				.pages
 					+boardnav(null, true, true)
 			#threadstats 
-				span #{thread.replyposts} repl#{thread.replyposts === 1 ? 'y' : 'ies'}
+				span #{thread.replyposts} respost#{thread.replyposts === 1 ? 'a' : 'as'}
 				|  |  
-				span #{thread.replyfiles + thread.files.length} file#{thread.replyfiles + thread.files.length === 1 ? '' : 's'}
+				span #{thread.replyfiles + thread.files.length} ficheiro#{thread.replyfiles + thread.files.length === 1 ? '' : 's'}
 				if board.settings.ids
 					|  |   
 					span #{uids.size} UID#{uids.size === 1 ? '' : 's'}
 		.jsonly#livetext
 			.dot#livecolor
-			|  Connecting... 
+			|  A ligar... 
 			input.postform-style.ml-5.di#updatepostsbutton(type='button' value='Update')
 		if modview
 			include ../includes/actionfooter_manage.pug

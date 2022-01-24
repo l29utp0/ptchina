@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 	const modalHtml = modal({
 		modal: {
-			title: 'Settings',
+			title: 'Opções',
 			settings: {
 				themes,
 				codeThemes,

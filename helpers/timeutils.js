@@ -28,27 +28,27 @@ module.exports = {
 			isFuture = true;
 		}
 		if (difference < MINUTE) {
-			return 'Now';
+			return 'Agora';
 		} else if (difference < MINUTE*59.5) {
 			amount = Math.round(difference / MINUTE);
-			ret += `${amount} minute`;
+			ret = `${amount > 1 ? 'minutos' : 'minuto'}`;
 		} else if (difference < HOUR*23.5) {
 			amount = Math.round(difference / HOUR);
-			ret += `${amount} hour`;
+			ret = `${amount > 1 ? 'horas' : 'hora'}`;
 		} else if (difference < DAY*6.5) {
 			amount = Math.round(difference / DAY);
-			ret += `${amount} day`;
+			ret = `${amount > 1 ? 'dias' : 'dia'}`;
 		} else if (difference < WEEK*3.5) {
 			amount = Math.round(difference / WEEK);
-			ret += `${amount} week`;
+			ret = `${amount > 1 ? 'semanas' : 'semana'}`;
 		} else if (difference < MONTH*11.5) {
 			amount = Math.round(difference / MONTH);
-			ret += `${amount} month`;
+			ret = `${amount > 1 ? 'meses' : 'mês'}`;
 		} else {
 			amount = Math.round(difference / YEAR);
-			ret = `${amount} year`;
+			ret = `${amount > 1 ? 'anos' : 'ano'}`;
 		}
-		return `${ret}${amount > 1 ? 's' : ''} ${isFuture ? 'from now' :  'ago'}`;
+		return `${amount} ${ret} ${isFuture ? 'desde agora' :  'atrás'}`;
 	},
 
 	'relativeColor': (now, relativeTo) => {

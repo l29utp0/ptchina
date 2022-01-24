@@ -9,17 +9,17 @@ var block = (this && this.block), attributes = (this && this.attributes) || {};
 pug_html = pug_html + "\u003Cdetails class=\"row label mr-0\"\u003E\u003Csummary class=\"pv-5\"\u003ECaptcha\u003Cspan class=\"required\"\u003E*\u003C\u002Fspan\u003E\u003C\u002Fsummary\u003E";
 switch (captchaType){
 case 'google':
-pug_html = pug_html + "\u003Cdiv" + (" class=\"g-recaptcha\""+pug_attr("data-sitekey", `${googleRecaptchaSiteKey}`, true, false)+" data-theme=\"dark\" data-size=\"compact\" data-callback=\"recaptchaCallback\"") + "\u003E\u003C\u002Fdiv\u003E\u003Cnoscript\u003EPlease enable JavaScript to solve the captcha.\u003C\u002Fnoscript\u003E";
+pug_html = pug_html + "\u003Cdiv" + (" class=\"g-recaptcha\""+pug_attr("data-sitekey", `${googleRecaptchaSiteKey}`, true, false)+" data-theme=\"dark\" data-size=\"compact\" data-callback=\"recaptchaCallback\"") + "\u003E\u003C\u002Fdiv\u003E\u003Cnoscript\u003ENecessita JavaScript.\u003C\u002Fnoscript\u003E";
   break;
 case 'hcaptcha':
-pug_html = pug_html + "\u003Cdiv" + (" class=\"h-captcha\""+pug_attr("data-sitekey", `${hcaptchaSiteKey}`, true, false)+" data-theme=\"dark\" data-size=\"compact\" data-callback=\"recaptchaCallback\"") + "\u003E\u003C\u002Fdiv\u003E\u003Cnoscript\u003EPlease enable JavaScript to solve the captcha.\u003C\u002Fnoscript\u003E";
+pug_html = pug_html + "\u003Cdiv" + (" class=\"h-captcha\""+pug_attr("data-sitekey", `${hcaptchaSiteKey}`, true, false)+" data-theme=\"dark\" data-size=\"compact\" data-callback=\"recaptchaCallback\"") + "\u003E\u003C\u002Fdiv\u003E\u003Cnoscript\u003ENecessita JavaScript.\u003C\u002Fnoscript\u003E";
   break;
 case 'text':
-pug_html = pug_html + "\u003Cnoscript class=\"no-m-p\"\u003E\u003Ciframe" + (" class=\"captcha\""+" src=\"\u002Fcaptcha.html\""+pug_attr("width=210", true, true, false)+" height=\"80\" scrolling=\"no\" loading=\"lazy\"") + "\u003E\u003C\u002Fiframe\u003E\u003C\u002Fnoscript\u003E\u003Cdiv class=\"jsonly captcha\" style=\"display:none;\"\u003E\u003C\u002Fdiv\u003E\u003Cinput" + (" class=\"captchafield\""+" type=\"text\" name=\"captcha\" autocomplete=\"off\" placeholder=\"Captcha text\" pattern=\".{6}\""+pug_attr("required", true, true, false)+" title=\"6 characters\"") + "\u002F\u003E";
+pug_html = pug_html + "\u003Cnoscript class=\"no-m-p\"\u003E\u003Ciframe" + (" class=\"captcha\""+" src=\"\u002Fcaptcha.html\""+pug_attr("width=210", true, true, false)+" height=\"80\" scrolling=\"no\" loading=\"lazy\"") + "\u003E\u003C\u002Fiframe\u003E\u003C\u002Fnoscript\u003E\u003Cdiv class=\"jsonly captcha\" style=\"display:none;\"\u003E\u003C\u002Fdiv\u003E\u003Cinput" + (" class=\"captchafield\""+" type=\"text\" name=\"captcha\" autocomplete=\"off\" placeholder=\"Código captcha\" pattern=\".{6}\""+pug_attr("required", true, true, false)+" title=\"6 caracteres\"") + "\u002F\u003E";
   break;
 case 'grid':
 if (!(minimal)) {
-pug_html = pug_html + "\u003Ca class=\"text-center\" href=\"\u002Ffaq.html#captcha\"\u003EInstructions\u003C\u002Fa\u003E";
+pug_html = pug_html + "\u003Ca class=\"text-center\" href=\"\u002Ffaq.html#captcha\"\u003EInstruções\u003C\u002Fa\u003E";
 }
 pug_html = pug_html + "\u003Cdiv class=\"catalog\"\u003E\u003Cnoscript class=\"no-m-p\"\u003E\u003Ciframe class=\"captcha\" src=\"\u002Fcaptcha.html\" width=\"150\" height=\"150\" scrolling=\"no\" loading=\"lazy\"\u003E\u003C\u002Fiframe\u003E\u003C\u002Fnoscript\u003E\u003Cdiv class=\"jsonly captcha\" style=\"display:none\"\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"captchafield noselect\"\u003E";
 for(let i = 0; i < captchaGridSize**2; i++) {

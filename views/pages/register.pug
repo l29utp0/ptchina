@@ -1,25 +1,26 @@
 extends ../layout.pug
 
 block head
-	title Register
+	title Registar
 
 block content
-	h1.board-title Register
+	h1.board-title Registar
 	.form-wrapper.flex-center.mv-10
 		form.form-post(action='/forms/register' method='POST' data-captcha-preload='true')
 			.row
 				.label Username
-				input(type='text', name='username', maxlength='50' pattern='[a-zA-Z0-9]+' required title='alphanumeric only')
+				input(type='text', name='username', maxlength='50' pattern='[a-zA-Z0-9]+' required title='alfanumérico apenas')
 			.row
 				.label Password
 				input(type='password', name='password', maxlength='100' required)
 			.row
-				.label Confirm Password
+				.label Confirmar Password
 				input(type='password', name='passwordconfirm', maxlength='100' required)
 			if captchaType === 'text'
 				include ../includes/captchasidelabel.pug
 			else
 				include ../includes/captchafieldrow.pug
-			input(type='submit', value='Register')
-		p: a(href='/login.html') Login
-		p: a(href='/changepassword.html') Change Password
+			input(type='submit', value='Registar')
+		p: a(href='/login.html') Entrar
+		p: a(href='/changepassword.html') Alterar password
+		p.bold As contas apenas servem para administrar ou moderar tábuas, guarda a tua conta e password pois não existe recuperação de conta.
