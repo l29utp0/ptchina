@@ -13,13 +13,13 @@ block content
 		+boardnav('logs', true, false)
 	hr(size=1)
 	if dates.length === 0
-		p No Logs.
+		p Sem Logs.
 	else
 		.table-container.flex-center.mv-10.text-center
 			table
 				tr
-					th Date
-					th Events
+					th Data
+					th Eventos
 				for row in dates
 					tr
 						-

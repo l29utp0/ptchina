@@ -201,7 +201,7 @@ pre {
 	cursor: pointer;
 }
 #settings::after {
-	content: "Settings";
+	content: "Opções";
 }
 
 #postform-dragHandle, #threadwatcher-dragHandle {

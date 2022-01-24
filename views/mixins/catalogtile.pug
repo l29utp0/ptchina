@@ -21,7 +21,7 @@ mixin catalogtile(post, index, overboard=false)
 		.post-info
 			if overboard
 				div
-					| Thread from 
+					| Tábua:
 					a.no-decoration.post-subject(href=`/${post.board}/`) /#{post.board}/
 			else
 				input.left.post-check(type='checkbox', name='checkedposts' value=post.postId)
@@ -39,19 +39,19 @@ mixin catalogtile(post, index, overboard=false)
 			a.no-decoration.post-subject(href=postURL) #{post.subject || 'No subject'}
 			| 
 			select.jsonly.postmenu.right
-				option(value='single') Hide
+				option(value='single') Esconder
 				if post.subject	
-					option(value='fsub') Filter Subject
+					option(value='fsub') Filtrar Assunto
 				if !overboard
-					option(value='moderate') Moderate
-				option(value='watch') Watch
+					option(value='moderate') Moderar
+				option(value='watch') Favorito
 			br 
-			span(title='Replies') R: #{post.replyposts}
+			span(title='Respostas') R: #{post.replyposts}
 			|  / 
-			span(title='Files') F: #{post.replyfiles + post.files.length}
+			span(title='Ficheiros') F: #{post.replyfiles + post.files.length}
 			if !overboard
 				|  / 
-				span(title='Page') P: #{Math.ceil(index/10)}
+				span(title='Página') P: #{Math.ceil(index/10)}
 		if post.files.length > 0
 			.col
 				.row.ct-r1

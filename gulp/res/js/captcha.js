@@ -121,7 +121,7 @@ class CaptchaController {
 		captchaImg.src = imgSrc;
 		captchaImg.onload = () => {
 			if (captchaType === 'text') {
-				field.placeholder = 'Captcha text';
+				field.placeholder = 'Código captcha';
 			}
 			captchaDiv.appendChild(captchaImg);
 			captchaDiv.appendChild(refreshDiv);

@@ -9,7 +9,7 @@ section.form-wrapper.flex-center
 			input(type='hidden' name='_csrf' value=csrf)
 		input(type='hidden' name='thread' value=isThread ? thread.postId : null)
 		section.row.jsonly
-			.noselect#postform-dragHandle #{isThread ? 'New Reply' : 'New Thread'}
+			.noselect#postform-dragHandle #{isThread ? 'Nova Resposta' : 'Novo Fio'}
 		if board.settings.forceAnon && !modview
 			section.row
 				.label Sage
@@ -19,7 +19,7 @@ section.form-wrapper.flex-center
 			include ./subjectfield.pug
 		else
 			section.row
-				.label Name
+				.label Nome
 				input.mr-1(type='text', name='name', placeholder=board.settings.defaultName maxlength=globalLimits.fieldLength.name)
 				a.close.postform-style(href='#!') ×
 			if board.settings.sageOnlyEmail
@@ -29,12 +29,12 @@ section.form-wrapper.flex-center
 						input(type='checkbox', name='email', value='sage')
 			else
 				section.row
-					.label Email
+					.label Opção
 					input(type='text', name='email', autocomplete='off' maxlength=globalLimits.fieldLength.email)
 			include ./subjectfield.pug
 		section.row
 			.label
-				span Message
+				span Mensagem
 					if messageRequired
 						span.required *
 			- const minLength = (isThread ? board.settings.minReplyMessageLength : board.settings.minThreadMessageLength) || 0;
@@ -44,13 +44,13 @@ section.form-wrapper.flex-center
 			- const maxFiles = board.settings.maxFiles;
 			section.row
 				.label
-					span File#{maxFiles > 1 ? 's' : ''}
+					span Ficheiro#{maxFiles > 1 ? 's' : ''}
 						if fileRequired
 							span.required *
 					|
 					| 
 					if maxFiles > 1
-						small Max #{maxFiles} files
+						small Máx #{maxFiles} ficheiros
 					small #{postFilesSize} total
 				span.col
 					+filelabel('file', maxFiles)
@@ -64,14 +64,14 @@ section.form-wrapper.flex-center
 		if board.settings.userPostSpoiler || board.settings.userPostDelete || board.settings.userPostUnlink || modview
 			section.row
 				.label Password
-				input(type='password', name='postpassword', placeholder='Password to delete/spoiler/unlink later' maxlength='50' autocomplete='new-password')
+				input(type='password', name='postpassword', placeholder='Password para apagar/spoiler/unlink' maxlength='50' autocomplete='new-password')
 		if modview || board.settings.customFlags === true
 			- const boardFlags = Object.entries(board.flags)
 			if boardFlags.length > 0
 				section.row
-					.label Flag
+					.label Especial
 					select#customflag(name='customflag')
-						option(value='') #{board.settings.geoFlags === true ? 'Geographic Flag' : 'None'}
+						option(value='') #{board.settings.geoFlags === true ? 'Bandeira Geográfica' : 'Nada'}
 						each flag in boardFlags
 							option(value=flag[0] data-src=`/flag/${board._id}/${flag[1]}`) #{flag[0]}
 					img.jsonly#selected-flag
@@ -80,5 +80,5 @@ section.form-wrapper.flex-center
 				include ./captchasidelabel.pug
 			else
 				include ./captchaexpand.pug
-		input#submitpost(type='submit', value=`New ${isThread ? 'Reply' : 'Thread'}`)
-	a.collapse.no-decoration(href='#postform') [#{isThread ? 'New Reply' : 'New Thread'}]
+		input#submitpost(type='submit', value=`${isThread ? 'Nova Resposta' : 'Novo Fio'}`)
+	a.collapse.no-decoration(href='#postform') [#{isThread ? 'Nova Resposta' : 'Novo Fio'}]

@@ -187,7 +187,7 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 				const pingStart = Date.now();
 				socket.volatile.emit('ping', () => {
 					const latency = Date.now() - pingStart;
-					updateLive(`Connected for live posts (${latency}ms)`, '#0de600');
+					updateLive(`Ligado (${latency}ms)`, '#0de600');
 				});
 			}
 			socket.on('connect', async () => {
@@ -200,35 +200,35 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 			socket.on('message', (message) => {
 				console.log(message, room);
 				if (message === 'joined') {
-					updateLive('Connected for live posts', '#0de600');
+					updateLive('A ligar', '#0de600');
 					socketPing();
 				}
 			});
 			socket.on('reconnect_attempt', () => {
-				updateLive('Attempting to reconnect...', 'yellow');
+				updateLive('A tentar reconectar...', 'yellow');
 			});
 			socket.on('disconnect', () => {
 				console.log('lost connection to room');
-				updateLive('Disconnected', 'red');
+				updateLive('Disconectado', 'red');
 			});
 			socket.on('reconnect', () => {
 				console.log('reconnected to room');
 				fetchNewPosts();
 			});
 			socket.on('error', (e) => {
-				updateLive('Socket error', 'orange');
+				updateLive('Erro socket', 'orange');
 				console.error(e);
 			});
 			socket.on('connect_error', (e) => {
-				updateLive('Error connecting', 'orange');
+				updateLive('Erro a ligar', 'orange');
 				console.error(e);
 			});
 			socket.on('reconnect_error', (e) => {
-				updateLive('Error reconnecting', 'orange');
+				updateLive('Erro a reconectar', 'orange');
 				console.error(e);
 			});
 			socket.on('reconnect_failed', (e) => {
-				updateLive('Failed reconnecting', 'orange');
+				updateLive('Erro a reconectar', 'orange');
 				console.error(e);
 				console.log('failed to reconnnect, falling back to polling')
 				socket.close();

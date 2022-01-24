@@ -1,47 +1,47 @@
 extends ../layout.pug
 
 block head
-	title Account
+	title Conta
 
 block content
 	.board-header
-		h1.board-title Welcome, #{user.username}
-		h4.board-description Account type: #{authLevelNames[user.authLevel]}
+		h1.board-title Bem-vindo, #{user.username}
+		h4.board-description Tipo de conta: #{authLevelNames[user.authLevel]}
 	br
 	hr(size=1)
-	h4.no-m-p General:
+	h4.no-m-p Geral:
 	ul
 		if user.authLevel <= 1
 			li
 				a(href='/globalmanage/recent.html') Global management
 				|  -  
-				a(href=`/globalmanage/reports.html`) Reports
+				a(href=`/globalmanage/reports.html`) Denúncias
 					if globalReportCount > 0
 						b  (#{globalReportCount})
 				| ,  
 				a(href=`/globalmanage/bans.html`) Bans
 				| ,  
-				a(href=`/globalmanage/recent.html`) Recent
+				a(href=`/globalmanage/recent.html`) Recentes
 				| ,  
-				a(href=`/globalmanage/boards.html`) Boards
+				a(href=`/globalmanage/boards.html`) Tábuas
 				| ,  
 				a(href=`/globalmanage/globallogs.html`) Logs
 				if user.authLevel < 1
 					| ,  
-					a(href=`/globalmanage/accounts.html`) Accounts
+					a(href=`/globalmanage/accounts.html`) Contas
 					| ,  
-					a(href=`/globalmanage/news.html`) News
+					a(href=`/globalmanage/news.html`) Notícias
 					| ,  
-					a(href=`/globalmanage/settings.html`) Settings
+					a(href=`/globalmanage/settings.html`) Opções Globais
 		if enableUserBoardCreation || user.authLevel <= 1
-			li: a(href='/create.html') Create a board
+			li: a(href='/create.html') Criar tábuas
 		if !enableUserAccountCreation && user.authLevel <= 1
-			li: a(href='/register.html') Register an account
-		li: a(href='/changepassword.html') Change password
+			li: a(href='/register.html') Registar conta
+		li: a(href='/changepassword.html') Alterar password
 	form(action='/forms/logout' method='post')
 		input(type='submit' value='Log out')
 	hr(size=1)
-	h4.no-m-p Boards you own:
+	h4.no-m-p Administrador das tábuas:
 	if user.ownedBoards && user.ownedBoards.length > 0
 		ul
 			for b in user.ownedBoards
@@ -50,11 +50,11 @@ block content
 					|  -  
 					a(href=`/${b}/manage/index.html`) Mod Index
 					| ,  
-					a(href=`/${b}/manage/catalog.html`) Mod Catalog
+					a(href=`/${b}/manage/catalog.html`) Mod Catálogo
 					| ,  
-					a(href=`/${b}/manage/recent.html`) Recent
+					a(href=`/${b}/manage/recent.html`) Recentes
 					| ,  
-					a(href=`/${b}/manage/reports.html`) Reports
+					a(href=`/${b}/manage/reports.html`) Denúncias
 						if boardReportCountMap[b]
 							b  (#{boardReportCountMap[b]})
 					| ,  
@@ -62,15 +62,15 @@ block content
 					| ,  
 					a(href=`/${b}/manage/logs.html`) Logs
 					| ,  
-					a(href=`/${b}/manage/settings.html`) Settings
+					a(href=`/${b}/manage/settings.html`) Opções Tábua
 					| ,  
 					a(href=`/${b}/manage/assets.html`) Assets
 					| ,  
-					a(href=`/${b}/manage/custompages.html`) Custom Pages
+					a(href=`/${b}/manage/custompages.html`) Páginas
 	else
-		p None
+		p Nada
 	hr(size=1)
-	h4.no-m-p Boards you moderate:
+	h4.no-m-p Moderador das tábuas:
 	if user.modBoards && user.modBoards.length > 0
 		ul
 			for b in user.modBoards
@@ -79,11 +79,11 @@ block content
 					|  -  
 					a(href=`/${b}/manage/index.html`) Mod Index
 					| ,  
-					a(href=`/${b}/manage/catalog.html`) Mod Catalog
+					a(href=`/${b}/manage/catalog.html`) Mod Catálogo
 					| ,  
-					a(href=`/${b}/manage/recent.html`) Recent
+					a(href=`/${b}/manage/recent.html`) Recentes
 					| ,  
-					a(href=`/${b}/manage/reports.html`) Reports
+					a(href=`/${b}/manage/reports.html`) Denúncias
 						if boardReportCountMap[b]
 							b  (#{boardReportCountMap[b]})
 					| ,  
@@ -91,36 +91,36 @@ block content
 					| ,  
 					a(href=`/${b}/manage/logs.html`) Logs
 	else
-		p None
+		p Nenhuma
 	if user.modBoards.length > 0 ||  user.ownedBoards.length > 0
 		hr(size=1)
-		h4.no-m-p Resign from a staff position:
+		h4.no-m-p Abandonar posição:
 		.form-wrapper.flexleft.mt-10
 			form.form-post(action=`/forms/resign`, enctype='application/x-www-form-urlencoded', method='POST')
 				input(type='hidden' name='_csrf' value=csrf)
 				.row
-					.label Boards
+					.label Tábuas
 					select(name='board' size='5')
-						optgroup(label='You own')
+						optgroup(label='Que administras')
 							each board in user.ownedBoards
 								option(value=board) #{board}
-						optgroup(label='You moderate')
+						optgroup(label='Que moderas')
 							each board in user.modBoards
 								option(value=board) #{board}
 				.row
-					.label I'm sure
+					.label Tenho a certeza
 					label.postform-style.ph-5
 						input(type='checkbox', name='confirm', value='true' required)
-				input(type='submit', value='submit')
+				input(type='submit', value='Abandonar')
 
 	hr(size=1)
-	h4.no-m-p Delete your account:
+	h4.no-m-p Apagar conta:
 	.form-wrapper.flexleft.mt-10
 		form.form-post(action=`/forms/deleteaccount`, enctype='application/x-www-form-urlencoded', method='POST')
 			input(type='hidden' name='_csrf' value=csrf)
 			.row
-				.label I'm sure
+				.label Tenho a certeza
 				label.postform-style.ph-5
 					input(type='checkbox', name='confirm', value='true' required)
-			input(type='submit', value='submit')
+			input(type='submit', value='Apagar')
 	

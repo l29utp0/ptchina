@@ -1,10 +1,10 @@
 extends ../layout.pug
 
 block head
-	title Edit Post
+	title Edit Publicação
 
 block content
-	h1.board-title Edit Post
+	h1.board-title Editar Publicação
 	.form-wrapper.flex-center.mv-10
 		form.form-post(action='/forms/editpost' method='POST')
 			input(type='hidden' name='_csrf' value=csrf)
@@ -20,8 +20,8 @@ block content
 							if !post.thread
 								include ../includes/posticons.pug
 							input.edit.post-subject(value=post.subject placeholder='Subject' type='text' name='subject' maxlength=globalLimits.fieldLength.subject)
-							input.edit.post-name(value=post.email type='text' name='email' placeholder='Email' maxlength=globalLimits.fieldLength.email)
-							input.edit.post-name(type='text' name='name' placeholder='Name' maxlength=globalLimits.fieldLength.name value=post.name+(post.capcode || ''))
+							input.edit.post-name(value=post.email type='text' name='email' placeholder='Opção' maxlength=globalLimits.fieldLength.email)
+							input.edit.post-name(type='text' name='name' placeholder='Nome' maxlength=globalLimits.fieldLength.name value=post.name+(post.capcode || ''))
 						if post.country && post.country.code
 							span(class=`flag flag-${post.country.code.toLowerCase()}` title=post.country.name alt=post.country.name)
 							| 
@@ -38,20 +38,20 @@ block content
 							span.user-id(style=`background-color: #${post.userId}`) #{post.userId}
 							| 
 					span.post-links
-						a.noselect.no-decoration(href=`${postURL}#${post.postId}`) No.
+						a.noselect.no-decoration(href=`${postURL}#${post.postId}`) /#/
 						span.post-quoters
 							a.no-decoration(href=`${postURL}#postform`) #{post.postId}
 				.post-data
 					pre.post-message
-						textarea.edit.fw(name='message' rows='15' placeholder='Message') #{post.nomarkup}
+						textarea.edit.fw(name='message' rows='15' placeholder='Mensagem') #{post.nomarkup}
 					if post.banmessage
 						p.ban
-							span.message USER WAS BANNED FOR THIS POST
+							span.message UTILIZADOR FOI BANIDO
 							|  
 							span.reason(data-reason=post.banmessage) #{post.banmessage}
 			label.mt-5
 				input.post-check(type='checkbox', name='hide_name' value='1' checked)
-				| Hide Username
+				| Esconder Username
 			label.mv-5
-				input(type='text', name='log_message', placeholder='Modlog message' autocomplete='off')
-			input(type='submit', value='save')
+				input(type='text', name='log_message', placeholder='Mensagem modlog' autocomplete='off')
+			input(type='submit', value='Guardar')

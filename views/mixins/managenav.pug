@@ -6,19 +6,19 @@ mixin managenav(selected, upLevel)
 		else
 			a(href=`${upLevel ? '../' : ''}index.html` class=(selected === 'index' ? 'bold' : '')) [Mod Index]
 			|  
-		a(href=`${upLevel ? '../' : ''}catalog.html` class=(selected === 'catalog' ? 'bold' : '')) [Mod Catalog]
+		a(href=`${upLevel ? '../' : ''}catalog.html` class=(selected === 'catalog' ? 'bold' : '')) [Mod Catálogo]
 		|  
-		a(href=`${upLevel ? '../' : ''}recent.html` class=(selected === 'recent' ? 'bold' : '')) [Recent]
+		a(href=`${upLevel ? '../' : ''}recent.html` class=(selected === 'recent' ? 'bold' : '')) [Recentes]
 		|  
-		a(href=`${upLevel ? '../' : ''}reports.html` class=(selected === 'reports' ? 'bold' : '')) [Reports]
+		a(href=`${upLevel ? '../' : ''}reports.html` class=(selected === 'reports' ? 'bold' : '')) [Denúncias]
 		|  
 		a(href=`${upLevel ? '../' : ''}bans.html` class=(selected === 'bans' ? 'bold' : '')) [Bans]
 		|  
 		a(href=`${upLevel ? '../' : ''}logs.html` class=(selected === 'logs' ? 'bold' : '')) [Logs]
 		|  
 		if permLevel < 3
-			a(href=`${upLevel ? '../' : ''}settings.html` class=(selected === 'settings' ? 'bold' : '')) [Settings]
+			a(href=`${upLevel ? '../' : ''}settings.html` class=(selected === 'settings' ? 'bold' : '')) [Opções Tábua]
 			|  
 			a(href=`${upLevel ? '../' : ''}assets.html` class=(selected === 'assets' ? 'bold' : '')) [Assets]
 			|  
-			a(href=`${upLevel ? '../' : ''}custompages.html` class=(selected === 'custompages' ? 'bold' : '')) [Custom Pages]
+			a(href=`${upLevel ? '../' : ''}custompages.html` class=(selected === 'custompages' ? 'bold' : '')) [Páginas]

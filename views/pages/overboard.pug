@@ -4,16 +4,16 @@ include ../mixins/overboardform.pug
 include ../mixins/announcements.pug
 
 block head
-	title Overboard Index
+	title Overboard
 
 block content
 	.board-header
-		h1.board-title Overboard Index
-		h4.board-description Recently bumped threads from multiple boards
+		h1.board-title Overboard
+		h4.board-description
 			|  
-			| (
-			a(href=`/catalog.html?${cacheQueryString}`) Catalog View
-			| )
+			| [
+			a(href=`/catalog.html?${cacheQueryString}`) Catálogo
+			| ]
 			p O Overboard não é uma tábua mas sim onde aparecem fios de tábuas diferentes que podem ter regras e moderação diferentes, o que é aceitável em algumas pode não ser em outras.
 	include ../includes/stickynav.pug
 	if allowCustomOverboard === true
@@ -21,9 +21,9 @@ block content
 	+announcements(true, true, false)
 	hr(size=1)
 	if threads.length === 0
-		p No posts.
+		p Sem publicações.
 	for thread in threads
-		h4.no-m-p Thread from #[a(href=`/${thread.board}/index.html`) /#{thread.board}/]
+		h4.no-m-p Fio do #[a(href=`/${thread.board}/index.html`) /#{thread.board}/]
 		.thread
 			+post(thread, true, false, false, false, true)
 			for post in thread.replies

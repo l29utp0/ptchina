@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 				}
 			}
 			//handle css thing for play icon on vid/audio
-			const close = thumb.nextSibling.textContent === '[Close]' ? thumb.nextSibling : null;
+			const close = thumb.nextSibling.textContent === '[Fechar]' ? thumb.nextSibling : null;
 			if (close) {
 				expanded.loop = loopEnabled;
 				expanded.volume = volumeLevel/100;
@@ -157,7 +157,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 						closeSpan.style.display = 'block';
 						closeSpan.style.color = 'var(--font-color)';
 						closeLink.classList.add('dummy-link');
-						closeLink.textContent = 'Close';
+						closeLink.textContent = 'Fechar';
 						closeSpan.appendChild(openBracket);
 						closeSpan.appendChild(closeLink);
 						closeSpan.appendChild(closeBracket);

@@ -4,16 +4,16 @@ include ../mixins/overboardform.pug
 include ../mixins/announcements.pug
 
 block head
-	title Overboard Catalog
+	title Catálogo Overboard
 
 block content
 	.board-header.mb-5
-		h1.board-title Overboard Catalog
-		h4.board-description Recently bumped threads from multiple boards
+		h1.board-title Catálogo Overboard
+		h4.board-description
 			|  
-			| (
-			a(href=`/overboard.html?${cacheQueryString}`) Index View
-			| )
+			| [
+			a(href=`/overboard.html?${cacheQueryString}`) Index
+			| ]
 	if allowCustomOverboard === true
 		+overboardform('/catalog.html')
 	+announcements()
@@ -22,13 +22,13 @@ block content
 		.pages.jsonly
 			input#catalogfilter(type='text' placeholder='Filter')
 			select.ml-5.right#catalogsort
-				option(value="" disabled selected hidden) Sort by
-				option(value="bump") Bump order
-				option(value="date") Creation date
-				option(value="replies") Reply count
+				option(value="" disabled selected hidden) Ordenar
+				option(value="bump") Bump
+				option(value="date") Criação
+				option(value="replies") Respostas
 	hr(size=1)
 	if threads.length === 0
-		p No posts.
+		p No publicações.
 	else 
 		.catalog
 			for thread, i in threads

@@ -1,87 +1,87 @@
 details.toggle-label#actionform
-	summary.collapse#action-menu Show Post Actions
+	summary.collapse#action-menu Moderação
 	.actions 
-		h4.no-m-p Actions:
+		h4.no-m-p Ações:
 		.row.wrap
 			.col.mr-5
 				label
 					input.post-check(type='checkbox', name='delete' value='1')
-					| Delete Posts
+					| Apagar Publicações
 				label
 					input.post-check(type='checkbox', name='unlink_file' value='1')
-					| Unlink Files
+					| Unlink Ficheiros
 				label
 					input.post-check(type='checkbox', name='delete_file' value='1')
-					| Delete Files
+					| Apagar Ficheiros
 				label
 					input.post-check(type='checkbox', name='delete_ip_thread' value='1')
-					| Delete from IP in thread
+					| Apagar do IP no Fio
 				label
 					input.post-check(type='checkbox', name='delete_ip_board' value='1')
-					| Delete from IP on board
+					| Apagar do IP na Tábua
 				label
 					input.post-check(type='checkbox', name='delete_ip_global' value='1')
-					| Delete from IP globally
+					| Apagar do IP Globalmente
 				label
 					input.post-check(type='checkbox', name='spoiler' value='1')
-					| Spoiler Files
+					| Spoiler Ficheiros
 				label
 					input.post-check(type='checkbox', name='dismiss' value='1')
-					| Dismiss Reports
+					| Dismiss Denúncias
 				label
 					input.post-check(type='checkbox', name='global_report' value='1')
-					| Global Report
+					| Denúncia Global
 				label
-					input#report(type='text', name='report_reason', placeholder='Report reason' autocomplete='off')
+					input#report(type='text', name='report_reason', placeholder='Motivo denúncia' autocomplete='off')
 				label
 					input.post-check(type='checkbox', name='move' value='1')
-					| Move
+					| Mover
 				label
-					input(type='number', name='move_to_thread', placeholder='Destination thread No.' autocomplete='off')
+					input(type='number', name='move_to_thread', placeholder='Fio de destino No.' autocomplete='off')
 			.col.mr-5
 				label
 					input.post-check(type='checkbox', name='report_ban' value='1')
-					| Ban Reporters
+					| Banir Denunciantes
 				label
 					input.post-check(type='checkbox', name='ban' value='1')
-					| Ban Poster
+					| Banir Utilizador
 				label
 					input.post-check(type='checkbox', name='global_ban' value='1')
-					| Global Ban Poster
+					| Banir Globalmente Utilizador
 				label
 					input.post-check(type='checkbox', name='ban_q' value='1')
-					| Narrow Range
+					| Range Curto
 				label
 					input.post-check(type='checkbox', name='ban_h' value='1')
-					| Wide Range
+					| Range Longo
 				label
 					input.post-check(type='checkbox', name='no_appeal' value='1')
-					| Non-appealable Ban
+					| Ban sem Recurso
 				label
 					input.post-check(type='checkbox', name='preserve_post' value='1')
-					| Show Post In Ban
+					| Mostrar Publicação no Ban
 				label
 					input.post-check(type='checkbox', name='hide_name' value='1' checked)
-					| Hide Username In Modlog
+					| Esconder Username
 				label
-					input(type='text', name='ban_reason', placeholder='Ban reason' autocomplete='off')
+					input(type='text', name='ban_reason', placeholder='Motivodo do Ban' autocomplete='off')
 				label
-					input(type='text', name='ban_duration', placeholder='Ban duration e.g. 7d' autocomplete='off')
+					input(type='text', name='ban_duration', placeholder='Duração do ban e.g. 7d' autocomplete='off')
 				label
-					input(type='text', name='log_message', placeholder='Modlog message' autocomplete='off')
+					input(type='text', name='log_message', placeholder='Mensagem Modlog' autocomplete='off')
 			.col
 				label
 					input.post-check(type='checkbox', name='edit' value='1')
-					| Edit Post
+					| Editar Publicação
 				label
 					input(type='text', name='sticky' placeholder='Sticky priority, 0 = unsticky')
 				label
 					input.post-check(type='checkbox', name='lock' value='1')
-					| Toggle Lock
+					| Trancar
 				label
 					input.post-check(type='checkbox', name='bumplock' value='1')
-					| Toggle Bumplock
+					| Bumplock
 				label
 					input.post-check(type='checkbox', name='cyclic' value='1')
-					| Toggle Cycle
+					| Reciclar
 	input(type='submit', value='submit')

@@ -15,16 +15,16 @@ block content
 	.table-container.flex-center.mv-10.text-center
 		table
 				tr
-					th Date
+					th Data
 					th User
-					th Actions
-					th Posts
-					th Log Message
+					th Ações
+					th Publicações
+					th Mensagem Log
 				for log in logs
 					tr
 						- const logDate = new Date(log.date);
 						td: time.reltime(datetime=logDate.toISOString()) #{logDate.toLocaleString(undefined, {hourCycle:'h23'})}
-						td(class=(!log.showUser ? 'em' : '')) #{log.showUser ? log.user : 'Hidden User'}
+						td(class=(!log.showUser ? 'em' : '')) #{log.showUser ? log.user : 'Escondido'}
 						td #{log.actions}
 						td
 							if log.showLinks

@@ -10,7 +10,7 @@ var pug_match_html=/["&<>]/;function threadwatcher(locals) {var pug_html = "", p
     (function (minimised) {
       pug_mixins["threadwatcher"] = pug_interp = function(minimised){
 var block = (this && this.block), attributes = (this && this.attributes) || {};
-pug_html = pug_html + "\u003Cdiv" + (pug_attr("class", pug_classes(["flex-center",(minimised ? 'minimised' : '')], [false,true]), false, false)+" id=\"threadwatcher\"") + "\u003E\u003Cdiv class=\"row noselect\" id=\"threadwatcher-dragHandle\"\u003E\u003Cspan class=\"fw text-center\"\u003EThread Watcher \u003C\u002Fspan\u003E\u003Cspan class=\"mr-0 close\"\u003E" + (pug_escape(null == (pug_interp = minimised ? '[+]' : '[−]') ? "" : pug_interp)) + "\u003C\u002Fspan\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";
+pug_html = pug_html + "\u003Cdiv" + (pug_attr("class", pug_classes(["flex-center",(minimised ? 'minimised' : '')], [false,true]), false, false)+" id=\"threadwatcher\"") + "\u003E\u003Cdiv class=\"row noselect\" id=\"threadwatcher-dragHandle\"\u003E\u003Cspan class=\"fw text-center\"\u003EFavoritos \u003C\u002Fspan\u003E\u003Cspan class=\"mr-0 close\"\u003E" + (pug_escape(null == (pug_interp = minimised ? '[+]' : '[−]') ? "" : pug_interp)) + "\u003C\u002Fspan\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";
 };
 pug_mixins["threadwatcher"](minimised);
     }.call(this, "minimised" in locals_for_with ?

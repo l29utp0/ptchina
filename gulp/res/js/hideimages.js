@@ -7,7 +7,7 @@ const toggleSource = (source, state) => {
 	const images = document.querySelectorAll(`img.file-thumb[src="${source}"], img.catalog-thumb[src="${source}"]`);
 	images.forEach(i => i.classList[state?'add':'remove']('vh'));
 	const buttons = document.querySelectorAll(`a.hide-image[data-src="${source}"]`);
-	buttons.forEach(b => b.textContent = state ? 'Show' : 'Hide');
+	buttons.forEach(b => b.textContent = state ? 'Mostrar' : 'Esconder');
 }
 
 toggleAllHidden(true);

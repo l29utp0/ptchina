@@ -5,34 +5,34 @@ include ../mixins/boardheader.pug
 include ../mixins/managenav.pug
 
 block head
-	title /#{board._id}/ - Manage
+	title /#{board._id}/ - Gerir
 
 block content
-	+boardheader('Settings')
+	+boardheader('Opções da Tábua')
 	br
 	+managenav('settings')
 	hr(size=1)
-	h4.no-m-p Transfer ownership:
+	h4.no-m-p Transferir tábua:
 	.form-wrapper.flexleft.mt-10
 		form.form-post(action=`/forms/board/${board._id}/transfer`, enctype='application/x-www-form-urlencoded', method='POST')
 			input(type='hidden' name='_csrf' value=csrf)
 			.row
-				.label New owner username
+				.label Novo administrador
 				input(type='text' name='username' placeholder=board.owner required)
-			input(type='submit', value='submit')
+			input(type='submit', value='Transferir')
 	hr(size=1)
-	h4.no-m-p Delete board:
+	h4.no-m-p Apagar tábua:
 	.form-wrapper.flexleft.mt-10
 		form.form-post(action=`/forms/board/${board._id}/deleteboard`, enctype='application/x-www-form-urlencoded', method='POST')
 			input(type='hidden' name='_csrf' value=csrf)
 			.row
-				.label Board URI
+				.label URI da tábua
 				input(type='text' name='uri' required)
 			.row
-				.label I'm sure
+				.label Tenho a certeza
 				label.postform-style.ph-5
 					input(type='checkbox', name='confirm', value='true' required)
-			input(type='submit', value='submit')
+			input(type='submit', value='Apagar')
 	hr(size=1)
 	.form-wrapper.flexleft.mt-10
 		form.form-post(action=`/forms/board/${board._id}/settings` method='POST' enctype='application/x-www-form-urlencoded')
@@ -298,4 +298,4 @@ block content
 						.label Filter Auto Ban Duration
 						input(type='text' name='ban_duration' placeholder='e.g. 1w' value=board.settings.filterBanDuration)
 
-			input.row(type='submit', value='Save')
+			input.row(type='submit', value='Guardar')

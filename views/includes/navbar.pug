@@ -1,12 +1,12 @@
 unless minimal
 	nav.navbar
-		a.nav-item(href='/index.html') Home
+		a.nav-item(href='/index.html') Início
 		a(href='/boards.html' class=`nav-item ${enableWebring ? 'short-nav' : ''}`)
-			| Boards 
+			| Tábuas
 			if enableWebring
 				.rainbow +Webring
 		a.nav-item#overboardlink(href='/overboard.html') Overboard
-		a.nav-item(href='/account.html') Account
+		a.nav-item(href='/account.html') Conta
 		if board
-			a.nav-item(href=`/${board._id}/manage/reports.html`) Manage
+			a.nav-item(href=`/${board._id}/manage/reports.html`) Gerir
 		a.jsonly.nav-item.right#settings

@@ -2,13 +2,13 @@ mixin boardtable(ppd=false, activity=false)
 	.table-container.flex-center.mv-10.text-center
 		table(class=`boardtable${activity ? ' w900' : ''}`)
 			tr
-				th Board
-				th Description
+				th Tábua
+				th Descrição
 				th PPH
 				if ppd
 					th PPD
-				th Users
-				th Posts
+				th Utilizadores
+				th Publicações
 				if activity
-					th Last Activity
+					th Última Atividade
 			block

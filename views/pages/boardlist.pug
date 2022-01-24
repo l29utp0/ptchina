@@ -2,31 +2,31 @@ extends ../layout.pug
 include ../mixins/boardtable.pug
 
 block head
-	title Board List
+	title Tábuas
 
 block content
-	h1.board-title Board List
+	h1.board-title Tábuas
 	.flexcenter.mv-10
 		form.form-post(action='/boards.html' method='GET')
 			input(type='hidden' value=page)
 			.row.wrap.sb
 				div(class=`col${enableWebring ? ' mr-5' : ''}`)
 					.row
-						.label Search
-						input(type='text' name='search' value=search placeholder='Uri or tags')
+						.label Procurar
+						input(type='text' name='search' value=search placeholder='Uri ou tags')
 					.row
-						.label Sort
+						.label Ordenar
 						select(name='sort')
-							option(value='popularity') Popularity
-							option(value='activity' selected=query.sort === 'activity') Latest Activity
+							option(value='popularity') Popularidade
+							option(value='activity' selected=query.sort === 'activity') Última Atividade
 					.row
-						.label Order
+						.label Ordem
 						select(name='direction')
-							option(value='desc') Descending
-							option(value='asc' selected=query.direction === 'asc') Ascending
+							option(value='desc') Descendente
+							option(value='asc' selected=query.direction === 'asc') Ascendente
 					if enableWebring
 						.row
-							.label Local First
+							.label Locais Primeiro
 							label.postform-style.ph-5
 								input(type='checkbox', name='local_first', value='true' checked=localFirst)
 				if enableWebring
@@ -40,7 +40,7 @@ block content
 								optgroup(label='Not Shown')
 									each site in notShown
 										option(value=site) #{site}
-			input(type='submit', value='Filter')
+			input(type='submit', value='Filtrar')
 	if boards && boards.length > 0
 		+boardtable(true, true)
 			each board in boards

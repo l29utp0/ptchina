@@ -37,10 +37,10 @@ if (!isCatalog) { //dont show embed buttons in catalog
 		const toggleEmbed = (embedSpan, embedHtml) => {
 			if (embedSpan.dataset.open === 'true') {
 				embedSpan.nextSibling.remove();
-				embedSpan.firstElementChild.textContent = 'Embed';
+				embedSpan.firstElementChild.textContent = 'Embutir';
 			} else {
 				embedSpan.insertAdjacentHTML('afterend', embedHtml);
-				embedSpan.firstElementChild.textContent = 'Close';
+				embedSpan.firstElementChild.textContent = 'Fechar';
 			}
 			embedSpan.dataset.open = embedSpan.dataset.open === 'true' ? 'false' : 'true';
 		}
@@ -57,7 +57,7 @@ if (!isCatalog) { //dont show embed buttons in catalog
 					const closeBracket = document.createTextNode(']');
 					embedSpan.classList.add('ml-5', 'noselect', 'bold');
 					embedLink.classList.add('dummy-link');
-					embedLink.textContent = 'Embed';
+					embedLink.textContent = 'Embutir';
 					embedSpan.appendChild(openBracket);
 					embedSpan.appendChild(embedLink);
 					embedSpan.appendChild(closeBracket);

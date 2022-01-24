@@ -13,19 +13,19 @@ mixin ban(ban, banpage)
 		- const ip = permLevel > ipHashPermLevel ? ban.ip.single.slice(-10) : ban.ip.raw;
 		td #{ip}
 		td #{ban.type}
-		td #{(!banpage || ban.showUser === true) ? ban.issuer : 'Hidden User'}
+		td #{(!banpage || ban.showUser === true) ? ban.issuer : 'Escondido'}
 		- const banDate = new Date(ban.date);
 		td: time.right.reltime(datetime=banDate.toISOString()) #{banDate.toLocaleString(undefined, {hourCycle:'h23'})}
 		- const expireDate = new Date(ban.expireAt);
 		td: time.right.reltime(datetime=expireDate.toISOString()) #{expireDate.toLocaleString(undefined, {hourCycle:'h23'})}
 		td.banposts
 			if ban.posts && ban.posts.length > 0
-				| Hover to view
+				| Ver
 				.thread
 					each p in ban.posts
 						+post(p, false, false, false, true)
 			else
-				Posts not shown
+				Posts sem
 		td
 			if ban.seen
 				| &#10003;
@@ -40,6 +40,6 @@ mixin ban(ban, banpage)
 			if ban.appeal
 				textarea(rows=1 disabled='true') #{ban.appeal}
 			else if ban.allowAppeal
-				| No appeal submitted
+				| Sem recurso enviado
 			else 
 				| -
