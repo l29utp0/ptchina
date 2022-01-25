@@ -133,7 +133,7 @@ todo: handle some more situations
 	}, {
 		'$set': {
 			edited: {
-				username: req.body.hide_name ? 'Hidden User' : req.session.user,
+				username: req.body.hide_name ? 'Escondido' : req.session.user,
 				date: new Date(),
 			},
 			nomarkup,

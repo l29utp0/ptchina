@@ -48,8 +48,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			const numFiles = +statsElem.children[1].innerText.match(/^(\d+)/g);
 			const filesTotal = numFiles + newFiles;
 			const postTotal = numPosts + 1;
-			statsElem.children[0].innerText = `${postTotal} respost${postTotal === 1 ? 'a' : 'as'}`;
-			statsElem.children[1].innerText = `${filesTotal} ficheiro${filesTotal === 1 ? '' : 's'}`;
+			statsElem.children[0].innerText = `${postTotal} Respost${postTotal === 1 ? 'a' : 'as'}`;
+			statsElem.children[1].innerText = `${filesTotal} Ficheiro${filesTotal === 1 ? '' : 's'}`;
 			if (e.detail.json.userId) {
 				const userId = e.detail.post.querySelector('.user-id');
 				idElems.push(userId);
@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 					statsElem.appendChild(spacer);
 					statsElem.appendChild(uidSpan);
 				}
-				statsElem.children[2].innerText = `${idMap.size} UID${idMap.size === 1 ? '' : 's'}`;
+				statsElem.children[2].innerText = `${idMap.size} ID${idMap.size === 1 ? '' : 's'}`;
 			}
 		});
 	}

@@ -59,7 +59,7 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 					span.user-id(style=`background-color: #${post.userId}`) #{post.userId}
 					| 
 			span.post-links
-				a.noselect.no-decoration(href=`${postURL}#${post.postId}`) No.
+				a.noselect.no-decoration(href=`${postURL}#${post.postId}`) /#/ 
 				span.post-quoters
 					a.no-decoration(href=`${postURL}#postform`) #{post.postId}
 				|  
@@ -79,7 +79,7 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 					if !overboard && !ban
 						option(value='moderate') Denunciar/Moderar
 					if !post.thread
-						option(value='watch') Favorito
+						option(value='watch') +Favorito
 		.post-data
 			if post.files.length > 0
 				.post-files(class=(post.files.length > 1 ? 'fn' : ''))
@@ -145,7 +145,7 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 			if post.edited
 				- const postEditDate = new Date(post.edited.date);
 				small.cb.mt-5.ml-5.edited
-					| Editado a 
+					| Editado 
 					time.reltime(datetime=postEditDate.toISOString()) #{postEditDate.toLocaleString(undefined, { hourCycle:'h23' })}
 					|  por #{post.edited.username}
 			if post.banmessage

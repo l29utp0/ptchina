@@ -45,7 +45,7 @@ class CaptchaController {
 			//captcha.parentElement.previousSibling.previousSibling.tagName === 'SUMMARY' ? captcha.parentElement.previousSibling.previousSibling :  captcha.parentElement;
 			hoverListener.addEventListener('mouseover', () => this.loadCaptcha(captcha), { once: true });
 		} else {
-			captcha.placeholder = 'focus to load captcha';
+			captcha.placeholder = 'Seleciona para carregar captcha';
 			captcha.addEventListener('focus', () => this.loadCaptcha(captcha), { once: true });
 		}
 	}
@@ -116,7 +116,7 @@ class CaptchaController {
 		refreshDiv.addEventListener('click', (e) => this.refreshCaptchas(e), true);
 		refreshDiv.textContent = '↻';
 		if (captchaType === 'text') {
-			field.placeholder = 'loading';
+			field.placeholder = 'A carregar';
 		}
 		captchaImg.src = imgSrc;
 		captchaImg.onload = () => {

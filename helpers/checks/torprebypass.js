@@ -69,8 +69,8 @@ module.exports = async (req, res, next) => {
 		res.clearCookie('bypassid');
 		deleteTempFiles(req).catch(e => console.error);
 		return dynamicResponse(req, res, 403, 'message', {
-			'title': 'Forbidden',
-			'message': 'Please complete a block bypass to continue',
+			'title': 'Proibido',
+			'message': 'Por favor completa um bypass para continuar',
 			'frame': '/bypass_minimal.html',
 			'link': {
 				'href': '/bypass.html',

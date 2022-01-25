@@ -121,7 +121,7 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 	jsonPath = jsonParts.join('/');
 	const fetchNewPosts = async () => {
 		console.log('fetching posts from api');
-		updateLive('Fetching posts...', 'yellow');
+		updateLive('A adquirir...', 'yellow');
 		let json;
 		let newPosts = [];
 		try {
@@ -140,7 +140,7 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 				}
 			}
 		}
-		updateLive('Updated', 'green');
+		updateLive('Atualizado', 'green');
 		return newPosts.length;
 	}
 
@@ -244,13 +244,13 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 	};
 
 	const disableLive = () => {
-		updateButton.value = 'Update';
+		updateButton.value = 'Atualizar';
 		updateButton.removeAttribute('style');
 		clearTimeout(liveTimeout);
 		if (socket && supportsWebSockets) {
 			socket.disconnect();
 		}
-		updateLive('Live posts off', 'darkgray');
+		updateLive('Publicações em direto desativadas', 'darkgray');
 	};
 
 	const liveSetting = document.getElementById('live-setting');
