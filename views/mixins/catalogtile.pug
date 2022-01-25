@@ -21,7 +21,7 @@ mixin catalogtile(post, index, overboard=false)
 		.post-info
 			if overboard
 				div
-					| Tábua:
+					|
 					a.no-decoration.post-subject(href=`/${post.board}/`) /#{post.board}/
 			else
 				input.left.post-check(type='checkbox', name='checkedposts' value=post.postId)
@@ -36,7 +36,7 @@ mixin catalogtile(post, index, overboard=false)
 				else
 					span(class=`flag flag-${post.country.code.toLowerCase()}` title=post.country.name alt=post.country.name)
 					| 
-			a.no-decoration.post-subject(href=postURL) #{post.subject || 'No subject'}
+			a.no-decoration.post-subject(href=postURL) #{post.subject || ''}
 			| 
 			select.jsonly.postmenu.right
 				option(value='single') Esconder
@@ -44,7 +44,7 @@ mixin catalogtile(post, index, overboard=false)
 					option(value='fsub') Filtrar Assunto
 				if !overboard
 					option(value='moderate') Moderar
-				option(value='watch') Favorito
+				option(value='watch') +Favorito
 			br 
 			span(title='Respostas') R: #{post.replyposts}
 			|  / 

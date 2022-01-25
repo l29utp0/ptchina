@@ -105,9 +105,9 @@ block content
 			tr
 				td
 					p
-						a(href='https://gitgud.io/l29utp0/ptchina' target='_blank') https://gitgud.io/l29utp0/ptchina
+						a(href='https://gitgud.io/l29utp0/ptchina' referrerpolicy='same-origin' target='_blank') https://gitgud.io/l29utp0/ptchina
 					p
-						a(href='http://fatchan.gitgud.site/jschan-docs/' target='_blank') http://fatchan.gitgud.site/jschan-docs/
+						a(href='http://fatchan.gitgud.site/jschan-docs/' referrerpolicy='same-origin' target='_blank') http://fatchan.gitgud.site/jschan-docs/
 	.table-container.flex-center.mv-5
 		.anchor#mascote
 		table
@@ -115,11 +115,11 @@ block content
 				th: a(href='#mascote') Mascote
 			tr
 				td
-					img(style='max-width: 150px').centerpiece(src='/static/misc/martafaq.png' title='Marta')
+					img(style='max-width: 150px').centerpiece(src='/misc/martafaq.png' title='Marta')
 					p A mascote do ptchan é a Marta.
 
 					p
-						a(href='https://pt.wikipedia.org/wiki/K%C5%ABneru_Marta' target='_blank') https://pt.wikipedia.org/wiki/K%C5%ABneru_Marta
+						a(href='https://pt.wikipedia.org/wiki/K%C5%ABneru_Marta' referrerpolicy='same-origin' target='_blank') https://pt.wikipedia.org/wiki/K%C5%ABneru_Marta
 	.table-container.flex-center.mv-5
 		.anchor#criarfio
 		table
@@ -442,15 +442,15 @@ block content
 					p 
 						| É do interesse legítimo do site manter access logs ao mesmo, estes access logs poderão conter a data, endereço IP, user agent e o tipo de pedidos. Esta informação é apenas armazenada temporáriamente e está estruturada em duas partes:
 					ul
-						li access.log: Contém a data, endereço IP, user agent e o tipo de pedido, é armazenado temporáriamente durante 7 dias.
+						li access.log: Contém a data, endereço IP, user agent e o tipo de pedido, é armazenado temporáriamente por 7 dias.
 						li error.log: Contém a data, endereço IP, user agent, o tipo de pedido e os erros produzidos pelo servidor, é armazenado temporáriamente por 7 dias.
 					p.bold
 						| Recolha e processamento de dados pessoais
 					p 
 						| O ptchan não requer qualquer tipo de informação pessoal identificável dos seus utilizadores para ser usado. Deverá ser notado que certas tábuas poderão ter as bandeiras de geolocalização ativas, que quando é efetuada uma publicação é adicionada uma bandeira à mesma. Esta geolocalização é fornecida pela 
-						a(href='https://support.cloudflare.com/hc/en-us/articles/200168236-Configuring-Cloudflare-IP-Geolocation') Cloudflare através do uso de uma base de dados da Maxmind 
+						a(href='https://support.cloudflare.com/hc/en-us/articles/200168236-Configuring-Cloudflare-IP-Geolocation' referrerpolicy='same-origin' target='_blank') Cloudflare através do uso de uma base de dados da Maxmind 
 						| e segundo a mesma é inerentemente imprecisa 
-						a(href='https://dev.maxmind.com/geoip/geolite2-free-geolocation-data') "IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household."
+						a(href='https://dev.maxmind.com/geoip/geolite2-free-geolocation-data' referrerpolicy='same-origin' target='_blank') "IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household."
 						| .
 					p.bold
 						| Partilha de dados
@@ -459,7 +459,7 @@ block content
 					p.bold
 						| Publicações dos utilizadores
 					p 
-						| Os endereços IP são anonimizados e apenas estão disponíveis no seu formato original à administração do site, ficam associados à publicação e são automaticamente eliminados quando a publicação sai da tábua ou depois de 7 dias.
+						| Os endereços IP são anonimizados e apenas estão disponíveis no seu formato original à administração do site, ficam associados à publicação e são automaticamente eliminados quando a publicação sai da tábua ou depois de 7 dias. Publicações feitas através da rede Tor não contêm um IP mas sim um identificador com base no cookie "bypassid".
 					p 
 						| Em certas circunstâncias poderá ser publicado um link embutível (por exemplo do Youtube) de um serviço externo, a responsabilidade de embutir e carregar um recurso externo alheio ao ptchan é do utilizador.
 					p.bold
@@ -467,7 +467,7 @@ block content
 					p
 						| Todos os cookies e local storage utilizados pelo ptchan são apenas para o seu correto funcionamento e personalização. O ptchan não usa cookies de terceiros ou tracking publicitário. Na tabela em baixo poderás encontrar mais informações.
 					span.small
-						| Atualizado pela última vez a 21/1/2022.
+						| Atualizado pela última vez a 25/1/2022.
 		.table-container.flex-center.mv-5
 		table
 			tr

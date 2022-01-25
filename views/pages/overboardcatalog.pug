@@ -20,7 +20,7 @@ block content
 	include ../includes/stickynav.pug
 	.wrapbar
 		.pages.jsonly
-			input#catalogfilter(type='text' placeholder='Filter')
+			input#catalogfilter(type='text' placeholder='Filtrar')
 			select.ml-5.right#catalogsort
 				option(value="" disabled selected hidden) Ordenar
 				option(value="bump") Bump
@@ -28,7 +28,7 @@ block content
 				option(value="replies") Respostas
 	hr(size=1)
 	if threads.length === 0
-		p No publicações.
+		p Sem publicações.
 	else 
 		.catalog
 			for thread, i in threads

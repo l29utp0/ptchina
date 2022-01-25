@@ -22,8 +22,8 @@ module.exports = async (req, res, next) => {
 	if (!res.locals.solvedCaptcha && (!bypassId || bypassId.length !== 24)) {
 		deleteTempFiles(req).catch(e => console.error);
 		return dynamicResponse(req, res, 403, 'message', {
-			'title': 'Forbidden',
-			'message': 'Please complete a block bypass to continue',
+			'title': 'Proibido',
+			'message': 'Por favor resolve o bypass para continuar',
 			'frame': '/bypass_minimal.html',
 			'link': {
 				'href': '/bypass.html',
@@ -67,8 +67,8 @@ module.exports = async (req, res, next) => {
 
 	deleteTempFiles(req).catch(e => console.error);
 	return dynamicResponse(req, res, 403, 'message', {
-		'title': 'Forbidden',
-		'message': 'Block bypass expired or exceeded max uses',
+		'title': 'Proibido',
+		'message': 'Bypass expirou ou excedeu o número de usos',
 		'frame': '/bypass_minimal.html',
 		'link': {
 			'href': '/bypass.html',

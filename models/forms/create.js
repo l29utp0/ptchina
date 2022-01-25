@@ -18,8 +18,8 @@ module.exports = async (req, res, next) => {
 
 	if (restrictedURIs.has(uri)) {
 		return dynamicResponse(req, res, 400, 'message', {
-			'title': 'Bad Request',
-			'message': 'That URI is not available for board creation',
+			'title': 'Proibido',
+			'message': 'Esta tábua não está disponível',
 			'redirect': '/create.html'
 		});
 	}
@@ -29,8 +29,8 @@ module.exports = async (req, res, next) => {
 	// if board exists reject
 	if (board != null) {
 		return dynamicResponse(req, res, 409, 'message', {
-			'title': 'Conflict',
-			'message': 'Board with this URI already exists',
+			'title': 'Conflito',
+			'message': 'Esta tábua já existe',
 			'redirect': '/create.html'
 		});
 	}

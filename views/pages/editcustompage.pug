@@ -4,14 +4,14 @@ block head
 	title Editar Página
 
 block content
-	h1.board-title Edit Página
+	h1.board-title Editar Página
 	include ../includes/stickynav.pug
 	.form-wrapper.flex-center.mv-10
 		form.form-post(action=`/forms/board/${board._id}/editcustompage` method='POST')
 			input(type='hidden' name='_csrf' value=csrf)
 			input(type='hidden' name='page_id' value=page._id)
 			.row
-				.label .html name
+				.label .html nome
 				input(type='text' name='page' pattern='[a-zA-Z0-9-_]+' title='a-zA-Z0-9-_ apenas' value=page.page required)
 			.table-container.flex-center.mv-5
 				table
