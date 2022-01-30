@@ -1,17 +1,9 @@
 # ptchina
-https://ptchan.org/
+Website: https://ptchan.org/
 
-http://jieq75a6uwqbj5sjzaxlnd7xwgs35audjmkk4g3gfjwosfrz7cp47xid.onion/
-
-IRC: 
-
-Web: https://irc.fatpeople.lol/#ptchan
-
-Cliente: irc.fatpeople.lol port 6697 sala #ptchan
+Matrix: https://matrix.to/#/#ptch:matrix.org
 
 API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/) - Gitgud pages link: http://fatchan.gitgud.site/jschan-docs/#introduction
-
-Join the IRC: [irc.fatpeople.lol](ircs://irc.fatpeople.lol:6697/fatchan)
 
 ## Goals
 - Oldschool look, newschool features
@@ -42,3 +34,7 @@ See [CHANGELOG.md](CHANGELOG.md) for changes between versions.
 
 ## Contributing
 Interested in contributing to jschan development? See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
+## Related Projects
+Here are some other projects related to jschan that you might find useful. Unless explicitly specified here, they are not officially endorsed or otherwise guaranteed to work or be safe and should be used at your own risk.
+ - [myumyu/globalafk](https://gitgud.io/myumyu/globalafk/) - "A simple python script that sends ugly notifications when something happens on a jschan imageboard that you moderate."
