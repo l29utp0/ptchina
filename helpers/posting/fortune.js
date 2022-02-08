@@ -57,7 +57,7 @@ const fortunes = [
 	'Os teus dados vão ser entregues à Rússia',
 	'As esporrinhas vão ser o teu fim'
 ];
-//são 56 no total
+//são 55 no total
 module.exports = {
 
 	regex: /##sorte/mi,
