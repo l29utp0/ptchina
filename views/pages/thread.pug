@@ -30,10 +30,13 @@ block head
 block content
 	+boardheader(modview ? 'Mod View' : null)
 	br
-	if thread.replyposts >= board.settings.replyLimit && !thread.cyclic && !modview
-		p.title.text-center ⊖ O fio atingiu o limite de respostas.
+	if thread.locked && !modview
+		p.title.text-center ⊖ O fio foi trancado.
 	else
-		include ../includes/postform.pug
+		if thread.replyposts >= board.settings.replyLimit && !thread.cyclic && !modview
+			p.title.text-center ⊖ O fio atingiu o limite de respostas.
+		else
+			include ../includes/postform.pug
 		br
 	+announcements()
 	include ../includes/stickynav.pug
@@ -53,10 +56,13 @@ block content
 			for post in thread.replies
 				- uids && post.userId && uids.add(post.userId)
 				+post(post)
-		if thread.replyposts >= board.settings.replyLimit && !thread.cyclic && !modview
-			p.title.text-center ⊖ O fio atingiu o limite de respostas.
+		if thread.locked && !modview
+			p.title.text-center ⊖ O fio foi trancado.
 		else
-			a.bottom-reply.no-decoration.post-button(href='#postform') [Nova Resposta]
+			if thread.replyposts >= board.settings.replyLimit && !thread.cyclic && !modview
+				p.title.text-center ⊖ O fio atingiu o limite de respostas.
+			else
+				a.bottom-reply.no-decoration.post-button(href='#postform') [Nova Resposta]
 		hr(size=1)
 		.wrapbar
 			if modview
