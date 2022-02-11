@@ -4,7 +4,8 @@ const fortunes = [
 	'Vais adquirir sexo consensual',
 	'ｷﾀ━━━━━━(ﾟ∀ﾟ)━━━━━━ !!!!',
 	'Vais encontrar uma choconoiva',
-	'（　´_ゝ`）ﾌｰﾝ', 'ヾ(⌐■_■)ノ♪',
+	'（　´_ゝ`）ﾌｰﾝ',
+	'ヾ(⌐■_■)ノ♪',
 	'Má sorte',
 	'Boa sorte',
 	'Tenta outra vez',
@@ -14,7 +15,8 @@ const fortunes = [
 	'Vais conhecer uma queixuda',
 	'Abençoado pelo Touro de Goa',
 	'Não vais ter nada e vais gostar',
-	'Vais comer os insetos', 'Verdadeiro',
+	'Vais comer os insetos',
+	'Verdadeiro',
 	'Falso',
 	'O teu preservativo vai romper',
 	'Vais ser trocado por um angolano',
@@ -48,7 +50,7 @@ const fortunes = [
 	'Foram depositados 0,20 Costões na sua conta',
 	'O gozo que me dá refutar as vossas alegações superficiais e não fundamentadas. Admito canto muito mal mas gosto de cantar pouco me incomoda que seja desafinada. Incomodou-te ? Não forte forçado a ouvir. Liberdade de expressão existe e desafinada ou n eu gosto de a expressar a cantar. Afinada j fui um dia e nem tu sonhas o quanto. Criativa ? O qué que tu fazes da vida ? Porque eu sos 17 anos tinha um livro escrito, tás a criticar a minha escrita ? Até podia ter 8 anos porque começei a escrever poesia aos 5. A minha escrita n é qualquer um que a entende, como n entendes, não te toca, n sentes, criticas o que está escrito mas na realidade n tens a capacidade de a apreciar',
 	'Assim como uma criança n aprecia caviar, apesar de ser um bem valioso. Não têm noção da preciosidad, do valor, da raridade, porque naturalmente é criança e n tem embutido em si estes conceitos. Tu lês ? Com que frequência? Nomeadamente poesia ? Não é qualquer um que aprecia poesia ou leitura mas invaludar o escritor porque n sabes apreciar mostra a falta de cultura que têns',
-	'Vais encontrar o verdadeiro amor nar segunda dimensão',
+	'Vais encontrar o verdadeiro amor na segunda dimensão',
 	'Toma os comprimidos',
 	'Os desenhos japoneses e as suas consequências foram um desastre para a humanidade',
 	'Vais desenvoler esquizofrenia',
@@ -57,7 +59,7 @@ const fortunes = [
 	'Os teus dados vão ser entregues à Rússia',
 	'As esporrinhas vão ser o teu fim'
 ];
-//são 56 no total
+//são 55 no total, podem fazer um pull request e adicionar mais
 module.exports = {
 
 	regex: /##sorte/mi,
