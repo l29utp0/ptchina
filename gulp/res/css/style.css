@@ -839,7 +839,7 @@ option {
 
 .post-file-info .filename {
 	display: inline-block;
-	max-width: calc(100% - 3em);;
+	/*max-width: calc(100% - 3em);*/
 	overflow: hidden;
 	text-overflow: ellipsis;
 	vertical-align: bottom;
@@ -1504,7 +1504,7 @@ row.wrap.sb .col {
 		content:attr(title);
 	}
 	.user-id[title]:hover:after {
-		content:"Double tap to highlight" attr(data-count);
+		content:"Carrega duas vezes para mostrar todos" attr(data-count);
 	}
 	[title]:hover:before {
 		content: '';
@@ -1541,6 +1541,11 @@ row.wrap.sb .col {
 	.post-file-info {
 		max-width: 150px;
 	}
+
+	.post-file-info .filename {
+		max-width: calc(100% - 3em);
+	}
+	
 
 	iframe.bypass {
 		height: 100vh;
