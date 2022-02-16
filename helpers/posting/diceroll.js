@@ -35,6 +35,6 @@ module.exports = {
 		numsides = parseInt(numsides);
 		value = parseInt(value);
 		let matchWithoutValue = match.replace(/&#x3D;.*/, '');
-		return `<img src='/file/dice.png' height='16' width='16' /><span class='dice'>(${matchWithoutValue}) Rolled ${numdice} dice with ${numsides} sides${modifier ? ' and modifier '+operator+modifier : '' } = ${value}</span>`;
+		return `<img src='/file/dice.png' height='16' width='16' /><span class='dice'>(${matchWithoutValue}) Lançados ${numdice} dados com ${numsides} lados${modifier ? ' e o modificador '+operator+modifier : '' } = ${value}</span>`;
 	},
 }
