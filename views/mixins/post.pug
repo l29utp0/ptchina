@@ -38,7 +38,7 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 					else 
 						span.post-name #{post.name}
 					| 
-				if post.country && post.country.code
+				if post.country && post.country.code && !post.capcode
 					if post.country.custom === true
 						span(title=post.country.name)
 							img.customflag(src=`/flag/${post.board}/${post.country.src}` alt=' ' loading='lazy')
@@ -50,6 +50,8 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 					span.post-tripcode #{post.tripcode}
 					| 
 				if post.capcode
+					span(class=`flag flag-staff` title=`Staff` alt=`Staff`)
+					| 
 					span.post-capcode #{post.capcode}
 					| 
 				- const postDate = new Date(post.date);
