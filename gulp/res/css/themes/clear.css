@@ -46,3 +46,7 @@ input[type=submit] {
 .upload-item p {
     max-height: 2.5em;
 }
+
+tr:nth-child(2n+1) {
+    background: unset;
+}
