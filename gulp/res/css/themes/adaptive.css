@@ -47,6 +47,10 @@ input[type=submit] {
     max-height: 2.5em;
 }
 
+tr:nth-child(2n+1) {
+    background: unset;
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
     --icon-color: invert(17%) sepia(89%) saturate(7057%) hue-rotate(2deg) brightness(93%) contrast(120%);
@@ -81,8 +85,11 @@ input[type=submit] {
 }
 
 table {
-    border: none;
-    border-spacing: 2px;
+	border: 1px solid var(--box-border-color);
+}
+
+tr:nth-child(2n+1) {
+    background: unset;
 }
 
 .captcha {
