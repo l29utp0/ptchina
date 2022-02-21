@@ -141,6 +141,9 @@ class postFormHandler {
 		if (this.form.elements.postpassword) {
 			this.form.elements.postpassword.value = localStorage.getItem('postpassword');
 		}
+		if (this.form.elements.customflag) {
+			this.form.elements.customflag.value = localStorage.getItem(`customflag-${boarduri}`);
+		}
 		this.updateFlagField();
 		this.updateMessageBox();
 		this.files = [];
