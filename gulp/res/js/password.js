@@ -57,10 +57,12 @@ class syncedField {
 		}
 	}
 }
+const boarduri = (window.location.pathname.split('/')[1]);
 
 window.addEventListener('settingsReady', () => {
 
 	new syncedField('input[name="postpassword"]', 'postpassword');
 	new syncedField('input[name="name"]', 'name');
+	new syncedField('select[name="customflag"]', `customflag-${boarduri}`);
 
 });
