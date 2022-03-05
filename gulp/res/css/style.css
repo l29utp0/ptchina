@@ -961,8 +961,8 @@ input:invalid, textarea:invalid {
 
 #selected-flag[src^='/'] {
 	border: 1px solid var(--post-outline-color);
-	height: 22px;
-	width: 32px;
+    width: 23px;
+    max-height: 23px;
 }
 
 .board-description {
