@@ -58,7 +58,7 @@ class syncedField {
 	}
 }
 const boarduri = (window.location.pathname.split('/')[1]);
-
+setDefaultLocalStorage(`customflag-${boarduri}`, '');
 window.addEventListener('settingsReady', () => {
 
 	new syncedField('input[name="postpassword"]', 'postpassword');
