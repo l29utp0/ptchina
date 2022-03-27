@@ -1,19 +1,28 @@
-mixin globalmanagenav(selected)
+mixin globalmanagenav(selected, upLevel)
 	nav.pages
-		a(href='reports.html' class=(selected === 'reports' ? 'bold' : '')) [Denúncias]
-		|  
-		a(href='bans.html' class=(selected === 'bans' ? 'bold' : '')) [Bans]
-		|  
-		a(href='recent.html' class=(selected === 'recent' ? 'bold' : '')) [Recentes]
-		|  
-		a(href='boards.html' class=(selected === 'boards' ? 'bold' : '')) [Tábuas]
-		|  
-		a(href='globallogs.html' class=(selected === 'logs' ? 'bold' : '')) [Logs]
-		if permLevel === 0
+		if permissions.get(Permissions.MANAGE_GLOBAL_GENERAL)
+			a(href=`${upLevel ? '../' : ''}recent.html` class=(selected === 'recent' ? 'bold' : '')) [Recentes]
 			|  
-			a(href='accounts.html' class=(selected === 'accounts' ? 'bold' : '')) [Contas]
+			a(href=`${upLevel ? '../' : ''}reports.html` class=(selected === 'reports' ? 'bold' : '')) [Denúncias]
+		if permissions.get(Permissions.MANAGE_GLOBAL_BANS)
 			|  
-			a(href='news.html' class=(selected === 'news' ? 'bold' : '')) [Notícias]
+			a(href=`${upLevel ? '../' : ''}bans.html` class=(selected === 'bans' ? 'bold' : '')) [Bans]
+		if permissions.get(Permissions.MANAGE_GLOBAL_BOARDS)
 			|  
-			a(href='settings.html' class=(selected === 'settings' ? 'bold' : '')) [Opções]
+			a(href=`${upLevel ? '../' : ''}boards.html` class=(selected === 'boards' ? 'bold' : '')) [Tábuas]
+		if permissions.get(Permissions.MANAGE_GLOBAL_LOGS)
+			|  
+			a(href=`${upLevel ? '../' : ''}globallogs.html` class=(selected === 'logs' ? 'bold' : '')) [Logs]
+		if permissions.get(Permissions.MANAGE_GLOBAL_ACCOUNTS)
+			|  
+			a(href=`${upLevel ? '../' : ''}accounts.html` class=(selected === 'accounts' ? 'bold' : '')) [Contas]
+		if permissions.get(Permissions.MANAGE_GLOBAL_ROLES)
+			|  
+			a(href=`${upLevel ? '../' : ''}roles.html` class=(selected === 'roles' ? 'bold' : '')) [Permissões]
+		if permissions.get(Permissions.MANAGE_GLOBAL_NEWS)
+			|  
+			a(href=`${upLevel ? '../' : ''}news.html` class=(selected === 'news' ? 'bold' : '')) [Notícias]
+		if permissions.get(Permissions.MANAGE_GLOBAL_SETTINGS)
+			|  
+			a(href=`${upLevel ? '../' : ''}settings.html` class=(selected === 'settings' ? 'bold' : '')) [Opções]
 

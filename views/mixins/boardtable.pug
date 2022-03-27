@@ -1,8 +1,10 @@
-mixin boardtable(ppd=false, activity=false)
+mixin boardtable(ppd=false, activity=false, owner=false)
 	.table-container.flex-center.mv-10.text-center
 		table(class=`boardtable${activity ? ' w900' : ''}`)
 			tr
 				th Tábua
+				if owner
+					th Admin
 				th Descrição
 				th PPH
 				if ppd
@@ -10,5 +12,5 @@ mixin boardtable(ppd=false, activity=false)
 				th Utilizadores
 				th Publicações
 				if activity
-					th Última Atividade
+					th Atividade
 			block

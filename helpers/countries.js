@@ -14,7 +14,7 @@ Object.entries(countryNamesMap)
 	.forEach(c => countryNamesMap[c[0]] = c[1][0]) //use the first name
 
 countryNamesMap['EU'] = 'Europe';
-countryNamesMap['XX'] = 'Unknown';
+countryNamesMap['XX'] = 'Desconhecido';
 countryNamesMap['T1'] = 'Tor Exit Node';
 countryNamesMap['TOR'] = 'Tor Hidden Service';
 countryNamesMap['LOKI'] = 'Lokinet SNApp';
