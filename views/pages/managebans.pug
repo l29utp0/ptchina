@@ -4,13 +4,13 @@ include ../mixins/managenav.pug
 include ../mixins/boardheader.pug
 
 block head
-	title /#{board._id}/ - Gerir Bans & Recursos
+	title /#{board._id}/ - Bans & Recursos
 
 block content
 	+boardheader('Bans')
 	br
 	+managenav('bans')
 	hr(size=1)
-	h4.no-m-p Bans & Recursos:
+	h4.mv-5 Bans & Recursos:
 	form(action=`/forms/board/${board._id}/editbans` method='POST' enctype='application/x-www-form-urlencoded')
 		include ../includes/managebanform.pug

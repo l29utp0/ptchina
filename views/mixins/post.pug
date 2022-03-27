@@ -20,12 +20,12 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 							input.post-check(type='checkbox', name='checkedposts' value=post.postId)
 						| 
 					if manage
-						- const ip = permLevel > ipHashPermLevel ? post.ip.single.slice(-10) : post.ip.raw;
+						- const ip = viewRawIp === true ? post.ip.raw : post.ip.cloak;
 						a.bold(href=`${upLevel ? '../' : ''}recent.html?ip=${encodeURIComponent(ip)}`) [#{ip}]
 					else if modview
 						a.bold(href=`${upLevel ? '../' : ''}recent.html?postid=${post.postId}`) [+]
 					else if globalmanage
-						- const ip = permLevel > ipHashPermLevel ? post.ip.single.slice(-10) : post.ip.raw;
+						- const ip = viewRawIp === true ? post.ip.raw : post.ip.cloak;
 						a.bold(href=`?ip=${encodeURIComponent(ip)}`) [#{ip}]
 					| 
 					if !post.thread
@@ -38,7 +38,7 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 					else 
 						span.post-name #{post.name}
 					| 
-				if post.country && post.country.code && !post.capcode
+				if post.country && post.country.code
 					if post.country.custom === true
 						span(title=post.country.name)
 							img.customflag(src=`/flag/${post.board}/${post.country.src}` alt=' ' loading='lazy')
@@ -49,9 +49,7 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 				if post.tripcode
 					span.post-tripcode #{post.tripcode}
 					| 
-				if post.capcode
-					span(class=`flag flag-staff` title=`Staff` alt=`Staff`)
-					| 
+				if post.capcode != null
 					span.post-capcode #{post.capcode}
 					| 
 				- const postDate = new Date(post.date);

@@ -44,18 +44,33 @@ class syncedField {
 			settingsFields[0].addEventListener('input', (e) => { this.update(e) }, false);
 		}
 		for (let field of this.fields) {
-			field.value = localStorage.getItem(this.key);
 			!this.oneWay && field.addEventListener('input', (e) => { this.update(e) }, false);
+			field.form && field.form.addEventListener('reset', (e) => {
+				setTimeout(() => {
+					this.set(localStorage.getItem(this.key));
+				}, 0);
+			}, false);
 		}
+		this.set(localStorage.getItem(this.key));
 	}
 	update(e) {
 		if (this.persistent) {
 			setLocalStorage(this.key, e.target.value);
 		}
+		this.set(e.target.value);
+	}
+	set(val) {
 		for (let field of this.fields) {
-			field.value = e.target.value;
+			field.value = val;
+			if (field.tagName === 'SELECT') {
+				//necessary to set selectedIndex here?
+				const changeEvent = new Event("change");
+				field.dispatchEvent(changeEvent);
+			}
 		}
 	}
+
+
 }
 const boarduri = (window.location.pathname.split('/')[1]);
 setDefaultLocalStorage(`customflag-${boarduri}`, '');
@@ -64,5 +79,8 @@ window.addEventListener('settingsReady', () => {
 	new syncedField('input[name="postpassword"]', 'postpassword');
 	new syncedField('input[name="name"]', 'name');
 	new syncedField('select[name="customflag"]', `customflag-${boarduri}`);
+
+	const boardUri = window.location.pathname.split('/')[1];
+	new syncedField('select[name="customflag"]', `customflag-${boardUri}`);
 
 });

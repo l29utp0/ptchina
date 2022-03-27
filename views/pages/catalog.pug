@@ -9,7 +9,7 @@ block head
 	title /#{board._id}/ - Catálogo
 
 block content
-	+boardheader('Catálogo')
+	+boardheader(modview ? 'Mod Catálogo' : 'Catálogo')
 	br
 	include ../includes/postform.pug
 	br
