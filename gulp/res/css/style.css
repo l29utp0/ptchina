@@ -1470,6 +1470,12 @@ row.wrap.sb .col {
 		max-height: 32px;
 	}
 
+    .logo {
+        display: block;
+        margin: auto;
+        width: 70%;
+        }
+
     .postmenu {
         vertical-align: top;
         margin-left: 3px;
