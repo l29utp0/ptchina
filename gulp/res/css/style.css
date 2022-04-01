@@ -512,6 +512,10 @@ table {
 	width: 800px;
 }
 
+#tegakiwidth-setting, #tegakiheight-setting {
+	max-width: 50px;
+}
+
 .w900 {
 	width: 900px;
 }
@@ -1469,6 +1473,12 @@ row.wrap.sb .col {
 		max-width: 32px;
 		max-height: 32px;
 	}
+
+    .logo {
+        display: block;
+        margin: auto;
+        width: 70%;
+        }
 
     .postmenu {
         vertical-align: top;
