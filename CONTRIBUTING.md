@@ -4,7 +4,7 @@ Thanks for considering contributing.
 
 Some links:
   * [Kanban board](https://gitgud.io/fatchan/jschan/-/boards/4780) already has issues in swim lanes.
-  * IRC: [irc.fatpeople.lol #general](ircs://irc.fatpeople.lol:6697/general)
+  * IRC: [irc.fatpeople.lol #general](ircs://irc.fatpeople.lol:6697/general) OR: [webchat](https://irc.fatpeople.lol/#general) ([lokinet](http://1xrifkakfwgg7z43ydm6cgsfnwb7ks7rwhcjpatk98d694y4g5go.loki/#general))
 
 ## LICENSE?
 
@@ -30,6 +30,29 @@ Read the code to understand, but basically:
   * [standardjs](https://standardjs.com/) style for the most part, with some modifications.
   * TAB for indentation.
   * Please include comments.
+
+## Running tests
+
+Make sure these still pass after your changes, or adjust them to meet the new expected results.
+
+There is a "jschan-test" service in the `docker-compose.yml` file that will run all the tests in a jschan instance using the docker instance. See the advanced section of installation for some instruction on how to use this.
+
+You can also Run them locally if you have an instance setup (or for quickly running unit tests):
+
+```bash
+#unit tests
+npm run test
+# OR npm run test:unit
+
+#integration tests
+TEST_ADMIN_PASSWORD=<password from jschan-reset docker> npm run test:integration
+
+#all tests
+npm run test:all
+
+#specific test(s)
+npm run test:all <filename|regex>
+```
 
 Thanks,
 Tom

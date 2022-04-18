@@ -15,7 +15,15 @@ else
 			label.postform-style.ph-5
 				input(type='radio' name='option' value='deny_appeal')
 		.row
-			.label Alterar Duração
+			.label Alterar Range
+			label.postform-style.ph-5
+				input(type='radio' name='option' value='upgrade')
+			select(name='upgrade')
+				option(value='')
+				option(value='1') Range Curto
+				option(value='2') Range Longo
+		.row
+			.label Edit Duration
 			label.postform-style.ph-5.mr-1
 				input(type='radio' name='option' value='edit')
 			input(type='text' name='ban_duration' placeholder='Duração e.g. 7d' autocomplete='off')
