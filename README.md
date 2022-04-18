@@ -15,10 +15,9 @@ API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/)
 ## Features
 - [x] User created boards ala infinity
 - [x] Multiple files per post
-- [x] Basic antispam & multiple captcha options
-- [x] API ([documentation](http://fatchan.gitgud.site/jschan-docs/))
-- [x] Multi-select moderation actions
-- [x] Webring +proxy support (compatible with [lynxchan](https://gitlab.com/alogware/LynxChanAddon-Webring) & [infinity](https://gitlab.com/Tenicu/infinityaddon-webring) versions)
+- [x] Antispam & multiple captcha options
+- [x] [API documentation](http://fatchan.gitgud.site/jschan-docs/)
+- [x] Built-in webring (compatible w/ [lynxchan](https://gitlab.com/alogware/LynxChanAddon-Webring) & [infinity](https://gitlab.com/Tenicu/infinityaddon-webring))
 - [x] Manage everything from the web panel
 - [x] Detailed accounts permissions system
 - [x] Works properly with anonymizer networks

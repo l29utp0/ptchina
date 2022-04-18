@@ -1,16 +1,13 @@
 'use strict';
 
-const uploadDirectory = require(__dirname+'/../../helpers/files/uploadDirectory.js')
+const uploadDirectory = require(__dirname+'/../../lib/file/uploaddirectory.js')
 	, { remove } = require('fs-extra')
 	, Mongo = require(__dirname+'/../../db/db.js')
 	, { Posts, Files } = require(__dirname+'/../../db/')
-	, Socketio = require(__dirname+'/../../socketio.js')
-	, quoteHandler = require(__dirname+'/../../helpers/posting/quotes.js')
-	, { markdown } = require(__dirname+'/../../helpers/posting/markdown.js')
-	, config = require(__dirname+'/../../config.js')
+	, Socketio = require(__dirname+'/../../lib/misc/socketio.js')
+	, config = require(__dirname+'/../../lib/misc/config.js')
+	, deleteQuotes = require(__dirname+'/../../lib/post/deletequotes.js')
 	, { func: pruneFiles } = require(__dirname+'/../../schedules/tasks/prune.js')
-	, sanitize = require('sanitize-html')
-	, sanitizeOptions = require(__dirname+'/../../helpers/posting/sanitizeoptions.js');
 
 module.exports = async (posts, board, all=false) => {
 
@@ -70,7 +67,7 @@ module.exports = async (posts, board, all=false) => {
 		}
 	}
 
-	const bulkWrites = [];
+	let bulkWrites = [];
 	const backlinkRebuilds = new Set();
 	if (all === false) { //no need to rebuild quotes when deleting all posts for a board
 		const deleteThreadMap = {};
@@ -124,28 +121,7 @@ module.exports = async (posts, board, all=false) => {
 		//get posts that quoted deleted posts so we can remarkup them
 		if (backlinkRebuilds.size > 0) {
 			const remarkupPosts = await Posts.globalGetPosts([...backlinkRebuilds]);
-			await Promise.all(remarkupPosts.map(async post => { //doing these all at once
-				if (post.nomarkup && post.nomarkup.length > 0) { //is this check even necessary? how would it have a quote with no message
-					//redo the markup
-					let message = markdown(post.nomarkup);
-					const { quotedMessage, threadQuotes, crossQuotes } = await quoteHandler.process(post.board, message, post.thread);
-					message = sanitize(quotedMessage, sanitizeOptions.after);
-					bulkWrites.push({
-						'updateOne': {
-							'filter': {
-								'_id': post._id
-							},
-							'update': {
-								'$set': {
-									'quotes': threadQuotes,
-									'crossquotes': crossQuotes,
-									'message': message
-								}
-							}
-						}
-					});
-				}
-			}));
+			bulkWrites = bulkWrites.concat(deleteQuotes(allPosts, remarkupPosts));
 		}
 	}
 

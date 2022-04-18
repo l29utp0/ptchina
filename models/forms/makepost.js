@@ -3,34 +3,34 @@
 const path = require('path')
 	, { createHash, randomBytes } = require('crypto')
 	, randomBytesAsync = require('util').promisify(randomBytes)
-	, { remove, pathExists, stat: fsStat } = require('fs-extra')
-	, uploadDirectory = require(__dirname+'/../../helpers/files/uploadDirectory.js')
+	, { remove, emptyDir, pathExists, stat: fsStat } = require('fs-extra')
+	, uploadDirectory = require(__dirname+'/../../lib/file/uploaddirectory.js')
 	, Mongo = require(__dirname+'/../../db/db.js')
-	, Socketio = require(__dirname+'/../../socketio.js')
+	, Socketio = require(__dirname+'/../../lib/misc/socketio.js')
 	, { Stats, Posts, Boards, Files, Bans } = require(__dirname+'/../../db/')
-	, cache = require(__dirname+'/../../redis.js')
-	, nameHandler = require(__dirname+'/../../helpers/posting/name.js')
-	, { prepareMarkdown } = require(__dirname+'/../../helpers/posting/markdown.js')
-	, messageHandler = require(__dirname+'/../../helpers/posting/message.js')
-	, moveUpload = require(__dirname+'/../../helpers/files/moveupload.js')
-	, mimeTypes = require(__dirname+'/../../helpers/files/mimetypes.js')
-	, imageThumbnail = require(__dirname+'/../../helpers/files/imagethumbnail.js')
-	, imageIdentify = require(__dirname+'/../../helpers/files/imageidentify.js')
-	, videoThumbnail = require(__dirname+'/../../helpers/files/videothumbnail.js')
-	, audioThumbnail = require(__dirname+'/../../helpers/files/audiothumbnail.js')
-	, ffprobe = require(__dirname+'/../../helpers/files/ffprobe.js')
-	, formatSize = require(__dirname+'/../../helpers/files/formatsize.js')
-	, deleteTempFiles = require(__dirname+'/../../helpers/files/deletetempfiles.js')
-	, fixGifs = require(__dirname+'/../../helpers/files/fixgifs.js')
-	, timeUtils = require(__dirname+'/../../helpers/timeutils.js')
-	, Permissions = require(__dirname+'/../../helpers/permissions.js')
+	, cache = require(__dirname+'/../../lib/redis/redis.js')
+	, nameHandler = require(__dirname+'/../../lib/post/name.js')
+	, { prepareMarkdown } = require(__dirname+'/../../lib/post/markdown/markdown.js')
+	, messageHandler = require(__dirname+'/../../lib/post/message.js')
+	, moveUpload = require(__dirname+'/../../lib/file/moveupload.js')
+	, mimeTypes = require(__dirname+'/../../lib/file/mimetypes.js')
+	, imageThumbnail = require(__dirname+'/../../lib/file/image/imagethumbnail.js')
+	, imageIdentify = require(__dirname+'/../../lib/file/image/imageidentify.js')
+	, videoThumbnail = require(__dirname+'/../../lib/file/video/videothumbnail.js')
+	, audioThumbnail = require(__dirname+'/../../lib/file/audio/audiothumbnail.js')
+	, ffprobe = require(__dirname+'/../../lib/file/ffprobe.js')
+	, formatSize = require(__dirname+'/../../lib/converter/formatsize.js')
+	, deleteTempFiles = require(__dirname+'/../../lib/file/deletetempfiles.js')
+	, fixGifs = require(__dirname+'/../../lib/file/image/fixgifs.js')
+	, timeUtils = require(__dirname+'/../../lib/converter/timeutils.js')
+	, Permissions = require(__dirname+'/../../lib/permission/permissions.js')
 	, deletePosts = require(__dirname+'/deletepost.js')
-	, spamCheck = require(__dirname+'/../../helpers/checks/spamcheck.js')
-	, config = require(__dirname+'/../../config.js')
+	, spamCheck = require(__dirname+'/../../lib/middleware/misc/spamcheck.js')
+	, config = require(__dirname+'/../../lib/misc/config.js')
 	, { postPasswordSecret } = require(__dirname+'/../../configs/secrets.js')
-	, buildQueue = require(__dirname+'/../../queue.js')
-	, dynamicResponse = require(__dirname+'/../../helpers/dynamic.js')
-	, { buildThread } = require(__dirname+'/../../helpers/tasks.js');
+	, buildQueue = require(__dirname+'/../../lib/build/queue.js')
+	, dynamicResponse = require(__dirname+'/../../lib/misc/dynamic.js')
+	, { buildThread } = require(__dirname+'/../../lib/build/tasks.js');
 
 module.exports = async (req, res, next) => {
 
@@ -150,7 +150,8 @@ ${res.locals.numFiles > 0 ? req.files.file.map(f => f.name+'|'+(f.phash || '')).
 						'cloak': res.locals.ip.cloak,
 						'raw': res.locals.ip.raw,
 					},
-					'type': 'single',
+					'type': res.locals.anonymizer ? 1 : 0,
+					'range': 0,
 					'reason': `${hitGlobalFilter ? 'global ' :''}word filter auto ban`,
 					'board': banBoard,
 					'posts': null,
@@ -163,7 +164,8 @@ ${res.locals.numFiles > 0 ? req.files.file.map(f => f.name+'|'+(f.phash || '')).
 				};
 				const insertedResult = await Bans.insertOne(ban);
 				ban._id = insertedResult.insertedId;
-				return res.status(403).render('ban', {
+				ban.ip.raw = null; //for dynamicresponse
+				return dynamicResponse(req, res, 403, 'ban', {
 					bans: [ban]
 				});
 			}
@@ -478,6 +480,11 @@ ${res.locals.numFiles > 0 ? req.files.file.map(f => f.name+'|'+(f.phash || '')).
 		});
 	}
 
+	let threadPage = null;
+	if (data.thread) {
+		threadPage = await Posts.getThreadPage(req.params.board, data.thread);
+	}
+
 	const { postId, postMongoId } = await Posts.insertOne(res.locals.board, data, thread, res.locals.anonymizer);
 
 	let enableCaptcha = false; //make this returned from some function, refactor and move the next section to another file
@@ -522,7 +529,7 @@ ${res.locals.numFiles > 0 ? req.files.file.map(f => f.name+'|'+(f.phash || '')).
 	}
 
 	//for cyclic threads, delete posts beyond bump limit
-	if (thread && thread.cyclic && thread.replyposts > replyLimit) {
+	if (thread && thread.cyclic && thread.replyposts >= replyLimit) {
 		const cyclicOverflowPosts = await Posts.db.find({
 			'thread': data.thread,
 			'board': req.params.board
@@ -628,7 +635,7 @@ ${res.locals.numFiles > 0 ? req.files.file.map(f => f.name+'|'+(f.phash || '')).
 	if (enableCaptcha) {
 		if (res.locals.board.settings.captchaMode == 2) {
 			//only delete threads if all posts require threads, otherwise just build board pages for thread captcha
-			await remove(`${uploadDirectory}/html/${req.params.board}/thread/`); //not deleting json cos it doesnt need to be
+			await emptyDir(`${uploadDirectory}/html/${req.params.board}/thread/`); //not deleting json cos it doesnt need to be
 		}
 		const endPage = Math.ceil(threadLimit/10);
 		buildQueue.push({
@@ -641,7 +648,6 @@ ${res.locals.numFiles > 0 ? req.files.file.map(f => f.name+'|'+(f.phash || '')).
 		});
 	} else if (data.thread) {
 		//refersh pages
-		const threadPage = await Posts.getThreadPage(req.params.board, thread);
 		if (data.email === 'sage' || thread.bumplocked) {
 			//refresh the page that the thread is on
 			buildQueue.push({

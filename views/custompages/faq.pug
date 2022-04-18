@@ -298,7 +298,7 @@ block content
 				td: a(href='#!') https://example.com
 			tr
 				td [links personalizados](https://example.com)
-				td: a(href='#!') links personalizados
+				td: a(href='#!') links personalizados (apenas funciona se fores admin/mod de uma tábua)
 			tr
 				td &gt;&gt;123
 				td: a(class="quote" href="#!") &gt;&gt;123
@@ -399,13 +399,13 @@ block content
 					p
 						| Em ordem de importância e poder existem 4 níveis de conta, que são representados por um capcode encarnado ao lado do nome em cada publicação:
 						ul(style='list-style-type: none')
-							li.span.post-capcode *✓
+							li.span.post-capcode ## l29utp0
 							p Administração do site.
-							li.span.post-capcode Sysop✓
+							li.span.post-capcode ## Sysop
 							p Staff global do site.
-							li.span.post-capcode Admin✓
+							li.span.post-capcode ## Admin
 							p Administrador de uma tábua.
-							li.span.post-capcode Mod✓
+							li.span.post-capcode ## Mod
 							p Moderador de uma tábua.
 	//.table-container.flex-center.mv-5
 		.anchor#antispam

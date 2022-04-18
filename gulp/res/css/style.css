@@ -694,6 +694,7 @@ details.actions div {
 	margin-right: 1px;
 	position: absolute;
     right: 0;
+	padding: 8px;
 }
 
 .floatactions[open] #action-menu:hover {
@@ -701,8 +702,8 @@ details.actions div {
 }
 
 .floatactions[open] #action-menu::before {
-	content: "X";
-	font-size: 10pt!important;
+	content: "×";
+	font-size: initial!important;
 }
 
 div.captchafield {
@@ -1340,11 +1341,14 @@ hr + .thread {
 	margin-top: -5px;
 }
 
-.scrolltable {
-	max-height: 160px;
-	overflow-y: auto;
-	overflow-x: hidden;
-	border: 1px solid var(--box-border-color);
+.bantable {
+  max-width: unset;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.bantable td, .bantable th {
+	padding: 5px 10px;
 }
 
 tr:nth-child(odd) {
@@ -1445,6 +1449,10 @@ row.wrap.sb .col {
 	flex-basis: calc(50% - 5px);
 }
 
+#hotposts td:nth-child(1) {
+	white-space: nowrap;
+}
+
 @media only screen and (max-height: 400px) {
 	.modal {
 		top: 5px;
@@ -1487,6 +1495,10 @@ row.wrap.sb .col {
         min-height: 0.5em;
     }
 
+	#hotposts td:nth-child(3) {
+		display: none;
+	}
+	
 	#settings::after {
 		content: "\2699"!important;
 	}

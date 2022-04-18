@@ -2,25 +2,43 @@
 
 const Mongo = require(__dirname+'/db.js')
 	, { isIP } = require('net')
+	, { DAY } = require(__dirname+'/../lib/converter/timeutils.js')
 	, Boards = require(__dirname+'/boards.js')
 	, Stats = require(__dirname+'/stats.js')
-	, Permissions = require(__dirname+'/../helpers/permissions.js')
+	, Permissions = require(__dirname+'/../lib/permission/permissions.js')
 	, db = Mongo.db.collection('posts')
-	, config = require(__dirname+'/../config.js');
+	, config = require(__dirname+'/../lib/misc/config.js');
 
 module.exports = {
 
 	db,
 
 	getThreadPage: async (board, thread) => {
-		const threadsBefore = await db.countDocuments({
-			'board': board,
-			'thread': null,
-			'bumped': {
-				'$gte': thread.bumped
+		const threadsBefore = await db.aggregate([
+			{
+				'$match': {
+					'thread': null,
+					'board': board,
+				}
+			}, {
+				'$project': {
+					'sticky': 1,
+					'bumped': 1,
+					'postId': 1,
+					'board': 1,
+					'thread': 1
+				}
+			}, {
+				'$sort': {
+					'sticky': -1,
+					'bumped': -1
+				}
 			}
-		});
-		return Math.ceil(threadsBefore/10) || 1; //1 because 0 threads before is page 1
+		]).toArray();
+		//is there a way to do this in the db with an aggregation stage, instead of in js?
+		const threadIndex = threadsBefore.findIndex((e) => e.postId === thread);
+		const threadPage = Math.max(1, Math.ceil((threadIndex+1)/10));
+		return threadPage;
 	},
 
 	getBoardRecent: async (offset=0, limit=20, ip, board, permissions) => {
@@ -617,6 +635,55 @@ module.exports = {
 		return oldThreads.concat(early404Threads);
 	},
 
+	getMinimalThreads: (boards) => {
+		return db.aggregate([
+			{
+				'$match': {
+					'thread': null,
+					'board': {
+						'$in': boards,
+					}
+				}
+			}, {
+				'$project': {
+					'sticky': 1,
+					'bumped': 1,
+					'postId': 1,
+					'board': 1,
+					'thread': 1,
+				}
+			}, {
+				'$sort': {
+					'sticky': -1,
+					'bumped': -1,
+				}
+			}, {
+				'$group': {
+					'_id': '$board',
+					'posts': {
+						'$push': '$$CURRENT',
+					}
+				}
+			}, {
+				'$group': {
+					'_id': null,
+					'posts': {
+						'$push': {
+							'k': '$_id',
+							'v': '$posts',
+						}
+					}
+				}
+			}, {
+				'$replaceRoot': {
+					'newRoot': {
+						'$arrayToObject': '$posts',
+					}
+				}
+			}
+		]).toArray().then(r => r[0]);
+	},
+
 	fixLatest: (boards) => {
 		return db.aggregate([
 			{
@@ -640,6 +707,31 @@ module.exports = {
 				}
 			}
 		]).toArray();
+	},
+
+	hotThreads: async () => {
+		const { hotThreadsLimit, hotThreadsThreshold } = config.get;
+		if (hotThreadsLimit === 0){ //0 limit = no limit in mongodb
+			return [];
+		}
+		const listedBoards = await Boards.getLocalListed();
+		return db.find({
+			'board': {
+				'$in': listedBoards
+			},
+			'thread': null,
+			'date': {
+				//created in last 7 days
+				'$gte': new Date(Date.now() - (7 * DAY))
+			},
+			'replyposts': {
+				'$gte': hotThreadsThreshold,
+			}
+		}).sort({
+			'replyposts': -1
+		})
+		.limit(hotThreadsLimit)
+		.toArray();
 	},
 
 	deleteMany: (ids) => {
