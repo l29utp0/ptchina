@@ -204,6 +204,12 @@ pre {
 	content: "Opções";
 }
 
+.expand-omitted {
+    vertical-align: bottom;
+    margin-right: 5px;
+    background-color: var(--post-color);
+   }   
+
 #postform-dragHandle, #threadwatcher-dragHandle {
 	flex-grow: 1;
 	background: var(--darken);
