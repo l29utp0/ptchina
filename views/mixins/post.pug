@@ -158,10 +158,12 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 					| Mensagem demasiado longa. #[a.viewfulltext(href=`${postURL}#${post.postId}`) Ver completa]
 			if post.omittedposts || post.omittedfiles
 				div.cb.mt-5.ml-5
+					img.dummy-link.expand-omitted(height='14' width='14' background-color='var(--post-color)' data-shown=post.replies.length data-board=post.board data-thread=post.postId src='/file/plus.png')
 					- const ompo = post.omittedposts;
 					- const omfi = post.omittedfiles;
-					| #{ompo} respost#{ompo > 1 ? 'as' : 'a'}
-					| #{omfi > 0 ? ` e ${omfi} ficheiro${omfi > 1 ? 's' : ''}` : ''} omitidos. 
+					span
+						| #{ompo} respost#{ompo > 1 ? 'as' : 'a'}
+						| #{omfi > 0 ? ` and ${omfi} ficheiro${omfi > 1 ? 's' : ''}` : ''} omitidos. 
 					| #[a(href=postURL) Ver fio completo]
 			if post.previewbacklinks != null
 				if post.previewbacklinks.length > 0
