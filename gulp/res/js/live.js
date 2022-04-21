@@ -62,7 +62,7 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 
 	newPost = (data, options = {}) => {
 		//insert at end of thread, but insert at top for globalmanage
-		console.log('got new post', data);
+		//console.log('got new post', data);
 		const postData = data;
 		lastPostIds[postData.board] = postData.postId;
 		//create a new post
@@ -78,7 +78,7 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 		let insertPoint;
 		if (options.insertPoint) {
 			insertPoint = options.insertPoint;
-			} else if (isRecent) {		   
+		} else if (isRecent) {
 			const firstHr = document.querySelector('hr');
 			const newHr = document.createElement('hr');
 			const threadWrapper = document.createElement('div');
@@ -137,8 +137,8 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 		}
 		const newPostEvent = new CustomEvent('addPost', {
 			detail: {
-				nonotify: true,
-				post: newPostElement,			   
+				nonotify: options.nonotify,
+				post: newPostElement,
 				postId: postData.postId,
 				json: postData
 			}
@@ -202,7 +202,7 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 	setInterval(() => {
 		if (liveEnabled && intervalStart) {
 			const remaining = Math.abs((interval - (Date.now() - intervalStart))/1000);
-			updateButton.value = `Update (${remaining.toFixed(0)}s)`;
+			updateButton.value = `Atualizar (${remaining.toFixed(0)}s)`;
 		}
 	}, 1000);
 
@@ -236,16 +236,16 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 			socket.on('message', (message) => {
 				console.log(message, room);
 				if (message === 'joined') {
-					updateLive('A ligar', '#0de600');
+					updateLive('Ligado', '#0de600');
 					socketPing();
 				}
 			});
 			socket.on('reconnect_attempt', () => {
-				updateLive('A tentar reconectar...', 'yellow');
+				updateLive('A ligar...', 'yellow');
 			});
 			socket.on('disconnect', () => {
 				console.log('lost connection to room');
-				updateLive('Disconectado', 'red');
+				updateLive('Desligado', 'red');
 			});
 			socket.on('reconnect', () => {
 				console.log('reconnected to room');
@@ -260,11 +260,11 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 				console.error(e);
 			});
 			socket.on('reconnect_error', (e) => {
-				updateLive('Erro a reconectar', 'orange');
+				updateLive('Erro a ligar', 'orange');
 				console.error(e);
 			});
 			socket.on('reconnect_failed', (e) => {
-				updateLive('Erro a reconectar', 'orange');
+				updateLive('Erro a ligar', 'orange');
 				console.error(e);
 				console.log('failed to reconnnect, falling back to polling')
 				socket.close();
@@ -287,7 +287,7 @@ window.addEventListener('settingsReady', function(event) { //after domcontentloa
 		if (socket && supportsWebSockets) {
 			socket.disconnect();
 		}
-		updateLive('Publicações em direto desativadas', 'darkgray');
+		updateLive('Direto desligado', 'darkgray');
 	};
 
 	const liveSetting = document.getElementById('live-setting');
