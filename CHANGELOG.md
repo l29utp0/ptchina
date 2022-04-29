@@ -1,3 +1,20 @@
+### 0.6.5
+  - Portrait mode support for tegaki, improves the experience particularly on mobile devices.
+  - Small refactor of filtering.
+  - Modlog pruning now only deletes log entries older than the specified date when new modlogs are added, as originally intended.
+  - Add a few extra things to server logs when debugLogs is true.
+  - Minor bugfixes.
+
+### 0.6.4
+  - Add "adaptive" theme that switches between "clear" and "tomorrow" based on the device system theme, using prefers-color-scheme media query.
+  - Minor bugfixes.
+
+### 0.6.3
+  - Bugfix when setting empty board tags, and other multiline settings.
+
+### 0.6.2
+  - Hotfix webring.
+
 ### 0.6.1
   - +/- button to expand a thread and see the omitted posts from index pages.
   - Option for global filter bans to be not appealable.
