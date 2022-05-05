@@ -46,7 +46,7 @@ const relativeTimeString = (date) => {
 		amount = Math.round(difference / YEAR);
 		ret = `${amount > 1 ? 'anos' : 'ano'}`;
 	}
-	return `${ret}${amount > 1 ? 's' : ''} ${isFuture ? 'desde agora' :  'atrás'}`;
+	return `${amount} ${ret} ${isFuture ? 'desde agora' :  'atrás'}`;
 };
 
 const changeDateFormat = (date) => {
