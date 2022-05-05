@@ -35,7 +35,7 @@ const relativeTimeString = (date) => {
 		ret = `${amount > 1 ? 'horas' : 'hora'}`;
 	} else if (difference < DAY*6.5) {
 		amount = Math.round(difference / DAY);
-		ret = `${amount} day`;
+		ret = `${amount > 1 ? 'dias' : 'dia'}`;
 	} else if (difference < WEEK*3.5) {
 		amount = Math.round(difference / WEEK);
 		ret = `${amount > 1 ? 'semanas' : 'semana'}`;
