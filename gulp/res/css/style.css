@@ -1672,7 +1672,10 @@ row.wrap.sb .col {
 	#filter-value-input {
 		width: 100%;
 	}
-
+	
+	 .spoiler a {
+    		color: white !important;
+  	}
 }
 
 
