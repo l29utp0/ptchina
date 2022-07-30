@@ -1,0 +1,262 @@
+:root {
+    /* colors */
+    --bg: #f7f8fa;
+    --bg-light: #fff;
+    --bg-dark: #f3f4f6;
+    --bg-navbar: #24292f;
+    --fg: #292d31;
+    --fg-dark: #24292e;
+    --fg-light: #6e7781;
+    --selection: #d0d7de;
+    --selection-dark: #cdd0d4;
+    --selection-light: #e7e9eb;
+    --comment: var(--fg-light);
+    --blue: #0969da;
+    --blue-light: #0072f3;
+    --cyan: #032f62;
+    --green: #2da44e;
+    --green-dark: #2c974b;
+    --orange: #e36209;
+    --pink: #ff5fba;
+    --purple: #6f42c1;
+    --red: #d73a49;
+    --red-light: #da4a59;
+    --yellow: #e3ca09;
+
+    /* main colors assignment */
+    --darken: var(--bg-dark);
+    --hr: var(--selection);
+    --navbar-color: var(--bg-navbar);
+    --background-top: var(--bg);
+    --background-rest: var(--bg);
+    --post-color: var(--bg-light);
+    --post-outline-color: var(--selection);
+    --highlighted-post-color: var(--bg-light);
+    --highlighted-post-outline-color: var(--selection-light);
+    --label-color: var(--bg-dark);
+    --box-border-color: var(--selection);
+    --alt-label-color: var(--bg);
+    --alt-font-color: var(--fg);
+    --input-color: var(--fg);
+    --input-borders: var(--selection);
+    --input-background: var(--bg-light);
+    --board-title: var(--fg-dark);
+    --title-color: var(--red-light);
+    --font-color: var(--fg);
+    --name-color: var(--blue);
+    --subject-color: var(--fg-dark);
+    --link-color: var(--fg-dark);
+    --link-hover: var(--blue);
+    --post-link-color: var(--fg-dark);
+    --dice-color: var(--orange);
+    --greentext-color: var(--comment);
+    --pinktext-color: var(--pink);
+    --capcode-color: var(--red);
+    --icon-color: saturate(100%) hue-rotate(2deg) brightness(95%) contrast(100%);
+}
+
+#action-menu,
+#float,
+#livetext,
+#postform,
+#threadstats,
+.bottom-reply,
+.catalog-tile,
+.collapse,
+.modal,
+.pages,
+.post-container,
+.stickynav,
+#message,
+.label,
+.close,
+#customflag,
+#dragHandle,
+.captcha,
+input[type='text'],
+input[type='password'],
+input[type='submit'] {
+    border-radius: 6px !important;
+}
+
+.file-thumb,
+.post-file-src * {
+    border-radius: 5px;
+}
+
+#float {
+    box-shadow: none !important;
+}
+
+
+/* darker post-info */
+.post-container.highlighted .post-info,
+.post-container:target,
+.post-info {
+    background: var(--darken);
+    margin: -6.5px -6.5px 5px -6.5px;
+    border-bottom: 1px solid var(--post-outline-color);
+    border-radius: 6px 6px 0 0;
+}
+
+
+/* centered board with margins */
+@media screen and (min-width: 900px) {
+    .container {
+        width: 78vw;
+        margin: 0 auto;
+    }
+
+    body,
+    .navbar {
+        width: 100%;
+    }
+}
+
+a {
+    font-style: italic;
+}
+
+
+/* better highlight */
+#float,
+.anchor:target+.catalog-tile,
+.anchor:target+.post-container,
+.anchor:target+table,
+.anchor:target+table tbody tr th,
+.post-container.highlighted,
+.post-container.hoverhighlighted {
+    outline: 2px solid var(--blue-light);
+}
+
+select:focus,
+textarea:focus,
+input:focus {
+    background: var(--highlighted-post-color);
+    border: 2px solid var(--blue-light);
+}
+
+
+.postmenu {
+    border: solid var(--font-color);
+    border-width: 0 1px 1px 0;
+    background: 0 0;
+}
+
+.postmenu:hover {
+    border: solid var(--link-hover);
+    border-width: 0 1px 1px 0;
+    background: 0 0;
+}
+
+.postmenu:focus {
+    border: solid var(--font-color);
+    border-width: 0 1px 1px 0;
+    background: 0 0;
+}
+
+
+/* files box */
+.filelabel {
+    background: var(--highlighted-post-color);
+    border: 2px dashed var(--blue-light);
+}
+
+
+/* big title */
+.board-title {
+    font-size: 55px;
+}
+
+
+/* navbars */
+.navbar {
+    border: 0px;
+    box-shadow: none;
+}
+
+.stickynav {
+    background: var(--bg-navbar);
+    border: 0px;
+    box-shadow: none;
+}
+
+a.nav-item {
+    color: var(--bg-light);
+}
+
+a.nav-item:hover {
+    color: var(--selection) !important;
+}
+
+
+/* green buttons */
+.bottom-reply.no-decoration,
+.collapse.no-decoration,
+.expand-omitted,
+input[type='submit'] {
+    background: var(--green);
+    border-color: rgba(27, 31, 36, 0.15);
+    box-shadow: 0 1px 0 rgba(27, 31, 36, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+}
+
+.bottom-reply.no-decoration:hover,
+.collapse.no-decoration:hover,
+.expand-omitted:hover,
+input[type='submit']:hover {
+    background: var(--green-dark);
+}
+
+/*  ugly workarounds needed for proper green buttons */
+a.bottom-reply.no-decoration,
+a.collapse.no-decoration,
+input[type='submit'] {
+    color: var(--bg-light);
+}
+
+a.bottom-reply.no-decoration:hover,
+a.collapse.no-decoration:hover,
+input[type='submit']:hover {
+    color: var(--bg-light) !important;
+}
+
+
+/* grey buttons */
+.pages,
+#action-menu,
+.close {
+    background: var(--bg);
+    border-color: rgba(27, 31, 36, 0.15);
+    box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+}
+
+.pages:hover,
+#action-menu:hover,
+.close:hover {
+    background: var(--bg-dark);
+    border-color: rgba(27, 31, 36, 0.15);
+}
+
+
+/* dimmed info display */
+#livetext,
+#threadstats {
+    background: none;
+    border: none;
+}
+
+.footer,
+.cb,
+.board-description,
+.post-date,
+.replies,
+.edited,
+.post-file-info,
+#livetext,
+#threadstats {
+    color: var(--fg-light);
+}
