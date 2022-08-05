@@ -1,7 +1,48 @@
+### 0.8.0
+  - Settings pages are now more organised and use tabs, and still works without javascript. 
+  - Captcha improvements
+    - New captcha image effects, and customisation for their value/strength.
+    - Customisable font for text captcha.
+    - Improved grid captcha, the character sets and question are now customisable.
+    - Added new captcha type "grid v2" with a different challenge involving pointing arrows. Also customisable like grid v1.
+  - Added a new account level permission to bypass captchas including blockbypass.
+  - Anonymizers dummy bypass cookies given while blockbypass is disabled are no longer valid once blockbypass is enabled.
+  - Add a new option for automatically forfeiting board staff position and/or deleting inactive accounts with customisable time.
+  - Add a new option to automatically lock, lock+unlist, or delete boards that have no board owner.
+  - Homepage hot threads have a new option for maximum thread age, and are no longer bound to a static 7 days.
+  - Homepage hot threads score formula is now `score=replies in last 7 days*(1-(current thread age/max thread age))` to better represent more recently active threads, rather than simply sorting by reply count.
+  - Add unofficial Typescript SDK + typings for jschan api to README, (thanks to Michell/ussaohelcim).
+  - Add "playlist" button in OP dropdown to download thread audio/video as m3u playlist (thanks to Michell/ussaohelcim).
+  - Switch youtube embeds to use youtube-nocookie domain.
+
+### 0.7.3
+  - Bugfix some captcha generations causing server error due non-integer argument to randomRange.
+
+### 0.7.2
+  - Add playlist generating bookmarklet script to README
+  - Bugfix some captcha generations causing server error due to bad random number range.
+  - Fix UTF8-filenames not being decoded corectly (busboy made this not the default in a recent update).
+
+### 0.7.1
+  - Show sticky level on hover (title property) of pin icon.
+  - Reduce frontend script size by ~10KB. More improvement to come in future updates.
+  - Change homepage hot threads to show creation date rather than last bumped.
+  - Don't allow setting global limit for post password length below what the frontend automatically generates.
+  - When strict mime validation is enabled, actually tell the user what the server thinks the mime is in the mismatch error message.
+  - Make IP pruning schedule also apply to modlogs.
+  - Fix incorrectly hiding "create board"/"register an account" on account page because of permission issue.
+  - Fix the nginx configuration script putting commas in CSP if you say yes to recaptcha/hcaptcha.
+  - Fix recaptcha/hcaptcha causing an issue for scrolling to new posts in some (chrom*) browsers.
+  - Fix the generate-favicon gulp task not versioning correctly causing cache issues.
+  - Small frontend and backend refactors.
+  - Add screenshot image animated with light/dark theme in README.
+  - Publish some dependencies to npmjs for faster installation.
+  - Update dependencies.
+
 ### 0.7.0
   - ESLint has been added as a dev dependency. This does "linting" to enforce code style and find and fix some mistakes.
-  - Updated CONTRIBUTING.md information
-  - Bugfixes
+  - Updated CONTRIBUTING.md information.
+  - Bugfixes.
 
 ### 0.6.6
   - Post editing bugfix.

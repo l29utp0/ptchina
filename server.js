@@ -85,12 +85,11 @@ const config = require(__dirname+'/lib/misc/config.js')
 		app.locals.commit = commit;
 		app.locals.version = version;
 		app.locals.meta = meta;
-		app.locals.captchaType = captchaOptions.type;
 		app.locals.postFilesSize = formatSize(globalLimits.postFilesSize.max);
 		app.locals.googleRecaptchaSiteKey = google.siteKey;
 		app.locals.hcaptchaSiteKey = hcaptcha.siteKey;
-		app.locals.captchaGridSize = captchaOptions.grid.size;
 		app.locals.globalAnnouncement = globalAnnouncement;
+		app.locals.captchaOptions = captchaOptions;
 	};
 	loadAppLocals();
 	redis.addCallback('config', loadAppLocals);
@@ -111,7 +110,8 @@ const config = require(__dirname+'/lib/misc/config.js')
 	});
 
 	// catch any unhandled errors
-	app.use((err, req, res) => {
+	app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+
 		let errStatus = 500;
 		let errMessage = 'Internal Server Error';
 		if (err.code === 'EBADCSRFTOKEN') {

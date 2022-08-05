@@ -4,9 +4,8 @@ const createBoard = require(__dirname+'/../../models/forms/create.js')
 	, Permissions = require(__dirname+'/../../lib/permission/permissions.js')
 	, dynamicResponse = require(__dirname+'/../../lib/misc/dynamic.js')
 	, config = require(__dirname+'/../../lib/misc/config.js')
-	, alphaNumericRegex = require(__dirname+'/../../lib/input/alphanumregex.js')
 	, paramConverter = require(__dirname+'/../../lib/middleware/input/paramconverter.js')
-	, { checkSchema, lengthBody, existsBody } = require(__dirname+'/../../lib/input/schema.js');
+	, { alphaNumericRegex, checkSchema, lengthBody, existsBody } = require(__dirname+'/../../lib/input/schema.js');
 
 module.exports = {
 
@@ -41,8 +40,6 @@ module.exports = {
 		} catch (err) {
 			return next(err);
 		}
-
-		return res.redirect(`/${req.body.uri}/index.html`);
 
 	}
 

@@ -1,4 +1,4 @@
-/* globals setLocalStorage filters isCatalog captchaController threadWatcher */
+/* globals setLocalStorage pugfilters isCatalog captchaController threadWatcher */
 const getFiltersFromLocalStorage = () => {
 	const savedFilters = JSON.parse(localStorage.getItem('filters1'));
 	return savedFilters.reduce((acc, filter) => {
@@ -28,7 +28,7 @@ let { single, fid, fname, ftrip, fsub, fmsg, fnamer, ftripr, fsubr, fmsgr } = ge
 let filtersTable;
 const updateFiltersTable = () => {
 	[...filtersTable.children].slice(3).forEach(row => row.remove());
-	filtersTable.insertAdjacentHTML('beforeend', filters({filterArr: JSON.parse(localStorage.getItem('filters1'))}));
+	filtersTable.insertAdjacentHTML('beforeend', pugfilters({filterArr: JSON.parse(localStorage.getItem('filters1'))}));
 	const closeButtons = filtersTable.querySelectorAll('.close');
 	for (let elem of closeButtons) {
 		let { type: closeType, data: closeData } = elem.dataset;
@@ -270,6 +270,16 @@ const postMenuChange = function() {
 			const watcherSubject = (postDataset.subject || (postMessage && postMessage.textContent) || 'No subject').substring(0, 25);
 			threadWatcher.add(postDataset.board, postDataset.postId, { subject: watcherSubject, unread: 0, updatedDate: new Date() });
 			return;
+		}
+		case 'playlist':{
+			console.log('creating playlist...');
+			window.dispatchEvent(new CustomEvent('createPlaylist', {
+				detail:{
+					board:postDataset.board,
+					postId:postDataset.postId
+				}
+			}));
+			break;
 		}
 	}
 	toggleFilter(filterType, filterData, hiding);

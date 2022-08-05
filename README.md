@@ -21,6 +21,10 @@ API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/)
 - [x] Manage everything from the web panel
 - [x] Detailed accounts permissions system
 - [x] Works properly with anonymizer networks
+- [x] Looks good on all screen sizes
+- [x] Lots of themes, and auto light/dark theme
+
+![screenshots](collage.gif "screenshots")
 
 ## License
 GNU AGPLv3, see [LICENSE](LICENSE).
@@ -37,3 +41,6 @@ Interested in contributing to jschan development? See [CONTRIBUTING.md](CONTRIBU
 ## Related Projects
 Here are some other projects related to jschan that you might find useful. Unless explicitly specified here, they are not officially endorsed or otherwise guaranteed to work or be safe and should be used at your own risk.
  - [myumyu/globalafk](https://gitgud.io/myumyu/globalafk/) - "A simple python script that sends ugly notifications when something happens on a jschan imageboard that you moderate."
+ - [ussaohelcim/jschan-api-sdk](https://github.com/ussaohelcim/jschan-api-sdk) - JavaScript/TypeScript SDK for jschan.
+ - [ussaohelcim/jschan-api-types](https://github.com/ussaohelcim/jschan-api-types) - TypeScript typings for jschan API.
+
