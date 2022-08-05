@@ -10,9 +10,9 @@ block content
 	hr(size=1)
 	h4.no-m-p Geral:
 	ul
-		if permissions.get(Permissions.CREATE_ACCOUNT)
-			li: a(href='/create.html') Criar tábua
 		if permissions.get(Permissions.CREATE_BOARD)
+			li: a(href='/create.html') Criar tábua
+		if permissions.get(Permissions.CREATE_ACCOUNT)
 			li: a(href='/register.html') Registar conta
 		li: a(href='/changepassword.html') Alterar password
 		li: a(href='/mypermissions.html') Minhas permissões
