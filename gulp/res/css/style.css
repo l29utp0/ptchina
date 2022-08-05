@@ -3523,3 +3523,45 @@ span.sorte {
     -webkit-animation-delay: 3s,1.5s;
     animation-delay: 3s,1.5s
 }
+
+/*stream css*/
+
+.streammain {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    max-height: calc(100vh - 100px);
+}
+
+#video {
+    max-width: 100%;
+    max-height: 100%; 
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    height: 90vh;
+}
+
+#chat {
+    float:right;
+    position:relative;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width:600px) {
+	#chat {
+        width: 100%;
+        max-width: 100%;
+    }
+	.streammain {
+        flex-direction: column;
+        max-height: 100%;
+    }
+	#video { 
+        width: 100%;
+        height: 20vh;
+        max-height: 20vh;
+    }
+	
+}
