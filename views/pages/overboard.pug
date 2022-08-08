@@ -14,8 +14,6 @@ block content
 			| [
 			a(href=`/catalog.html?${cacheQueryString}`) Catálogo
 			| ]
-			p O Overboard não é uma tábua mas sim onde aparecem fios de tábuas diferentes que podem ter regras e moderação diferentes, o que é aceitável em algumas pode não ser em outras.
-	include ../includes/stickynav.pug
 	if allowCustomOverboard === true
 		+overboardform('/overboard.html')
 	+announcements(true, true, false)

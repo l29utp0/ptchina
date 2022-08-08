@@ -230,7 +230,7 @@ block content
 								"postId" : 123
 							}	
 						+post(examplePost)
-					//p The name appears bold in the top left, followed by the tripcode in regular weight with a !! prefix, then the capcode in a different color, bold and with a ## prefix. The colours may vary between themes but are generally distinct from each other
+					//-p The name appears bold in the top left, followed by the tripcode in regular weight with a !! prefix, then the capcode in a different color, bold and with a ## prefix. The colours may vary between themes but are generally distinct from each other
 
 					b Nome
 					p O Nome é apenas o que queres mostrar ao lado da tua publicação, outros utilizadores podem escrever o mesmo Nome portanto não existe nada que impeça a impersonalização. Não está realacionado com a tua conta (para utilizadores registados).
@@ -280,7 +280,7 @@ block content
 				td **itálico**
 				td
 					span.em itálico
-			//tr
+			//-tr
 				td (((detected)))
 				td
 					span.detected (((detected)))
@@ -340,7 +340,7 @@ block content
 					| Nem todas as linguagens de programação são suportadas.
 					p
 					| Linguagens suportadas: #{codeLanguages.join(', ')}
-	//.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#post-info
 		table
 			tr
@@ -348,7 +348,7 @@ block content
 			tr
 				td
 					p Max size of form data per-post is #{postFilesSize}. Because other fields e.g. name, message, etc contribute to this, the maximum size of file uploads will be very slightly smaller than this.
-	//.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#moderation
 		table
 			tr
@@ -407,7 +407,7 @@ block content
 							p Administrador de uma tábua.
 							li.span.post-capcode ## Mod
 							p Moderador de uma tábua.
-	//.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#antispam
 		table
 			tr
