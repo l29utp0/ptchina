@@ -1,0 +1,175 @@
+@font-face {
+    font-family: VCR OSD Mono;
+    src: url(/css/themes/VCR OSD Mono.tff);
+}
+
+:root {
+    --bg: #000000;
+    --subject-color: #FF0000;
+    --post-link-color: #FF00FF;
+    --navbar-color: #000000;
+    --link-color: #FFFFFF;
+    --label-color: #000000;
+    --input-color: #FFFFFF;
+    --input-background: #000000;
+    --board-title: #000000;
+    --box-border-color: #000000;
+}
+
+* {
+    font-family: 'VCR OSD Mono', sans-serif !important;
+}
+
+body {
+    background: black !important;
+    width: 80%;
+    margin: auto;
+    font-size: medium;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar {
+    width: inherit;
+}
+
+.navbar .nav-item {
+    text-transform: uppercase;
+}
+
+.board-title {
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    border: 6px solid red;
+    width: 60%;
+    margin: auto;
+    letter-spacing: 1em;
+}
+
+.post-name,
+.post-date,
+.post-links * {
+    color: yellow;
+}
+
+.container {
+    background-color: black;
+    color: cyan;
+    padding: 20px 0;
+}
+
+.post-container {
+    background-color: black;
+    width: 100%;
+    border: none;
+}
+
+.greentext {
+    color: magenta;
+}
+
+.pages {
+    background-color: blue;
+    color: white;
+    width: 100%;
+    border: none;
+}
+
+.pages > a {
+    color: inherit;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    background-color: black;
+    font-size: 0; /* This a trick used to hide the bullet points that aren't encapsulated by tags */
+    line-height: normal;
+}
+
+.footer a {
+    color: blue;
+    flex: 1;
+    text-transform: uppercase;
+    font-size: initial;
+}
+
+.footer > div {
+    line-break: after;
+    color: red;
+    font-size: initial;
+}
+
+.footer a:nth-child(4n + 1) {
+    background-color: red;
+    color: white;
+}
+
+.footer a:nth-child(4n + 2) {
+    background-color: lime;
+}
+
+.footer a:nth-child(4n + 3) {
+    background-color: yellow;
+}
+
+.footer a:nth-child(4n + 4) {
+    background-color: cyan;
+}
+
+.footer > :not(a):not(div) {
+    display: none;
+}
+
+.stickynav {
+    background-color: #EFEFEF;
+}
+
+.stickynav > .nav-item {
+    color: blue !important; 
+}
+
+table, th {
+    background-color: black;
+}
+
+th {
+    text-transform: uppercase;
+}
+
+tr:nth-child(2n) * {
+    color: yellow;
+}
+
+tr:nth-child(2n + 1) * {
+    color: white;
+}
+
+td {
+    background-color: black !important;
+}
+
+.no-m-p, .no-m-p * {
+    background-color: blue;
+    color: white !important;
+}
+
+.form-wrapper * {
+    background-color: lime !important;
+    color: black !important;
+    border: none;
+}
+
+#postform {
+    border: none;
+}
+
+#actionform, #threadstats, #livetext, .collapse {
+    color: blue;
+}
