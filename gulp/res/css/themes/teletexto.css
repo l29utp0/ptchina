@@ -30,23 +30,24 @@
 	--pinktext-color: magenta;
 }
 
-.spoiler	{
+.spoiler {
 	background: gray;
 	color: azuregray;
 }
 
 .spoiler:not(:hover) * {
 	color: gray;
-	background: gray!important;
+	background: gray !important;
 }
 
 .post-info, .post-container:target .post-info, .post-container.highlighted .post-info {
-	background:none!important;border:none!important
+	background: none !important;
+    border: none !important
 }
 
 @font-face {
     font-family: VCR OSD Mono;
-    src: url(/css/themes/VCR%20OSD%20Mono.tff);
+    src: url(/css/themes/VCR-OSD-Mono.tff);
 }
 
 * {
