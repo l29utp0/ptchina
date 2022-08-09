@@ -53,7 +53,7 @@
     --greentext-color: var(--comment);
     --pinktext-color: var(--pink);
     --capcode-color: var(--red);
-    --icon-color: saturate(100%) hue-rotate(2deg) brightness(95%) contrast(100%)
+    --icon-color: saturate(100%) hue-rotate(2deg) brightness(95%) contrast(100%);
 }
 
 #action-menu,
