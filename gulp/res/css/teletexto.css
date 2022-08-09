@@ -1,19 +1,53 @@
-@font-face {
-    font-family: VCR OSD Mono;
-    src: url(/css/themes/VCR OSD Mono.tff);
+:root {
+	--icon-color: invert(17%)sepia(89%)saturate(7057%)hue-rotate(2deg)brightness(93%)contrast(120%);
+	--alt-label-color: #040404;
+	--alt-font-color: #e8eaf6;
+	--background-top: #000;
+	--background-rest: #000;
+	--navbar-color: #040404;
+	--post-color: #000;
+	--post-outline-color: #111;
+	--label-color: #040404;
+	--box-border-color: #111;
+	--darken: #040404;
+	--highlighted-post-color: #000;
+	--highlighted-post-outline-color: #444;
+	--board-title: #e8eaf6;
+	--hr: #040404;
+	--font-color: #e8eaf6;
+	--name-color: #e8eaf6;
+	--capcode-color: #f00;
+	--subject-color: #b294bb;
+	--link-color: white;
+	--post-link-color: #5f89ac;
+	--link-hover: #81a2be;
+	--input-borders: #111;
+	--input-color: #e8eaf6;
+	--input-background: #040404;
+	--dice-color: darkorange;
+	--title-color: #d70000;
+	--greentext-color: lime;
+	--pinktext-color: magenta;
 }
 
-:root {
-    --bg: #000000;
-    --subject-color: #FF0000;
-    --post-link-color: #FF00FF;
-    --navbar-color: #000000;
-    --link-color: #FFFFFF;
-    --label-color: #000000;
-    --input-color: #FFFFFF;
-    --input-background: #000000;
-    --board-title: #000000;
-    --box-border-color: #000000;
+.spoiler {
+	background: gray;
+	color: azuregray;
+}
+
+.spoiler:not(:hover) * {
+	color: gray;
+	background: gray !important;
+}
+
+.post-info, .post-container:target .post-info, .post-container.highlighted .post-info {
+	background: none !important;
+    border: none !important
+}
+
+@font-face {
+    font-family: VCR OSD Mono;
+    src: url(/css/themes/VCR-OSD-Mono.tff);
 }
 
 * {
@@ -29,6 +63,19 @@ body {
 
 a {
     text-decoration: none !important;
+	color: var(--link-color) !important;
+}
+
+th {
+    text-transform: uppercase;
+}
+
+tr:nth-child(2n) * {
+    color: yellow;
+}
+
+.bold {
+	color: var(--link-color) !important;
 }
 
 .navbar {
@@ -39,6 +86,11 @@ a {
     text-transform: uppercase;
 }
 
+.logo {
+    content: url(/css/themes/marta-teletexto.png);
+    max-width: 500px;
+}
+
 .board-title {
     background-color: black;
     color: white;
@@ -46,40 +98,14 @@ a {
     border: 6px solid red;
     width: 60%;
     margin: auto;
-    letter-spacing: 1em;
+    letter-spacing: 0.5em;
+    padding: 10px;
 }
 
-.post-name,
-.post-date,
-.post-links * {
-    color: yellow;
-}
-
-.container {
-    background-color: black;
-    color: cyan;
-    padding: 20px 0;
-}
-
-.post-container {
-    background-color: black;
-    width: 100%;
-    border: none;
-}
-
-.greentext {
-    color: magenta;
-}
-
-.pages {
+.no-m-p  {
     background-color: blue;
-    color: white;
-    width: 100%;
-    border: none;
-}
-
-.pages > a {
-    color: inherit;
+    color: var(--font-color) !important; 
+    padding: 10px 10px;
 }
 
 .footer {
@@ -94,21 +120,23 @@ a {
 }
 
 .footer a {
-    color: blue;
+    color: blue !important;
     flex: 1;
     text-transform: uppercase;
     font-size: initial;
+	padding: 5px 0;
 }
 
 .footer > div {
     line-break: after;
     color: red;
     font-size: initial;
+    padding: 10px 0;
 }
 
 .footer a:nth-child(4n + 1) {
     background-color: red;
-    color: white;
+    color: white !important;
 }
 
 .footer a:nth-child(4n + 2) {
@@ -121,55 +149,4 @@ a {
 
 .footer a:nth-child(4n + 4) {
     background-color: cyan;
-}
-
-.footer > :not(a):not(div) {
-    display: none;
-}
-
-.stickynav {
-    background-color: #EFEFEF;
-}
-
-.stickynav > .nav-item {
-    color: blue !important; 
-}
-
-table, th {
-    background-color: black;
-}
-
-th {
-    text-transform: uppercase;
-}
-
-tr:nth-child(2n) * {
-    color: yellow;
-}
-
-tr:nth-child(2n + 1) * {
-    color: white;
-}
-
-td {
-    background-color: black !important;
-}
-
-.no-m-p, .no-m-p * {
-    background-color: blue;
-    color: white !important;
-}
-
-.form-wrapper * {
-    background-color: lime !important;
-    color: black !important;
-    border: none;
-}
-
-#postform {
-    border: none;
-}
-
-#actionform, #threadstats, #livetext, .collapse {
-    color: blue;
 }
