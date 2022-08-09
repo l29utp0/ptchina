@@ -327,5 +327,5 @@ select:not(.postmenu),
 
 /* tech marta <3 */
 .logo {
-	content: url(https://ptchan.org/misc/novologoemacs.png);
+	content: url(/misc/novologoemacs.png);
 }
