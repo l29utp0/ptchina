@@ -5,7 +5,7 @@ const { Boards, Accounts } = require(__dirname+'/../../db/')
 	, dynamicResponse = require(__dirname+'/../../lib/misc/dynamic.js')
 	, roleManager = require(__dirname+'/../../lib/permission/rolemanager.js')
 	, uploadDirectory = require(__dirname+'/../../lib/file/uploaddirectory.js')
-	, restrictedURIs = new Set(['captcha', 'forms', 'randombanner', 'all'])
+	, restrictedURIs = new Set(['captcha', 'forms', 'randombanner', 'all', 'b', 'pol'])
 	, { ensureDir } = require('fs-extra')
 	, config = require(__dirname+'/../../lib/misc/config.js');
 
