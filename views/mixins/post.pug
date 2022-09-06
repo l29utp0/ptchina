@@ -111,7 +111,7 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 								if type === 'image'
 									if (board && board.settings.reverseImageSearchLinks === true) || (overboard && overboardReverseLinks === true) || manage || globalmanage
 										|  
-										span: a(href=`${reverseImageLinksURL+meta.url+'/file/'+file.filename}` rel='nofollow' referrerpolicy='same-origin' title='Procura reversa de imagem' target='_blank') ImgOps
+										span: a(href=`${reverseImageLinksURL.replace('%s', (meta.url+'/file/'+file.filename))}` rel='nofollow' referrerpolicy='same-origin' title='Procura reversa de imagem' target='_blank') ImgOps
 									if file.originalFilename.endsWith('-tegaki.png')
 										- const matchingReplayFile = post.files.find(f => f.originalFilename.slice(0, -4) === file.originalFilename.slice(0,-3));
 										if matchingReplayFile !== undefined
