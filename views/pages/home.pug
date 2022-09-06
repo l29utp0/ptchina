@@ -53,7 +53,7 @@ block content
 								if !post.nomarkup && !post.subject
 									| >>>/#{post.board}/#{post.postId}
 						td
-							- const postedDate = new Date(post.date);
+							- const postedDate = new Date(post.bumped);
 							time.right.reltime(datetime=postedDate.toISOString()) #{postedDate.toLocaleString(undefined, {hourCycle:'h23'})}
 	if boards && boards.length > 0
 		+boardtable(true, false)
