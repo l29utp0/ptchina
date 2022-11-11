@@ -20,6 +20,7 @@ API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/)
 - [x] [API documentation](http://fatchan.gitgud.site/jschan-docs/)
 - [x] Built-in webring (compatible w/ [lynxchan](https://gitlab.com/alogware/LynxChanAddon-Webring) & [infinity](https://gitlab.com/Tenicu/infinityaddon-webring))
 - [x] [Tegaki](https://github.com/desuwa/tegaki) applet with drawing and replays
+- [x] Two factor authentication (TOTP) for accounts
 - [x] Manage everything from the web panel
 - [x] Detailed accounts permissions system
 - [x] Works properly with anonymizer networks (Tor, Lokinet, etc)

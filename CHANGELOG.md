@@ -1,3 +1,10 @@
+### 0.10.1
+  - Minor nginx configuration change for twofactor.html.
+
+### 0.10.0
+  - Add account two factor authenticaiton (TOTP).
+  - Update dependencies.
+
 ### 0.9.4
   - Ability to add internal notes to bans. These are only seen by staff and not shown to the banned user.
   - Wordfilter auto bans will set an internal note with which wordfilter was triggered.

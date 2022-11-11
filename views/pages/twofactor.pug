@@ -1,0 +1,26 @@
+extends ../layout.pug
+
+block head
+	title Configuração 2FA
+
+block content
+	.board-header
+		h1.board-title Configuração 2FA
+	.form-wrapper.flex-center.mv-10
+		form.form-post.nogrow(action=`/forms/twofactor` method='POST' enctype='application/x-www-form-urlencoded')
+			input(type='hidden' name='_csrf' value=csrf)
+			
+			h4.mv-5 Usa a câmara do dispositivo na aplicação para detetar o código QR e depois escreve-o:
+			.row
+				span.code.hljs.twofactor.noselect #{qrCodeText}
+			.row
+				h4.no-m-p Sem câmara? Usa este segredo na tua aplicação de autenticação:
+			.row
+				span.code #{secretBase32}
+			.row
+				h4.mv-5.ban Ativar 2FA vai invalidar todas as sessões ativas e terás que fazer login novamente.
+			.row
+				.label Código 2FA
+				input(type='number' name='twofactor' placeholder='6 digitos')
+			.row
+				input(type='submit', value='Enviar')
