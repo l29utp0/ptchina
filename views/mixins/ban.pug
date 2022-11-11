@@ -47,3 +47,8 @@ mixin ban(ban, banpage)
 				| Sem recurso enviado
 			else 
 				| -
+		td
+			if ban.note
+				| #{ban.note}
+			else
+				| -

@@ -10,6 +10,8 @@ block content
 	hr(size=1)
 	h4.no-m-p Geral:
 	ul
+		if !user.twofactor
+			li.bold: a(href='/twofactor.html') Configurar 2FA (TOTP)
 		if permissions.get(Permissions.CREATE_BOARD)
 			li: a(href='/create.html') Criar tábua
 		if permissions.get(Permissions.CREATE_ACCOUNT)
