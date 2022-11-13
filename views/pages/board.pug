@@ -6,7 +6,7 @@ include ../mixins/boardheader.pug
 include ../mixins/announcements.pug
 
 block head
-	title /#{board._id}/ - #{board.settings.name} - page #{page}
+	title /#{board._id}/ - #{board.settings.name} - Página #{page}
 
 block content
 	+boardheader(modview ? 'Mod Index' : null)
