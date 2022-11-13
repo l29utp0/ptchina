@@ -51,6 +51,60 @@ tr:nth-child(2n+1) {
     background: unset;
 }
 
+table,
+.collapse,
+.expand-omitted,
+.catalog-tile,
+.stickynav,
+.form-post,
+.post-button,
+.post-container,
+.pages,
+.modal,
+.rlabel,
+.label,
+.postform-style {
+border-radius: 5px;
+}
+
+img,
+video {
+ border-radius:5px;
+}
+
+
+.user-id {
+ text-shadow:none;
+ color:#fff;
+ padding:1px 5px;
+ border:none;
+ border-radius:5px
+}
+
+.post-date {
+ opacity:.5
+}
+
+#threadstats,
+#action-menu,
+#threadwatcher,
+#actionform,
+#livetext,
+#postform-dragHandle,
+#submitpost,
+#customcss-setting,
+#import-export-setting {
+border-radius: 5px;
+}
+
+input {
+border-radius: 5px!important;
+}
+
+.embed-video {
+border-radius: 5px!important;
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
     --icon-color: invert(17%) sepia(89%) saturate(7057%) hue-rotate(2deg) brightness(93%) contrast(120%);
@@ -85,7 +139,7 @@ tr:nth-child(2n+1) {
 }
 
 table {
-	border: 1px solid var(--box-border-color);
+	border: 1px solid var(--label-color);
 }
 
 tr:nth-child(2n+1) {
