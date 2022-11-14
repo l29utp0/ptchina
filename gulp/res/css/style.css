@@ -1580,10 +1580,22 @@ row.wrap.sb .col {
 	.twofactor {
 		font-size: 50%;
 	}
+
+	.catalog-thumb {
+		max-height: 100px;
+		max-width: 150px;
+	}
+
 	.ct-r2 .catalog-thumb.small {
 		max-width: 32px;
 		max-height: 32px;
 	}
+
+	.catalog-thumb.attachmentimg, .catalog-thumb.audioimg, .catalog-thumb.spoilerimg {
+		height: 100px;
+		width: 100px;
+	}
+
 	.box-wrap .label {
 		flex: unset;
 	}
