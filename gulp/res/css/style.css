@@ -1800,7 +1800,12 @@ row.wrap.sb .col {
 
 
 .catalog-tile:hover {
-    overflow-y: scroll
+    overflow-y: scroll;
+	opacity: .8;
+}
+
+.catalog-tile .post-message {
+	margin-left: 10px;
 }
 
 .customflag,.customflag::before,.flag {
