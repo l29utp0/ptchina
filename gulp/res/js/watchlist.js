@@ -277,3 +277,23 @@ window.addEventListener('settingsReady', () => {
 	threadWatcher.init();
 
 });
+
+/*var xmas = document.querySelector(".centerpiece");
+    if(xmas){
+
+const videos = ["/misc/test123.mp4", "/misc/test456.mp4"];
+
+const randomIndex = Math.floor(Math.random() * videos.length);
+const video = videos[randomIndex];
+
+const videoElement = document.createElement("video");
+videoElement.className = "centerpiece";
+videoElement.src = video;
+videoElement.controls = true;
+videoElement.muted = false;
+videoElement.width = 320;
+
+const divElement = document.querySelector(".centerpiece");
+divElement.parentElement.replaceChild(videoElement, divElement);
+
+}*/

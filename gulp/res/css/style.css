@@ -529,6 +529,10 @@ table {
 	max-width: 50px;
 }
 
+input[name="move_to_board"], input[name="move_to_thread"] {
+	max-width: 80px;
+}
+
 .w900 {
 	width: 900px;
 }
@@ -3379,7 +3383,8 @@ row.wrap.sb .col {
 .centerpiece {
     display: block;
     margin: auto;
-    max-width: 100%
+    max-width: 100%;
+	margin-top: 10px;
 }
 
 span.title {
