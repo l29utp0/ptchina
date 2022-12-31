@@ -35,9 +35,12 @@ details.toggle-label#actionform
 					input#report(type='text', name='report_reason', placeholder='Motivo denúncia' autocomplete='off')
 				label
 					input.post-check(type='checkbox', name='move' value='1')
-					| Mover
-				label
-					input(type='number', name='move_to_thread', placeholder='Fio de destino No.' autocomplete='off')
+					| Move
+				.row
+					label.mr-1
+						input(type='text', name='move_to_board', placeholder='Tábua' autocomplete='off')
+					label
+						input(type='number', name='move_to_thread', placeholder='Fio n.º' autocomplete='off')
 			.col.mr-5
 				label
 					input.post-check(type='checkbox', name='report_ban' value='1')

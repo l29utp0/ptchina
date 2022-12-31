@@ -1,8 +1,6 @@
 # ptchina
 Website: https://ptchan.org/
 
-Matrix: https://matrix.to/#/#ptch:matrix.org
-
 API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/) - Gitgud pages link: http://fatchan.gitgud.site/jschan-docs/#introduction
 
 ## Goals
@@ -42,7 +40,8 @@ Interested in contributing to jschan development? See [CONTRIBUTING.md](CONTRIBU
 
 ## Related Projects
 Here are some other projects related to jschan that you might find useful. **These are not official or otherwise guaranteed to work or be safe and should be used at your own risk.**
- - [myumyu/globalafk](https://gitgud.io/myumyu/globalafk/) - "A simple python script that sends ugly notifications when something happens on a jschan imageboard that you moderate."
+ - [fatchan/jschan-api-go](https://gitgud.io/fatchan/jschan-api-go) - WIP Golang API Client for jschan.
  - [ussaohelcim/jschan-api-sdk](https://github.com/ussaohelcim/jschan-api-sdk) - JavaScript/TypeScript SDK for jschan.
  - [ussaohelcim/jschan-api-types](https://github.com/ussaohelcim/jschan-api-types) - TypeScript typings for jschan API.
+ - [myumyu/globalafk](https://gitgud.io/myumyu/globalafk/) - "A simple python script that sends ugly notifications when something happens on a jschan imageboard that you moderate."
 
