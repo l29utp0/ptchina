@@ -60,7 +60,7 @@
 }
 body {
     font-family: pc-9800;
-    font-size: unset;
+    font-size: 11pt;
     color: var(--font-color);
     background: #a590ce no-repeat;
     background-image: linear-gradient(45deg, #a590ceeb, #a590ceeb), url(/css/themes/digiback.png);
@@ -132,7 +132,6 @@ body {
 .post-message {
   text-align: left;
   font-family: pc-9800;
-  font-size: 12pt;
   padding-top: 5pt;
 }
 
@@ -307,7 +306,7 @@ html, *, .dummy-link, .invalid-quote,#postform-dragHandle,#threadwatcher-dragHan
 .post-file-info {
   text-align: center;
   margin: 2px;
-    margin-top: 2px;
+  margin-top: 2px;
   margin-top: 0;
   width: 100%;
   max-width: var(--thumbnail-size);
@@ -324,4 +323,8 @@ html, *, .dummy-link, .invalid-quote,#postform-dragHandle,#threadwatcher-dragHan
 
 .customflag, .customflag::before, .flag {
     vertical-align: unset;
-  }
+}
+
+input[type="text"] {
+    font-family: pc-9800;
+}
