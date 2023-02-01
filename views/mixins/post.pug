@@ -78,7 +78,7 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 						option(value='ftrip') Filtrar Tripcode
 					if !overboard && !ban
 						option(value='moderate') Denúnciar/Moderar
-					if !ban
+					if !ban && (modview || manage || globalmanage)
 						option(value='edit') Editar
 					if !post.thread
 						option(value='watch') +Favorito

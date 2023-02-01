@@ -3,15 +3,22 @@ extends ../layout.pug
 block head
 	//-script(type='text/javascript', src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.1/video.min.js" integrity="sha512-xT61DWoPRoAa4ir+LqER5L4/zzuO5tQOQywZYqU8BaZVqolq78bRobozDxozcCZ6tmo92zetGVQHRp+sQHIi/g==" crossorigin="anonymous" referrerpolicy="no-referrer")
 	//-link(rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.1/video-js.min.css" integrity="sha512-D/n19dhr+LY8HOoGuybX+bJYsZOFKb0r7YpAWBMPg5Hnke6lxdHl6q21d7qiwIsMgdSnBG9pSMQlwTtZ+6ISmw==" crossorigin="anonymous" referrerpolicy="no-referrer")
-	title Stream 🎥
+	style(type="text/css").
+		#bottom {
+			margin-bottom: 0px;
+		}
+		.footer {
+			line-height: 1;
+		}
+	title Stream 🔴
 
 block content
-	h1.board-title(style='margin-bottom: 10px;') Stream 🎥
 	.streammain
 		//-iframe#viewers(title="viewers" frameBorder="0" marginheight="0" src="https://fatchan.to/viewers/ptchan.txt" allowtransparency="true" scrolling="no" style="position:absolute;top:3rem;right:3;width:5em;height:2rem;z-index:1; background-color:transparent;")
+		//-iframe#video(width="100%" src="https://www.youtube.com/embed/gFRtAAmiFbE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
 		iframe#video(width="100%" src="https://www.youtube.com/embed/live_stream?channel=UCE4LUgl6xKPStO76UZz3B4w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
 		//-video#video(class="video-js vjs-default-skin" width='100%' autoplay controls preload="auto" data-setup='{}')
-		iframe#chat(width="500px" height="900vh" src="https://ptchan.org/s/thread/1990.html#bottom" frameborder="0")
+		iframe#chat(width="500px" height="900vh" src="https://ptchan.org/s/thread/2854.html#bottom" frameborder="0")
 
 		//-script.
 			const viewers = document.getElementById('viewers');
