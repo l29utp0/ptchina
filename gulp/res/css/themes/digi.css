@@ -41,7 +41,7 @@
 .post-container {
     padding: 0.25em;
     max-width: 100%;
-    min-width: 30em;
+    min-width: 100%;
     background: #8570af;
     text-shadow: 1px 1px black;
 }
