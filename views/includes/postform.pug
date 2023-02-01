@@ -11,7 +11,7 @@ section.form-wrapper.flex-center
 		section.row.jsonly
 			.noselect#postform-dragHandle #{isThread ? 'Nova Resposta' : 'Novo Fio'}
 		if board.settings.forceAnon && !modview
-			section.row
+			section.row.soption
 				.label Sage
 				label.postform-style.ph-5
 					input(type='checkbox', name='email', value='sage')
@@ -70,7 +70,7 @@ section.form-wrapper.flex-center
 							input(type='checkbox' name='tegakireplay')
 							| Replay?
 		if board.settings.userPostSpoiler || board.settings.userPostDelete || board.settings.userPostUnlink || modview
-			section.row
+			section.row.spassword
 				.label Password
 				input(type='password', name='postpassword', placeholder='Password para apagar/spoiler/unlink' maxlength='50' autocomplete='new-password')
 		if modview || board.settings.customFlags === true
