@@ -11,7 +11,7 @@ block content
 	
 		table
 			tr
-				th Sobre
+				th #{__('Welcome')}
 			tr
 				td
 					pre.no-m-p
@@ -22,7 +22,7 @@ block content
 		.table-container.flex-center.mv-10
 			table.newstable
 				tr
-					th(colspan=3) Notícias
+					th(colspan=3) #{__('Latest News')}
 				each post in recentNews
 					tr
 						td
@@ -31,7 +31,7 @@ block content
 							p.no-m-p #{`${post.message.raw.substring(0,50)}${post.message.raw.length > 50 ? '...' : ''}`}
 						td
 							- const newsDate = new Date(post.date);
-							time.right.reltime(datetime=newsDate.toISOString()) #{newsDate.toLocaleString(undefined, {hourCycle:'h23'})}
+							time.right.reltime(datetime=newsDate.toISOString()) #{newsDate.toLocaleString(pageLanguage, {hourCycle:'h23'})}
 	if hotThreads && hotThreads.length > 0
 		.table-container.flex-center.mv-10
 			table#hotposts
@@ -39,7 +39,7 @@ block content
 				each post, i in hotThreads
 					tr
 						td.text-center
-							span.help(title=`Quente (${post.score.toFixed(1)})`) 🔥
+							span.help(title=__('Hot Thread (%s)', post.score.toFixed(1))) 🔥
 							|  #{post.replyposts}
 						td 
 							- const threadLink = `/${post.board}/thread/${post.postId}.html#${post.postId}`;
@@ -54,7 +54,7 @@ block content
 									| >>>/#{post.board}/#{post.postId}
 						td
 							- const postedDate = new Date(post.bumped);
-							time.right.reltime(datetime=postedDate.toISOString()) #{postedDate.toLocaleString(undefined, {hourCycle:'h23'})}
+							time.right.reltime(datetime=postedDate.toISOString()) #{postedDate.toLocaleString(pageLanguage, {hourCycle:'h23'})}
 	if boards && boards.length > 0
 		+boardtable(true, false)
 			each board in boards
@@ -62,7 +62,7 @@ block content
 					td 
 						if board.settings.sfw === true
 							span.left
-								span.help(title='SFW') &#x1F4BC;
+								span.help(title=__('SFW')) &#x1F4BC;
 								|  
 						a(href=`/${board._id}/index.html`) /#{board._id}/ - #{board.settings.name}
 					td #{board.settings.description}
@@ -77,22 +77,20 @@ block content
 		.table-container.flex-center.mv-10.text-center
 			table(style='max-width:450px')
 				tr
-					th Informações
+					th #{__('Local Stats')}
 				tr
 					td
 						pre.no-m-p
-							| Existem #[span.bold #{localStats.total-localStats.unlisted}] tábuas públicas, #[span.bold #{localStats.total}] no total. Foram feitas #[span.bold #{localStats.ppd}] publicações#{localStats.ppd === 1 ? ' ' : ''} no último dia, #[span.bold #{localStats.pph}] na última hora, #[span.bold #{localStats.posts}] no total.
-							| #[span.bold #{fileStats.count}] #{fileStats.count === 1 ? '' : ''}Ficheiros #[span.bold #{fileStats.totalSizeString}].
+							| #{__('There are currently %s public boards, %s in total. Sitewide, %s posts have been made in the last day, %s in the last hour, %s in total.', localStats.total-localStats.unlisted, localStats.total, localStats.ppd, localStats.pph, localStats.posts)}
+							| #{__('%s files are being served, totaling %s.', fileStats.count, fileStats.totalSizeString)}
 							| 
 							a(href='http://jieq75a6uwqbj5sjzaxlnd7xwgs35audjmkk4g3gfjwosfrz7cp47xid.onion') 🧅Tor
-							//| 
-							//a(href='http://yg8tt1wnsgmkjxkhm5oxc4h3tgtch1q3yycngx8h8xwg3ef7bjco.loki') Loki
 		if enableWebring === true && webringStats != null
 			.table-container.flex-center.mv-10.text-center
 				table(style='max-width:450px')
 					tr
-						th Webring Stats
+						th #{__('Webring Stats')}
 					tr
 						td
 							pre.no-m-p
-								| There are currently #[span.bold #{webringStats.sites}] sites and #[span.bold #{webringStats.total}] boards in the known webring. Across all webring boards, #[span.bold #{webringStats.pph}] post#{webringStats.pph === 1 ? ' has' : 's have'} been made in the last hour, #[span.bold #{webringStats.posts}] in total.
+								| #{__('There are currently %s sites and %s boards in the known webring. Across all webring boards, %s posts have been made in the last hour, %s in total.', webringStats.sites, webringStats.total, webringStats.pph, webringStats.posts)}

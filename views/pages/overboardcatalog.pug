@@ -4,16 +4,16 @@ include ../mixins/overboardform.pug
 include ../mixins/announcements.pug
 
 block head
-	title Tudo
+	title #{__('Overboard Catalog')}
 
 block content
 	.board-header.mb-5
-		h1.board-title Tudo
-		h4.board-description
+		h1.board-title #{__('Overboard Catalog')}
+		h4.board-description #{__('Recently bumped threads from multiple boards')}
 			|  
-			| [
-			a(href=`/overboard.html?${cacheQueryString}`) Index
-			| ]
+			| (
+			a(href=`/overboard.html?${cacheQueryString}`) #{__('Index View')}
+			| )
 	//-video.centerpiece(width='0', height='0', src='',controls, type='video/mp4')
 	if allowCustomOverboard === true
 		+overboardform('/catalog.html')
@@ -21,15 +21,15 @@ block content
 	include ../includes/stickynav.pug
 	.wrapbar
 		.pages.jsonly
-			input#catalogfilter(type='text' placeholder='Filtrar')
+			input#catalogfilter(type='text' placeholder=__('Filter'))
 			select.ml-5.right#catalogsort
-				option(value="" disabled selected hidden) Ordenar
-				option(value="bump") Bump
-				option(value="date") Criação
-				option(value="replies") Respostas
+				option(value="" disabled selected hidden) #{__('Sort By')}
+				option(value="bump") #{__('Bump Order')}
+				option(value="date") #{__('Creation Date')}
+				option(value="replies") #{__('Reply Count')}
 	hr(size=1)
 	if threads.length === 0
-		p Sem publicações.
+		p #{__('No posts.')}
 	else 
 		.catalog
 			for thread, i in threads

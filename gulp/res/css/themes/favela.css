@@ -1,4 +1,5 @@
-/*tema favela adaptado ao ptchan*/
+/* with love from ptchan */
+
 :root {
     --icon-color: invert(17%) sepia(89%) saturate(7057%) hue-rotate(2deg) brightness(93%) contrast(120%);
     --alt-label-color: #d6f0da;
@@ -132,13 +133,8 @@ video {
 }
 
 body {
-	background: url(/css/themes/favelafundo.jpg) repeat 0 0 azure
+	background: url(/css/themes/assets/favela-bg.jpg) repeat 0 0 azure
 }
-
-/*.centerpiece {
-
-	content: url(/asset/br/5da6fb306dd164cdb229d61642fbd971f288a2fd8409efac82361fadb4c0b978.png);
-  }*/
 
 hr {
     border-top: 1px solid var(--post-color);

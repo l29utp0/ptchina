@@ -2,15 +2,15 @@ mixin boardtable(ppd=false, activity=false, owner=false)
 	.table-container.flex-center.mv-10.text-center
 		table(class=`boardtable${activity ? ' w900' : ''}`)
 			tr
-				th Tábua
+				th #{__('Board')}
 				if owner
-					th Admin
-				th Descrição
-				th PPH
+					th #{__('Owner')}
+				th #{__('Description')}
+				th #{__('PPH')}
 				if ppd
-					th PPD
-				th Utilizadores
-				th Publicações
+					th #{__('PPD')}
+				th #{__('Users')}
+				th #{__('Posts')}
 				if activity
-					th Atividade
+					th #{__('Latest Activity')}
 			block

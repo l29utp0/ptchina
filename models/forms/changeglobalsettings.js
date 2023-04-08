@@ -29,6 +29,7 @@ const { Boards } = require(__dirname+'/../../db/')
 		'codeThemes': ['scripts'],
 		'globalLimits.postFiles.max': ['deletehtml', 'custompages'],
 		'globalLimits.postFilesSize.max': ['deletehtml', 'custompages'],
+		'language': ['deletehtml', 'css', 'scripts', 'custompages'],
 		//these will make it easier to keep updated and include objects where any/all property change needs tasks
 		//basically, it expands to all of globalLimits.fieldLength.* or frontendScriptDefault.*
 		//it could be calculated in compareSettings with *, but im just precompiling it now. probably a tiny bit faster not doing it each time
@@ -39,6 +40,7 @@ const { Boards } = require(__dirname+'/../../db/')
 
 module.exports = async (req, res) => {
 
+	const { __ } = res.locals;
 	const promises = [];
 	const oldSettings = config.get;
 
@@ -65,6 +67,7 @@ module.exports = async (req, res) => {
 			siteName: trimSetting(req.body.meta_site_name, oldSettings.meta.siteName),
 			url: trimSetting(req.body.meta_url, oldSettings.meta.url),
 		},
+		language: trimSetting(req.body.language, oldSettings.language),
 		captchaOptions: {
 			type: trimSetting(req.body.captcha_options_type, oldSettings.captchaOptions.type),
 			generateLimit: numberSetting(req.body.captcha_options_generate_limit, oldSettings.captchaOptions.generateLimit),
@@ -218,6 +221,8 @@ module.exports = async (req, res) => {
 			},
 			postFilesSize: {
 				max: numberSetting(req.body.global_limits_post_files_size_max, oldSettings.globalLimits.postFilesSize.max),
+				imageResolution: numberSetting(req.body.global_limits_post_files_size_image_resolution, oldSettings.globalLimits.postFilesSize.imageResolution),
+				videoResolution: numberSetting(req.body.global_limits_post_files_size_video_resolution, oldSettings.globalLimits.postFilesSize.videoResolution),
 			},
 			bannerFiles: {
 				width: numberSetting(req.body.global_limits_banner_files_width, oldSettings.globalLimits.bannerFiles.width),
@@ -369,8 +374,8 @@ module.exports = async (req, res) => {
 	});
 
 	return dynamicResponse(req, res, 200, 'message', {
-		'title': 'Success',
-		'message': 'Updated settings.',
+		'title': __('Success'),
+		'message': __('Updated settings.'),
 		'redirect': '/globalmanage/settings.html'
 	});
 
