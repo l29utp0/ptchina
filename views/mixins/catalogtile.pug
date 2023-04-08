@@ -38,20 +38,23 @@ mixin catalogtile(post, index, overboard=false)
 					| 
 			a.no-decoration.post-subject(href=postURL) #{post.subject || `#${post.postId}`}
 			| 
-			select.jsonly.postmenu.right
-				option(value='single') Esconder
+			select.jsonly.postmenu
+				option(value='single') #{__('Hide')}
 				if post.subject	
-					option(value='fsub') Filtrar Assunto
+					option(value='fsub') #{__('Filter Subject')}
+				if (modview || manage || globalmanage)
+					option(value='edit') #{__('Edit')}
 				if !overboard
-					option(value='moderate') Moderar
-				option(value='watch') +Favorito
+					option(value='moderate') #{__('Moderate')}
+				option(value='watch') #{__('Watch')}
+				option(value='playlist') #{__('Playlist')}
 			br 
-			span(title='Respostas') R: #{post.replyposts}
+			span(title=__n('Replies', 2)) R: #{post.replyposts}
 			|  / 
-			span(title='Ficheiros') F: #{post.replyfiles + post.files.length}
+			span(title=__n('Files', 2)) F: #{post.replyfiles + post.files.length}
 			if !overboard
 				|  / 
-				span(title='Página') P: #{Math.ceil(index/10)}
+				span(title=__('Page')) P: #{Math.ceil(index/10)}
 		if post.files.length > 0
 			.col
 				.row.ct-r1

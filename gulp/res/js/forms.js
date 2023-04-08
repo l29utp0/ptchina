@@ -1,4 +1,4 @@
-/* globals modal Tegaki grecaptcha hcaptcha captchaController appendLocalStorageArray socket isThread setLocalStorage forceUpdate captchaController uploaditem */
+/* globals __n modal Tegaki grecaptcha hcaptcha captchaController appendLocalStorageArray socket isThread setLocalStorage forceUpdate captchaController uploaditem */
 async function videoThumbnail(file) {
 	return new Promise((resolve, reject) => {
 		const hiddenVideo = document.createElement('video');
@@ -517,9 +517,9 @@ class postFormHandler {
 		if (this.files && this.files.length === 0) {
 			this.fileUploadList.textContent = '';
 			this.fileUploadList.style.display = 'none';
-			this.fileLabelText.nodeValue = `Seleciona/Arrasta/Cola ficheiro${this.multipleFiles ? 's' : ''}`;
+			this.fileLabelText.nodeValue = __n('Select/Drop/Paste files', this.multipleFiles ? 2 : 1);
 		} else {
-			this.fileLabelText.nodeValue = `${this.files.length} ficheiro${this.files.length > 1 ? 's' : ''} selecionado${this.files.length > 1 ? 's' : ''}`;
+			this.fileLabelText.nodeValue =  __n('%s files selected', this.files.length);
 		}
 		this.fileInput.value = null;
 	}

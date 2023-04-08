@@ -1,5 +1,3 @@
-/*dejiko jschan edition*/
-
 :root {
     --icon-color: invert(97%)sepia(32%)saturate(5790%)hue-rotate(318deg)brightness(107%)contrast(93%);
     --alt-label-color: #98E;
@@ -62,7 +60,7 @@ body {
     font-size: 11pt;
     color: var(--font-color);
     background: #a590ce no-repeat;
-    background-image: linear-gradient(45deg, #a590ceeb, #a590ceeb), url(/css/themes/digiback.png);
+    background-image: linear-gradient(45deg, #a590ceeb, #a590ceeb), url(/css/themes/assets/digi-bg1.png);
     background-repeat: no-repeat, repeat, repeat;
     background-position: bottom right,top, bottom;
     background-attachment: fixed, scroll, scroll;
@@ -72,10 +70,10 @@ body {
     min-height: 100vh;
     margin: 0;
 }
-/*clearly, these are fonts*/
+
 @font-face {
   font-family: pc-9800;
-  src: url(/css/themes/pc-9800.ttf);
+  src: url(/css/themes/assets/pc-9800.ttf);
 }
 .board-description {
     text-align: center;
@@ -86,26 +84,9 @@ body {
     font-family: 'pc-9800';
     animation: flip 4s infinite;
 }
-@keyframes shake {
-  0% { transform: skewX(-15deg); }
-  5% { transform: skewX(15deg); }
-  10% { transform: skewX(-15deg); }
-  15% { transform: skewX(15deg); }
-  20% { transform: skewX(0deg); }
-  100% { transform: skewX(0deg); }  
-}
 @keyframes flip {
   0%,80% {transform: rotateY(360deg) 
   }
-}
-@keyframes bounce {
-    70% { transform:translateY(0%); }
-    80% { transform:translateY(-15%); }
-    90% { transform:translateY(0%); }
-    95% { transform:translateY(-7%); }
-    97% { transform:translateY(0%); }
-    99% { transform:translateY(-3%); }
-    100% { transform:translateY(0); }
 }
 
 .board-title {
@@ -167,7 +148,7 @@ body {
     text-shadow: 1px 1px 1px black;
     border: 4px outset #a590ce;
     background-repeat: repeat;
-    background-image: linear-gradient(45deg, #8570afcc, #8570afcc), url(/css/themes/digiback2.png);
+    background-image: linear-gradient(45deg, #8570afcc, #8570afcc), url(/css/themes/assets/digi-bg2.png);
 }
 
 #postform, #threadwatcher {
@@ -252,7 +233,6 @@ option {
 
 .you:after {
     margin-left: 3px;
-    content: '(Me)';
     font-weight: lighter;
     font-style: italic;
 }
@@ -300,7 +280,7 @@ table {
 }
 
 html, *, .dummy-link, .invalid-quote,#postform-dragHandle,#threadwatcher-dragHandle,  th { 
-  cursor: url(/css/themes/digicursor.png), default; 
+  cursor: url(/css/themes/assets/digi-cursor.png), default; 
 }
 
 .post-file-info {
@@ -327,9 +307,4 @@ html, *, .dummy-link, .invalid-quote,#postform-dragHandle,#threadwatcher-dragHan
 
 input[type="text"] {
     font-family: pc-9800;
-}
-
-@media only screen and (max-width:600px) {
-
-	
 }

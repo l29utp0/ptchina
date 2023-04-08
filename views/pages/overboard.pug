@@ -4,25 +4,26 @@ include ../mixins/overboardform.pug
 include ../mixins/announcements.pug
 
 block head
-	title Tudo
+	title #{__('Overboard Index')}
 
 block content
 	.board-header
-		h1.board-title Tudo
-		h4.board-description
+		h1.board-title #{__('Overboard Index')}
+		h4.board-description #{__('Recently bumped threads from multiple boards')}
 			|  
 			| [
-			a(href=`/catalog.html?${cacheQueryString}`) Catálogo
+			a(href=`/catalog.html?${cacheQueryString}`) #{__('Catalog View')}
 			| ]
 	//-video.centerpiece(width='0', height='0', src='',controls, type='video/mp4')
+	include ../includes/stickynav.pug
 	if allowCustomOverboard === true
 		+overboardform('/overboard.html')
 	+announcements(true, true, false)
 	hr(size=1)
 	if threads.length === 0
-		p Sem publicações.
+		p #{__('No posts.')}
 	for thread in threads
-		h4.no-m-p Fio do #[a(href=`/${thread.board}/index.html`) /#{thread.board}/]
+		h4.no-m-p #{__('Thread from')} #[a(href=`/${thread.board}/index.html`) /#{thread.board}/]
 		.thread
 			+post(thread, true, false, false, false, true)
 			for post in thread.replies

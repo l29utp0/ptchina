@@ -16,11 +16,12 @@ const { createHash, randomBytes } = require('crypto')
 	, moveUpload = require(__dirname+'/../../lib/file/moveupload.js')
 	, mimeTypes = require(__dirname+'/../../lib/file/mimetypes.js')
 	, imageThumbnail = require(__dirname+'/../../lib/file/image/imagethumbnail.js')
-	, imageIdentify = require(__dirname+'/../../lib/file/image/imageidentify.js')
+	, getDimensions = require(__dirname+'/../../lib/file/image/getdimensions.js')
 	, videoThumbnail = require(__dirname+'/../../lib/file/video/videothumbnail.js')
 	, audioThumbnail = require(__dirname+'/../../lib/file/audio/audiothumbnail.js')
 	, ffprobe = require(__dirname+'/../../lib/file/ffprobe.js')
 	, formatSize = require(__dirname+'/../../lib/converter/formatsize.js')
+	, { getCountryName } = require(__dirname+'/../../lib/misc/countries.js')
 	, deleteTempFiles = require(__dirname+'/../../lib/file/deletetempfiles.js')
 	, fixGifs = require(__dirname+'/../../lib/file/image/fixgifs.js')
 	, timeUtils = require(__dirname+'/../../lib/converter/timeutils.js')
@@ -35,16 +36,17 @@ const { createHash, randomBytes } = require('crypto')
 
 module.exports = async (req, res) => {
 
+	const { __ } = res.locals;
 	const { filterBanAppealable, checkRealMimeTypes, thumbSize, thumbExtension, videoThumbPercentage,
-		strictFiltering, animatedGifThumbnails, audioThumbnails, dontStoreRawIps } = config.get;
+		strictFiltering, animatedGifThumbnails, audioThumbnails, dontStoreRawIps, globalLimits } = config.get;
 
 	//spam/flood check
 	const flood = await spamCheck(req, res);
 	if (flood) {
 		deleteTempFiles(req).catch(console.error);
 		return dynamicResponse(req, res, 429, 'message', {
-			'title': 'Flood detected',
-			'message': 'Please wait before making another post, or a post similar to another user',
+			'title': __('Flood detected'),
+			'message': __('Please wait before making another post, or a post similar to another user'),
 			'redirect': `/${req.params.board}${req.body.thread ? '/thread/' + req.body.thread + '.html' : ''}`
 		});
 	}
@@ -64,8 +66,8 @@ module.exports = async (req, res) => {
 		&& blockedCountries.includes(res.locals.country.code)) {
 		await deleteTempFiles(req).catch(console.error);
 		return dynamicResponse(req, res, 403, 'message', {
-			'title': 'Forbidden',
-			'message': `Your country "${res.locals.country.name}" is not allowed to post on this board`,
+			'title': __('Forbidden'),
+			'message': __('Your country "%s" is not allowed to post on this board'. getCountryName(res.locals.country.code, res.locals.locale)),
 			'redirect': redirect
 		});
 	}
@@ -73,8 +75,8 @@ module.exports = async (req, res) => {
 		&& !isStaffOrGlobal) { //and not staff
 		await deleteTempFiles(req).catch(console.error);
 		return dynamicResponse(req, res, 400, 'message', {
-			'title': 'Bad request',
-			'message': lockMode === 1 ? 'Thread creation locked' : 'Board locked',
+			'title': __('Bad request'),
+			'message': __(lockMode === 1 ? 'Thread creation locked' : 'Board locked'),
 			'redirect': redirect
 		});
 	}
@@ -83,8 +85,8 @@ module.exports = async (req, res) => {
 		if (!thread || thread.thread != null) {
 			await deleteTempFiles(req).catch(console.error);
 			return dynamicResponse(req, res, 400, 'message', {
-				'title': 'Bad request',
-				'message': 'Thread does not exist',
+				'title': __('Bad request'),
+				'message': __('Thread does not exist'),
 				'redirect': redirect
 			});
 		}
@@ -93,16 +95,16 @@ module.exports = async (req, res) => {
 		if (thread.locked && !isStaffOrGlobal) {
 			await deleteTempFiles(req).catch(console.error);
 			return dynamicResponse(req, res, 400, 'message', {
-				'title': 'Bad request',
-				'message': 'Thread Locked',
+				'title': __('Bad request'),
+				'message': __('Thread locked'),
 				'redirect': redirect
 			});
 		}
 		if (thread.replyposts >= replyLimit && !thread.cyclic) { //reply limit
 			await deleteTempFiles(req).catch(console.error);
 			return dynamicResponse(req, res, 400, 'message', {
-				'title': 'Bad request',
-				'message': 'Thread reached reply limit',
+				'title': __('Bad request'),
+				'message': __('Thread reached reply limit'),
 				'redirect': redirect
 			});
 		}
@@ -150,8 +152,8 @@ module.exports = async (req, res) => {
 			if (postWithExistingMessage != null) {
 				await deleteTempFiles(req).catch(console.error);
 				return dynamicResponse(req, res, 409, 'message', {
-					'title': 'Conflict',
-					'message': `Messages must be unique ${messageR9KMode === 1 ? 'in this thread' : 'on this board'}. Your message is not unique.`,
+					'title': __('Conflict'),
+					'message': __(`Messages must be unique ${messageR9KMode === 1 ? 'in this thread' : 'on this board'}. Your message is not unique.`),
 					'redirect': redirect
 				});
 			}
@@ -172,10 +174,15 @@ module.exports = async (req, res) => {
 					.filter(f => postWithExistingFiles.files.some(fx => fx.hash === f.sha256))
 					.map(f => f.name)
 					.join(', ');
+				const r9kFilesMessage = __(`Uploaded files must be unique ${fileR9KMode === 1 ? 'in this thread' : 'on this board'}.`)
+					+ '\n'
+					+ conflictingFiles.length > 1 //slightly gross but __mf() is more so
+					? __('At least the following file is not unique: %s', conflictingFiles)
+					: __('At least the following files are not unique: %s', conflictingFiles);
 				return dynamicResponse(req, res, 409, 'message', {
 					'title': 'Conflict',
-					'message': `Uploaded files must be unique ${fileR9KMode === 1 ? 'in this thread' : 'on this board'}.\nAt least the following file${conflictingFiles.length > 1 ? 's are': ' is'} not unique: ${conflictingFiles}`,
-					'redirect': redirect
+					'message': r9kFilesMessage,
+					'redirect': redirect,
 				});
 			}
 		}
@@ -185,8 +192,8 @@ module.exports = async (req, res) => {
 			if (!mimeTypes.allowed(req.files.file[i].mimetype, allowedFileTypes)) {
 				await deleteTempFiles(req).catch(console.error);
 				return dynamicResponse(req, res, 400, 'message', {
-					'title': 'Bad request',
-					'message': `Mime type "${req.files.file[i].mimetype}" for "${req.files.file[i].name}" not allowed`,
+					'title': __('Bad request'),
+					'message': __('Mime type "%s" for "%s" not allowed', req.files.file[i].mimetype, req.files.file[i].name),
 					'redirect': redirect
 				});
 			}
@@ -198,8 +205,10 @@ module.exports = async (req, res) => {
 				if (!(await mimeTypes.realMimeCheck(req.files.file[i]))) {
 					deleteTempFiles(req).catch(console.error);
 					return dynamicResponse(req, res, 400, 'message', {
-						'title': 'Bad request',
-						'message': `Mime type ${req.files.file[i].realMimetype ? '"' + req.files.file[i].realMimetype + '" ' : ''}invalid for file "${req.files.file[i].name}"`,
+						'title': __('Bad request'),
+						'message': req.files.file[i].realMimetype
+							? __('Mime type "%s" invalid for file "%s"', req.files.file[i].realMimetype, req.files.file[i].name)
+							: __('Mime type invalid for file "%s"', req.files.file[i].name),
 						'redirect': redirect
 					});
 				}
@@ -249,27 +258,31 @@ module.exports = async (req, res) => {
 				switch (type) {
 					case 'image': {
 						processedFile.thumbextension = thumbExtension;
-						///detect images with opacity for PNG thumbnails, set thumbextension before increment
-						let imageData;
+						let imageDimensions;
 						try {
-							imageData = await imageIdentify(req.files.file[i].tempFilePath, null, true);
+							imageDimensions = await getDimensions(req.files.file[i].tempFilePath, null, true);
 						} catch (e) {
 							await deleteTempFiles(req).catch(console.error);
 							return dynamicResponse(req, res, 400, 'message', {
-								'title': 'Bad request',
-								'message': `The server failed to process "${req.files.file[i].name}". Possible unsupported or corrupt file.`,
+								'title': __('Bad request'),
+								'message': __('The server failed to process "%s". Possible unsupported or corrupt file.', req.files.file[i].name),
 								'redirect': redirect
 							});
 						}
-						if (imageData['Channel Statistics'] && imageData['Channel Statistics']['Opacity']) {
-							//does this depend on GM version or anything?
-							const opacityMaximum = imageData['Channel Statistics']['Opacity']['Maximum'];
-							if (opacityMaximum !== '0.00 (0.0000)') {
-								processedFile.thumbextension = '.png';
-							}
+						if (Math.floor(imageDimensions.width*imageDimensions.height) > globalLimits.postFilesSize.imageResolution) {
+							await deleteTempFiles(req).catch(console.error);
+							return dynamicResponse(req, res, 400, 'message', {
+								'title': 'Bad request',
+								'message': `File "${req.files.file[i].name}" image resolution is too high. Width*Height must not exceed ${globalLimits.postFilesSize.imageResolution}.`,
+								'redirect': redirect
+							});
 						}
-						processedFile.geometry = imageData.size;
-						processedFile.geometryString = imageData.Geometry;
+						if (thumbExtension === '.jpg' && subtype === 'png') {
+							//avoid transparency issues for jpg thumbnails on pngs (the most common case -- for anything else, use webp thumbExtension)
+							processedFile.thumbextension = '.png';
+						}
+						processedFile.geometry = imageDimensions;
+						processedFile.geometryString = `${imageDimensions.width}x${imageDimensions.height}`;
 						const lteThumbSize = (processedFile.geometry.height <= thumbSize
 							&& processedFile.geometry.width <= thumbSize);
 						processedFile.hasThumb = !(mimeTypes.allowed(file.mimetype, {image: true})
@@ -278,8 +291,6 @@ module.exports = async (req, res) => {
 						let firstFrameOnly = true;
 						if (processedFile.hasThumb //if it needs thumbnailing
 							&& (file.mimetype === 'image/gif' //and its a gif
-//								&& !lteThumbSize //and its big enough -> why was this a thing originally?
-								&& (imageData['Delay'] != null || imageData['Iterations'] != null) //and its not a static gif (naive check)
 								&& animatedGifThumbnails === true)) { //and animated thumbnails for gifs are enabled
 							firstFrameOnly = false;
 							processedFile.thumbextension = '.gif';
@@ -301,6 +312,14 @@ module.exports = async (req, res) => {
 						if (videoStreams.length > 0) {
 							processedFile.thumbextension = thumbExtension;
 							processedFile.geometry = {width: videoStreams[0].coded_width, height: videoStreams[0].coded_height};
+							if (Math.floor(processedFile.geometry.width*processedFile.geometry.height) > globalLimits.postFilesSize.videoResolution) {
+								await deleteTempFiles(req).catch(console.error);
+								return dynamicResponse(req, res, 400, 'message', {
+									'title': 'Bad request',
+									'message': `File "${req.files.file[i].name}" video resolution is too high. Width*Height must not exceed ${globalLimits.postFilesSize.videoResolution}.`,
+									'redirect': redirect
+								});
+							}
 							processedFile.geometryString = `${processedFile.geometry.width}x${processedFile.geometry.height}`;
 							processedFile.hasThumb = true;
 							await saveFull();
@@ -336,7 +355,7 @@ module.exports = async (req, res) => {
 						break;
 					}
 					default:
-						throw new Error(`invalid file mime type: ${processedFile.mimetype}`);
+						throw new Error(__('invalid file mime type: %s', processedFile.mimetype));
 				}
 			}
 
@@ -372,7 +391,10 @@ module.exports = async (req, res) => {
 	}
 	let country = null;
 	if (geoFlags === true) {
-		country = res.locals.country;
+		country = {
+			code: res.locals.country.code,
+			name: getCountryName(res.locals.country.code, res.locals.locale),
+		};
 	}
 	if (customFlags === true) {
 		if (req.body.customflag && res.locals.board.flags[req.body.customflag] != null) {
@@ -399,8 +421,15 @@ module.exports = async (req, res) => {
 	let subject = (!isStaffOrGlobal && req.body.thread && disableReplySubject) ? null : req.body.subject;
 
 	//get name, trip and cap
-	const { name, tripcode, capcode } = await nameHandler(req.body.name, res.locals.permissions,
-		res.locals.board.settings, res.locals.board.owner, res.locals.board.staff, res.locals.user ? res.locals.user.username : null);
+	const { name, tripcode, capcode } = await nameHandler(
+		req.body.name,
+		res.locals.permissions,
+		res.locals.board.settings,
+		res.locals.board.owner,
+		res.locals.board.staff,
+		res.locals.user ? res.locals.user.username : null,
+		__ //i18n translation local
+	);
 	//get message, quotes and crossquote array
 	const nomarkup = prepareMarkdown(req.body.message, true);
 	const { message, quotes, crossquotes } = await messageHandler(nomarkup, req.params.board, req.body.thread, res.locals.permissions);
@@ -505,7 +534,7 @@ module.exports = async (req, res) => {
 			'postId': -1,
 		}).skip(replyLimit).toArray();
 		if (cyclicOverflowPosts.length > 0) {
-			await deletePosts(cyclicOverflowPosts, req.params.board);
+			await deletePosts(cyclicOverflowPosts, req.params.board, res.locals);
 			const fileCount = cyclicOverflowPosts.reduce((acc, post) => {
 				return acc + (post.files ? post.files.length : 0);
 			}, 0);
@@ -589,14 +618,14 @@ module.exports = async (req, res) => {
 		//dont emit thread to this socket, because the room only exists when the thread is open
 		Socketio.emitRoom(`${res.locals.board._id}-${data.thread}`, 'newPost', projectedPost);
 	}
-	const { raw, cloak } = data.ip;
+	const { raw, cloak, type } = data.ip;
 	//but emit it to manage pages because they need to get all posts through socket including thread
-	Socketio.emitRoom('globalmanage-recent-hashed', 'newPost', { ...projectedPost, ip: { cloak, raw: null } });
-	Socketio.emitRoom(`${res.locals.board._id}-manage-recent-hashed`, 'newPost', { ...projectedPost, ip: { cloak, raw: null } });
+	Socketio.emitRoom('globalmanage-recent-hashed', 'newPost', { ...projectedPost, ip: { cloak, raw: null, type } });
+	Socketio.emitRoom(`${res.locals.board._id}-manage-recent-hashed`, 'newPost', { ...projectedPost, ip: { cloak, raw: null, type } });
 	if (!dontStoreRawIps) {
         //no need to emit to these rooms if raw IPs are not stored
-		Socketio.emitRoom('globalmanage-recent-raw', 'newPost', { ...projectedPost, ip: { cloak, raw } });
-		Socketio.emitRoom(`${res.locals.board._id}-manage-recent-raw`, 'newPost', { ...projectedPost, ip: { cloak, raw } });
+		Socketio.emitRoom('globalmanage-recent-raw', 'newPost', { ...projectedPost, ip: { cloak, raw, type } });
+		Socketio.emitRoom(`${res.locals.board._id}-manage-recent-raw`, 'newPost', { ...projectedPost, ip: { cloak, raw, type } });
 	}
 
 	//now add other pages to be built in background
@@ -640,7 +669,7 @@ module.exports = async (req, res) => {
 		//new thread, prunes any old threads before rebuilds
 		const prunedThreads = await Posts.pruneThreads(res.locals.board);
 		if (prunedThreads.length > 0) {
-			await deletePosts(prunedThreads, req.params.board);
+			await deletePosts(prunedThreads, req.params.board, res.locals);
 		}
 		if (!enableCaptcha) {
 			const endPage = Math.ceil(threadLimit/10);
