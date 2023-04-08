@@ -37,24 +37,38 @@ block content
 			table#hotposts
 				tr(colspan=3) 
 				each post, i in hotThreads
-					tr
+					tr.catalog-tile(style='height:100px')
 						td.text-center
-							span.help(title=__('Hot Thread (%s)', post.score.toFixed(1))) 🔥
+							a(href=`/${post.board}/index.html`) /#{post.board}/
+							p
+								span.help(title=__('Hot Thread (%s)', post.score.toFixed(1))) 🔥
 							|  #{post.replyposts}
-						td 
+						td
+							if post.files.length > 0
+								.post-files
+									- const file = post.files[0]
+									- const type = file.mimetype.split('/')[0]
+									if post.spoiler || file.spoiler
+										a(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`)
+											div.spoilerimg.file-thumb(style='height:100px; width: 100px')
+									else if file.hasThumb
+										a(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`)
+											img.file-thumb(src=`/file/thumb/${file.hash}${file.thumbextension}` height='100' width='100' loading='lazy' style='object-fit:cover')
+									else if file.attachment
+										div.attachmentimg.file-thumb(data-mimetype=file.mimetype)
+									else if type === 'audio'
+										div.audioimg.file-thumb
+						td(style='text-align: left')
 							- const threadLink = `/${post.board}/thread/${post.postId}.html#${post.postId}`;
-							a.quote(href=threadLink)
+							a(href=threadLink)
 								if post.subject
-									| #{post.subject.substring(0,30)}#{post.subject.length > 30 ? '...' : ''}
+									| #{post.subject.substring(0,100)}#{post.subject.length > 100 ? '...' : ''}
 									if post.nomarkup
 										|  - 
 								if post.nomarkup
-									| #{post.nomarkup.substring(0,40)}#{post.nomarkup.length > 40 ? '...' : ''}
+									| #{post.nomarkup.substring(0,300)}#{post.nomarkup.length > 300 ? '...' : ''}
 								if !post.nomarkup && !post.subject
 									| >>>/#{post.board}/#{post.postId}
-						td
-							- const postedDate = new Date(post.bumped);
-							time.right.reltime(datetime=postedDate.toISOString()) #{postedDate.toLocaleString(pageLanguage, {hourCycle:'h23'})}
 	if boards && boards.length > 0
 		+boardtable(true, false)
 			each board in boards
