@@ -1664,10 +1664,6 @@ row.wrap.sb .col {
         float: right;
         min-height: 0.5em;
     }
-
-	#hotposts td:nth-child(3) {
-		display: none;
-	}
 	
 	#settings::after {
 		content: "\2699"!important;
@@ -2031,7 +2027,7 @@ row.wrap.sb .col {
 }
 
 .flag.flag-nl {
-    background: url(/file/flags/nl.png) no-repeat;
+    background: url(/file/flags/nl.gif) no-repeat;
     width: 17px;
     height: 16px
 }
@@ -2777,7 +2773,7 @@ row.wrap.sb .col {
 }
 
 .flag.flag-jp {
-    background: url(/file/flags/jp.png) no-repeat;
+    background: url(/file/flags/jp.gif) no-repeat;
     width: 17px;
     height: 14px
 }

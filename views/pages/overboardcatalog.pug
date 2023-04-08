@@ -11,9 +11,9 @@ block content
 		h1.board-title #{__('Overboard Catalog')}
 		h4.board-description #{__('Recently bumped threads from multiple boards')}
 			|  
-			| (
+			| [
 			a(href=`/overboard.html?${cacheQueryString}`) #{__('Index View')}
-			| )
+			| ]
 	//-video.centerpiece(width='0', height='0', src='',controls, type='video/mp4')
 	if allowCustomOverboard === true
 		+overboardform('/catalog.html')
