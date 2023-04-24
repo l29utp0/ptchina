@@ -421,7 +421,7 @@ module.exports = async (req, res) => {
 	let subject = (!isStaffOrGlobal && req.body.thread && disableReplySubject) ? null : req.body.subject;
 
 	//get name, trip and cap
-	const { name, tripcode, capcode } = await nameHandler(
+	const { name, tripcode, capcode, donor } = await nameHandler(
 		req.body.name,
 		res.locals.permissions,
 		res.locals.board.settings,
@@ -444,6 +444,7 @@ module.exports = async (req, res) => {
 		'board': req.params.board,
 		tripcode,
 		capcode,
+		donor,
 		subject,
 		'message': message || null,
 		'messagehash': messageHash || null,
@@ -593,6 +594,7 @@ module.exports = async (req, res) => {
 		'board': req.params.board,
 		'tripcode': data.tripcode,
 		'capcode': data.capcode,
+		'donor': data.donor,
 		'subject': data.subject,
 		'message': data.message,
 		'nomarkup': data.nomarkup,

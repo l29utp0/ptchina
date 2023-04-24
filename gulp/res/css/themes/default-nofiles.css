@@ -128,3 +128,6 @@ tr:nth-child(2n+1) {
 .board-banner{
 	display:none;
 }
+.file-thumb {
+    display:none;
+   }
