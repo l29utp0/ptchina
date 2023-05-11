@@ -20,6 +20,7 @@
 	--capcode-color: #f00;
 	--subject-color: #c33;
 	--link-color: black;
+	--accent-color: #c5c8c6;
 	--post-link-color: darkblue;
 	--link-hover: #313370;
 	--input-borders: #d2d2d2;
@@ -127,6 +128,7 @@ border-radius: 5px!important;
     --capcode-color: #f00;
     --subject-color: #b294bb;
     --link-color: #c5c8c6;
+	--accent-color: #c5c8c6;
     --post-link-color: #5f89ac;
     --link-hover: #81a2be;
     --input-borders: #111;
