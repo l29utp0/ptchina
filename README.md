@@ -11,12 +11,12 @@ API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/)
 - Simple static file serving
 
 ## Features
-- [x] Multiple language support (en-GB, pt-PT, ru-RU included)
+- [x] Multiple language support (en-GB, pt-PT, pt-BR, ru-RU included)
 - [x] Optional user created boards ala [infinity](https://github.com/ctrlcctrlv/infinity)
 - [x] Multiple files per post
 - [x] [Tegaki](https://github.com/desuwa/tegaki) applet with drawing and replays
 - [x] Antispam/Anti-flood & DNSBL
-- [x] 3 customisable inbuilt captchas + 2 third party captchas (hcaptcha & recaptcha)
+- [x] 3 customisable inbuilt captchas + 3 third party captchas (hcaptcha, recaptcha, yandex smartcaptcha)
 - [x] [API documentation](https://fatchan.gitgud.site/jschan-docs/)
 - [x] Built-in webring (compatible w/ [lynxchan](https://gitlab.com/alogware/LynxChanAddon-Webring) & [infinity](https://gitlab.com/Tenicu/infinityaddon-webring))
 - [x] Two factor authentication (TOTP) for accounts
