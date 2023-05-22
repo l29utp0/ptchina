@@ -47,7 +47,7 @@
 
 @font-face {
     font-family: VCR OSD Mono;
-    src: url(/css/themes/VCR-OSD-Mono.ttf);
+    src: url(/css/themes/assets/VCR-OSD-Mono.ttf);
 }
 
 * {
@@ -87,7 +87,7 @@ tr:nth-child(2n) * {
 }
 
 .logo {
-    content: url(/css/themes/marta-teletexto.png);
+    content: url(/css/themes/assets/marta-teletexto.png);
     max-width: 500px;
 }
 
