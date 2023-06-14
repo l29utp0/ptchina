@@ -1872,7 +1872,7 @@ row.wrap.sb .col {
 }
 
 .flag.flag-t1,.flag.flag-tor {
-    background: url(/file/flags/onion.png) no-repeat;
+    background: url(/file/flags/onion.gif) no-repeat;
     width: 14px;
     height: 19px
 }
