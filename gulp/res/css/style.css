@@ -3632,3 +3632,7 @@ span.sorte {
 .donorbadge {
 	vertical-align: middle;
 }
+
+#hotposts a {
+	text-decoration:none;
+}
