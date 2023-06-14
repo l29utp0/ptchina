@@ -3633,6 +3633,6 @@ span.sorte {
 	vertical-align: middle;
 }
 
-#hotposts a {
+#hotposts td:last-child a {
 	text-decoration:none;
 }
