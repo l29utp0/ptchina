@@ -42,7 +42,7 @@ block content
 							a(href=`/${post.board}/index.html`) /#{post.board}/
 							p
 								span.help(title=__('Hot Thread (%s)', post.score.toFixed(1))) 🔥
-							|  #{post.replyposts}
+							|  #{post.score.toFixed(0)}
 						td
 							if post.files.length > 0
 								.post-files
