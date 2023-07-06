@@ -69,7 +69,7 @@ a:active, a:hover {
 	outline-width: 0;
 }
 .captcha {
-	filter: invert(90%) sepia(100%) saturate(100) hue-rotate(194deg);
+	filter: invert(90%) sepia(30%) saturate(10) hue-rotate(194deg);
 }
 
 /*.centerpiece {
