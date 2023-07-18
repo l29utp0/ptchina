@@ -552,6 +552,9 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`!${paths.scripts.src}/catalog.js`,
 		`!${paths.scripts.src}/time.js`,
 		`!${paths.scripts.src}/timezone.js`,
+		`!${paths.scripts.src}/ptchina-playlist.js`,
+		`!${paths.scripts.src}/cookie.js`,
+		`!${paths.scripts.src}/cookieconsent.js`,
 	])
 		.pipe(concat('all.js'))
 		.pipe(uglify({compress:true}))
