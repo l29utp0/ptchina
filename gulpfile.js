@@ -555,6 +555,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`!${paths.scripts.src}/ptchina-playlist.js`,
 		`!${paths.scripts.src}/cookie.js`,
 		`!${paths.scripts.src}/cookieconsent.js`,
+		`!${paths.scripts.src}/boardads.js`,
 	])
 		.pipe(concat('all.js'))
 		.pipe(uglify({compress:true}))
@@ -570,6 +571,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`${paths.scripts.src}/watchlist.js`,
 		`${paths.scripts.src}/catalog.js`,
 		`${paths.scripts.src}/time.js`,
+		`${paths.scripts.src}/boardads.js`,
 	])
 		.pipe(concat('render.js'))
 		.pipe(uglify({compress:true}))
