@@ -19,6 +19,10 @@ const imageItems = [
         filename: "intad.png",
         link: "/int"
       },
+      {
+        filename: "pnad.gif",
+        link: "/pn"
+      },
   ];
   
   function getRandomIndex(max) {
