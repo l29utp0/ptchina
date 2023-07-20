@@ -69,7 +69,7 @@ block content
 									| #{post.nomarkup.substring(0,300)}#{post.nomarkup.length > 300 ? '...' : ''}
 								if !post.nomarkup && !post.subject
 									| >>>/#{post.board}/#{post.postId}
-	if boards && boards.length > 0
+	//-if boards && boards.length > 0
 		+boardtable(true, false)
 			each board in boards
 				tr
@@ -88,23 +88,23 @@ block content
 				tr
 					td(colspan=6)
 						a.bold(href='/boards.html') Mais tábuas
+	.table-container.flex-center.mv-10.text-center
+		table(style='max-width:450px')
+			tr
+				th #{__('Local Stats')}
+			tr
+				td
+					pre.no-m-p
+						| #{__('There are currently %s public boards, %s in total. Sitewide, %s posts have been made in the last day, %s in the last hour, %s in total.', localStats.total-localStats.unlisted, localStats.total, localStats.ppd, localStats.pph, localStats.posts)}
+						| #{__('%s files are being served, totaling %s.', fileStats.count, fileStats.totalSizeString)}
+						| 
+						a(href='http://jieq75a6uwqbj5sjzaxlnd7xwgs35audjmkk4g3gfjwosfrz7cp47xid.onion') 🧅Tor
+	if enableWebring === true && webringStats != null
 		.table-container.flex-center.mv-10.text-center
 			table(style='max-width:450px')
 				tr
-					th #{__('Local Stats')}
+					th #{__('Webring Stats')}
 				tr
 					td
 						pre.no-m-p
-							| #{__('There are currently %s public boards, %s in total. Sitewide, %s posts have been made in the last day, %s in the last hour, %s in total.', localStats.total-localStats.unlisted, localStats.total, localStats.ppd, localStats.pph, localStats.posts)}
-							| #{__('%s files are being served, totaling %s.', fileStats.count, fileStats.totalSizeString)}
-							| 
-							a(href='http://jieq75a6uwqbj5sjzaxlnd7xwgs35audjmkk4g3gfjwosfrz7cp47xid.onion') 🧅Tor
-		if enableWebring === true && webringStats != null
-			.table-container.flex-center.mv-10.text-center
-				table(style='max-width:450px')
-					tr
-						th #{__('Webring Stats')}
-					tr
-						td
-							pre.no-m-p
-								| #{__('There are currently %s sites and %s boards in the known webring. Across all webring boards, %s posts have been made in the last hour, %s in total.', webringStats.sites, webringStats.total, webringStats.pph, webringStats.posts)}
+							| #{__('There are currently %s sites and %s boards in the known webring. Across all webring boards, %s posts have been made in the last hour, %s in total.', webringStats.sites, webringStats.total, webringStats.pph, webringStats.posts)}
