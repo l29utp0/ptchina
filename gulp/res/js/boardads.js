@@ -1,36 +1,36 @@
 const imageItems = [
 	{
-	  filename: "iad.png",
+	  filename: "iad.gif",
 	  link: "/i"
 	},
 	{
-	  filename: "nad.png",
+	  filename: "nad.gif",
 	  link: "/n"
 	},
 	{
-	  filename: "vad.png",
+	  filename: "vad.gif",
 	  link: "/v"
 	},
 	{
-        filename: "nbrad.png",
-        link: "/nbr"
-      },
-      {
-        filename: "intad.png",
-        link: "/int"
-      },
-      {
-        filename: "pnad.gif",
-        link: "/pn"
-      },
-      {
-        filename: "desad.gif",
-        link: "/des"
-      },
-      {
-        filename: "cybad.gif",
-        link: "/cyb"
-      },
+    filename: "nbrad.png",
+    link: "/nbr"
+  },
+  {
+    filename: "intad.gif",
+    link: "/int"
+  },
+  {
+    filename: "pnad.gif",
+    link: "/pn"
+  },
+  {
+    filename: "desad.gif",
+    link: "/des"
+  },
+  {
+    filename: "cybad.gif",
+    link: "/cyb"
+  },
   ];
   
   function getRandomIndex(max) {
