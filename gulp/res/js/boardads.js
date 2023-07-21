@@ -11,10 +11,6 @@ const imageItems = [
 	  filename: "vad.gif",
 	  link: "/v"
 	},
-	{
-    filename: "nbrad.png",
-    link: "/nbr"
-  },
   {
     filename: "intad.gif",
     link: "/int"
@@ -39,7 +35,10 @@ const imageItems = [
     filename: "metad.gif",
     link: "/meta"
   },
-  
+  {
+    filename: "nbrad.gif",
+    link: "/nbr"
+  },
   ];
   
   function getRandomIndex(max) {
