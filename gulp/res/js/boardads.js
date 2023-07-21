@@ -36,9 +36,10 @@ const imageItems = [
     link: "/a"
   },
   {
-    filename: "metaad.gif",
+    filename: "metad.gif",
     link: "/meta"
   },
+  
   ];
   
   function getRandomIndex(max) {
