@@ -31,6 +31,10 @@ const imageItems = [
     filename: "cybad.gif",
     link: "/cyb"
   },
+  {
+    filename: "aad.gif",
+    link: "/a"
+  },
   ];
   
   function getRandomIndex(max) {
