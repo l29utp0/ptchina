@@ -1,5 +1,5 @@
 const imageItems = [
-	{
+  {
 	  filename: "iad.gif",
 	  link: "/i"
 	},
@@ -11,10 +11,6 @@ const imageItems = [
 	  filename: "vad.gif",
 	  link: "/v"
 	},
-  {
-    filename: "intad.gif",
-    link: "/int"
-  },
   {
     filename: "pnad.gif",
     link: "/pn"
@@ -46,15 +42,17 @@ const imageItems = [
   }
   
   function updateImageAndLink() {
-	const randomIndex = getRandomIndex(imageItems.length);
-	const randomImageItem = imageItems[randomIndex];
-	const imageElement = document.getElementById("rotating-image");
-	const linkElement = document.getElementById("image-link");
-	const folderPath = "/boardads/";
-	const imagePath = folderPath + randomImageItem.filename;
+    const randomIndex = getRandomIndex(imageItems.length);
+    const randomImageItem = imageItems[randomIndex];
+    const imageElement = document.getElementById("rotating-image");
+    const linkElement = document.getElementById("image-link");
+    const folderPath = "/boardads/";
   
-	imageElement.src = imagePath;
-	linkElement.href = randomImageItem.link;
+    if (imageElement && linkElement) {
+      const imagePath = folderPath + randomImageItem.filename;
+      imageElement.src = imagePath;
+      linkElement.href = randomImageItem.link;
+    }
   }
   
   window.onload = updateImageAndLink;
