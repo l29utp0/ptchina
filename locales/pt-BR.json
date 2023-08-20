@@ -1416,5 +1416,7 @@
 	"Login timed out": "Login expirado",
 	"Missing nonce": "Falta código",
 	"Missing signature": "Falta assinatura",
-	"Invalid login signature": "Assinatura de login inválida"
+	"Invalid login signature": "Assinatura de login inválida",
+	"Register with MetaMask": "Registrar com MetaMask",
+	"Signature": "Assinatura Web3"
 }
