@@ -580,7 +580,6 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`${paths.scripts.src}/watchlist.js`,
 		`${paths.scripts.src}/catalog.js`,
 		`${paths.scripts.src}/time.js`,
-		`${paths.scripts.src}/boardads.js`,
 		`${paths.scripts.src}/renderweb3.js`,
 	])
 		.pipe(concat('render.js'))
