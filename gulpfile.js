@@ -462,7 +462,7 @@ async function custompages() {
 async function langs() {
 	const i18n = require(__dirname+'/lib/locale/locale.js');
 	await del([ 'static/js/lang/' ]);
-	fs.mkdirSync(`${paths.scripts.dest}lang/`);
+	fs.mkdirSync(`${paths.scripts.dest}lang/`, { recursive: true });
 	const feStrings = require(__dirname+'/tools/festrings.json');
 	Object.entries(i18n.getCatalog())
 		.forEach(entry => {
@@ -580,7 +580,6 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`${paths.scripts.src}/watchlist.js`,
 		`${paths.scripts.src}/catalog.js`,
 		`${paths.scripts.src}/time.js`,
-		`${paths.scripts.src}/boardads.js`,
 		`${paths.scripts.src}/renderweb3.js`,
 	])
 		.pipe(concat('render.js'))
