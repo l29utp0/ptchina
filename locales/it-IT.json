@@ -292,6 +292,10 @@
 	"Bypass Captcha": "Ignora Captcha",
 	"Bypass captcha.": "Ignora Captcha.",
 	"Bypass DNSBL": "Ignora DNSBL",
+	"Bypass DNSBL.": "Ignora DNSBL.",
+	"Bypass Anonymizer Restrictions": "Bypass Anonymizer Restrictions",
+	"Bypass Anonymizer Restrictions.": "Bypass Anonymizer Restrictions.",
+	"Bypass anonymizer restrictions e.g. disabled file posting.": "Bypass anonymizer restrictions e.g. disabled file posting.",
 	"Bypass Filters": "Ignora i filtri",
 	"Bypass Ratelimits": "Ignora i limiti di velocità",
 	"Bypass ratelimits for getting new captchas, editing posts, editing board settings, etc.": "Saltare i limiti di velocità per ottenere nuovi captcha, modificare i post, modificare le impostazioni della board, ecc.",
@@ -1415,5 +1419,12 @@
 	"Login timed out": "Login timed out",
 	"Missing nonce": "Missing nonce",
 	"Missing signature": "Missing signature",
-	"Invalid login signature": "Invalid login signature"
+	"Invalid login signature": "Invalid login signature",
+	"Clear All": "Clear All",
+	"Login Sessions": "Login Sessions",
+	"Block Bypasses": "Block Bypasses",
+	"Deleted %n records.": {
+		"one": "Deleted %s record.",
+		"other": "Deleted %n records."
+	}
 }
