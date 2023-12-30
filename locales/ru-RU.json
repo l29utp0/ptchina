@@ -330,6 +330,10 @@
 	"Bypass Captcha": "Обойти капчу",
 	"Bypass captcha.": "Обойти капчу.",
 	"Bypass DNSBL": "Байпас DNSBL",
+	"Bypass DNSBL.": "Байпас DNSBL.",
+	"Bypass Anonymizer Restrictions": "Bypass Anonymizer Restrictions",
+	"Bypass Anonymizer Restrictions.": "Bypass Anonymizer Restrictions.",
+	"Bypass anonymizer restrictions e.g. disabled file posting.": "Bypass anonymizer restrictions e.g. disabled file posting.",
 	"Bypass Filters": "Обходные фильтры",
 	"Bypass Ratelimits": "Обходные ограничения скорости",
 	"Bypass ratelimits for getting new captchas, editing posts, editing board settings, etc.": "Обходные ограничения скорости для получения новых капчей, редактирования постов, настройки доски объявлений и т.д.",
@@ -1490,5 +1494,12 @@
 	"Login timed out": "Login timed out",
 	"Missing nonce": "Missing nonce",
 	"Missing signature": "Missing signature",
-	"Invalid login signature": "Invalid login signature"
+	"Invalid login signature": "Invalid login signature",
+	"Clear All": "Clear All",
+	"Login Sessions": "Login Sessions",
+	"Block Bypasses": "Block Bypasses",
+	"Deleted %n records.": {
+		"one": "Deleted %s record.",
+		"other": "Deleted %n records."
+	}
 }
