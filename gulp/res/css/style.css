@@ -10,6 +10,10 @@ body {
 	margin: 0;
 }
 
+html {
+    background-color: var(--background-top);
+}
+
 main {
 	margin: 3em 0 0 0;
 }
@@ -318,7 +322,7 @@ p {
 	display: block;
 	box-shadow: 0 0 3px black;
 	width: auto;
-	max-height: 150px;
+	max-height: 200px;
 	box-sizing: border-box;
 	object-fit: cover;
 	margin: 3px;
@@ -326,8 +330,8 @@ p {
 }
 
 .catalog-thumb.attachmentimg, .catalog-thumb.audioimg, .catalog-thumb.spoilerimg {
-	height: 150px;
-	width: 150px;
+	height: 200px;
+	width: 200px;
 }
 
 .catalog-thumb.small {
@@ -1389,10 +1393,16 @@ iframe.bypass {
 	flex-direction: column;
 	justify-content: center;
 }
+
+#postform .label {
+	align-items: center;
+	}
+
 .rlabel {
 	margin-right: 0;
 	margin-left: 1px;
 }
+
 .box-wrap .label {
 	flex: 0 1 195px;
 }
@@ -1641,7 +1651,7 @@ row.wrap.sb .col {
 	}
 
 	.catalog-thumb {
-		max-height: 100px;
+		max-height: 150px;
 		max-width: 150px;
 	}
 
@@ -1651,8 +1661,8 @@ row.wrap.sb .col {
 	}
 
 	.catalog-thumb.attachmentimg, .catalog-thumb.audioimg, .catalog-thumb.spoilerimg {
-		height: 100px;
-		width: 100px;
+		height: 150px;
+		width: 150px;
 	}
 
 	.box-wrap .label {
@@ -3462,6 +3472,13 @@ span.sorte {
     align-self: flex-end
 }
 
+[data-email=shinobi] {
+    filter: blur(5px);
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+}
+
 .upload-list {
     max-height: none;
 }
@@ -3637,6 +3654,7 @@ span.sorte {
 	#chat {
         width: 100%;
         max-width: 100%;
+		touch-action: none;
     }
 	.streammain {
         flex-direction: column;
@@ -3644,10 +3662,12 @@ span.sorte {
     }
 	#video { 
         width: 100%;
-        height: 20vh;
-        max-height: 20vh;
-    }
-	
+        height: 25vh;
+        max-height: 25vh;
+		position: fixed;
+		z-index: 100;
+		top: 0;
+  }
 }
 
 .donorbadge {
