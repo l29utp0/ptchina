@@ -6,7 +6,7 @@ block head
 
 block content
 	//h1.board-title #{meta.siteName}
-	img.logo(src='/misc/martaverao2.png' title='Um redesítio de desenhos animados.')
+	img.logo(src='/misc/martacomputador.png' style='max-width:300px!important' title='Um redesítio de desenhos animados.')
 	.table-container.flex-center.mv-10.text-center
 	
 		table
@@ -37,7 +37,7 @@ block content
 			table#hotposts
 				tr(colspan=3) 
 				each post, i in hotThreads
-					tr.catalog-tile(style='height:100px')
+					tr.catalog-tile(style='height:100px' data-email=post.email)
 						td.text-center
 							a(href=`/${post.board}/index.html`) /#{post.board}/
 							p
