@@ -3,28 +3,12 @@ Website: https://ptchan.org/
 
 API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/) - Gitgud pages link: http://fatchan.gitgud.site/jschan-docs/#introduction
 
-<<<<<<< HEAD
 ## Goals
 - Oldschool look, newschool features
 - Work with javascript disabled
 - Support using anonymizers such as Tor, Lokinet or I2P
 - Be usable on mobile
 - Simple static file serving
-=======
-Mirror(s):
- - https://gitgud.io/fatchan/jschan
- - https://git.basedflare.com/fatchan/jschan
-
-Live instances (Unofficial):
- - 🇺🇸 https://94chan.org
- - 🇵🇹 https://ptchan.org
- - 🇮🇳 https://indiachan.net
-
-Contact via:
- - [Session](https://getsession.org/): `051b2ff270769d20764fa1b8e6bc3240b0a3c28ffb3242e7cce60db479b23ef427`
- - IRC: [open in client](ircs://irc.fatpeople.lol:6697/general) or [webchat](https://irc-web.fatpeople.lol/#general)
- - Email: see my gitgud profile
->>>>>>> upstream/master
 
 ## Features
  - [x] Multiple language support (🇬🇧 🇵🇹 🇧🇷 🇷🇺 🇮🇹)
@@ -64,18 +48,6 @@ Official:
  - [jschan-antispam group](https://gitgud.io/jschan-antispam/) - Multiple projects that are compatible with jschan and implement more sophisticated antispam capabilities.
 
 Unofficial: **Not guaranteed to work or be safe, use at your own risk.**
-<<<<<<< HEAD
- - [myumyu/globalafk](https://gitgud.io/myumyu/globalafk/) - "A simple python script that sends ugly notifications when something happens on a jschan imageboard that you moderate."
-=======
  - [globalafk](https://git.ptchan.org/globalafk/) - "A simple python script that sends ugly notifications when something happens on a jschan imageboard that you moderate."
  - [reporter](https://git.ptchan.org/reporter/) - news bot that fetches news from a provider and posts a snippet of it on a configurable board of a configurable jschan imageboard
  - [yacam](https://git.ptchan.org/yacam/) - a bot that tries to detect (dumb) spam on jschan imageboards and does something about it
-
-## For generous people
-
-Bitcoin (BTC): [`bc1q4elrlz5puak4m9xy3hfvmpempnpqpu95v8s9m6`](bitcoin:bc1q4elrlz5puak4m9xy3hfvmpempnpqpu95v8s9m6)
-
-Monero (XMR): [`89J9DXPLUBr5HjNDNZTEo4WYMFTouSsGjUjBnUCCUxJGUirthnii4naZ8JafdnmhPe4NP1nkWsgcK82Uga7X515nNR1isuh`](monero:89J9DXPLUBr5HjNDNZTEo4WYMFTouSsGjUjBnUCCUxJGUirthnii4naZ8JafdnmhPe4NP1nkWsgcK82Uga7X515nNR1isuh)
-
-Oxen (OXEN): `LBjExqjDKCFT6Tj198CfK8auAzBERJX1ogtcsjuKZ6AYWTFxwEADLgf2zZ8NHvWCa1UW7vrtY8DJmPYFpj3MEE69CryCvN6`
->>>>>>> upstream/master
