@@ -1226,6 +1226,14 @@ a.button {
 	color: initial!important;
 }
 
+.prev-show {
+	display: none
+}
+
+input[type="checkbox"]:checked + .prev-show {
+	display: inline-block!important;
+}
+
 input[type="button"][disabled] {
 	opacity: 0.5;
 }
@@ -1441,6 +1449,11 @@ table.boardtable.w900 td:last-child {
 	color: white;
 }
 
+table.boardtable .nobreak {
+	word-break: keep-all;
+	overflow-wrap: break-word;
+}
+
 /* ^="f" means only where attachment is false, to prevent showing on attachment files with audio or video mime type */
 .post-file-src[data-type="audio"][data-attachment^="f"]::after,
 .post-file-src[data-type="video"][data-attachment^="f"]::after {
@@ -1492,6 +1505,10 @@ table.boardtable.w900 td:last-child {
 	color: white;
 }
 
+table.accounttable td:nth-child(1) {
+	text-align: left;
+}
+
 .post-file-src * {
 	max-width: 100%;
 	visibility: visible;
@@ -1512,6 +1529,7 @@ table, .boardtable {
 .nowrap {
 	white-space: nowrap;
 }
+
 
 #settingsmodal{
 	min-width: 400px;
