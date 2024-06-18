@@ -11,7 +11,7 @@ API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/)
 - Simple static file serving
 
 ## Features
- - [x] Multiple language support (🇬🇧 🇵🇹 🇧🇷 🇷🇺 🇮🇹)
+ - [x] Multiple language support (🇬🇧 🇵🇹 🇧🇷 🇷🇺 🇮🇹 🇪🇸)
  - [x] Optional user created boards
  - [x] Multiple files per post
  - [x] Antispam/Anti-flood & DNSBL
