@@ -158,3 +158,28 @@ tr:nth-child(2n+1) {
     }
 }
 }
+
+@media only screen and (max-width:600px) {
+    .post-info {
+      background:var(--darken)!important;
+      margin:-7.5px -6.5px 5px -6.5px;
+      border-radius:6px 6px 0px 0px;
+      padding:6px
+    }
+    
+     .op .post-info {
+      background:none!important;
+      margin:none!important;
+      border-bottom:none!important;
+      border-radius:none!important;
+       ;
+    }
+    .container {
+      padding:5px
+    }
+
+    .catalog .post-check {
+    top: 4px;
+    margin-left: 2px;
+  }
+  }
