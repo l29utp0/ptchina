@@ -158,25 +158,6 @@ textarea:focus {
     border: 2px solid var(--blue-light)
 }
 
-/* post menu fixes */
-.postmenu {
-    border: solid var(--font-color);
-    border-width: 0 1px 1px 0;
-    background: 0 0
-}
-
-.postmenu:hover {
-    border: solid var(--link-hover);
-    border-width: 0 1px 1px 0;
-    background: 0 0
-}
-
-.postmenu:focus {
-    border: solid var(--font-color);
-    border-width: 0 1px 1px 0;
-    background: 0 0
-}
-
 /* files box */
 .filelabel {
     background: var(--highlighted-post-color);

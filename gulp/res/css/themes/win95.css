@@ -166,8 +166,8 @@ input[type=submit], input[type=submit], label[for=file] {
 	border-left-color: white;
 }
 .postmenu {
-	color: black;
-	border-left-color: #ddd;
+	border-radius: 0px;
+	border: 1px solid #DDD;
 }
 .box-wrap, .tabs li a {
 	border: 2px solid var(--post-outline-color);
@@ -178,4 +178,8 @@ input[type=submit], input[type=submit], label[for=file] {
 }
 #tab-10:target a[href="#tab-10"], #tab-1:target a[href="#tab-1"], #tab-2:target a[href="#tab-2"], #tab-3:target a[href="#tab-3"], #tab-4:target a[href="#tab-4"], #tab-5:target a[href="#tab-5"], #tab-6:target a[href="#tab-6"], #tab-7:target a[href="#tab-7"], #tab-8:target a[href="#tab-8"], #tab-9:target a[href="#tab-9"] {
   border: 2px inset var(--post-color);
+}
+
+.expand-omitted {
+	border-radius: 0px;
 }
