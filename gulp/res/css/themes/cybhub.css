@@ -152,7 +152,6 @@ a {
 }
 
 input:focus,
-select:focus,
 textarea:focus {
     background: var(--highlighted-post-color);
     border: 2px solid var(--blue-light)
