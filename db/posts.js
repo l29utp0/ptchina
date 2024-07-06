@@ -730,6 +730,12 @@ module.exports = {
 			},
 			'replyposts': {
 				'$gte': hotThreadsThreshold,
+			},
+			'bumplocked': { //exclude bumplocked threads
+				'$ne': 1
+			},
+			'locked': { //exclude locked threads
+				'$ne': 1
 			}
 		}).toArray();
 		if (potentialHotThreads.length === 0) {
