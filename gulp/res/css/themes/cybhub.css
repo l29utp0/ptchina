@@ -58,7 +58,7 @@
     --greentext-color: var(--green);
     --pinktext-color: var(--pink);
     --capcode-color: var(--red);
-    --icon-color: saturate(100%) hue-rotate(2deg) brightness(95%) contrast(100%);
+    --icon-color: invert(17%)sepia(89%)saturate(7057%)hue-rotate(2deg)brightness(93%)contrast(120%);
 }
 
 @media (prefers-color-scheme: dark) {
