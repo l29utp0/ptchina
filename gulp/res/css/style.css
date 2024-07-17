@@ -1890,7 +1890,6 @@ row.wrap.sb .col {
 
 
 .catalog-tile:hover {
-    overflow-y: scroll;
 	opacity: .8;
 }
 
