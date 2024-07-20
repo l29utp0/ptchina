@@ -21,6 +21,7 @@ block content
 						li: a(href='#legalDMCA') Remoção de conteúdo que infringe direitos legais/DMCA.
 						li: a(href='#contactar') Como posso contactar a administração?
 						li: a(href='#source') Source & API?
+						li: a(href='#source') App
 						li: a(href='#mascote') Mascote
 
 					b Participar
@@ -65,7 +66,7 @@ block content
 				td
 					p.post-message
 						| Ao doares o equivalente a 
-						span.mono $9
+						span.mono $5
 						|  ou mais em cripto tens direito a uma conta vitalícia de 
 						span.mono Amigo verdadeiro e honesto
 						|  que te permite fazer publicações com um crachá ao inserires 
@@ -118,6 +119,17 @@ block content
 						a(href='https://git.ptchan.org/' referrerpolicy='same-origin' target='_blank') https://git.ptchan.org
 					p
 						a(href='http://fatchan.gitgud.site/jschan-docs/' referrerpolicy='same-origin' target='_blank') http://fatchan.gitgud.site/jschan-docs/
+	.table-container.flex-center.mv-5
+		.anchor#app
+		table
+			tr
+				th: a(href='#app') App
+			tr
+				td
+					p
+						| Tanto o ptchan como o stream usa uma 
+						a(href='https://en.wikipedia.org/wiki/Progressive_web_app' referrerpolicy='same-origin' target='_blank') PWA
+						| , o que significa que não precisa de ser instalado através de uma loja de aplicações, apenas abre o site no navegador do teu dispositivo, vai às opções e carrega em algo que diga "instalar" ou "adicionar ao ecrã principal".
 	.table-container.flex-center.mv-5
 		.anchor#mascote
 		table
@@ -459,11 +471,7 @@ block content
 					p.bold
 						| Recolha e processamento de dados pessoais
 					p 
-						| O ptchan não requer qualquer tipo de informação pessoal identificável dos seus utilizadores para ser usado. Deverá ser notado que certas tábuas poderão ter as bandeiras de geolocalização ativas, que quando é efetuada uma publicação é adicionada uma bandeira à mesma. Esta geolocalização é fornecida pela 
-						a(href='https://support.cloudflare.com/hc/en-us/articles/200168236-Configuring-Cloudflare-IP-Geolocation' referrerpolicy='same-origin' target='_blank') Cloudflare através do uso de uma base de dados da Maxmind 
-						| e segundo a mesma é inerentemente imprecisa 
-						a(href='https://dev.maxmind.com/geoip/geolite2-free-geolocation-data' referrerpolicy='same-origin' target='_blank') "IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household."
-						| .
+						| O ptchan não requer qualquer tipo de informação pessoal identificável dos seus utilizadores para ser usado.
 					p.bold
 						| Partilha de dados
 					p 
@@ -479,7 +487,7 @@ block content
 					p
 						| Todos os cookies e local storage utilizados pelo ptchan são apenas para o seu correto funcionamento e personalização. O ptchan não usa cookies de terceiros ou tracking publicitário. Na tabela em baixo poderás encontrar mais informações.
 					span.small
-						| Atualizado pela última vez a 25/1/2022.
+						| Atualizado pela última vez a 20/7/2024.
 		.table-container.flex-center.mv-5
 		table
 			tr
