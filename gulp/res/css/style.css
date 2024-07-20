@@ -1682,8 +1682,8 @@ row.wrap.sb .col {
 	}
 
 	.ct-r2 .catalog-thumb.small {
-		max-width: 32px;
-		max-height: 32px;
+		max-width: 50px;
+		max-height: 50px;
 	}
 
 	.catalog-thumb.attachmentimg, .catalog-thumb.audioimg, .catalog-thumb.spoilerimg {
