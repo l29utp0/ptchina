@@ -110,6 +110,10 @@ textarea,
     border-radius: 10px;
 }
 
+table {
+    overflow: hidden;
+}
+
 @media (prefers-color-scheme:dark) {
     :root {
       --icon-color:invert(17%) sepia(89%) saturate(7057%) hue-rotate(2deg) brightness(93%) contrast(120%);
