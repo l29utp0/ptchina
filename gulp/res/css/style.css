@@ -1864,6 +1864,7 @@ row.wrap.sb .col {
 
 	.catalog-tile {
 		width: calc(50% - 10px);
+		height: 280px;
 		margin: 5px;
 	}
 
