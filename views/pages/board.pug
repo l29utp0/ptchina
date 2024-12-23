@@ -10,13 +10,13 @@ block head
 
 block content
 	+boardheader(modview ? __('Mod Index') : null)
-	br
+	//-br
 	include ../includes/postform.pug
 	//-br
 	//-#image-container
 		a#image-link(href="#")
 			img#rotating-image(src="#")
-	br
+	//-br
 	+announcements()
 	include ../includes/stickynav.pug
 	if modview

@@ -28,7 +28,7 @@ block head
 
 block content
 	+boardheader(modview ? __('Mod View') : null)
-	br
+	//-br
 	if thread.replyposts >= board.settings.replyLimit && !thread.cyclic && !modview
 		p.title.text-center #{__('⊖ Thread has reached reply limit.')}
 	else
@@ -37,7 +37,7 @@ block content
 	//-#image-container
 		a#image-link(href="#")
 			img#rotating-image(src="#")
-	br
+	//-br
 	+announcements()
 	include ../includes/stickynav.pug
 	if modview
