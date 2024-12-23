@@ -293,7 +293,7 @@ object {
 	padding: 5px;
 	margin: 5px;
 	text-align: center;
-	height: 340px;
+	height: 360px;
 	width: 280px;
 	overflow: hidden;
 	border: 1px solid var(--post-outline-color);
@@ -1864,7 +1864,7 @@ row.wrap.sb .col {
 
 	.catalog-tile {
 		width: calc(50% - 10px);
-		height: 280px;
+		height: 295px;
 		margin: 5px;
 	}
 
