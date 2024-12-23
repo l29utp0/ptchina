@@ -329,3 +329,9 @@ select:not(.postmenu),
 .logo {
     content: url(/misc/novologoemacs.png);
 }
+
+@media only screen and (max-width: 600px) {
+    .collapse.no-decoration.post-button {
+        background: var(--bg-btn-primary);
+    }
+}

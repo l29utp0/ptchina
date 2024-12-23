@@ -5,6 +5,7 @@ mixin announcements(hrTop=true, hrMiddle=true, hrBottom=true)
 		hr(size=1)
 	if hasGlobalAnnouncement
 		pre.post-message.no-m-p.text-center.global-announcement !{globalAnnouncement.markdown}
+		//audio.centerpiece(src='/misc/agosto.mp3',controls, type='audio/mpeg')
 	if hrMiddle && (hasGlobalAnnouncement && hasBoardAnnouncement)
 		hr(size=1)
 	if board && board.settings.announcement.markdown

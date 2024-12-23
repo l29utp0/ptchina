@@ -240,7 +240,7 @@ async function wipe() {
 	GLOBAL_STAFF.setAll([
 		Permissions.MANAGE_GLOBAL_GENERAL, Permissions.MANAGE_GLOBAL_BANS, Permissions.MANAGE_GLOBAL_LOGS, Permissions.MANAGE_GLOBAL_NEWS, 
 		Permissions.MANAGE_GLOBAL_BOARDS, Permissions.MANAGE_GLOBAL_SETTINGS, Permissions.MANAGE_BOARD_OWNER, Permissions.BYPASS_FILTERS, 
-		Permissions.BYPASS_BANS, Permissions.BYPASS_SPAMCHECK, Permissions.BYPASS_RATELIMITS,
+		Permissions.BYPASS_BANS, Permissions.BYPASS_SPAMCHECK, Permissions.BYPASS_RATELIMITS, Permissions.USE_MARKDOWN_IMAGE
 	]);
 	const ADMIN = new Permission(GLOBAL_STAFF.base64);
 	ADMIN.setAll([
@@ -311,7 +311,7 @@ async function css() {
 				break;
 			case 'grid':
 			case 'grid2':
-				bypassHeight = 330;
+				bypassHeight = 450;
 				captchaHeight = config.get.captchaOptions.grid.imageSize+30;
 				captchaWidth = config.get.captchaOptions.grid.imageSize+30;
 				break;
