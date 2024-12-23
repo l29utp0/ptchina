@@ -77,7 +77,9 @@ textarea,
 #postform-dragHandle,
 #submitpost,
 #customcss-setting,
-#import-export-setting {
+#import-export-setting,
+.collapse.no-decoration.post-button,
+.thread.bottom-reply.no-decoration.post-button {
     border-radius: 10px;
 }
 
@@ -195,20 +197,48 @@ tr:nth-child(2n+1) {
     border: 1px solid var(--font-color);
 }
 
+}
+
 @media only screen and (max-width: 600px) {
     .post-info {
-        border-bottom:none;
+        border-bottom: none;
     }
 
     .anchor:target+.post-container .post-info,.post-container.highlighted .post-info {
         border-bottom: none;
     }
+
+    .catalog .post-check {
+        top: 4px;
+        margin-left: 2px;
+    }
+}
+
+@media (prefers-color-scheme:light) {
+    .collapse.no-decoration.post-button,
+    .thread.bottom-reply.no-decoration.post-button{
+        color: var(--alt-label-color);
+        background: var(--board-title);
+    }
+
+    .collapse.no-decoration.post-button:hover {
+        color: var(--post-color)!important;
+    }
+
+    .thread.bottom-reply.no-decoration.post-button:hover {
+        color: var(--post-color)!important;
+    }
+
+    .postmenu {
+        background-color: var(--board-title);
+        border: 1px solid var(--board-title);
+    }
+}
+
+@media only screen and (max-width: 600px) and (prefers-color-scheme: dark) {
+    .collapse.no-decoration.post-button,
+    .thread.bottom-reply.no-decoration.post-button{
+        background: var(--background-rest);
 }
 }
 
-@media only screen and (max-width:600px) {
-.catalog .post-check {
-    top: 4px;
-    margin-left: 2px;
-}
-}

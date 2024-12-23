@@ -7,7 +7,7 @@
 	--title-color: #d70000;
 	--greentext-color: green;
 	--pinktext-color: #E0727F;
-	--alt-label-color: darkblue;
+	--alt-label-color: #c0c0c0;
 	--alt-font-color: white;
 	--background-top: #008080;
 	--background-rest: #008080;
@@ -182,4 +182,10 @@ input[type=submit], input[type=submit], label[for=file] {
 
 .expand-omitted {
 	border-radius: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    .collapse.no-decoration.post-button {
+        bottom: 40px;
+    }
 }
