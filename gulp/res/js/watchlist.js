@@ -278,6 +278,7 @@ window.addEventListener('settingsReady', () => {
 
 });
 
+/* christmas theme
 var xmas = document.querySelector(".centerpiece");
     if(xmas){
 
@@ -320,4 +321,4 @@ videoElement.setAttribute("playsinline", "");
 const divElement = document.querySelector(".centerpiece");
 divElement.parentElement.replaceChild(videoElement, divElement);
 
-}
+}*/
