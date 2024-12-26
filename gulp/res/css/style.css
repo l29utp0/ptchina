@@ -3890,7 +3890,7 @@ span.sorte {
     right: 5px;
     top: 5px;
 }
-
+/* christmas theme
 body::before {
     content: '';
     position: fixed;
@@ -3908,3 +3908,4 @@ body::before {
   background-image: url("/asset/cyb/3ff41646b901aa827cd4e04b8a73e8eb865e6d88213c38cdc6ed6e705f2c86ba.gif"); 
   background-blend-mode: overlay; 
   }
+  */
