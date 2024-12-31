@@ -279,32 +279,12 @@ window.addEventListener('settingsReady', () => {
 });
 
 //christmas videos
-/*
+
 var xmas = document.querySelector(".centerpiece");
     if(xmas){
 
-const videos = ["/misc/n1.mp4", 
-				"/misc/n2.mp4",
-				"/misc/n3.mp4",
-				"/misc/n4.mp4",
-				"/misc/n5.mp4",
-				"/misc/n6.mp4",
-				"/misc/n7.mp4",
-				"/misc/n8.mp4",
-				"/misc/n9.mp4",
-				"/misc/n10.mp4",
-				"/misc/n11.mp4",
-				"/misc/n12.mp4",
-				"/misc/n13.mp4",
-				"/misc/n15.mp4",
-				"/misc/n16.mp4",
-				"/misc/n17.mp4",
-				"/misc/n18.mp4",
-				"/misc/n19.mp4",
-				"/misc/n20.mp4",
-				"/misc/n24.mp4",
-				"/misc/n25.mp4",
-				"/misc/n27.mp4"
+const videos = ["/misc/a.mp4", 
+				"/misc/b.mp4"
 				];
 
 const randomIndex = Math.floor(Math.random() * videos.length);
@@ -322,7 +302,7 @@ videoElement.setAttribute("playsinline", "");
 const divElement = document.querySelector(".centerpiece");
 divElement.parentElement.replaceChild(videoElement, divElement);
 
-}*/
+}
 
 
 //confetti

@@ -14,7 +14,7 @@ block content
 			| [
 			a(href=`/catalog.html?${cacheQueryString}`) #{__('Catalog View')}
 			| ]
-	//-video.centerpiece(width='0', height='0', src='',controls, type='video/mp4')
+	video.centerpiece(width='0', height='0', src='',controls, type='video/mp4')
 	include ../includes/stickynav.pug
 	if allowCustomOverboard === true
 		+overboardform('/overboard.html')
