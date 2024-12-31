@@ -14,7 +14,7 @@ block content
 			| [
 			a(href=`/overboard.html?${cacheQueryString}`) #{__('Index View')}
 			| ]
-	video.centerpiece(width='0', height='0', src='',controls, type='video/mp4')
+	//-video.centerpiece(width='0', height='0', src='',controls, type='video/mp4')
 	if allowCustomOverboard === true
 		+overboardform('/catalog.html')
 	+announcements()
