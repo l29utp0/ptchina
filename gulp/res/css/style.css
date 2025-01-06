@@ -1998,6 +1998,7 @@ row.wrap.sb .col {
 
     body {
         font-size: 11pt;
+        table-layout: fixed;
     }
 }
 
@@ -3850,9 +3851,8 @@ span.sorte {
 }
 
 @media only screen and (max-width: 600px) {
-
     .stickynav {
-        display:none;
+        display: none;
     }
 
     .thread.bottom-reply.no-decoration.post-button,
@@ -3868,17 +3868,17 @@ span.sorte {
     }
 
     .bottom-reply.no-decoration.post-button {
-       display:none;
+        display: none;
     }
 
-    .form-post input,textarea {
-        font-size: 16px
+    .form-post input,
+    textarea {
+        font-size: 16px;
     }
-
 }
 
 #hotposts .post-files {
-    margin: .3em .2em .2em .2em;
+    margin: 0.3em 0.2em 0.2em 0.2em;
 }
 
 .post-info {
@@ -3898,14 +3898,14 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
       url("/asset/meta/04ba80314f88e2c6e049e9a8a130d3d52ed9e11cfd1580bd3e6f581dab475868.png");
     background-size: 80vh;
     z-index: -1;
   }
-  
-  body { 
-  background-image: url("/asset/cyb/3ff41646b901aa827cd4e04b8a73e8eb865e6d88213c38cdc6ed6e705f2c86ba.gif"); 
-  background-blend-mode: overlay; 
+
+  body {
+  background-image: url("/asset/cyb/3ff41646b901aa827cd4e04b8a73e8eb865e6d88213c38cdc6ed6e705f2c86ba.gif");
+  background-blend-mode: overlay;
   }
   */
