@@ -2000,6 +2000,10 @@ row.wrap.sb .col {
     body {
         font-size: 11pt;
     }
+
+    #hotposts {
+        table-layout: auto;
+    }
 }
 
 .catalog-tile:hover {
