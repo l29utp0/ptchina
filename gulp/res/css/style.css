@@ -2004,6 +2004,10 @@ row.wrap.sb .col {
     #hotposts {
         table-layout: auto;
     }
+
+    .flex-center {
+        margin: 0px;
+    }
 }
 
 .catalog-tile:hover {
