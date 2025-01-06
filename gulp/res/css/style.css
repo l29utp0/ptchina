@@ -1525,6 +1525,7 @@ hr + .thread {
     max-width: unset;
     word-break: keep-all;
     white-space: nowrap;
+    table-layout: auto;
 }
 
 .bantable td,
