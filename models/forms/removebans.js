@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
 		? (showGlobal
 			? req.params.board
 			: { '$eq': req.params.board })
-		: null;	
+		: null;
 	return Bans.removeMany(bansBoard, req.body.checkedbans).then(result => result.deletedCount);
 
 };

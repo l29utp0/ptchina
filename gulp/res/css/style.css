@@ -478,9 +478,9 @@ p {
     right: 10px;
 }
 
-.ban {
-    color: red;
-    font-weight: bold;
+.ban, .br {
+	color: red;
+	font-weight: bold;
 }
 .reason::before {
     content: "\0028";
@@ -535,6 +535,11 @@ p {
 
 .pinktext {
     color: var(--pinktext-color);
+}
+
+.embimg {
+	max-width:100%;
+	max-height:40vh
 }
 
 .greentext {
@@ -1559,25 +1564,25 @@ table.boardtable .nobreak {
 /* ^="f" means only where attachment is false, to prevent showing on attachment files with audio or video mime type */
 .post-file-src[data-type="audio"][data-attachment^="f"]::after,
 .post-file-src[data-type="video"][data-attachment^="f"]::after {
-    content: "►";
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #000;
-    color: #fff;
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    box-sizing: border-box;
-    font-size: 20px;
-    padding-left: 4px;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-    box-shadow: 0 0 3px #fff;
-    pointer-events: none;
+	content: "▸";
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: #000;
+	color: #fff;
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	line-height: 48px;
+	text-align:center;
+	box-sizing:border-box;
+	font-size: 35px;
+	padding-left: 4px;
+	transform: translate(-50%, -50%);
+	opacity: 0.8;
+	box-shadow: 0 0 3px #fff;
+	pointer-events: none;
 }
 .post-file-src[data-attachment^="f"]:hover::after {
     opacity: 1;
@@ -1757,7 +1762,20 @@ row.wrap.sb .col {
     }
 }
 
+
+@media only screen and (max-height: 400px) {
+	/* hide floating hover posts when < 400 height (too small landscape display) */
+	#float {
+		display: none;
+	}
+}
+
 @media only screen and (max-width: 600px) {
+    /* hide floating hover posts when < 600 width (too small portrait display) */
+	#float {
+		display: none;
+	}
+    
     .post-container::before {
         content: "";
     }

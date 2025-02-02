@@ -1,35 +1,34 @@
 :root {
-    --icon-color: invert(97%) sepia(32%) saturate(5790%) hue-rotate(318deg)
-        brightness(107%) contrast(93%);
-    --hr: #f6d251;
-    --link-color: #f6d251;
-    --post-link-color: #f6d251;
-    --label-color: #5a1687;
-    --alt-label-color: #5a1687;
-    --navbar-color: #5a1687;
-    --font-color: #fafafa;
-    --alt-font-color: #fafafa;
-    --input-color: #fafafa;
+    --icon-color: invert(97%)sepia(32%)saturate(5790%)hue-rotate(318deg)brightness(107%)contrast(93%);
+    --hr: #F6D251;
+    --link-color: #F6D251;
+    --post-link-color: #F6D251;
+    --label-color: #5A1687;
+    --alt-label-color: #5A1687;
+    --navbar-color: #5A1687;
+    --font-color: #FAFAFA;
+    --alt-font-color: #FAFAFA;
+    --input-color: #FAFAFA;
     --background-top: #430070;
     --background-rest: #430070;
-    --post-color: #35134c;
-    --highlighted-post-color: #230d33;
-    --box-border-color: #230d33;
-    --post-outline-color: #230d33;
-    --highlighted-post-outline-color: #230d33;
-    --input-borders: #230d33;
-    --darken: #230d339f;
-    --accent-color: #230d33;
-    --board-title: #f85088;
-    --title-color: #f85088;
-    --link-hover: #f85088;
-    --input-background: #5a1687;
-    --subject-color: #f85088;
-    --name-color: #70ef4c;
-    --capcode-color: #f6d251;
-    --dice-color: #ff770f;
-    --greentext-color: #70ef4c;
-    --pinktext-color: #f85088;
+    --post-color: #35134C;
+    --highlighted-post-color: #230D33;
+    --box-border-color: #230D33;
+    --post-outline-color: #230D33;
+    --highlighted-post-outline-color: #230D33;
+    --input-borders: #230D33;
+    --darken: #230D339F ;
+    --accent-color: #230D33;
+    --board-title: #F85088;
+    --title-color: #F85088;
+    --link-hover: #F85088;
+    --input-background: #5A1687;
+    --subject-color: #F85088;
+    --name-color: #70EF4C;
+    --capcode-color: #F6D251;
+    --dice-color: #FF770F;
+    --greentext-color: #70EF4C;
+    --pinktext-color: #F85088 
 }
 
 body {
