@@ -30,9 +30,7 @@
 	--greentext-color: green;
 	--pinktext-color: #E0727F;
 }
-body {
-	font-family: monospace;
-}
+
 .highlighted {
 	border: 1px dashed var(--highlighted-post-outline-color)
 }
