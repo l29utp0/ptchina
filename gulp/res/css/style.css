@@ -4025,6 +4025,7 @@ line-height: 3em;
 #settings {
 border-top: 1px solid var(--darken);
 width: 100px;
+margin-bottom: 5px;
 }
 
 .navbar 
