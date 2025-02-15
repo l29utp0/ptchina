@@ -67,6 +67,5 @@ table {
 	margin: 1px 0 0 0;
 }
 body, small, .post-file-info, .quote, input, textarea {
-	font-family: monospace!important;
 	font-size: 9pt!important;
 }
