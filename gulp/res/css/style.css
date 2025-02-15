@@ -134,7 +134,8 @@ pre {
 }
 
 .aa {
-    font-family: Monapo, Mona, "MS Pgothic", "MS P繧ｴ繧ｷ繝�け", IPAMonaPGothic,
+    font-family:
+        Monapo, Mona, "MS Pgothic", "MS P繧ｴ繧ｷ繝�け", IPAMonaPGothic,
         "IPA 繝｢繝翫� P繧ｴ繧ｷ繝�け", submona !important;
     font-size: 16px;
     display: block;
@@ -478,9 +479,9 @@ p {
     right: 10px;
 }
 
-.ban, .br {
-	color: red;
-	font-weight: bold;
+.ban {
+    color: red;
+    font-weight: bold;
 }
 .reason::before {
     content: "\0028";
@@ -535,11 +536,6 @@ p {
 
 .pinktext {
     color: var(--pinktext-color);
-}
-
-.embimg {
-	max-width:100%;
-	max-height:40vh
 }
 
 .greentext {
@@ -1564,25 +1560,25 @@ table.boardtable .nobreak {
 /* ^="f" means only where attachment is false, to prevent showing on attachment files with audio or video mime type */
 .post-file-src[data-type="audio"][data-attachment^="f"]::after,
 .post-file-src[data-type="video"][data-attachment^="f"]::after {
-	content: "▸";
-	display: inline-block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	background: #000;
-	color: #fff;
-	border-radius: 100%;
-	width: 50px;
-	height: 50px;
-	line-height: 48px;
-	text-align:center;
-	box-sizing:border-box;
-	font-size: 35px;
-	padding-left: 4px;
-	transform: translate(-50%, -50%);
-	opacity: 0.8;
-	box-shadow: 0 0 3px #fff;
-	pointer-events: none;
+    content: "►";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #000;
+    color: #fff;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 20px;
+    padding-left: 4px;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    box-shadow: 0 0 3px #fff;
+    pointer-events: none;
 }
 .post-file-src[data-attachment^="f"]:hover::after {
     opacity: 1;
@@ -1762,20 +1758,7 @@ row.wrap.sb .col {
     }
 }
 
-
-@media only screen and (max-height: 400px) {
-	/* hide floating hover posts when < 400 height (too small landscape display) */
-	#float {
-		display: none;
-	}
-}
-
 @media only screen and (max-width: 600px) {
-    /* hide floating hover posts when < 600 width (too small portrait display) */
-	#float {
-		display: none;
-	}
-    
     .post-container::before {
         content: "";
     }
@@ -3933,3 +3916,151 @@ body::before {
   background-blend-mode: overlay;
   }
   */
+
+
+  @media (min-width: 600px) {
+    main {
+        margin-left: calc(120px + 10px);
+        margin-top: 0 !important;
+    }
+
+    .navbar::before {
+        content: " ";
+        background-image: url(/misc/martatacos.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 120px;
+        height: 120px;
+margin-left: 20px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 120px;
+        height: 100%;
+        padding: 5px;
+       background: 0;
+       box-shadow: none;
+       border-right: 1px solid var(--darken);
+    }
+
+    .container {
+        width: 98%;
+        margin: auto;
+    }
+
+    .navbartop,
+    .navbarmiddle,
+    .navbarbottom {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar-bottom {
+        margin-top: auto;
+    }
+
+.nav-item {
+line-height: 3em;
+  text-decoration: none;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-weight: 700;
+  text-align: left !important;
+}
+
+.nav-item:hover {
+    color: var(--font-color) !important;
+    background-color: var(--highlighted-post-color);
+    border-radius: 5px;
+}
+
+.navbar-top .nav-item:nth-of-type(1)::before {
+    content:"🏠 "
+  }
+  .navbar-top .nav-item:nth-of-type(1) {
+    border-top:1px solid var(--darken);
+    width:100px
+  }
+  .navbar-top .nav-item:nth-of-type(2)::before {
+    content:"🔴 "
+  }
+  .navbar-top .nav-item:nth-of-type(3)::before {
+    content:"⭐ "
+  }
+  .navbar-top .nav-item:nth-of-type(3) {
+    border-bottom:1px solid var(--darken);
+    width:100px
+  }
+  .navbar-top .nav-item:nth-of-type(4)::before {
+    content:"🤩 "
+  }
+  .navbar-bottom .nav-item:nth-of-type(1)::before {
+    content:"🔐 "
+  }
+  .navbar-bottom .nav-item:nth-of-type(2)::before {
+    content:"⚒️ "
+  }
+  .navbar-bottom .nav-item:nth-of-type(1) {
+    border-top:1px solid var(--darken);
+    width:100px
+  }
+
+  .nav-item-rules::before {
+     content: "📄 ";
+}
+
+  .nav-item-faq::before {
+     content: "📑 ";
+}
+
+#settings::before {
+     content: "⚙️ ";
+}
+
+#settings {
+border-top: 1px solid var(--darken);
+width: 100px;
+}
+
+.navbar 
+.nav-item,
+.nav-item-board,
+.nav-item-rules,
+.nav-item-faq {
+width: 100px;
+}
+}
+
+.nav-item-board,
+.nav-item-rules,
+.nav-item-faq {
+    line-height: 3em;
+    text-decoration: none;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: 700;
+    text-align: left !important;
+}
+
+.nav-item-board:hover,
+.nav-item-rules:hover,
+.nav-item-faq:hover {
+    color: var(--font-color) !important;
+    background-color: var(--highlighted-post-color);
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-item-board,
+    .nav-item-rules,
+    .nav-item-faq {
+        display: none;
+    }
+}
