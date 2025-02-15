@@ -24,7 +24,7 @@ const express  = require('express')
 		globalManageRecent, globalManageAccounts, globalManageNews, globalManageLogs, globalManageRoles } = require(__dirname+'/../models/pages/globalmanage/')
 	, { changePassword, blockBypass, home, register, login, create, myPermissions, sessions, setupTwoFactor,
 		board, catalog, banners, boardSettings, globalSettings, randombanner, news, captchaPage, overboard, overboardCatalog,
-		captcha, thread, modlog, modloglist, account, boardlist, customPage, csrfPage, noncePage } = require(__dirname+'/../models/pages/')
+		captcha, thread, modlog, modloglist, account, boardlist, customPage, csrfPage, noncePage, faq, rules } = require(__dirname+'/../models/pages/')
 	, threadParamConverter = paramConverter({ processThreadIdParam: true })
 	, logParamConverter = paramConverter({ processDateParam: true })
 	, filterParamConverter = paramConverter({ objectIdParams: ['filterid'] })
@@ -37,6 +37,12 @@ router.get('/index.html', home);
 
 //news page
 router.get('/news.html', news);
+
+//faq
+router.get('/faq.html', faq);
+
+//rules
+router.get('/rules.html', rules);
 
 //board list
 router.get('/boards.(html|json)', boardlist);

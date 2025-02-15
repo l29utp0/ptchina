@@ -29,4 +29,6 @@ module.exports = {
 	boardlist: require(__dirname+'/boardlist.js'),
 	overboard: require(__dirname+'/overboard.js'),
 	overboardCatalog: require(__dirname+'/overboardcatalog.js'),
+	faq: require(__dirname+'/faq.js'),
+	rules: require(__dirname+'/rules.js'),
 };

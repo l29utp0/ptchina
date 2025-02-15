@@ -122,20 +122,6 @@ input[type=submit] {
     border-radius: 6px 6px 0 0
 }
 
-/* darker post-info */
-@media screen and (min-width:900px) {
-    .container {
-        width: 78vw;
-        margin: 0 auto
-    }
-
-    /* exceptions */
-    .navbar,
-    .main>.container {
-        width: 100%
-    }
-}
-
 a {
     font-style: italic
 }

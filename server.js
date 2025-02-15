@@ -53,6 +53,10 @@ const config = require(__dirname+'/lib/misc/config.js')
 	// session store
 	const sessionMiddleware = require(__dirname+'/lib/middleware/permission/usesession.js');
 
+	// topboards
+	const topBoardsMiddleware = require(__dirname+'/lib/middleware/misc/topboards.js');
+	app.use(topBoardsMiddleware);
+
 	// connect socketio
 	const Socketio = require(__dirname+'/lib/misc/socketio.js');
 	debugLogs && console.log('STARTING WEBSOCKET');

@@ -316,6 +316,12 @@ block content
 				td [links personalizados](https://example.com)
 				td: a(href='#!') links personalizados (apenas funciona se fores admin/mod de uma tábua)
 			tr
+				td
+					| ![Alt text](https://your.imageboard/file/example.jpg)
+					div
+						small (requires permission)
+				td: img(src='/file/attachment.png' alt='Alt text' title='alt-text' class='embimg' height='32' width='32')
+			tr
 				td &gt;&gt;123
 				td: a(class="quote" href="#!") &gt;&gt;123
 			tr
@@ -354,8 +360,6 @@ block content
 					p
 					| Se for "plain" a deteção de código é desativada. Se "aa" for usado a fonte é ajustada para Arte ASCII/Japanese Shift JIS art.
 					| Nem todas as linguagens de programação são suportadas.
-					p
-					| Linguagens suportadas: #{codeLanguages.join(', ')}
 	//-.table-container.flex-center.mv-5
 		.anchor#post-info
 		table

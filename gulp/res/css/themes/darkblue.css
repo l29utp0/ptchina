@@ -31,8 +31,6 @@
 	--icon-color:invert(17%)sepia(89%)saturate(7057%)hue-rotate(2deg)brightness(93%)contrast(120%);
 }
 body {
-	font-family: 'Hack', monospace, sans-serif;
-	font-size: 9pt;
 	color: #eee;
 }
 .bold {
