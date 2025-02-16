@@ -4058,6 +4058,10 @@ body::before {
         background-color: var(--highlighted-post-color);
         border-radius: 5px;
     }
+
+    .footer {
+        margin-left: calc(120px + 10px);
+    }
 }
 
 @media only screen and (max-width: 600px) {
