@@ -668,7 +668,7 @@ td {
 }
 
 .post-container::before {
-    content: ">>";
+    content: "...";
     position: absolute;
     margin-left: -30px;
 }
