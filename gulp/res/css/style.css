@@ -3970,12 +3970,6 @@ body::before {
         text-align: left !important;
     }
 
-    .nav-item:hover {
-        color: var(--font-color) !important;
-        background-color: var(--highlighted-post-color);
-        border-radius: 5px;
-    }
-
     .navbar-top {
         overflow: auto;
         scrollbar-width: none;
