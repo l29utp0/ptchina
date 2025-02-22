@@ -1133,7 +1133,6 @@ textarea:invalid {
     background-repeat: no-repeat;
     background-color: var(--navbar-color);
     border: 1px solid var(--font-color);
-    border-radius: 5px;
 }
 
 .op .postmenu {
