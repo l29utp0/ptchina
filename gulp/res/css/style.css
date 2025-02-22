@@ -4050,12 +4050,12 @@ body::before {
         text-align: left !important;
     }
 
+    .nav-item:hover,
     .nav-item-board:hover,
     .nav-item-rules:hover,
     .nav-item-faq:hover {
         color: var(--font-color) !important;
         background-color: var(--highlighted-post-color);
-        border-radius: 5px;
     }
 
     .footer {
