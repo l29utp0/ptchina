@@ -123,7 +123,7 @@ table {
 
 .post-info {
     background: var(--darken) !important;
-    margin: -7.5px -6.5px 5px -6.5px;
+    margin: -7.5px -7px 5px -7px;
     border-radius: 6px 6px 0px 0px;
     padding: 6px;
 }
@@ -257,3 +257,46 @@ table {
         background: var(--background-rest);
     }
 }
+
+@media (min-width:600px) {
+    #action-menu,
+    #actionform,
+    #customcss-setting,
+    #import-export-setting,
+    #livetext,
+    #postform-dragHandle,
+    #submitpost,
+    #threadstats,
+    #threadwatcher,
+    #float,
+    .catalog-tile,
+    .collapse.no-decoration.post-button,
+    .embed-video,
+    .form-post,
+    .label,
+    .modal,
+    .pages,
+    .post-button,
+    .post-container,
+    .postform-style,
+    .rlabel,
+    .stickynav,
+    .thread.bottom-reply.no-decoration.post-button,
+    .user.id,
+    .collapse,
+    .expand-omitted,
+    .user-id,
+    .post-info,
+    .postmenu,
+    .nav-item:hover,
+    .nav-item-board:hover,
+    .nav-item-faq:hover,
+    .nav-item-rules:hover,
+    img,
+    input,
+    table,
+    textarea,
+    video {
+      border-radius:0px
+    }
+    }
