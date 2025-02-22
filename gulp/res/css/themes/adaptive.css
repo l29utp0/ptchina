@@ -88,7 +88,8 @@ textarea,
 }
 
 .collapse,
-.expand-omitted {
+.expand-omitted,
+.postmenu {
     border-radius: 5px;
 }
 
