@@ -1216,6 +1216,12 @@ textarea:invalid {
     vertical-align: middle;
 }
 
+.catalog-tile .post-icons {
+    position: absolute;
+    right: 29px;
+    top: 7px;
+}
+
 .post-icons img {
     image-rendering: auto;
 }
