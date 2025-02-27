@@ -137,3 +137,7 @@ video {
 body {
     background: url(/css/themes/assets/ptchan-bg.png) repeat 0 0 #ffe
 }
+
+.postmenu {
+    border-radius: 5px;
+}
