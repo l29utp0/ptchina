@@ -23,7 +23,6 @@ block content
 		+managenav('index')
 	else
 		.pages
-			include ../includes/boardpages.pug
 			+boardnav(null, false, false)
 	form(action=`/forms/board/${board._id}/${modview ? 'mod' : ''}actions` method='POST' enctype='application/x-www-form-urlencoded')
 		if modview
@@ -43,7 +42,6 @@ block content
 		else
 			.pages
 				include ../includes/boardpages.pug
-				+boardnav(null, false, false)
 		if modview
 			include ../includes/actionfooter_manage.pug
 		else
