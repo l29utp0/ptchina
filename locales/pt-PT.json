@@ -10,8 +10,8 @@
 		"other": "%s caracteres"
 	},
 	"%s day ago": {
-		"one": "%s dia atrás",
-		"other": "%s dias atrás"
+		"one": "%s dia",
+		"other": "%s dias"
 	},
 	"%s day from now": {
 		"one": "%s dia desde agora",
@@ -19,8 +19,8 @@
 	},
 	"%s earlier": "%s anteriores",
 	"%s files": {
-		"one": "%s ficheiro",
-		"other": "%s ficheiros"
+		"one": "%s F",
+		"other": "%s F"
 	},
 	"%s files are being served, totaling %s.": "%s Ficheiros %s.",
 	"%s files selected": {
@@ -28,32 +28,32 @@
 		"other": "%s ficheiros selecionados"
 	},
 	"%s hour ago": {
-		"one": "%s hora atrás",
-		"other": "%s horas atrás"
+		"one": "%s hora",
+		"other": "%s horas"
 	},
 	"%s hour from now": {
 		"one": "%s hora desde agora",
 		"other": "%s horas desde agora"
 	},
 	"%s minute ago": {
-		"one": "%s minuto atrás",
-		"other": "%s minutos atrás"
+		"one": "%s minuto",
+		"other": "%s minutos"
 	},
 	"%s minute from now": {
 		"one": "%s minuto desde agora",
 		"other": "%s minutos desde agora"
 	},
 	"%s month ago": {
-		"one": "%s mês atrás",
-		"other": "%s meses atrás"
+		"one": "%s mês",
+		"other": "%s meses"
 	},
 	"%s month from now": {
 		"one": "%s mês desde agora",
 		"other": "%s meses desde agora"
 	},
 	"%s replies": {
-		"one": "%s resposta",
-		"other": "%s respostas"
+		"one": "%s R",
+		"other": "%s R"
 	},
 	"%s replies and %s files omitted.": "%s respostas e %s ficheiros omitidos.",
 	"%s replies and 1 file omitted.": "%s respostas e 1 ficheiro omitido.",
@@ -63,16 +63,16 @@
 		"other": "%s IDUs"
 	},
 	"%s week ago": {
-		"one": "%s semana atrás",
-		"other": "%s semanas atrás"
+		"one": "%s semana",
+		"other": "%s semanas"
 	},
 	"%s week from now": {
 		"one": "%s semana desde agora",
 		"other": "%s semanas desde agora"
 	},
 	"%s year ago": {
-		"one": "%s ano atrás",
-		"other": "%s anos atrás"
+		"one": "%s ano",
+		"other": "%s anos"
 	},
 	"%s year from now": {
 		"one": "%s ano desde agora",
