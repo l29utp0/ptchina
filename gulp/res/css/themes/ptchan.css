@@ -135,9 +135,15 @@ video {
 }
 
 body {
-    background: url(/css/themes/assets/ptchan-bg.png) repeat 0 0 #ffe
+    background: url(/css/themes/assets/ptchan-bg.png) repeat 0 0 var(--background-rest);
 }
 
 .postmenu {
     border-radius: 5px;
+}
+
+@media (min-width: 600px) {
+    .navbar {
+      background: var(--background-rest);
+    }
 }
