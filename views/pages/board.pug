@@ -6,43 +6,49 @@ include ../mixins/boardheader.pug
 include ../mixins/announcements.pug
 
 block head
-	title /#{board._id}/ - #{board.settings.name} - #{__n('Page %s', page)}
+    title /#{board._id}/ - #{board.settings.name} - #{__n('Page %s', page)}
+    script.
+        window.boardConfig = {
+            boardId: '#{board._id}',
+            currentPage: #{page},
+            maxPage: #{maxPage},
+            modview: #{!!modview}
+        };
 
 block content
-	+boardheader(modview ? __('Mod Index') : null)
-	//-br
-	include ../includes/postform.pug
-	//-br
-	//-#image-container
-		a#image-link(href="#")
-			img#rotating-image(src="#")
-	//-br
-	+announcements()
-	include ../includes/stickynav.pug
-	if modview
-		+managenav('index')
-	else
-		.pages
-			+boardnav(null, false, false)
-	form(action=`/forms/board/${board._id}/${modview ? 'mod' : ''}actions` method='POST' enctype='application/x-www-form-urlencoded')
-		if modview
-			input(type='hidden' name='_csrf' value=csrf)
-		hr(size=1)
-		if threads.length === 0
-			p #{__('No posts.')}
-			hr(size=1)
-		for thread in threads
-			.thread
-				+post(thread, true)
-				for post in thread.replies
-					+post(post, true)
-			hr(size=1)
-		if modview
-			+managenav('index')
-		else
-			.pages
-				include ../includes/boardpages.pug
-		if modview
-			include ../includes/actionfooter_manage.pug
-		else
-			include ../includes/actionfooter.pug
+    +boardheader(modview ? __('Mod Index') : null)
+    include ../includes/postform.pug
+    +announcements()
+    include ../includes/stickynav.pug
+    if modview
+        +managenav('index')
+    else
+        .pages
+            +boardnav(null, false, false)
+            
+    #threads-container(data-board=board._id)
+        form.thread-form(action=`/forms/board/${board._id}/${modview ? 'mod' : ''}actions` method='POST' enctype='application/x-www-form-urlencoded')
+            if modview
+                input(type='hidden' name='_csrf' value=csrf)
+            hr(size=1)
+            if threads.length === 0
+                p #{__('No posts.')}
+                hr(size=1)
+            for thread in threads
+                .thread
+                    +post(thread, true)
+                    for post in thread.replies
+                        +post(post, true)
+                hr(size=1)
+            if modview
+                +managenav('index')
+            else
+                .pages.bottom-pages
+                    include ../includes/boardpages.pug
+            if modview
+                include ../includes/actionfooter_manage.pug
+            else
+                include ../includes/actionfooter.pug
+                
+    .loading-indicator
+        p #{__('A carregar mais fios...')}

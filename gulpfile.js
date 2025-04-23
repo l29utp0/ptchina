@@ -567,6 +567,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`!${paths.scripts.src}/timezone.js`,
 		`!${paths.scripts.src}/ptchina-playlist.js`,
 		`!${paths.scripts.src}/boardads.js`,
+		`!${paths.scripts.src}/infinitescroll.js`,
 		`!${paths.scripts.src}/renderweb3.js`,
 	])
 		.pipe(concat('all.js'))
@@ -590,6 +591,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`${paths.scripts.src}/watchlist.js`,
 		`${paths.scripts.src}/catalog.js`,
 		`${paths.scripts.src}/time.js`,
+		`${paths.scripts.src}/infinitescroll.js`,
 		`${paths.scripts.src}/renderweb3.js`,
 	])
 		.pipe(concat('render.js'))
