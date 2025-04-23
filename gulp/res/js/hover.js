@@ -203,4 +203,3 @@ window.addEventListener('settingsReady', function() {
 	};
 	hoverCacheListClearButton.addEventListener('click', clearHoverCacheList, false);
 });
-
