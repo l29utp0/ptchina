@@ -51,6 +51,10 @@ mixin modal(data)
 								.rlabel #{__('Only notify (You)s')}
 							.row
 								label.postform-style.ph-5
+									input#sound-setting(type='checkbox')
+								.rlabel #{__('Sound notifications')}
+							.row
+								label.postform-style.ph-5
 									input#scroll-setting(type='checkbox')
 								.rlabel #{__('Scroll to new posts')}
 							.row
@@ -77,10 +81,6 @@ mixin modal(data)
 								label.postform-style.ph-5
 									input#hidedeletedpostcontent-setting(type='checkbox')
 								.rlabel #{__('Hide deleted post content')}
-							.row
-								label.postform-style.ph-5
-									input#disableboardcss-setting(type='checkbox')
-								.rlabel #{__('Disable board custom CSS')}
 
 						.col
 							.row
@@ -123,6 +123,11 @@ mixin modal(data)
 								label.postform-style.ph-5
 									input#threadwatcher-setting(type='checkbox')
 								.rlabel #{__('Thread watcher')}
+							.row
+								label.postform-style.ph-5
+									input#disableboardcss-setting(type='checkbox')
+								.rlabel #{__('Disable board custom CSS')}
+
 					.row.wrap.sb.mt-5
 						.col.mr-5
 							.row

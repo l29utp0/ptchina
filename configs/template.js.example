@@ -364,6 +364,7 @@ module.exports = {
 		localTime: true, //show local time for posts
 		hour24Time: false, //show 24 hour time for posts
 		relativeTime: true, //show relative time i.e. "5 minutes ago" for posts
+		sound: true, //enable sound notifications for new posts
 		//note: relative time overrides other time options, they show on hover in the tooltip/"title" property
 		notificationsEnabled: false, //show notifications for new posts in a thread
 		notificationsYousOnly: true, //only show notifications for posts that quote you

@@ -657,6 +657,10 @@ ul.tabs.group
 				label.postform-style.ph-5
 					input(type='checkbox', name='frontend_script_default_notifications', value='true' checked=settings.frontendScriptDefault.notificationsEnabled)
 			.row
+				.label #{__('Sound notifications')}
+				label.postform-style.ph-5
+					input(type='checkbox', name='frontend_script_default_notification_sound', value='true' checked=settings.frontendScriptDefault.notificationSound)
+			.row
 				.label #{__('Show (You)s')}
 				label.postform-style.ph-5
 					input(type='checkbox', name='frontend_script_default_show_yous', value='true' checked=settings.frontendScriptDefault.showYous)
