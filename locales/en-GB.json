@@ -1438,6 +1438,10 @@
 	"Replace": "Replace",
 	"Force Account 2FA": "Force Account 2FA",
 	"Force Action 2FA ": "Force Action 2FA ",
-	"Table":"Table",
-	"Ethereum Links URL": "Ethereum Links URL"
+	"Table": "Table",
+	"Ethereum Links URL": "Ethereum Links URL",
+	"Sound notifications": "Sound notifications",
+	"Your upload of %s exceeds the maximum of %s. Donate to increase this limit.": "Your upload of %s exceeds the maximum of %s. Donate to increase this limit.",
+	"You can only own one board.": "You can only own one board.",
+	"Donors cannot transfer boards.": "Donors cannot transfer boards."
 }

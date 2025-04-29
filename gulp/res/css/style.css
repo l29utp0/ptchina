@@ -109,7 +109,6 @@ pre {
 
 .navbar {
     background: var(--navbar-color);
-    box-shadow: 0 0 3px 1px var(--darken);
     border-bottom: 1px solid var(--post-outline-color);
     position: fixed;
     width: 100%;
@@ -311,20 +310,32 @@ object {
 }
 
 .catalog-tile {
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    height: 360px;
-    width: 280px;
-    overflow: hidden;
-    border: 1px solid var(--post-outline-color);
-    box-sizing: border-box;
-    flex-grow: 1;
-    max-width: 280px;
+    padding:5px;
+    margin:5px;
+    text-align:center;
+    height:360px;
+    width:280px;
+    overflow:hidden;
+    border:1px solid var(--post-outline-color);
+    box-sizing:border-box;
+    flex-grow:1;
+    max-width:280px;
 }
 
 .catalog-tile:focus {
-    overflow-y: auto;
+    overflow-y:auto;
+}
+  
+.catalog .catalog-tile {
+    transition:all .1s ease-out
+}
+
+.catalog .catalog-tile:focus {
+    transform:scale(1.02)
+}
+  
+.catalog .catalog-tile:hover {
+    transform:scale(1.02)
 }
 
 p {
@@ -1037,7 +1048,7 @@ textarea:invalid {
 }
 
 .container {
-    padding: 10px;
+    padding: 5px;
 }
 
 .board-title {
@@ -3901,6 +3912,11 @@ span.sorte {
     right: 5px;
     top: 5px;
 }
+
+.spassword {
+    display: none;
+}
+
 /* christmas theme
 body::before {
     content: '';
@@ -3920,6 +3936,10 @@ body::before {
   background-blend-mode: overlay;
   }
   */
+
+  .score-container .help {
+    pointer-events: none;
+  }
 
 @media (min-width: 600px) {
     main {
@@ -4069,4 +4089,34 @@ body::before {
     .nav-item-faq {
         display: none;
     }
+
+    .score-container {
+        padding: 0!important;
+      }
 }
+
+@media only screen and (max-width:600px) {
+
+    .hat {
+      display:none;
+    }
+}
+
+.hat {
+    position: relative;
+}
+    
+.hat:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: -70px;
+    left: -20px;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    background-image: url(/misc/hat.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+

@@ -233,7 +233,7 @@ module.exports = {
 		return listedBoards;
 	},
 
-	boardSort: (skip=0, limit=50, sort={ ips:-1, pph:-1, sequence_value:-1 }, filter={}, showSensitive=false, webringSites=false) => {
+	boardSort: (skip=0, limit=50, sort={ ppd:-1, ips:-1, pph:-1, sequence_value:-1 }, filter={}, showSensitive=false, webringSites=false) => {
 		const addedFilter = {};
 		const projection = {
 			'_id': 1,

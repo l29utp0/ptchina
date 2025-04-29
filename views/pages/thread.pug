@@ -69,10 +69,10 @@ block content
 					+boardnav(null, true, true)
 			#threadstats 
 				span #{__n('%s replies', thread.replyposts)}
-				|  |  
+				|  /  
 				span #{__n('%s files', thread.replyfiles + thread.files.length)}
 				if board.settings.ids
-					|  |   
+					|  /   
 					span #{__n('%s UIDs', uids.size)}
 		.jsonly#livetext
 			.dot#livecolor

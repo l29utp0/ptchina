@@ -51,6 +51,7 @@ const localStorageDefaults = {
 	'notification-yous-only': settings.notificationsYousOnly,
 	'yous-setting': settings.showYous,
 	'threadwatcher': settings.threadWatcher,
+	'sound': true,
 	'threadwatcher-minimise': false,
 	'disableboardcss': false,
 	'tegakiwidth-setting': settings.tegakiWidth,

@@ -5,11 +5,11 @@ unless minimal
             a.nav-item(href='/index.html') #{__('Home')}
             a.nav-item(href='https://miau.gg') Miau
             a.nav-item#overboardlink(href='/catalog.html') #{__('Overboard')}
-            a(href='/boards.html' class=`nav-item ${enableWebring ? 'short-nav' : ''}`)
+            //a(href='/boards.html' class=`nav-item ${enableWebring ? 'short-nav' : ''}`)
                 | #{__('Boards')}
-                if topBoards && topBoards.length > 0
-                    each board in topBoards
-                        a.nav-item-board(href=`/${board._id}/index.html`) /#{board.settings.name.length > 13 ? board.settings.name.substring(0,13) + '...' : board.settings.name}/
+            if topBoards && topBoards.length > 0
+                each board in topBoards
+                    a.nav-item-board(href=`/${board._id}/index.html`) /#{board.settings.name.length > 13 ? board.settings.name.substring(0,13) + '...' : board.settings.name}/
 
         div.navbar-bottom
             a.nav-item(href='/account.html') #{__('Account')}
