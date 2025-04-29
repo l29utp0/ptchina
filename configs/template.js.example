@@ -447,7 +447,14 @@ module.exports = {
 	proxy: {
 		enabled: false,
 		address: ''
-	}
+	},
+
+	//Number of unique IP reports needed to auto-delete a post. Set to 0 to disable, runs every 10 min.
+	    autoDeleteReports: {
+        type: 'number',
+        minimum: 0,
+        default: 5,
+    }
 
 
 };

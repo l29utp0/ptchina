@@ -36,7 +36,8 @@ module.exports = {
 			'board_defaults_pph_trigger', 'board_defaults_tph_trigger_action', 'board_defaults_pph_trigger_action', 'board_defaults_captcha_reset', 'board_defaults_lock_reset',
 			'board_defaults_thread_limit', 'board_defaults_reply_limit', 'board_defaults_bump_limit', 'board_defaults_max_files', 'board_defaults_min_thread_message_length',
 			'board_defaults_min_reply_message_length', 'board_defaults_max_thread_message_length', 'board_defaults_max_reply_message_length',
-			'board_defaults_delete_protection_count', 'frontend_script_default_tegaki_height', 'frontend_script_default_tegaki_width', 'global_limits_post_files_size_image_resolution', 'global_limits_post_files_size_video_resolution']
+			'board_defaults_delete_protection_count', 'frontend_script_default_tegaki_height', 'frontend_script_default_tegaki_width', 'global_limits_post_files_size_image_resolution', 'global_limits_post_files_size_video_resolution',
+			'auto_delete_reports']
 	}),
 
 	controller: async (req, res, next) => {

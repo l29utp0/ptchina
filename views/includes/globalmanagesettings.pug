@@ -439,6 +439,9 @@ ul.tabs.group
 			.row
 				.label #{__('Edit Post')}
 				input(type='number' name='rate_limit_cost_edit_post' value=settings.rateLimitCost.editPost)
+			.row
+				.label #{__('Auto Delete Global Reports Threshold')}
+				input(type='number' name='auto_delete_reports' value=settings.autoDeleteReports min='0')
 
 	.tab.tab-6
 		.col
@@ -659,7 +662,7 @@ ul.tabs.group
 			.row
 				.label #{__('Sound notifications')}
 				label.postform-style.ph-5
-					input(type='checkbox', name='frontend_script_default_notification_sound', value='true' checked=settings.frontendScriptDefault.notificationSound)
+					input(type='checkbox', name='frontend_script_default_notifications_sound', value='true' checked=settings.frontendScriptDefault.notificationSound)
 			.row
 				.label #{__('Show (You)s')}
 				label.postform-style.ph-5

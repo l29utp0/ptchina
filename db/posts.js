@@ -589,6 +589,40 @@ module.exports = {
 		return posts;
 	},
 
+	getUniqueIPReportCount: (board, postId) => {
+		return db.aggregate([
+			{
+				'$match': {
+					'board': board,
+					'postId': postId
+				}
+			},
+			{
+				'$project': {
+					'uniqueReportIPs': {
+						'$setUnion': [
+							{ '$map': {
+								'input': '$reports',  
+								'as': 'report',
+								'in': '$$report.ip.raw'
+							}},
+							{ '$map': {
+								'input': '$globalreports',
+								'as': 'report',
+								'in': '$$report.ip.raw'
+							}}
+						]
+					}
+				}
+			},
+			{
+				'$project': {
+					'count': { '$size': '$uniqueReportIPs' }
+				}
+			}
+		]).toArray().then(result => result[0]?.count || 0);
+	},
+
 	deleteOne: (board, options) => {
 		return db.deleteOne(options);
 	},

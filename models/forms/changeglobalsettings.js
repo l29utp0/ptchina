@@ -177,7 +177,7 @@ module.exports = async (req, res) => {
 			hour24Time: booleanSetting(req.body.frontend_script_default_hour_24_time, oldSettings.frontendScriptDefault.hour24Time),
 			relativeTime: booleanSetting(req.body.frontend_script_default_relative_time, oldSettings.frontendScriptDefault.relativeTime),
 			notificationsEnabled: booleanSetting(req.body.frontend_script_default_notifications_embed, oldSettings.frontendScriptDefault.notificationsEnabled),
-			notificationSound: booleanSetting(req.body.frontend_script_default_notification_sound, oldSettings.frontendScriptDefault.notificationSound),
+			notificationsSound: booleanSetting(req.body.frontend_script_default_notifications_sound, oldSettings.frontendScriptDefault.notificationsSound),
 			notificationsYousOnly: booleanSetting(req.body.frontend_script_default_notifications_yous_only, oldSettings.frontendScriptDefault.notificationsYousOnly),
 			showYous: booleanSetting(req.body.frontend_script_default_show_yous, oldSettings.frontendScriptDefault.showYous),
 			hideDeletedPostContent: booleanSetting(req.body.frontend_script_default_hide_deleted_post_content, oldSettings.frontendScriptDefault.hideDeletedPostContent),
@@ -342,6 +342,7 @@ module.exports = async (req, res) => {
 				other: booleanSetting(req.body.board_defaults_allowed_file_types_other, oldSettings.boardDefaults.allowedFileTypes.other)
 			}
 		},
+		autoDeleteReports: numberSetting(req.body.auto_delete_reports, oldSettings.autoDeleteReports)
 	};
 
 	await Mongo.setConfig(newSettings);
