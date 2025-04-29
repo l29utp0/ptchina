@@ -1,5 +1,6 @@
 extends ../layout.pug
 include ../mixins/boardtable.pug
+include ../mixins/catalogtile.pug
 
 block head
 	title #{meta.siteName}
@@ -32,44 +33,8 @@ block content
 						td
 							- const newsDate = new Date(post.date);
 							time.right.reltime(datetime=newsDate.toISOString()) #{newsDate.toLocaleString(pageLanguage, {hourCycle:'h23'})}
-	if hotThreads && hotThreads.length > 0
-		.table-container.flex-center.mv-10
-			table#hotposts
-				tr(colspan=3) 
-				each post, i in hotThreads
-					tr.catalog-tile(style='height:100px' data-email=post.email)
-						td.text-center
-							a(href=`/${post.board}/index.html`) /#{post.board}/
-							p
-								span.help(title=__('Hot Thread (%s)', post.score.toFixed(1))) 🔥
-							|  #{post.score.toFixed(0)}
-						td
-							if post.files.length > 0
-								.post-files
-									- const file = post.files[0]
-									- const type = file.mimetype.split('/')[0]
-									if post.spoiler || file.spoiler
-										a(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`)
-											div.spoilerimg.file-thumb(style='height:100px; width: 100px')
-									else if file.hasThumb
-										a(href=`/${post.board}/thread/${post.postId}.html#${post.postId}`)
-											img.file-thumb(src=`/file/thumb/${file.hash}${file.thumbextension}` height='100' width='100' loading='lazy' style='object-fit:cover')
-									else if file.attachment
-										div.attachmentimg.file-thumb(data-mimetype=file.mimetype)
-									else if type === 'audio'
-										div.audioimg.file-thumb
-						td(style='text-align: left')
-							- const threadLink = `/${post.board}/thread/${post.postId}.html#${post.postId}`;
-							a(href=threadLink)
-								if post.subject
-									| #{post.subject.substring(0,100)}#{post.subject.length > 100 ? '...' : ''}
-									if post.nomarkup
-										|  - 
-								if post.nomarkup
-									| #{post.nomarkup.substring(0,300)}#{post.nomarkup.length > 300 ? '...' : ''}
-								if !post.nomarkup && !post.subject
-									| >>>/#{post.board}/#{post.postId}
-	//-if boards && boards.length > 0
+
+	if boards && boards.length > 0
 		+boardtable(true, false)
 			each board in boards
 				tr
@@ -79,7 +44,7 @@ block content
 								span.help(title=__('SFW')) &#x1F4BC;
 								|  
 						a(href=`/${board._id}/index.html`) /#{board._id}/ - #{board.settings.name}
-					td #{board.settings.description}
+					//td #{board.settings.description}
 					td.nobreak #{board.pph}
 					td.nobreak #{board.ppd}
 					td.nobreak #{board.ips}
@@ -88,6 +53,53 @@ block content
 				tr
 					td(colspan=6)
 						a.bold(href='/boards.html') Mais tábuas
+
+	if hotThreads && hotThreads.length > 0
+		.catalog
+			for thread, i in hotThreads
+				- let anchorSubject = thread.subject
+				if thread.subject
+					- const subjectAnchorMatch = thread.subject.match(/^\/\w+\//);
+					if subjectAnchorMatch
+						- anchorSubject = subjectAnchorMatch[0]
+				.hat
+				.catalog-tile(tabindex=i+1
+					data-board=thread.board
+					data-post-id=thread.postId
+					data-filter=((thread.subject||'')+(thread.nomarkup||'')).toLowerCase()
+					data-date=thread.date
+					data-replies=thread.replyposts
+					data-bump=thread.bumped
+					style='text-align: center;')
+					- const postURL = `/${thread.board}/thread/${thread.postId}.html`
+					.post-info(style='text-align: center;')
+						.score-container(style='position: absolute; top: 5px; right: 5px; padding: 2px 5px; font-weight: bold;')
+							span.help 🔥 #{thread.score.toFixed(0)}
+						div(style='text-align: center;')
+							a.no-decoration.post-subject(href=`/${thread.board}/`) /#{thread.board}/
+						if thread.country && thread.country.code
+							span(class=`flag flag-${thread.country.code.toLowerCase()}` title=thread.country.name alt=thread.country.name) 
+							| 
+						if thread.subject
+							a.no-decoration.post-subject(href=postURL) #{thread.subject}
+						else
+							a.no-decoration.post-subject(href=postURL) ##{thread.postId}
+					if thread.files.length > 0
+						- const file = thread.files[0]
+						div(style='display: flex; justify-content: center; margin: 5px 0;')
+							if thread.spoiler || file.spoiler
+								a(href=postURL)
+									.spoilerimg.catalog-thumb
+							else if file.hasThumb
+								a(href=postURL)
+									img.catalog-thumb(src=`/file/thumb/${file.hash}${file.thumbextension}` loading='lazy')
+							else if file.attachment
+								.attachmentimg.catalog-thumb(data-mimetype=file.mimetype)
+							else if file.mimetype.split('/')[0] === 'audio'
+								.audioimg.catalog-thumb
+					if thread.message
+						pre.no-m-p.post-message !{thread.message}
+
 	.table-container.flex-center.mv-10.text-center
 		table(style='max-width:450px')
 			tr

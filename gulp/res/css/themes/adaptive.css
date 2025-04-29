@@ -32,6 +32,20 @@
     --greentext-color: #789922;
     --pinktext-color: #e0727f;
 }
+
+#float,
+.post-container,
+#livetext,
+#threadstats,
+.bottom-reply,
+.catalog-tile,
+.collapse,
+.pages,
+.post-container,
+.stickynav {
+    border-width: 2px;
+}
+
 .post-info,
 .post-container:target .post-info,
 .post-container.highlighted .post-info {
@@ -85,6 +99,21 @@ textarea,
 .collapse.no-decoration.post-button,
 .thread.bottom-reply.no-decoration.post-button {
     border-radius: 10px;
+}
+
+.catalog-tile,
+.post-container {
+  background:none;
+}
+
+#float,
+#livetext, 
+#threadstats, 
+.bottom-reply, 
+.collapse, 
+.pages, 
+.stickynav {
+    background: var(--darken);
 }
 
 .collapse,
@@ -149,10 +178,6 @@ table {
         margin-right 0.1s;
 }
 
-.catalog .catalog-tile {
-    mask-image: linear-gradient(to bottom, black 350px, transparent);
-}
-
 @media (prefers-color-scheme: dark) {
     :root {
         --icon-color: invert(17%) sepia(89%) saturate(7057%) hue-rotate(2deg)
@@ -166,7 +191,7 @@ table {
         --post-outline-color: #191b1f;
         --label-color: #191b1f;
         --box-border-color: #111;
-        --darken: #24272c;
+        --darken: #191b1f;
         --highlighted-post-color: #2b1d1f;
         --highlighted-post-outline-color: #111;
         --board-title: #c5c8c6;
@@ -189,7 +214,7 @@ table {
     }
 
     table {
-        border: 1px solid var(--label-color);
+        border: 2px solid var(--label-color);
     }
 
     tr:nth-child(2n + 1) {
@@ -202,7 +227,7 @@ table {
 
     .box-wrap,
     .tabs li a {
-        border: 1px solid #000;
+        border: 2px solid #000;
     }
 
     .postmenu,
@@ -226,10 +251,11 @@ table {
         margin-left: 2px;
     }
 
-    .catalog .catalog-tile {
-        mask-image: linear-gradient(to bottom, black 290px, transparent);
-    }
 }
+
+th {
+    background-color: var(--darken);
+  }
 
 @media (prefers-color-scheme: light) {
     .collapse.no-decoration.post-button,
@@ -255,7 +281,7 @@ table {
 @media only screen and (max-width: 600px) and (prefers-color-scheme: dark) {
     .collapse.no-decoration.post-button,
     .thread.bottom-reply.no-decoration.post-button {
-        background: var(--background-rest);
+        background: var(--darken);
     }
 }
 

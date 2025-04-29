@@ -44,7 +44,7 @@ class CssToggle {
 
 //define the css
 const hidePostStubsCss = '.post-container.hidden, .catalog-tile.hidden { display: none;margin-top: -1.5em;height: 0; }';
-const hideDeletedPostContentCss = '.post-container.marked[data-mark="Apagado"] .post-data { display: none; }';
+const hideDeletedPostContentCss = '.post-container.marked[data-mark="Deleted"] .post-data { display: none; }';
 const hideThumbnailsCss = '.file-thumb, .catalog-thumb { visibility: hidden !important; }';
 const hideRecursiveCss = '.op.hidden ~ .anchor, .op.hidden ~ .post-container { display: none; }';
 const heightUnlimitCss = 'img, video { max-height: unset; }';
