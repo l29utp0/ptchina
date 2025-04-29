@@ -19,8 +19,8 @@
 	},
 	"%s earlier": "%s anteriores",
 	"%s files": {
-		"one": "%s F",
-		"other": "%s F"
+		"one": "F: %s",
+		"other": "F: %s"
 	},
 	"%s files are being served, totaling %s.": "%s Ficheiros %s.",
 	"%s files selected": {
@@ -52,15 +52,15 @@
 		"other": "%s meses desde agora"
 	},
 	"%s replies": {
-		"one": "%s R",
-		"other": "%s R"
+		"one": "R: %s",
+		"other": "R: %s"
 	},
 	"%s replies and %s files omitted.": "%s respostas e %s ficheiros omitidos.",
 	"%s replies and 1 file omitted.": "%s respostas e 1 ficheiro omitido.",
 	"%s replies omitted.": "%s respostas omitidas.",
 	"%s UIDs": {
-		"one": "%s IDU",
-		"other": "%s IDUs"
+		"one": "ID: %s",
+		"other": "IDs: %s"
 	},
 	"%s week ago": {
 		"one": "%s semana",
@@ -1249,7 +1249,7 @@
 	"There are currently %s sites and %s boards in the known webring. Across all webring boards, %s posts have been made in the last hour, %s in total.": "Existem %s sites e %s tábuas no Webring. No Webring inteiro foram feitas %s publicações na última hora, %s no total.",
 	"Thread creation locked": "Criação de fios trancada",
 	"Thread does not exist": "Fio não existe",
-	"Thread from": "Fio de",
+	"Thread from": "Fio do",
 	"Thread Limit": "Limite de Fios",
 	"Thread Limit Max": "Limite Máx de Fios",
 	"Thread Limit Min": "Limite Mín de Fios",
@@ -1442,5 +1442,9 @@
 	"Force Account 2FA": "Forçar 2FA Contas",
 	"Force Action 2FA ": "Forçar 2FA Ações",
 	"Table": "Tabela",
-	"Ethereum Links URL": "Ethereum Links URL"
+	"Ethereum Links URL": "Ethereum Links URL",
+	"Sound notifications": "Som publicações",
+	"Your upload of %s exceeds the maximum of %s. Donate to increase this limit.": "O teu carregamento de %s excede o máximo de %s. Adquire um ptchina+.",
+	"You can only own one board.": "Apenas podes ter 1 tábua.",
+	"Donors cannot transfer boards.": "Não podes transferir a tábua."
 }

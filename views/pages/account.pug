@@ -12,6 +12,8 @@ block content
 	hr(size=1)
 	h4.no-m-p #{__('General')}:
 	ul
+		if !permissions.get(Permissions.DONOR)
+			li.bold: a(href='/') #{__('Isto é um teste')}
 		if !user.twofactor && !user.web3
 			li.bold: a(href='/twofactor.html') #{__('Setup 2FA (TOTP)')}
 		if permissions.get(Permissions.CREATE_BOARD)
