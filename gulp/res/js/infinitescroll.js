@@ -272,17 +272,6 @@
 		}
 	}
 
-	// Create loading indicator if it doesn't exist
-	if (!document.querySelector('.loading-indicator')) {
-		const loadingIndicator = document.createElement('div');
-		loadingIndicator.className = 'loading-indicator';
-		loadingIndicator.textContent = 'Loading more content...';
-		const threadsContainer = document.querySelector('#threads-container');
-		if (threadsContainer) {
-			threadsContainer.appendChild(loadingIndicator);
-		}
-	}
-
 	// Scroll event listener with debounce
 	let scrollTimeout;
 	window.addEventListener('scroll', () => {
