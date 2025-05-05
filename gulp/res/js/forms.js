@@ -356,6 +356,7 @@ class postFormHandler {
 				if (xhr.responseText) {
 					try {
 						json = JSON.parse(xhr.responseText);
+					// eslint-disable-next-line no-unused-vars
 					} catch (e) {
 						//wasnt json response
 					}
@@ -563,6 +564,7 @@ class postFormHandler {
 				try {
 					const thumbnailBlob = await videoThumbnail(file);
 					item.url = URL.createObjectURL(thumbnailBlob);
+				// eslint-disable-next-line no-unused-vars
 				} catch (err) {
 					//couldnt create video thumb for some reason
 					item.url = '/file/video.png';
