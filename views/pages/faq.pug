@@ -11,13 +11,13 @@ block content
 		.anchor
 		table
 			tr
-				th Perguntas frequentes 
+				th Perguntas frequentes
 			tr
 				td.post-message
 					b Geral
 					ul.mv-0
 						li: a(href='#denunciar') Como posso denunciar uma publicação?
-						li: a(href='#cripto') Como posso ajudar o ptchan.org?
+						//li: a(href='#cripto') Como posso ajudar o ptchan.org?
 						li: a(href='#legalDMCA') Remoção de conteúdo que infringe direitos legais/DMCA.
 						li: a(href='#contactar') Como posso contactar a administração?
 						li: a(href='#source') Source & API?
@@ -54,10 +54,10 @@ block content
 			tr
 				td.post-message
 					p
-						| Podes denunciar uma publicação que infrinja as regras clicando na seta em cima da publicação e Denunciar/Moderar - depois clica em Denúnciar ou Denúncia Global, preenche o motivo, completa o CAPTCHA e envia. 
+						| Podes denunciar uma publicação que infrinja as regras clicando na seta em cima da publicação e Denunciar/Moderar - depois clica em Denúnciar ou Denúncia Global, preenche o motivo, completa o CAPTCHA e envia.
 					p
 						| Para denunciares várias publicações ao mesmo tempo clica nas checkboxes das publicações e vai a Ações no final da página.
-	.table-container.flex-center.mv-5
+	//.table-container.flex-center.mv-5
 		.anchor#cripto
 		table
 			tr
@@ -65,11 +65,11 @@ block content
 			tr
 				td
 					p.post-message
-						| Ao doares o equivalente a 
+						| Ao doares o equivalente a
 						span.mono $5
-						|  ou mais em cripto tens direito a uma conta vitalícia de 
+						|  ou mais em cripto tens direito a uma conta vitalícia de
 						span.mono Amigo verdadeiro e honesto
-						|  que te permite fazer publicações com um crachá ao inserires 
+						|  que te permite fazer publicações com um crachá ao inserires
 						span.mono ## ouro
 						|  no campo de nome, carregar ficheiros através de TOR e passar DNSBLs, também tens direito a uma frase inserida no sistema de sortes do ptchan, mais coisas engraçadas poderão ser atribuídas no futuro.
 					p.post-message
@@ -117,10 +117,6 @@ block content
 				td
 					p
 						a(href='https://github.com/l29utp0/ptchina' referrerpolicy='same-origin' target='_blank') https://github.com/l29utp0/ptchina
-					p
-						a(href='https://github.com/l29utp0/ptchinacast' referrerpolicy='same-origin' target='_blank') https://github.com/l29utp0/ptchinacast
-					p
-						a(href='http://fatchan.gitgud.site/jschan-docs/' referrerpolicy='same-origin' target='_blank') http://fatchan.gitgud.site/jschan-docs/
 	.table-container.flex-center.mv-5
 		.anchor#app
 		table
@@ -129,7 +125,7 @@ block content
 			tr
 				td
 					p
-						| Tanto o ptchan como o stream usam uma 
+						| Tanto o ptchan como o stream usam uma
 						a(href='https://en.wikipedia.org/wiki/Progressive_web_app' referrerpolicy='same-origin' target='_blank') PWA
 						| , o que significa que não precisam de ser instalados através de uma loja de aplicações, apenas abre um dos sites no navegador do teu dispositivo, vai às opções e carrega em algo que diga "instalar" ou "adicionar ao ecrã principal".
 	.table-container.flex-center.mv-5
@@ -208,11 +204,11 @@ block content
 					p Ao fazeres uma publicação podes formatar o campo do nome para incluir um nome, tripcode, capcode ou uma combinação dos três. Também podes deixar o nome em branco e o default da tábua será usado.
 
 					b Formato de nome
-					p 
-						| Nomes devem ser inseridos da seguinte forma: 
+					p
+						| Nomes devem ser inseridos da seguinte forma:
 						input(disabled='true' spellcheck='false' type='text' value='Nome##Tripcode## Capcode')
 						| .
-					p Exemplos válidos:: 
+					p Exemplos válidos::
 					ol.mv-0
 						li nome
 						li #tripcode
@@ -248,7 +244,7 @@ block content
 								"quotes" : [ ],
 								"backlinks" : [ ],
 								"postId" : 123
-							}	
+							}
 						+post(examplePost)
 					//-p The name appears bold in the top left, followed by the tripcode in regular weight with a !! prefix, then the capcode in a different color, bold and with a ## prefix. The colours may vary between themes but are generally distinct from each other
 
@@ -377,20 +373,20 @@ block content
 				td.post-message
 					b Geral
 					p
-						| Moderation is very simple. Moderation permissions are different between regular users, board staff (board owner or moderator) and globals (global staff or admin). 
-						| By default, regular users can delete, spoiler or remove the files from their own posts, provided a matching post password is supplied. They can also report or global report posts. 
+						| Moderation is very simple. Moderation permissions are different between regular users, board staff (board owner or moderator) and globals (global staff or admin).
+						| By default, regular users can delete, spoiler or remove the files from their own posts, provided a matching post password is supplied. They can also report or global report posts.
 						| Board staff have near full power over posts on their board including removing posts, stickying, spoilering, etc. even for other users posts without the need for a password. They also have access to board specific management page.
 						| Global staff have full power over all posts on all boards, can access the board specific management page for any board and additionally have access to the global management page.
 					b Denúncias locais vs. globais
 					p
-						| There exists the concept of "local" and "global" reports. Reporting a post locally will show the post along with reports on the report page for that particular board, and the reports 
-						| may be actioned upon by the board staff. Reporting a post globally will show the post along with reports on the global manage page available only to global staff and may be actioned upon by global staff. 
-						| Global reports should be used to flag posts that violate global rules such as illegal content or spam, in contrast to local reports which are for posts that abide by global rules but break 
+						| There exists the concept of "local" and "global" reports. Reporting a post locally will show the post along with reports on the report page for that particular board, and the reports
+						| may be actioned upon by the board staff. Reporting a post globally will show the post along with reports on the global manage page available only to global staff and may be actioned upon by global staff.
+						| Global reports should be used to flag posts that violate global rules such as illegal content or spam, in contrast to local reports which are for posts that abide by global rules but break
 						| board-specific rules (which may be made arbitrarily by board staff). It is also possible to be banned from a board or globally for abuse of the report system.
 					b Processar publicações em massa
 					p
-						| Each post has a checkbox in the top left to select it for moderation actions. Multiple posts may be selected to allow batch processing e.g. reporting multiple offending posts in one request. 
-						| The same is present in moderation interfaces. Some actions for example bans (which are based on IP) may also be handled in batches. Selecting multiple posts and using the ban action will 
+						| Each post has a checkbox in the top left to select it for moderation actions. Multiple posts may be selected to allow batch processing e.g. reporting multiple offending posts in one request.
+						| The same is present in moderation interfaces. Some actions for example bans (which are based on IP) may also be handled in batches. Selecting multiple posts and using the ban action will
 						| apply a single ban for each unique IP of the selected posts.
 					b Formato da duração de bans, etc
 					p
@@ -406,7 +402,7 @@ block content
 				td
 					p
 						a(href='/register.html') Regista
-						|  uma conta, depois 
+						|  uma conta, depois
 						a(href='/create.html') cria uma tábua
 						|. Evita fazer tábuas excessivas ou que já existam.
 	.table-container.flex-center.mv-5
@@ -469,24 +465,24 @@ block content
 						| Esta Política de Privacidade tem a função de informar os utilizadores deste site acerca da natureza e propósito da recolha de informação pelo site. O ptchan leva a tua privacidade a sério e irá tratar a tua informação com confidencialidade e dentro do previsto pela lei. De acordo com avanços tecnologicos e/ou modificações ao site, encorajamos os utilizadores a rever esta Política de Privacidade periódicamente pois a mesma está sujeita a alterações.
 					p.bold
 						| Dados de acesso
-					p 
+					p
 						| É do interesse legítimo do site manter access logs ao mesmo, estes access logs poderão conter a data, endereço IP, user agent e o tipo de pedidos. Esta informação é apenas armazenada temporáriamente e está estruturada em duas partes:
 					ul
 						li access.log: Contém a data, endereço IP, user agent e o tipo de pedido, é armazenado temporáriamente por 7 dias.
 						li error.log: Contém a data, endereço IP, user agent, o tipo de pedido e os erros produzidos pelo servidor, é armazenado temporáriamente por 7 dias.
 					p.bold
 						| Recolha e processamento de dados pessoais
-					p 
+					p
 						| O ptchan não requer qualquer tipo de informação pessoal identificável dos seus utilizadores para ser usado.
 					p.bold
 						| Partilha de dados
-					p 
+					p
 						| O ptchan não partilha qualquer tipo de dados com terceiros a não ser que obrigado por lei. Em nenhuma circunstância são dados vendidos a terceiros.
 					p.bold
 						| Publicações dos utilizadores
-					p 
+					p
 						| Os endereços IP são anonimizados e apenas estão disponíveis no seu formato original à administração do site, ficam associados à publicação e são automaticamente eliminados quando a publicação sai da tábua ou depois de 7 dias. Publicações feitas através da rede Tor não contêm um IP mas sim um identificador com base no cookie "bypassid".
-					p 
+					p
 						| Em certas circunstâncias poderá ser publicado um link embutível (por exemplo do Youtube) de um serviço externo, a responsabilidade de embutir e carregar um recurso externo alheio ao ptchan é do utilizador.
 					p.bold
 						| Cookies e local storage
