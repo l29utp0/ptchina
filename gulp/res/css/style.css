@@ -133,7 +133,8 @@ pre {
 }
 
 .aa {
-    font-family: Monapo, Mona, "MS Pgothic", "MS P繧ｴ繧ｷ繝�け", IPAMonaPGothic,
+    font-family:
+        Monapo, Mona, "MS Pgothic", "MS P繧ｴ繧ｷ繝�け", IPAMonaPGothic,
         "IPA 繝｢繝翫� P繧ｴ繧ｷ繝�け", submona !important;
     font-size: 16px;
     display: block;
@@ -236,7 +237,7 @@ pre {
     background-color: var(--post-color);
     border: 1px solid var(--font-color);
     border-radius: 2px;
-    vertical-align: bottom;
+    vertical-align: middle;
     margin-right: 5px;
 }
 #postform-dragHandle,
@@ -310,32 +311,32 @@ object {
 }
 
 .catalog-tile {
-    padding:5px;
-    margin:5px;
-    text-align:center;
-    height:360px;
-    width:280px;
-    overflow:hidden;
-    border:1px solid var(--post-outline-color);
-    box-sizing:border-box;
-    flex-grow:1;
-    max-width:280px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    height: 360px;
+    width: 280px;
+    overflow: hidden;
+    border: 1px solid var(--post-outline-color);
+    box-sizing: border-box;
+    flex-grow: 1;
+    max-width: 280px;
 }
 
 .catalog-tile:focus {
-    overflow-y:auto;
+    overflow-y: auto;
 }
-  
+
 .catalog .catalog-tile {
-    transition:all .1s ease-out
+    transition: all 0.1s ease-out;
 }
 
 .catalog .catalog-tile:focus {
-    transform:scale(1.02)
+    transform: scale(1.02);
 }
-  
+
 .catalog .catalog-tile:hover {
-    transform:scale(1.02)
+    transform: scale(1.02);
 }
 
 p {
@@ -3937,9 +3938,9 @@ body::before {
   }
   */
 
-  .score-container .help {
+.score-container .help {
     pointer-events: none;
-  }
+}
 
 @media (min-width: 600px) {
     main {
@@ -4091,23 +4092,22 @@ body::before {
     }
 
     .score-container {
-        padding: 0!important;
-      }
+        padding: 0 !important;
+    }
 }
 
-@media only screen and (max-width:600px) {
-
+@media only screen and (max-width: 600px) {
     .hat {
-      display:none;
+        display: none;
     }
 }
 
 .hat {
     position: relative;
 }
-    
+
 .hat:nth-child(1)::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -70px;
     left: -20px;
@@ -4120,3 +4120,23 @@ body::before {
     background-position: center;
 }
 
+#threads-container {
+    position: relative;
+}
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+    display: none;
+    animation: pulse 1s ease-in-out infinite;
+}
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
