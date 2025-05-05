@@ -777,46 +777,46 @@ module.exports = {
 		}
 		const hotThreadReplyOrs = potentialHotThreads
 			.map(t => ({ board: t.board, thread: t.postId }));
-			const factor = 0.5;
-			const hotThreadScores = await db.aggregate([
-				{
-					'$match': {
-						'$and': [
-							{
-								'$or': hotThreadReplyOrs
-							},
-							{
-								'date': {
-									'$gte': new Date(Date.now() - (DAY * 7))
-								}
-							},
-						],
-					},
-				}, {
-					'$group': {
-						'_id': {
-							'board': '$board',
-							'thread': '$thread',
+		const factor = 0.5;
+		const hotThreadScores = await db.aggregate([
+			{
+				'$match': {
+					'$and': [
+						{
+							'$or': hotThreadReplyOrs
 						},
-						'totalFiles': {
-							'$sum': {'$size': '$files'} 
+						{
+							'date': {
+								'$gte': new Date(Date.now() - (DAY * 7))
+							}
 						},
-						'totalPosts': {
-							'$sum': 1
-						}
-					},
+					],
 				},
-				{
-					'$project': {
-						'totalFiles': { '$multiply': ['$totalFiles', factor] },
-						'totalPosts': { '$multiply': ['$totalPosts'] }
+			}, {
+				'$group': {
+					'_id': {
+						'board': '$board',
+						'thread': '$thread',
 					},
+					'totalFiles': {
+						'$sum': {'$size': '$files'} 
+					},
+					'totalPosts': {
+						'$sum': 1
+					}
 				},
-				{
-					'$addFields': {
-						'score': { '$add': ['$totalFiles', '$totalPosts'] }
-					},
-				}
+			},
+			{
+				'$project': {
+					'totalFiles': { '$multiply': ['$totalFiles', factor] },
+					'totalPosts': { '$multiply': ['$totalPosts'] }
+				},
+			},
+			{
+				'$addFields': {
+					'score': { '$add': ['$totalFiles', '$totalPosts'] }
+				},
+			}
 		]).toArray();
 		//Welcome to improve into a pipeline if possible, but reducing to these maps isnt thaaat bad
 		const hotThreadBiasMap = potentialHotThreads
