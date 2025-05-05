@@ -1,3 +1,4 @@
+/* global newPost */
 (() => {
 	'use strict';
 
@@ -18,6 +19,23 @@
 		loading: false,
 		loadMoreThreshold: 1,
 		loadedPages: new Set([window.boardConfig.currentPage]),
+	};
+
+	// Utility function to set localStorage with error handling
+	const setLocalStorage = (key, value) => {
+		try {
+			localStorage.setItem(key, value);
+		} catch (error) {
+			console.error('Error setting localStorage:', error);
+		}
+	};
+
+	// Reference for hover cache list tracking
+	const hoverCacheList = {
+		value: Object.keys(localStorage).filter(k => k.startsWith('hovercache')),
+		update() {
+			this.value = Object.keys(localStorage).filter(k => k.startsWith('hovercache'));
+		}
 	};
 
 	// Functions for handling omitted posts expansion
@@ -62,17 +80,20 @@
 				}
 				json = await loading[jsonPath];
 			} catch (e) {
-				return console.error(e);
+				console.error(e);
+				return;
 			} finally {
 				e.target.style.cursor = '';
 				e.target.classList.remove('spin');
+				delete loading[jsonPath];
 			}
 			if (json) {
 				setLocalStorage(`hovercache-${jsonPath}`, JSON.stringify(json));
-				hoverCacheList.value = Object.keys(localStorage).filter(k => k.startsWith('hovercache'));
+				hoverCacheList.update();
 				replies = [...json.replies];
 			} else {
-				return localStorage.removeItem(`hovercache-${jsonPath}`);
+				localStorage.removeItem(`hovercache-${jsonPath}`);
+				return;
 			}
 		}
 		if (!replies) {
@@ -251,25 +272,16 @@
 		}
 	}
 
-	// Add CSS for loading indicator
-	const style = document.createElement('style');
-	style.textContent = `
-		#threads-container {
-			position: relative;
+	// Create loading indicator if it doesn't exist
+	if (!document.querySelector('.loading-indicator')) {
+		const loadingIndicator = document.createElement('div');
+		loadingIndicator.className = 'loading-indicator';
+		loadingIndicator.textContent = 'Loading more content...';
+		const threadsContainer = document.querySelector('#threads-container');
+		if (threadsContainer) {
+			threadsContainer.appendChild(loadingIndicator);
 		}
-		.loading-indicator {
-			text-align: center;
-			padding: 20px;
-			display: none;
-			animation: pulse 1s ease-in-out infinite;
-		}
-		@keyframes pulse {
-			0% { opacity: 1; }
-			50% { opacity: 0.3; }
-			100% { opacity: 1; }
-		}
-	`;
-	document.head.appendChild(style);
+	}
 
 	// Scroll event listener with debounce
 	let scrollTimeout;
