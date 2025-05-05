@@ -60,6 +60,7 @@ class ThreadWatcher {
 		try {
 			res = await fetch(`/${board}/thread/${postId}.json`);
 			json = await res.json();
+		// eslint-disable-next-line no-unused-vars
 		} catch (e) { /* ignore */ }
 		if (json && json.replies) {
 			const newData = {
@@ -283,7 +284,7 @@ window.addEventListener('settingsReady', () => {
 var xmas = document.querySelector(".centerpiece");
     if(xmas){
 
-const videos = ["/misc/a.mp4", 
+const videos = ["/misc/a.mp4",
 				"/misc/b.mp4"
 				];
 

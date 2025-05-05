@@ -18,6 +18,7 @@ if (!isCatalog) { //dont show embed buttons in catalog
 							return ['<iframe class="embed-video" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="display:block;" allowfullscreen></iframe>',
 								`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`];
 						}
+					// eslint-disable-next-line no-unused-vars
 					} catch (e) { /*invalid url*/ }
 					return null;
 				}
@@ -32,6 +33,7 @@ if (!isCatalog) { //dont show embed buttons in catalog
 							return ['<iframe class="embed-video" src="" frameborder="0" scrolling="no" style="display:block;" allowfullscreen></iframe>',
 								`https://www.bitchute.com/embed/${encodeURIComponent(videoId)}/`];
 						}
+					// eslint-disable-next-line no-unused-vars
 					} catch (e) { /*invalid url*/ }
 					return null;
 				}
@@ -46,6 +48,7 @@ if (!isCatalog) { //dont show embed buttons in catalog
 							return ['<iframe class="embed-video" src="" frameborder="0" scrolling="no" style="display:block;" allowfullscreen></iframe>',
 								`https://odysee.com/$/embed${videoId}`];
 						}
+					// eslint-disable-next-line no-unused-vars
 					} catch (e) { /*invalid url*/ }
 					return null;
 				}

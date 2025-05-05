@@ -7,6 +7,7 @@ const generatePassword = () => {
 			window.crypto.getRandomValues(buf);
 			return btoa(String.fromCharCode.apply(null, buf));
 		}
+	// eslint-disable-next-line no-unused-vars
 	} catch (e) { /* Uncaught DOMException: The operation failed for an operation-specific reason, thanks firefox */ }
 	return new Array(20)
 		.fill(null)
