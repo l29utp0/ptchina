@@ -522,7 +522,7 @@ ul.tabs.group
 			//- .row
 				.label
 					| #{__('Ethereum Node')}
-					| 
+					|
 					small
 						| (
 						a(rel='nofollow' referrerpolicy='same-origin' target='_blank' href='https://ethereumnodes.com/') #{__('Nodes')}
@@ -662,7 +662,11 @@ ul.tabs.group
 			.row
 				.label #{__('Sound notifications')}
 				label.postform-style.ph-5
-					input(type='checkbox', name='frontend_script_default_notifications_sound', value='true' checked=settings.frontendScriptDefault.notificationSound)
+					input(type='checkbox', name='frontend_script_default_notifications_sound', value='true' checked=settings.frontendScriptDefault.notificationsSound)
+			.row
+				.label #{__('Infinite scroll')}
+				label.postform-style.ph-5
+					input(type='checkbox', name='frontend_script_default_infinite_scroll', value='true' checked=settings.frontendScriptDefault.infiniteScroll)
 			.row
 				.label #{__('Show (You)s')}
 				label.postform-style.ph-5

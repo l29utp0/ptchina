@@ -6,19 +6,19 @@ let socket;
 let socketPingInterval;
 let forceUpdate;
 let newPost;
-let notificationSound;
+let notificationsSound;
 
 // Create audio element for notification sound
-const initNotificationSound = (soundUrl) => {
-	notificationSound = new Audio(soundUrl);
-	notificationSound.volume = 0.5;
-	notificationSound.muted = !soundEnabled;
+const initNotificationsSound = (soundUrl) => {
+	notificationsSound = new Audio(soundUrl);
+	notificationsSound.volume = 0.5;
+	notificationsSound.muted = !soundEnabled;
 };
 
 window.addEventListener('settingsReady', function() { //after domcontentloaded
 
     // Initialize notification sound
-	initNotificationSound('/misc/noti.mp4');
+	initNotificationsSound('/misc/noti.mp4');
 
 	let supportsWebSockets = 'WebSocket' in window || 'MozWebSocket' in window;
 	const livecolor = document.getElementById('livecolor');
@@ -196,8 +196,8 @@ window.addEventListener('settingsReady', function() { //after domcontentloaded
 		}
 
         // Play notification sound for new posts (not for edits)
-		if (!options.nonotify && notificationSound && soundEnabled) {
-			notificationSound.play().catch(e => console.log('Error playing sound:', e));
+		if (!options.nonotify && notificationsSound && soundEnabled) {
+			notificationsSound.play().catch(e => console.log('Error playing sound:', e));
 		}
 
 		const newPostEvent = new CustomEvent('addPost', {
@@ -388,7 +388,7 @@ window.addEventListener('settingsReady', function() { //after domcontentloaded
 	const soundSetting = document.getElementById('sound-setting');
 	const toggleSound = () => {
 		soundEnabled = !soundEnabled;
-		notificationSound.muted = !soundEnabled;
+		notificationsSound.muted = !soundEnabled;
 		console.log('toggling sound notifications', soundEnabled);
 		setLocalStorage('sound', soundEnabled);
 	};

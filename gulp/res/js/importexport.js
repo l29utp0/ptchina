@@ -1,7 +1,7 @@
 /* globals setLocalStorage */
 window.addEventListener('settingsReady', () => {
 
-	const settingNames = ['volume','loop','sound','imageloadingbars','live','scroll','localtime','relative','24hour','notifications','hiddenimages', 'threadwatcher'
+	const settingNames = ['volume','loop','notificationssound','infinitescroll','imageloadingbars','live','scroll','localtime','relative','24hour','notifications','hiddenimages', 'threadwatcher'
 		,'notification-yous-only','yous-setting','filters1','name','theme','codetheme','customcss','disableboardcss','hiderecursive', 'watchlist'
 		,'heightlimit','crispimages','hidethumbnails','noncolorids','alwaysshowspoilers','hidedeletedpostcontent','hidepoststubs','smoothscrolling'
 		,'tegakiheight-setting','tegakiwidth-setting'];

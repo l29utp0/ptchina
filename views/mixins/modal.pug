@@ -81,6 +81,10 @@ mixin modal(data)
 								label.postform-style.ph-5
 									input#hidedeletedpostcontent-setting(type='checkbox')
 								.rlabel #{__('Hide deleted post content')}
+							.row
+								label.postform-style.ph-5
+									input#infinitescroll-setting(type='checkbox')
+								.rlabel #{__('Infinite scroll')}
 
 						.col
 							.row
@@ -173,7 +177,7 @@ mixin modal(data)
 							.row
 								.label #{__('Tegaki Size')}
 								input.mr-1.w50#tegakiwidth-setting(type='number')
-								.postform-style.ph-5.mr-1 × 
+								.postform-style.ph-5.mr-1 ×
 								input.mr-1.w50#tegakiheight-setting(type='number')
 
 					.row.mt-5
