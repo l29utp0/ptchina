@@ -2,15 +2,54 @@
 (() => {
 	'use strict';
 
+	// Variable declarations
+	let scrollListener = null;
+	let scrollTimeout;
+
+	// LocalStorage access independent of boardConfig
+	const isEnabled = localStorage.getItem('infinitescroll') !== 'false';
+
+	// Function to enable/disable infinite scroll - safely callable from any page
+	function setInfiniteScrollActive(active) {
+		// Only perform scroll listening operations on board pages
+		if (typeof window.boardConfig === 'undefined') {
+			// Just store the setting in localStorage when not on a board page
+			// The setting will be applied when user visits a board page
+			return;
+		}
+
+		if (active && !scrollListener) {
+			attachScrollListener();
+		} else if (!active && scrollListener) {
+			detachScrollListener();
+		}
+	}
+
+	// Expose the function to toggle infinite scroll for the settings change
+	window.setInfiniteScrollActive = setInfiniteScrollActive;
+
+	// Allow toggle setting to still work even if not on a board page
+	window.addEventListener('DOMContentLoaded', () => {
+		const infiniteScrollSetting = document.getElementById('infinitescroll-setting');
+
+		if (infiniteScrollSetting) {
+			infiniteScrollSetting.checked = isEnabled;
+			infiniteScrollSetting.addEventListener('change', () => {
+				const newSetting = infiniteScrollSetting.checked;
+				localStorage.setItem('infinitescroll', newSetting);
+				console.log('toggling infinite scroll', newSetting);
+				// Safe to call from any page - function has guard clauses
+				window.setInfiniteScrollActive(newSetting);
+			});
+		}
+	});
+
 	// Early return if not on a board page
 	if (typeof window.boardConfig === 'undefined') {
 		return;
 	}
 
-	// Loading state tracking for omitted expand
-	let loading = {};
-
-	// Configuration
+	// Configuration - only used on board pages
 	const config = {
 		boardId: window.boardConfig.boardId,
 		currentPage: window.boardConfig.currentPage,
@@ -21,14 +60,8 @@
 		loadedPages: new Set([window.boardConfig.currentPage]),
 	};
 
-	// Utility function to set localStorage with error handling
-	const setLocalStorage = (key, value) => {
-		try {
-			localStorage.setItem(key, value);
-		} catch (error) {
-			console.error('Error setting localStorage:', error);
-		}
-	};
+	// Loading state tracking for omitted expand
+	let loading = {};
 
 	// Reference for hover cache list tracking
 	const hoverCacheList = {
@@ -37,6 +70,45 @@
 			this.value = Object.keys(localStorage).filter(k => k.startsWith('hovercache'));
 		}
 	};
+
+	// Check if we're near the bottom of the page
+	function isNearBottom() {
+		return (
+			window.innerHeight + window.scrollY >=
+			document.documentElement.scrollHeight - config.loadMoreThreshold
+		);
+	}
+
+	// Function to attach the scroll listener
+	function attachScrollListener() {
+		if (scrollListener) { return; } // Don't attach if already attached
+
+		scrollListener = () => {
+			if (scrollTimeout) {
+				clearTimeout(scrollTimeout);
+			}
+			scrollTimeout = setTimeout(() => {
+				if (isNearBottom()) {
+					loadMore();
+				}
+			}, 100);
+		};
+
+		window.addEventListener('scroll', scrollListener);
+
+		// Initial check in case the page is too short
+		if (isNearBottom()) {
+			loadMore();
+		}
+	}
+
+	// Function to detach the scroll listener
+	function detachScrollListener() {
+		if (scrollListener) {
+			window.removeEventListener('scroll', scrollListener);
+			scrollListener = null;
+		}
+	}
 
 	// Functions for handling omitted posts expansion
 	const hideOmitted = (e) => {
@@ -88,8 +160,23 @@
 				delete loading[jsonPath];
 			}
 			if (json) {
-				setLocalStorage(`hovercache-${jsonPath}`, JSON.stringify(json));
-				hoverCacheList.update();
+				try {
+					localStorage.setItem(`hovercache-${jsonPath}`, JSON.stringify(json));
+					hoverCacheList.update();
+				} catch (e) {
+					console.error('Error setting localStorage:', e);
+					// Attempt to clear cache to make room
+					const hoverCaches = Object.keys(localStorage).filter(k => k.startsWith('hovercache'));
+					for (let i = 0; i < hoverCaches.length && i < 5; i++) {
+						localStorage.removeItem(hoverCaches[i]);
+					}
+					// Try again
+					try {
+						localStorage.setItem(`hovercache-${jsonPath}`, JSON.stringify(json));
+					} catch (e) {
+						console.error('Failed to save to localStorage even after clearing some items:', e);
+					}
+				}
 				replies = [...json.replies];
 			} else {
 				localStorage.removeItem(`hovercache-${jsonPath}`);
@@ -160,14 +247,6 @@
 			.filter((q) => q !== null);
 
 		return postData;
-	}
-
-	// Check if we're near the bottom of the page
-	function isNearBottom() {
-		return (
-			window.innerHeight + window.scrollY >=
-			document.documentElement.scrollHeight - config.loadMoreThreshold
-		);
 	}
 
 	// Load more content
@@ -272,21 +351,6 @@
 		}
 	}
 
-	// Scroll event listener with debounce
-	let scrollTimeout;
-	window.addEventListener('scroll', () => {
-		if (scrollTimeout) {
-			clearTimeout(scrollTimeout);
-		}
-		scrollTimeout = setTimeout(() => {
-			if (isNearBottom()) {
-				loadMore();
-			}
-		}, 100);
-	});
-
-	// Initial check in case the page is too short
-	if (isNearBottom()) {
-		loadMore();
-	}
+	// Initialize the scroll listener based on the current setting
+	setInfiniteScrollActive(isEnabled);
 })();

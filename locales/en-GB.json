@@ -1443,5 +1443,6 @@
 	"Sound notifications": "Sound notifications",
 	"Your upload of %s exceeds the maximum of %s. Donate to increase this limit.": "Your upload of %s exceeds the maximum of %s. Donate to increase this limit.",
 	"You can only own one board.": "You can only own one board.",
-	"Donors cannot transfer boards.": "Donors cannot transfer boards."
+	"Donors cannot transfer boards.": "Donors cannot transfer boards.",
+	"Infinite scroll": "Infinite scroll"
 }

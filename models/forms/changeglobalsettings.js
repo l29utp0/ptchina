@@ -178,6 +178,7 @@ module.exports = async (req, res) => {
 			relativeTime: booleanSetting(req.body.frontend_script_default_relative_time, oldSettings.frontendScriptDefault.relativeTime),
 			notificationsEnabled: booleanSetting(req.body.frontend_script_default_notifications_embed, oldSettings.frontendScriptDefault.notificationsEnabled),
 			notificationsSound: booleanSetting(req.body.frontend_script_default_notifications_sound, oldSettings.frontendScriptDefault.notificationsSound),
+			infiniteScroll: booleanSetting(req.body.frontend_script_default_infinite_scroll, oldSettings.frontendScriptDefault.infiniteScroll),
 			notificationsYousOnly: booleanSetting(req.body.frontend_script_default_notifications_yous_only, oldSettings.frontendScriptDefault.notificationsYousOnly),
 			showYous: booleanSetting(req.body.frontend_script_default_show_yous, oldSettings.frontendScriptDefault.showYous),
 			hideDeletedPostContent: booleanSetting(req.body.frontend_script_default_hide_deleted_post_content, oldSettings.frontendScriptDefault.hideDeletedPostContent),

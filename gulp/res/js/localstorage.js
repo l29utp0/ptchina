@@ -52,6 +52,7 @@ const localStorageDefaults = {
 	'yous-setting': settings.showYous,
 	'threadwatcher': settings.threadWatcher,
 	'sound': true,
+	'infinitescroll': true,
 	'threadwatcher-minimise': false,
 	'disableboardcss': false,
 	'tegakiwidth-setting': settings.tegakiWidth,
