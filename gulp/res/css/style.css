@@ -1,5 +1,5 @@
 body {
-    font-family: arial, helvetica, sans-serif;
+    font-family: Inter, system-ui, sans-serif;
     font-size: 10pt;
     color: var(--font-color);
     background: linear-gradient(
@@ -272,6 +272,10 @@ pre {
     width: max-content;
     max-width: 100%;
     margin-bottom: 5px;
+}
+
+.pages {
+    margin-top: 5px;
 }
 
 .pages.jsonly {
@@ -1054,12 +1058,11 @@ textarea:invalid {
 
 .board-title {
     color: var(--board-title);
-    font:
-        bolder 30px Tahoma,
-        sans-serif;
     letter-spacing: -2px;
     text-align: center;
     margin: 0;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .no-decoration {
@@ -1337,7 +1340,7 @@ select {
     border-radius: 0px;
     background: var(--input-background);
     color: var(--input-color);
-    font-family: arial, helvetica, sans-serif;
+    font-family: Inter, system-ui, sans-serif;
     font-size: inherit;
 }
 
@@ -2017,7 +2020,7 @@ row.wrap.sb .col {
     }
 
     body {
-        font-size: 11pt;
+        font-size: 10pt;
     }
 
     #hotposts {
@@ -3663,7 +3666,7 @@ span.sorte {
 .snowflake {
     color: #fff;
     font-size: 4em;
-    font-family: Arial;
+    font-family: Inter, system-ui, sans-serif;
 }
 
 @-webkit-keyframes snowflakes-fall {

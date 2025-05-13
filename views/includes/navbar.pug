@@ -9,7 +9,7 @@ unless minimal
                 | #{__('Boards')}
             if topBoards && topBoards.length > 0
                 each board in topBoards
-                    a.nav-item-board(href=`/${board._id}/index.html`) /#{board.settings.name.length > 13 ? board.settings.name.substring(0,13) + '...' : board.settings.name}/
+                    a.nav-item-board(href=`/${board._id}/index.html`) /#{board.settings.name.length > 11 ? board.settings.name.substring(0,11) + '...' : board.settings.name}/
 
         div.navbar-bottom
             a.nav-item(href='/account.html') #{__('Account')}
