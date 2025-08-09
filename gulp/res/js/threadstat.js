@@ -46,8 +46,8 @@ window.addEventListener('DOMContentLoaded', () => {
 				return; //dont need to handle hovered posts for this
 			}
 			const newFiles = e.detail.json.files.length;
-			const numPosts = +statsElem.children[0].innerText.match(/^(\d+)/g);
-			const numFiles = +statsElem.children[1].innerText.match(/^(\d+)/g);
+			const numPosts = +statsElem.children[0].innerText.match(/(\d+)/)[1];
+			const numFiles = +statsElem.children[1].innerText.match(/(\d+)/)[1];
 			const filesTotal = numFiles + newFiles;
 			const postTotal = numPosts + 1;
 			statsElem.children[0].innerText = __n('%s replies', postTotal);
