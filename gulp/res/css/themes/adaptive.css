@@ -158,6 +158,14 @@ table {
     padding: 6px;
 }
 
+.catalog-tile .post-info {
+    margin-bottom: 5px;
+}
+
+.post-file {
+    margin-top: 5px;
+}
+
 .op .post-info {
     background: 0 0 !important;
     margin: none !important;
@@ -179,7 +187,7 @@ table {
 }
 
 .post-message {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .catalog-tile .post-message {
