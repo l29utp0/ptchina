@@ -147,4 +147,6 @@ router.get('/changepassword.html', changePassword);
 router.get('/create.html', useSession, sessionRefresh, isLoggedIn, create); //create new board
 router.get('/csrf.json', useSession, sessionRefresh, isLoggedIn, csrf, csrfPage); //just the token, for 3rd party stuff posting
 
+router.get('/donate.html', useSession, sessionRefresh, isLoggedIn, calcPerms, csrf, require(__dirname+'/../models/pages/donate.js'));
+
 module.exports = router;

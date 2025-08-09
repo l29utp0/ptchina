@@ -3,6 +3,7 @@
 const express  = require('express')
 	, router = express.Router({ caseSensitive: true })
 	, Boards = require(__dirname+'/../db/boards.js')
+	, stripeHandlers = require(__dirname+'/../lib/stripe/stripe.js')
 //middlewares
 	, geoIp = require(__dirname+'/../lib/middleware/ip/geoip.js')
 	, processIp = require(__dirname+'/../lib/middleware/ip/processip.js')
@@ -27,9 +28,9 @@ const express  = require('express')
 		editNewsController, deleteNewsController, uploadBannersController, deleteBannersController, addFlagsController,
 		deleteFlagsController, boardSettingsController, transferController, addAssetsController, deleteAssetsController,
 		resignController, deleteAccountController, loginController, registerController, changePasswordController,
-		deleteAccountsController, editAccountController, addFilterController, editFilterController, deleteFilterController, 
-		globalSettingsController, createBoardController, makePostController, addStaffController, deleteStaffController, 
-		editStaffController, editCustomPageController, editPostController, editRoleController, newCaptchaForm, 
+		deleteAccountsController, editAccountController, addFilterController, editFilterController, deleteFilterController,
+		globalSettingsController, createBoardController, makePostController, addStaffController, deleteStaffController,
+		editStaffController, editCustomPageController, editPostController, editRoleController, newCaptchaForm,
 		blockBypassForm, logoutForm, deleteSessionsController, globalClearController } = require(__dirname+'/forms/index.js');
 
 //make new post
@@ -140,5 +141,6 @@ router.post('/newcaptcha', newCaptchaForm);
 //solve captcha for block bypass
 router.post('/blockbypass', geoIp, processIp, useSession, sessionRefresh, calcPerms, setQueryLanguage, verifyCaptcha, blockBypassForm);
 
-module.exports = router;
+router.post('/donate', useSession, sessionRefresh, csrf, calcPerms, isLoggedIn, stripeHandlers.handleCheckoutRoute);
 
+module.exports = router;

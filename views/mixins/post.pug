@@ -40,11 +40,12 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 						| 
 					if post.donor
 						span.post-capcode(title=`Este danone é um amigo verdadeiro e honesto.`)
-							img.donorbadge(src=`/misc/donorbadge.png` title=`Este danone é um amigo verdadeiro e honesto.` alt='Este danone é um amigo verdadeiro e honesto.' loading='lazy')
-						| 
+							a(href='/faq.html#doar' target='_blank')
+								img.donorbadge(src=`/misc/donorbadge.gif` title=`OURO` alt='OURO' loading='lazy')
+						|
 					if post.email
 						a.post-name(href=`mailto:${post.email}`) #{post.name}
-					else 
+					else
 						span.post-name #{post.name}
 					| 
 				if post.country && post.country.code
