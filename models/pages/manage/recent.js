@@ -5,7 +5,7 @@ const { Posts } = require(__dirname+'/../../../db/')
 	, decodeQueryIP = require(__dirname+'/../../../lib/input/decodequeryip.js')
 	, { Permissions } = require(__dirname+'/../../../lib/permission/permissions.js')
 	, pageQueryConverter = require(__dirname+'/../../../lib/input/pagequeryconverter.js')
-	, limit = 20;
+	, limit = 50;
 
 module.exports = async (req, res, next) => {
 

@@ -602,7 +602,7 @@ module.exports = {
 					'uniqueReportIPs': {
 						'$setUnion': [
 							{ '$map': {
-								'input': '$reports',  
+								'input': '$reports',
 								'as': 'report',
 								'in': '$$report.ip.raw'
 							}},
@@ -799,10 +799,16 @@ module.exports = {
 						'thread': '$thread',
 					},
 					'totalFiles': {
-						'$sum': {'$size': '$files'} 
+						'$sum': {'$size': '$files'}
 					},
 					'totalPosts': {
-						'$sum': 1
+						'$sum': {
+							'$cond': [
+								'$donor',
+								5, // 5x points for donor posts
+								1  // normal points for other posts
+							]
+						}
 					}
 				},
 			},

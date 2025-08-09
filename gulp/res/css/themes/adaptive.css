@@ -154,8 +154,16 @@ table {
 .post-info {
     background: var(--darken) !important;
     margin: -6.6px -6.7px -6.5px -6.5px;
-    border-radius: 6px 6px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     padding: 6px;
+}
+
+.catalog-tile .post-info {
+    margin-bottom: 5px;
+}
+
+.post-file {
+    margin-top: 5px;
 }
 
 .op .post-info {
@@ -176,6 +184,14 @@ table {
     transition:
         opacity 0.1s,
         margin-right 0.1s;
+}
+
+.post-message {
+    margin-top: 25px;
+}
+
+.catalog-tile .post-message {
+    margin-top: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
