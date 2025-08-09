@@ -16,8 +16,9 @@ block content
 				td.post-message
 					b Geral
 					ul.mv-0
+						li: a(href='#doar') Como posso ajudar o ptchan?
+						li: a(href='#sponsors') Sponsors
 						li: a(href='#denunciar') Como posso denunciar uma publicação?
-						//li: a(href='#cripto') Como posso ajudar o ptchan.org?
 						li: a(href='#legalDMCA') Remoção de conteúdo que infringe direitos legais/DMCA.
 						li: a(href='#contactar') Como posso contactar a administração?
 						li: a(href='#source') Source & API?
@@ -47,6 +48,71 @@ block content
 						li: a(href='#privacidadecookies') Política de privacidade e cookies/local storage.
 
 	.table-container.flex-center.mv-5
+		.anchor#doar
+		table
+			tr
+				th: a(href='#doar') Como posso ajudar o ptchan?
+			tr
+				td
+					p
+						| Podes ajudar o ptchan com uma pequena doação que te garante certos benefícios:
+					ul
+						li Poder criar 1 (uma) tábua com todas as opções de administração que daí advêm.
+						li Limite de carregamentos de 100MB.
+						li Carregar ficheiros através do endereço onion.
+						li Captcha bypass.
+						li DNSBL bypass.
+						li Poder usar o capcode
+							span.mono ## ouro
+							|  no campo de nome.
+						li Poder usar
+							span.mono ##sorte
+							|  no campo de mensagem.
+						li Poder usar dados, ex:
+							span.mono ##2%6
+							|  no campo de mensagem.
+						li Poder usar vários markdowns como
+							span.mono ==título==
+							|,
+							span.mono +++big+++
+							|  e
+							span.mono <
+							|.
+						li Qualquer outra função que seja implementada no futuro.
+
+					p
+						a(href='https://ptchan.org/register.html' referrerpolicy='same-origin') Cria uma conta e depois clica em "❤️ Doar".
+
+					p
+						| Se preferires fazer uma doação em cripto por favor envia um email.
+					//p.post-message
+						| Toma nota que a tua conta nunca será apagada no entanto não te garante imunidades especiais vs. um utilizador comun.
+					//ul
+						li(style='display: contents;'): img(src='/misc/btc.png' title='BTC' style='width: 15px; height: 15px; vertical-align: top;')
+						|   Bitcoin:
+						a.mono(href='bitcoin:bc1qelftgtllcjze6z8f75h8e4fzrxgctzkpdznlfe') bc1qelftgtllcjze6z8f75h8e4fzrxgctzkpdznlfe
+					//ul(style='word-break: break-all;')
+						li(style='display: contents;'): img(src='/misc/xmr.png' title='XMR' style='width: 16px; height: 16px; vertical-align: top;')
+						|   Monero:
+						a.mono(href='monero:4AhK1uSbr3kBJEdcvtyvS3WRYKpLfk1nyHvqkfc9ZQbnFWAWTw1m4Q4AS4WafqatdT7FgTD3Ufe3B6WATAotx6GhH7UVxNN') 4AhK1uSbr3kBJEdcvtyvS3WRYKpLfk1nyHvqkfc9ZQbnFWAWTw1m4Q4AS4WafqatdT7FgTD3Ufe3B6WATAotx6GhH7UVxNN
+					//ul
+						li(style='display: contents;'): img(src='/misc/eth.png' title='ETH' style='width: 15px; height: 15px; vertical-align: top;')
+						|   Ethereum (e outros tokens ERC-20):
+						a.mono(href='ethereum:0x3DA012E500bbbD4eABa3e871D472F705dfCc608b') 0x3DA012E500bbbD4eABa3e871D472F705dfCc608b
+	.table-container.flex-center.mv-5
+		.anchor#sponsors
+		table
+			tr
+				th: a(href='#sponsors') Sponsors
+			tr
+				td.post-message
+					p
+						span.bold.flex-center.mv-5 Platinum
+					p
+						span.bold.flex-center.mv-5 Gold
+					p
+						| Queres patrocinar o ptchan? Por favor envia um email.
+	.table-container.flex-center.mv-5
 		.anchor#denunciar
 		table
 			tr
@@ -57,37 +123,6 @@ block content
 						| Podes denunciar uma publicação que infrinja as regras clicando na seta em cima da publicação e Denunciar/Moderar - depois clica em Denúnciar ou Denúncia Global, preenche o motivo, completa o CAPTCHA e envia.
 					p
 						| Para denunciares várias publicações ao mesmo tempo clica nas checkboxes das publicações e vai a Ações no final da página.
-	//.table-container.flex-center.mv-5
-		.anchor#cripto
-		table
-			tr
-				th: a(href='#cripto') Como posso ajudar o ptchan.org?
-			tr
-				td
-					p.post-message
-						| Ao doares o equivalente a
-						span.mono $5
-						|  ou mais em cripto tens direito a uma conta vitalícia de
-						span.mono Amigo verdadeiro e honesto
-						|  que te permite fazer publicações com um crachá ao inserires
-						span.mono ## ouro
-						|  no campo de nome, carregar ficheiros através de TOR e passar DNSBLs, também tens direito a uma frase inserida no sistema de sortes do ptchan, mais coisas engraçadas poderão ser atribuídas no futuro.
-					p.post-message
-						| Por favor envia um email para info@ptchan com o nome da conta, frase, e os detalhes da transação.
-					p.post-message
-						| Toma nota que a tua conta nunca será apagada no entanto não te garante imunidades especiais vs. um utilizador comun.
-					ul
-						li(style='display: contents;'): img(src='/misc/btc.png' title='BTC' style='width: 15px; height: 15px; vertical-align: top;')
-						|   Bitcoin:
-						a.mono(href='bitcoin:bc1qelftgtllcjze6z8f75h8e4fzrxgctzkpdznlfe') bc1qelftgtllcjze6z8f75h8e4fzrxgctzkpdznlfe
-					ul(style='word-break: break-all;')
-						li(style='display: contents;'): img(src='/misc/xmr.png' title='XMR' style='width: 16px; height: 16px; vertical-align: top;')
-						|   Monero:
-						a.mono(href='monero:4AhK1uSbr3kBJEdcvtyvS3WRYKpLfk1nyHvqkfc9ZQbnFWAWTw1m4Q4AS4WafqatdT7FgTD3Ufe3B6WATAotx6GhH7UVxNN') 4AhK1uSbr3kBJEdcvtyvS3WRYKpLfk1nyHvqkfc9ZQbnFWAWTw1m4Q4AS4WafqatdT7FgTD3Ufe3B6WATAotx6GhH7UVxNN
-					ul
-						li(style='display: contents;'): img(src='/misc/eth.png' title='ETH' style='width: 15px; height: 15px; vertical-align: top;')
-						|   Ethereum (e outros tokens ERC-20):
-						a.mono(href='ethereum:0x3DA012E500bbbD4eABa3e871D472F705dfCc608b') 0x3DA012E500bbbD4eABa3e871D472F705dfCc608b
 	.table-container.flex-center.mv-5
 		.anchor#legalDMCA
 		table
@@ -126,7 +161,7 @@ block content
 				td
 					p
 						| Tanto o ptchan como o stream usam uma
-						a(href='https://en.wikipedia.org/wiki/Progressive_web_app' referrerpolicy='same-origin' target='_blank') PWA
+						a(href='https://en.wikipedia.org/wiki/Progressive_web_app' referrerpolicy='same-origin' target='_blank')  PWA
 						| , o que significa que não precisam de ser instalados através de uma loja de aplicações, apenas abre um dos sites no navegador do teu dispositivo, vai às opções e carrega em algo que diga "instalar" ou "adicionar ao ecrã principal".
 	.table-container.flex-center.mv-5
 		.anchor#mascote
@@ -189,7 +224,7 @@ block content
 		.anchor#captcha
 		table
 			tr
-				th: a(href='#captcha') Como resolvo o CAPTCHA xadrez?
+				th: a(href='#captcha') Como resolvo o CAPTCHA?
 			tr
 				td
 					p
