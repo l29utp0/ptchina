@@ -13,7 +13,7 @@ block content
 	h4.no-m-p #{__('General')}:
 	ul
 		if !permissions.get(Permissions.DONOR)
-			li.bold: a(href='/') #{__('Isto é um teste')}
+			li.bold: a(href='/donate.html') #{__('❤️ Doar')}
 		if !user.twofactor && !user.web3
 			li.bold: a(href='/twofactor.html') #{__('Setup 2FA (TOTP)')}
 		if permissions.get(Permissions.CREATE_BOARD)
@@ -168,4 +168,3 @@ block content
 					input(type='checkbox', name='confirm', value='true' required)
 			include ../includes/forceactiontwofactor.pug
 			input(type='submit', value=__('Delete'))
-	

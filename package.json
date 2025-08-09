@@ -50,6 +50,7 @@
     "semver": "^7.6.3",
     "socket.io": "^4.8.1",
     "socks-proxy-agent": "^6.2.1",
+    "stripe": "^18.3.0",
     "uid-safe": "^2.1.5",
     "unix-crypt-td-js": "^1.1.4",
     "web3": "^4.16.0",

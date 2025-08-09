@@ -61,6 +61,7 @@ module.exports = async (req, res, next) => {
 			boardReportCountMap,
 			globalReportCount,
 			forceActionTwofactor,
+			paymentStatus: req.query.payment
 		});
 
 };

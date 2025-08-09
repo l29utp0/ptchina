@@ -41,12 +41,19 @@ const config = require(__dirname+'/lib/misc/config.js')
 	const roleManager = require(__dirname+'/lib/permission/rolemanager.js');
 	await roleManager.load();
 
+	// Add this before other middleware that parses request bodies
+	app.use('/forms/webhook/stripe', express.raw({ type: 'application/json' }));
+
 	// disable useless express header
 	app.disable('x-powered-by');
 	//query strings
 	app.set('query parser', 'simple');
 	// parse forms
-	app.use(express.urlencoded({extended: false}));
+	app.use(express.urlencoded({extended: false, verify: (req, res, buf, encoding) => {
+		if (buf && buf.length) {
+			req.rawBody = buf.toString(encoding || 'utf8');
+		}
+	}}));
 	// parse cookies
 	app.use(cookieParser(cookieSecret));
 
@@ -113,6 +120,11 @@ const config = require(__dirname+'/lib/misc/config.js')
 	const { setGlobalLanguage } = require(__dirname+'/lib/middleware/locale/locale.js');
 	app.use(i18n.init);
 	app.use(setGlobalLanguage);
+
+	//stripe webhook
+	const stripeHandlers = require(__dirname+'/lib/stripe/stripe.js');
+
+	app.post('/forms/webhook/stripe', express.raw({ type: 'application/json' }), stripeHandlers.handleWebhookRoute);
 
 	//referer check middleware
 	const referrerCheck = require(__dirname+'/lib/middleware/misc/referrercheck.js');

@@ -1,0 +1,52 @@
+extends ../layout.pug
+
+block head
+	title Apoia o site
+
+block content
+	h1.board-title Apoia o site
+	include ../includes/stickynav.pug
+	.table-container.flex-center.mv-5
+		.anchor
+		table
+			tr
+				th Benefícios
+			tr
+				td.post-message
+					ul
+						li Poder criar 1 (uma) tábua com todas as opções de administração que daí advêm.
+						li Limite de carregamentos de 100MB.
+						li Carregar ficheiros através do endereço onion.
+						li Captcha bypass.
+						li DNSBL bypass.
+						li Poder usar o capcode
+							span.mono ## ouro
+							|  no campo de nome.
+						li Poder usar
+							span.mono ##sorte
+							|  no campo de mensagem.
+						li Poder usar dados, ex:
+							span.mono ##2%6
+							|  no campo de mensagem.
+						li Poder usar vários markdowns como
+							span.mono ==título==
+							|,
+							span.mono +++big+++
+							|  e
+							span.mono <
+							|.
+						li Qualquer outra função que seja implementada no futuro.
+
+					.form-wrapper.flex-center.mt-10
+						form.donate-form(action='/forms/donate', method='POST', target="_blank")
+							input(type='hidden' name='_csrf' value=csrf)
+							input(type='submit' value=__('Doar €12'))
+
+					small
+						p * o processamento da doação é feito pela Stripe e a atualização da conta é automática.
+					small
+						p * tábuas criadas continuam a estar sujeitas às
+							a(href='https://ptchan.org/rules.html') regras globais
+							| .
+					small
+						p * guarda os dados da tua conta.
