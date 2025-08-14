@@ -240,17 +240,16 @@ pre {
     vertical-align: middle;
     margin-right: 5px;
 }
-#postform-dragHandle,
-#threadwatcher-dragHandle {
-    flex-grow: 1;
-    background: var(--darken);
-    height: 1.75em;
-    cursor: grab;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    width: 100%;
+#postform-dragHandle, #threadwatcher-dragHandle, #tegakiwindow-dragHandle {
+	flex-grow: 1;
+	background: var(--darken);
+	height: 1.75em;
+	cursor: grab;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	width: 100%;
 }
 
 .wrapbar {
@@ -1052,6 +1051,10 @@ textarea:invalid {
     resize: none;
 }
 
+.resize {
+	resize: both;
+}
+
 .container {
     padding: 5px;
 }
@@ -1393,19 +1396,25 @@ input[type="file"] {
     background: var(--input-background);
 }
 
-#postform,
-#threadwatcher {
-    display: none;
-    max-width: calc(100% - 10px);
-    max-height: calc(100% - 50px);
-    position: fixed;
-    top: 3.5em;
-    right: 5px;
-    background-color: var(--post-color);
-    z-index: 2;
-    box-sizing: border-box;
-    border: 5px solid var(--post-color);
-    overflow-y: auto;
+#postform, #threadwatcher, #tegakiwindow {
+	display: none;
+	max-width: calc(100% - 10px);
+	max-height: calc(100% - 50px);
+	position: fixed;
+	top: 3.5em;
+	right: 5px;
+	background-color: var(--post-color);
+	z-index: 2;
+	box-sizing: border-box;
+	border: 5px solid var(--post-color);
+	overflow-y: auto;
+}
+
+#tegakiwindow {
+	display: unset;
+	overflow-y: hidden;
+	max-width: unset;
+	max-height: unset;
 }
 
 #threadwatcher {
@@ -1414,8 +1423,8 @@ input[type="file"] {
     flex-direction: column;
 }
 
-#threadwatcher.minimised .watched-thread {
-    display: none;
+#threadwatcher.minimised .watched-thread, #tegakiwindow.minimised #tegaki {
+	display: none;
 }
 
 .watched-thread {
@@ -1725,6 +1734,23 @@ row.wrap.sb .col {
 
 .sm {
     scroll-margin-top: 100px;
+}
+
+#hover-popup {
+	position: fixed;
+	/* top: 40px; */
+	/* right: 0; */
+	max-width: 100%;
+	height: auto;
+	pointer-events: none;
+	display: none;
+	background-color: var(--background-rest);
+	/* border: 1px solid var(--box-border-color); */
+	z-index: 1000;
+}
+
+#hover-popup * {
+	max-width: 100%;
 }
 
 #tab-1:target .tab-1,
