@@ -39,9 +39,9 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 						span.post-subject #{post.subject}
 						| 
 					if post.donor
-						span.post-capcode(title=`Este danone é um amigo verdadeiro e honesto.`)
+						span.post-capcode
 							a(href='/faq.html#doar' target='_blank')
-								img.donorbadge(src=`/misc/donorbadge.gif` title=`OURO` alt='OURO' loading='lazy')
+								img.donorbadge(src=`/misc/donorbadge.gif` title=`Ouro` alt='Ouro' loading='lazy')
 						|
 					if post.email
 						a.post-name(href=`mailto:${post.email}`) #{post.name}

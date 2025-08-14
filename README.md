@@ -3,26 +3,6 @@ Website: https://ptchan.org/
 
 API documentation: [fatchan/jschan-docs](https://gitgud.io/fatchan/jschan-docs/) - Gitgud pages link: http://fatchan.gitgud.site/jschan-docs/#introduction
 
-Repo Mirror(s):
- - https://gitgud.io/fatchan/jschan
- - https://git.basedflare.com/fatchan/jschan
-
-Contact the author:
- - [Session](https://getsession.org/): `051b2ff270769d20764fa1b8e6bc3240b0a3c28ffb3242e7cce60db479b23ef427`
- - Telegram: [t.me/basedflare](https://t.me/basedflare)
- - Email: see my gitgud profile
-
-
-## Live instances (Unofficial)
- - 🇺🇸 [94chan](https://94chan.org)
- - 🇵🇹/🇧🇷 [ptchan](https://ptchan.org)
- - 🇺🇸/🇰🇷 [heolkek](https://heolkek.cafe)
- - 🇺🇸 [zzzchan](https://zzzchan.xyz)
- - 🇧🇷 [27chan](https://27chan.org)
- - 🇺🇸 [jakparty](https://jakparty.soy)
- - 🇮🇹 [nuichan](https://niuchan.org)
- - And many more...
-
 ## Features
  - [x] Multiple language support (🇬🇧 🇵🇹 🇧🇷 🇷🇺 🇮🇹 🇪🇸)
  - [x] Optional user created boards

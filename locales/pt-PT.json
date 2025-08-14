@@ -1448,5 +1448,13 @@
   "Auto Delete Global Reports Threshold": "Apagar Publicações Com X Denúncias Globais",
   "You can only own one board.": "Apenas podes ter 1 tábua.",
   "Donors cannot transfer boards.": "Não podes transferir a tábua.",
-  "Infinite scroll": "Scroll infinito"
+  "Infinite scroll": "Scroll infinito",
+  "Hover expands media": "Cursor expande ficheiro",
+  "Hover Expands Media": "Cursor Expande Ficheiro",
+  "Hover expands follow cursor": "Ficheiro expandido segue cursor",
+  "Hover Expands Follow Cursor": "Ficheiro Expandido Segue Cursor",
+  "Auto Bumplock Time": "Auto Bumplock Time",
+  "Invalid auto bumplock time": "Tempo de auto bumplock inválido",
+  "Invalid board defaults auto bumplock time": "Tempo de auto bumplock de tábua inválido",
+  "Thread reached auto bumplock time limit": "Fio chegou a SAGE"
 }
