@@ -3,6 +3,8 @@
 const { Accounts } = require(__dirname+'/../../../db/')
 	, config = require(__dirname+'/../../../lib/misc/config.js')
 	, roleManager = require(__dirname+'/../../../lib/permission/rolemanager.js')
+	, Permission = require(__dirname+'/../../../lib/permission/permission.js')
+	, { Permissions } = require(__dirname+'/../../../lib/permission/permissions.js')
 	, pageQueryConverter = require(__dirname+'/../../../lib/input/pagequeryconverter.js')
 	, limit = 20;
 
@@ -35,6 +37,12 @@ module.exports = async (req, res, next) => {
 			Accounts.count(filter),
 		]);
 		maxPage = Math.ceil(maxPage/limit);
+
+		// Add isDonor flag to each account
+		accounts.forEach(account => {
+			const permission = new Permission(account.permissions. toString('base64'));
+			account.isDonor = permission.get(Permissions.DONOR);
+		});
 	} catch (err) {
 		return next(err);
 	}
