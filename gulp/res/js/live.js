@@ -289,7 +289,7 @@ window.addEventListener('settingsReady', function() { //after domcontentloaded
 				const pingStart = Date.now();
 				socket.volatile.emit('ping', () => {
 					const latency = Date.now() - pingStart;
-					updateLive(__('Connected for live posts (%sms)', latency), '#0de600');
+					updateLive(__('Connected for live posts', latency), '#0de600');
 				});
 			};
 			const fallbackToPolling = () => {
