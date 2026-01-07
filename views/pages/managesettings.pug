@@ -5,7 +5,7 @@ include ../mixins/boardheader.pug
 include ../mixins/managenav.pug
 
 block head
-	title /#{board._id}/ - #{__('Settings')} 
+	title /#{board._id}/ - #{__('Settings')}
 
 block content
 	+boardheader(__('Settings'))
@@ -144,15 +144,15 @@ block content
 														.label #{__('User Post Deletion')}
 														label.postform-style.ph-5
 															input(type='checkbox', name='user_post_delete', value='true' checked=board.settings.userPostDelete)
-													.row
+													//-.row
 														.label #{__('Force Anon')}
 														label.postform-style.ph-5
 															input(type='checkbox', name='force_anon', value='true' checked=board.settings.forceAnon)
 													.row
-														.label #{__('Sage Only Email')}
+														.label #{__('Apenas Opções Default')}
 														label.postform-style.ph-5
 															input(type='checkbox', name='sage_only_email', value='true' checked=board.settings.sageOnlyEmail)
-													.row
+													//-.row
 														.label #{__('Force Thread Subject')}
 														label.postform-style.ph-5
 															input(type='checkbox', name='force_thread_subject', value='true' checked=board.settings.forceThreadSubject)
@@ -258,7 +258,7 @@ block content
 
 											.tab.tab-5
 												.col
-													.row
+													//-.row
 														a.label(href='/faq.html#antispam') #{__('Antispam FAQ')}
 													.row
 														.label #{__('Lock Mode')}
