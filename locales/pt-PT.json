@@ -1061,8 +1061,8 @@
   "Post styling": "Estilo de Publicações",
   "Post(s)": "Publicação",
   "Posting": "Publicações",
-  "Posting files through anonymizers has been disabled globally": "Carregar ficheiros através de anonimizadores foi desativado globalmente",
-  "Posting files through anonymizers has been disabled on this board": "Carregar ficheiros através de anonimizadores foi desativado nesta tábua",
+  "Posting files through anonymizers has been disabled globally": "Carregar ficheiros através de anonimizadores foi desativado globalmente, adquire Ouro",
+  "Posting files through anonymizers has been disabled on this board": "Carregar ficheiros através de anonimizadores foi desativado nesta tábua, adquire Ouro",
   "Posts": "Publicações",
   "Posts must include a message or file": "Publicações têm que incluir uma mensagem ou ficheiro",
   "Posts not shown": "Publicações não mostradas",
@@ -1444,7 +1444,7 @@
   "Table": "Tabela",
   "Ethereum Links URL": "Ethereum Links URL",
   "Sound notifications": "Som publicações",
-  "Your upload of %s exceeds the maximum of %s. Donate to increase this limit.": "O teu carregamento de %s excede o máximo de %s. Faz uma doação para poderes carregar mais.",
+  "Your upload of %s exceeds the maximum of %s. Donate to increase this limit.": "O teu carregamento de %s excede o máximo de %s. Para carregares até 100MB faz uma doação.",
   "Auto Delete Global Reports Threshold": "Apagar Publicações Com X Denúncias Globais",
   "You can only own one board.": "Apenas podes ter 1 tábua.",
   "Donors cannot transfer boards.": "Não podes transferir a tábua.",
@@ -1453,8 +1453,9 @@
   "Hover Expands Media": "Cursor Expande Ficheiro",
   "Hover expands follow cursor": "Ficheiro expandido segue cursor",
   "Hover Expands Follow Cursor": "Ficheiro Expandido Segue Cursor",
-  "Auto Bumplock Time": "Auto Bumplock Time",
+  "Auto Bumplock Time": "Tempo de Auto Bumplock",
   "Invalid auto bumplock time": "Tempo de auto bumplock inválido",
   "Invalid board defaults auto bumplock time": "Tempo de auto bumplock de tábua inválido",
-  "Thread reached auto bumplock time limit": "Fio chegou a SAGE"
+  "Thread reached auto bumplock time limit": "Fio chegou a SAGE",
+  "Donor": "Ouro"
 }

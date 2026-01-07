@@ -23,17 +23,20 @@ section.form-wrapper.flex-center
 			section.row
 				.label #{__('Name')}
 				input(type='text', name='name', placeholder=board.settings.defaultName maxlength=globalLimits.fieldLength.name)
-			if board.settings.sageOnlyEmail && !modview
-				if isThread
-					section.row
-						.label #{__('Sage')}
-						label.postform-style.ph-5
-							input(type='checkbox', name='email', value='sage')
+			if board.settings.sageOnlyEmail
+				section.row
+					.label #{__('Opção')}
+					label.postform-style.ph-5(style='flex-grow: 1')
+						select(name='email' style='border: none' )
+							option(value='')
+							option(value='migi') migi
+							option(value='sage') sage
+							option(value='shinobi') shinobi
 			else
 				section.row
 					.label #{__('Email')}
 					input(type='text', name='email', autocomplete='off' maxlength=globalLimits.fieldLength.email)
-			include ./subjectfield.pug
+			//-include ./subjectfield.pug
 		section.row
 			.label
 				span #{__('Message')}
@@ -50,10 +53,10 @@ section.form-wrapper.flex-center
 						if fileRequired
 							span.required *
 					|
-					| 
+					|
 					if maxFiles > 1
 						small #{__n('Max %s files', maxFiles)}
-					small #{postFilesSize} #{__('total')}
+					small 10/#{postFilesSize} #{__('total')}
 				span.col
 					+filelabel('file', maxFiles)
 					input#file(type='file', name='file' multiple required=fileRequired )
@@ -65,7 +68,7 @@ section.form-wrapper.flex-center
 							| Spoiler
 			if board.settings.enableTegaki && board.settings.allowedFileTypes.image === true
 				section.row.jsonly
-					.label #{__('Tegaki')} 
+					.label #{__('Tegaki')}
 					input.dummy-link.tegaki-button(type='button', value=__('Draw'))
 					if board.settings.allowedFileTypes.other === true
 						label.noselect.postform-style.ph-5.ml-1.fh

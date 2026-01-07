@@ -14,9 +14,10 @@ block content
 			tr
 				td.post-message
 					ul
+						li Doação única, sem mensalidades.
 						li Poder criar 1 (uma) tábua com todas as opções de administração que daí advêm.
 						li Limite de carregamentos de 100MB.
-						li Carregar ficheiros através do endereço onion.
+						li Carregar ficheiros através de TOR/VPN.
 						li Captcha bypass.
 						li DNSBL bypass.
 						li Poder usar o capcode
@@ -40,12 +41,14 @@ block content
 					.form-wrapper.flex-center.mt-10
 						form.donate-form(action='/forms/donate', method='POST', target="_blank")
 							input(type='hidden' name='_csrf' value=csrf)
-							input(type='submit' value=__('Doar €12'))
+							input(type='submit' value=__('Doar €20'))
 
 					small
 						p * o processamento da doação é feito pela Stripe e a atualização da conta é automática.
 					small
 						p * tábuas criadas continuam a estar sujeitas às
+							|
+							|
 							a(href='https://ptchan.org/rules.html') regras globais
 							| .
 					small

@@ -22,27 +22,27 @@ block content
 						li: a(href='#legalDMCA') Remoção de conteúdo que infringe direitos legais/DMCA.
 						li: a(href='#contactar') Como posso contactar a administração?
 						li: a(href='#source') Source & API?
-						li: a(href='#source') App
-						li: a(href='#mascote') Mascote
+						li: a(href='#app') App
+						//-li: a(href='#mascote') Mascote
 
 					b Participar
 					ul.mv-0
-						li: a(href='#criarfio') Como crio um fio?
-						li: a(href='#responder') Como respondo a um fio?
-						li: a(href='#responderu') Como respondo a outro utilizador?
-						li: a(href='#sage') O que é um sage?
-						li: a(href='#IDs') O que são IDs?
+						//-li: a(href='#criarfio') Como crio um fio?
+						//-li: a(href='#responder') Como respondo a um fio?
+						//-li: a(href='#responderu') Como respondo a outro utilizador?
+						//-li: a(href='#sage') O que é um sage?
+						//-li: a(href='#IDs') O que são IDs?
 						li: a(href='#captcha') Como resolvo o CAPTCHA?
 						li: a(href='#name-formatting') Como funcionam os nomes, tripcodes e capcodes?
 						li: a(href='#post-styling') Como posso formatar o meu texto?
-						//li: a(href='#post-info') Qual é o limite de ficheiros?
-						//li: a(href='#moderation') Como funciona a moderação?
-						//li: a(href='#banido') Fui banido, e agora?
+						//-li: a(href='#post-info') Qual é o limite de ficheiros?
+						//-li: a(href='#moderation') Como funciona a moderação?
+						//-li: a(href='#banido') Fui banido, e agora?
 					b Tábuas, utilizadores & permissões
 					ul.mv-0
-						li: a(href='#make-a-board') Como faço uma tábua?
+						//-li: a(href='#make-a-board') Como faço uma tábua?
 						li: a(href='#staff-and-permissions') Contas
-						//li: a(href='#antispam') What do the board settings for antispam do?
+						//-li: a(href='#antispam') What do the board settings for antispam do?
 					b Política de privacide e cookies/local storage.
 					ul.mv-0
 						li: a(href='#privacidadecookies') Política de privacidade e cookies/local storage.
@@ -57,25 +57,36 @@ block content
 					p
 						| Podes ajudar o ptchan com uma pequena doação que te garante certos benefícios:
 					ul
+						li Doação única, sem mensalidades.
 						li Poder criar 1 (uma) tábua com todas as opções de administração que daí advêm.
 						li Limite de carregamentos de 100MB.
-						li Carregar ficheiros através do endereço onion.
+						li Carregar ficheiros através de TOR/VPN.
 						li Captcha bypass.
 						li DNSBL bypass.
 						li Poder usar o capcode
+							|
+							|
 							span.mono ## ouro
 							|  no campo de nome.
 						li Poder usar
+							|
+							|
 							span.mono ##sorte
 							|  no campo de mensagem.
 						li Poder usar dados, ex:
+							|
+							|
 							span.mono ##2%6
 							|  no campo de mensagem.
 						li Poder usar vários markdowns como
+							|
+							|
 							span.mono ==título==
 							|,
+							|
 							span.mono +++big+++
 							|  e
+							|
 							span.mono <
 							|.
 						li Qualquer outra função que seja implementada no futuro.
@@ -87,7 +98,8 @@ block content
 						| Se preferires fazer uma doação em cripto por favor envia um email.
 					p
 						| Também podes adquirir algo na
-						a(href='https://shop.ptchan.org' referrerpolicy='same-origin' target='_blank') 💸 Loja
+						|
+						a(href='https://shop.ptchan.org' referrerpolicy='same-origin' target='_blank') Loja
 
 					//p.post-message
 						| Toma nota que a tua conta nunca será apagada no entanto não te garante imunidades especiais vs. um utilizador comun.
@@ -126,7 +138,7 @@ block content
 			tr
 				td.post-message
 					p
-						| Podes denunciar uma publicação que infrinja as regras clicando na seta em cima da publicação e Denunciar/Moderar - depois clica em Denúnciar ou Denúncia Global, preenche o motivo, completa o CAPTCHA e envia.
+						| Podes denunciar uma publicação que infrinja as regras clicando na caixa com um ponto de exclamação ao lado da publicação e em Denúnciar ou Denúncia Global, preenche o motivo, completa o CAPTCHA e envia.
 					p
 						| Para denunciares várias publicações ao mesmo tempo clica nas checkboxes das publicações e vai a Ações no final da página.
 	.table-container.flex-center.mv-5
@@ -137,9 +149,10 @@ block content
 			tr
 				td.post-message
 					p
-						| If something on this website infringes on your legal rights please submit a properly formated DMCA Takedown Notice or legal equivalent to info@ptchan.org and the content will be taken down as soon as possible.
+						| If something on this website infringes on your legal rights please submit a properly formated DMCA Takedown Notice or legal equivalent to info@ptchan.org and the content will be taken down as soon as possible. Be advised that nothing on this website is permanent and all content is automatically deleted once it reaches the end of the last page of each board.
+					hr
 					p
-						| Se algo neste site infringe os teus direitos legais envia um DMCA Takedown ou equivalente legal devidamente formatado para info@ptchan.org e o conteúdo será prontamente removido.
+						| Se algo neste site infringe os teus direitos legais envia um DMCA Takedown ou equivalente legal devidamente formatado para info@ptchan.org e o conteúdo será prontamente removido. Tem em conta que nada neste site é permanente e todo o conteúdo é automaticamente apagado quando chega ao fim da última página de cada tábua.
 	.table-container.flex-center.mv-5
 		.anchor#contactar
 		table
@@ -166,10 +179,16 @@ block content
 			tr
 				td
 					p
-						| Tanto o ptchan como o stream usam uma
-						a(href='https://en.wikipedia.org/wiki/Progressive_web_app' referrerpolicy='same-origin' target='_blank')  PWA
-						| , o que significa que não precisam de ser instalados através de uma loja de aplicações, apenas abre um dos sites no navegador do teu dispositivo, vai às opções e carrega em algo que diga "instalar" ou "adicionar ao ecrã principal".
-	.table-container.flex-center.mv-5
+						| O ptchan usa uma
+						|
+						a(href='https://en.wikipedia.org/wiki/Progressive_web_app' referrerpolicy='same-origin' target='_blank') PWA
+						| , o que significa que não precisa de ser instalado através de uma loja de aplicações, apenas abre um dos sites no navegador do teu dispositivo, vai às opções e carrega em algo que diga "instalar" ou "adicionar ao ecrã principal".
+					p
+						|Também podes usar o
+						|
+						a(href='https://github.com/moffatman/chan' referrerpolicy='same-origin' target='_blank') Chance
+						|  para Android e iOS mas tem em conta que o suporte é ainda experimental e não dispõe de todas as funções do site.
+	//-.table-container.flex-center.mv-5
 		.anchor#mascote
 		table
 			tr
@@ -181,7 +200,7 @@ block content
 
 					p
 						a(href='https://pt.wikipedia.org/wiki/K%C5%ABneru_Marta' referrerpolicy='same-origin' target='_blank') https://pt.wikipedia.org/wiki/K%C5%ABneru_Marta
-	.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#criarfio
 		table
 			tr
@@ -190,7 +209,7 @@ block content
 				td
 					p
 						| Para criares um fio clica em Novo Fio no topo da página ou catálogo de uma tábua.
-	.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#responder
 		table
 			tr
@@ -199,7 +218,7 @@ block content
 				td
 					p
 						| Para responderes a um fio primeiro tens que o abrir clicando em Responder e depois em Responder no topo da página do fio, também podes clicar no número da publicação para abrir o fio/caixa de resposta de forma mais rápida.
-	.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#responderu
 		table
 			tr
@@ -208,7 +227,7 @@ block content
 				td
 					p
 						| Para responderes a outro utilizador clica no seu número de publicação e este é adicionado automáticamente à caixa de resposta.
-	.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#sage
 		table
 			tr
@@ -217,7 +236,7 @@ block content
 				td
 					p
 						| Ao escreveres sage na caixa de email/opção a tua publicação não eleva o fio para o topo da página.
-	.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#IDs
 		table
 			tr
@@ -267,11 +286,11 @@ block content
 					p Cada elemento pode ser usado numa combinação ou independentemente, o exemplo número 9 seria:
 						-
 							const examplePost = {
-								"date" : new Date("2019-08-02T09:48:44.180Z"),
+								"date" : new Date("2025-08-02T09:48:44.180Z"),
 								"name" : "nome",
 								"board" : "example",
 								"tripcode" : "!!X8NXmAS44=",
-								"capcode" : "##Board Owner capcode",
+								"capcode" : "## Admin",
 								"message" : "Olá mundo!",
 								"nomarkup" : "Olá mundo!",
 								"thread" : 1,
@@ -434,7 +453,7 @@ block content
 						| Some moderation interfaces, for example the ban duration when moderating posts, or the ban duration for post filtering use a shorthand for times/length. This format supports years, months, weeks, days, hours, minutes and seconds.
 						| An input of "3mo" would mean 3 months and "1y2mo3w4d5h6m7s" would mean 1 year, 2 months, 3 weeks, 4 days, 5 hours, 6 minutes and 7 seconds. Units of time should be in descending order, so "2w1mo" is invalid.
 						| However you may use "6w" for example to input 6 weeks, and are not required to use "1mo2w".
-	.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#make-a-board
 		table
 			tr
@@ -454,12 +473,10 @@ block content
 			tr
 				td
 					p
-						| Em ordem de importância e poder existem 4 níveis de conta, que são representados por um capcode encarnado ao lado do nome em cada publicação:
+						| Em ordem de importância e poder existem 3 níveis de conta, que são representados por um capcode encarnado ao lado do nome em cada publicação:
 						ul(style='list-style-type: none')
-							li.span.post-capcode ## l29utp0
-							p Administração do site.
 							li.span.post-capcode ## Sysop
-							p Staff global do site.
+							p Administração e staff global do site.
 							li.span.post-capcode ## Admin
 							p Administrador de uma tábua.
 							li.span.post-capcode ## Mod
@@ -482,7 +499,7 @@ block content
 					p Early 404: When a new thread is posted, delete any existing threads with less than #{early404Replies} replies beyond the first 1/#{early404Fraction} of threads.
 					p Disable anonymizer file posting: Prevent users posting images through anonymizers such as Tor hidden services, lokinet SNApps or i2p eepsites.
 					p Blocked Countries: Block country codes (based on geo Ip data) from posting.
-	.table-container.flex-center.mv-5
+	//-.table-container.flex-center.mv-5
 		.anchor#filters
 		table
 			tr
@@ -551,7 +568,7 @@ block content
 				td bypassid
 				td Cookie
 				td Bypass
-			tr
+			//-tr
 				td ptchc
 				td Cookie
 				td Consentimento cookies

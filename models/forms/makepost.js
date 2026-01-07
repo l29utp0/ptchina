@@ -412,8 +412,12 @@ module.exports = async (req, res) => {
 		salt = (await randomBytesAsync(128)).toString('base64');
 	}
 	if (ids === true) {
-		const fullUserIdHash = createHash('sha256').update(salt + res.locals.ip.raw).digest('hex');
-		userId = fullUserIdHash.substring(fullUserIdHash.length-6);
+		if (req.signedCookies.bypassid) {
+			userId = "000000";
+		} else {
+			const fullUserIdHash = createHash('sha256').update(salt + res.locals.ip.raw).digest('hex');
+			userId = fullUserIdHash.substring(fullUserIdHash.length-6);
+		}
 	}
 	let country = null;
 	if (geoFlags === true) {
@@ -442,7 +446,7 @@ module.exports = async (req, res) => {
 	const spoiler = (!isStaffOrGlobal || userPostSpoiler) && req.body.spoiler_all ? true : false;
 
 	//forceanon and sageonlyemail only allow sage email
-	let email = (isStaffOrGlobal || (!forceAnon && !sageOnlyEmail) || req.body.email === 'sage') ? req.body.email : null;
+	let email = (isStaffOrGlobal || (!forceAnon && !sageOnlyEmail) || ['sage', 'migi', 'shinobi'].includes(req.body.email)) ? req.body.email : null;
 	//disablereplysubject
 	let subject = (!isStaffOrGlobal && req.body.thread && disableReplySubject) ? null : req.body.subject;
 

@@ -6,17 +6,17 @@ block head
 	title #{meta.siteName}
 
 block content
-	//h1.board-title #{meta.siteName}
-	img.logo(src='/misc/martacomputador.png' style='max-height:250px!important' title='Um redesítio de desenhos animados.')
+	//-h1.board-title #{meta.siteName}
+	img.logo(src='/misc/martacomputador.png' style='max-height:200px!important' title='Um redesítio de desenhos animados.')
 	.table-container.flex-center.mv-10.text-center
-	
-		table
+
+		//-table
 			tr
 				th #{__('Welcome')}
 			tr
 				td
 					pre.no-m-p
-						| O ptchan.org é um site dedicado à comunidade de língua portuguesa onde se pode participar de forma anónima e 
+						| O ptchan.org é um site dedicado à comunidade de língua portuguesa onde se pode participar de forma anónima e
 						a(href='/faq.html#make-a-board') criar tábuas
 						|.
 	if recentNews && recentNews.length > 0
@@ -38,16 +38,16 @@ block content
 		+boardtable(true, false)
 			each board in boards
 				tr
-					td 
+					td
 						if board.settings.sfw === true
 							span.left
 								span.help(title=__('SFW')) &#x1F4BC;
-								|  
+								|
 						a(href=`/${board._id}/index.html`) /#{board._id}/ - #{board.settings.name}
-					//td #{board.settings.description}
-					td.nobreak #{board.pph}
-					td.nobreak #{board.ppd}
-					td.nobreak #{board.ips}
+					//-td #{board.settings.description}
+					//-td.nobreak #{board.pph}
+					//-td.nobreak #{board.ppd}
+					//-td.nobreak #{board.ips}
 					td.nobreak #{board.sequence_value-1}
 			if localStats.total-localStats.unlisted > boards.length
 				tr
@@ -67,6 +67,7 @@ block content
 					data-board=thread.board
 					data-post-id=thread.postId
 					data-filter=((thread.subject||'')+(thread.nomarkup||'')).toLowerCase()
+					data-email=thread.email
 					data-date=thread.date
 					data-replies=thread.replyposts
 					data-bump=thread.bumped
@@ -78,8 +79,8 @@ block content
 						div(style='text-align: center;')
 							a.no-decoration.post-subject(href=`/${thread.board}/`) /#{thread.board}/
 						if thread.country && thread.country.code
-							span(class=`flag flag-${thread.country.code.toLowerCase()}` title=thread.country.name alt=thread.country.name) 
-							| 
+							span(class=`flag flag-${thread.country.code.toLowerCase()}` title=thread.country.name alt=thread.country.name)
+							|
 						if thread.subject
 							a.no-decoration.post-subject(href=postURL) #{thread.subject}
 						else
@@ -109,7 +110,7 @@ block content
 					pre.no-m-p
 						| #{__('There are currently %s public boards, %s in total. Sitewide, %s posts have been made in the last day, %s in the last hour, %s in total.', localStats.total-localStats.unlisted, localStats.total, localStats.ppd, localStats.pph, localStats.posts)}
 						| #{__('%s files are being served, totaling %s.', fileStats.count, fileStats.totalSizeString)}
-						| 
+						|
 						a(href='http://jieq75a6uwqbj5sjzaxlnd7xwgs35audjmkk4g3gfjwosfrz7cp47xid.onion') 🧅Tor
 	if enableWebring === true && webringStats != null
 		.table-container.flex-center.mv-10.text-center

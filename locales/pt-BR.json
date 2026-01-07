@@ -1061,8 +1061,8 @@
   "Post styling": "Estilo de Postagens",
   "Post(s)": "Postagem",
   "Posting": "Postagens",
-  "Posting files through anonymizers has been disabled globally": "Upload de arquivos através de anonimizadores foi desativado globalmente",
-  "Posting files through anonymizers has been disabled on this board": "Upload de arquivos através de anonimizadores foi desativado nesta tábua",
+  "Posting files through anonymizers has been disabled globally": "Upload de arquivos através de anonimizadores foi desativado globalmente, adquire Ouro",
+  "Posting files through anonymizers has been disabled on this board": "Upload de arquivos através de anonimizadores foi desativado nesta tábua, adquire Ouro",
   "Posts": "Postagens",
   "Posts must include a message or file": "Postagens têm que incluir uma mensagem ou arquivo",
   "Posts not shown": "Postagens não mostradas",
@@ -1453,7 +1453,9 @@
   "Hover Expands Media": "Cursor Expande Ficheiro",
   "Hover expands follow cursor": "Ficheiro expandido segue cursor",
   "Hover Expands Follow Cursor": "Ficheiro Expandido Segue Cursor",
+  "Auto Bumplock Time": "Tempo de Auto Bumplock",
   "Invalid auto bumplock time": "Tempo de auto bumplock inválido",
   "Invalid board defaults auto bumplock time": "Tempo de auto bumplock de tábua inválido",
-  "Thread reached auto bumplock time limit": "Fio chegou a SAGE"
+  "Thread reached auto bumplock time limit": "Fio chegou a SAGE",
+  "Donor": "Ouro"
 }
