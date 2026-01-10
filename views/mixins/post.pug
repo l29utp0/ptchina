@@ -87,6 +87,8 @@ mixin post(post, truncate, manage=false, globalmanage=false, ban=false, overboar
 					|
 					|
 					span.noselect: a(href=`${postURL}`) [#{__('Open')}]
+					|
+					|
 				select.jsonly.postmenu
 					option(value='single') #{__('Hide')}
 					if post.userId
