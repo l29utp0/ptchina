@@ -152,7 +152,7 @@ window.addEventListener('settingsReady', function() { //after domcontentloaded
 		if (isRecent) {
             //cap the recent pages to 20 posts so they dont grow to infinity
 			Array.from(document.getElementsByClassName('thread'))
-				.slice(20)
+				.slice(50)
 				.forEach(el => {
 					el.previousSibling.remove();
 					el.remove();
