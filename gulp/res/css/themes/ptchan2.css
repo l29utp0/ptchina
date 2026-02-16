@@ -37,6 +37,10 @@
     content: url(/logos/istoeptchanlogopreto.webp);
 }*/
 
+body {
+    background: url(/asset/meta/642f8b0b56a99bed6877e0ed552f460d40ee5082114f70dcacaaef09ce790208.png) repeat 0 0 var(--background-rest);
+}
+
 #float,
 .post-container,
 #livetext,
@@ -236,6 +240,10 @@ table {
     /*.logo {
         content: url(/logos/istoeptchanlogobranco.webp);
     }*/
+
+    body {
+        background: url(/css/themes/assets/ptchanfundoescuro.png) repeat 0 0 var(--background-rest);
+    }
 
     table {
         border: 1px solid var(--darken);

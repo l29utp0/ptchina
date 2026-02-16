@@ -5,7 +5,7 @@
     --post-link-color: #F6D251;
     --label-color: #5A1687;
     --alt-label-color: #5A1687;
-    --navbar-color: #5A1687;
+    --navbar-color: #35134C;
     --font-color: #FAFAFA;
     --alt-font-color: #FAFAFA;
     --input-color: #FAFAFA;
@@ -28,7 +28,7 @@
     --capcode-color: #F6D251;
     --dice-color: #FF770F;
     --greentext-color: #70EF4C;
-    --pinktext-color: #F85088 
+    --pinktext-color: #F85088
 }
 
 body {
@@ -100,4 +100,8 @@ hr {
 
 .post-container::before {
     margin-left: -35px;
+}
+
+.navbar {
+    background: var(--navbar-color);
 }
