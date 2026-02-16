@@ -553,7 +553,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 
 //		const pugRuntimeFuncs = pugRuntime(['classes', 'style', 'attr', 'escape']);
 //		fs.writeFileSync('gulp/res/js/pugruntime.js', pugRuntimeFuncs);
-		
+
 		//compile some pug client side functions
 		['modal', 'post', 'uploaditem', 'pugfilters', 'captchaformsection', 'watchedthread', 'threadwatcher', 'banmessage', 'tegakiwindow']
 			.forEach(templateName => {
@@ -614,6 +614,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`!${paths.scripts.src}/boardads.js`,
 		`!${paths.scripts.src}/infinitescroll.js`,
 		`!${paths.scripts.src}/renderweb3.js`,
+		`!${paths.scripts.src}/typingindicator.js`,
 	])
 		.pipe(concat('all.js'))
 		.pipe(uglify({compress:true}))
@@ -642,6 +643,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`${paths.scripts.src}/infinitescroll.js`,
 		`${paths.scripts.src}/hoverexpand.js`,
 		`${paths.scripts.src}/renderweb3.js`,
+		`${paths.scripts.src}/typingindicator.js`,
 	])
 		.pipe(concat('render.js'))
 		.pipe(uglify({compress:true}))
