@@ -8,9 +8,10 @@ block head
 
 block content
 	.board-header.mb-5
-		h1.board-title #{__('Overboard Catalog')}
+		h1.board-title
+			a.no-decoration(href=`/catalog.html?${cacheQueryString}`) #{__('Overboard Catalog')}
 		h4.board-description #{__('Recently bumped threads from multiple boards')}
-			|  
+			|
 			| [
 			a(href=`/overboard.html?${cacheQueryString}`) #{__('Index View')}
 			| ]
@@ -30,7 +31,7 @@ block content
 	hr(size=1)
 	if threads.length === 0
 		p #{__('No posts.')}
-	else 
+	else
 		.catalog
 			for thread, i in threads
 				+catalogtile(thread, i, true)

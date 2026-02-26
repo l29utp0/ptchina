@@ -45,20 +45,9 @@
     border: none !important
 }
 
-@font-face {
-    font-family: VCR OSD Mono;
-    src: url(/css/themes/assets/VCR-OSD-Mono.ttf);
-}
-
-* {
-    font-family: 'VCR OSD Mono', sans-serif !important;
-}
-
 body {
     background: black !important;
-    width: 80%;
-    margin: auto;
-    font-size: medium;
+    width: 90%;
 }
 
 a {
@@ -78,14 +67,6 @@ tr:nth-child(2n) * {
 	color: var(--link-color) !important;
 }
 
-.navbar {
-    width: inherit;
-}
-
-.navbar .nav-item {
-    text-transform: uppercase;
-}
-
 .logo {
     content: url(/css/themes/assets/marta-teletexto.png);
     max-width: 500px;
@@ -95,17 +76,11 @@ tr:nth-child(2n) * {
     background-color: black;
     color: white;
     text-transform: uppercase;
-    border: 6px solid red;
-    width: 60%;
+    border: 1px solid red;
     margin: auto;
     letter-spacing: 0.5em;
     padding: 10px;
-}
-
-.no-m-p  {
-    background-color: blue;
-    color: var(--font-color) !important; 
-    padding: 10px 10px;
+    margin-bottom:10px
 }
 
 .footer {
@@ -132,6 +107,7 @@ tr:nth-child(2n) * {
     color: red;
     font-size: initial;
     padding: 10px 0;
+    flex-basis: 100%;
 }
 
 .footer a:nth-child(4n + 1) {
@@ -149,4 +125,14 @@ tr:nth-child(2n) * {
 
 .footer a:nth-child(4n + 4) {
     background-color: cyan;
+}
+
+.close {
+    width:30px;
+}
+
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+    }
 }

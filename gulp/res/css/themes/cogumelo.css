@@ -48,3 +48,7 @@ tr {
 .captcha {
 	filter: invert(90%);
 }
+
+.postmenu {
+    border: 1px solid var(--post-outline-color);
+}

@@ -321,3 +321,7 @@ select:not(.postmenu),
         background: var(--bg-btn-primary);
     }
 }
+
+.postmenu {
+    border-radius: 6px;
+}

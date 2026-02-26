@@ -77,3 +77,25 @@ a:hover {
 		border-bottom: none;
 	}
 }
+
+.post-button {
+  border:	1px	dotted var(--font-color)!important;
+  color: var(--link-color);
+}
+
+#navbar-restore.show:hover {
+  background: var(--link-hover);
+}
+
+#navbar-restore.show {
+  color: var(--link-color);
+  border:	1px	dotted var(--font-color)!important;
+}
+
+.postmenu {
+  border:	1px	dotted var(--font-color);
+}
+
+.board-catalog .board-desc {
+  color: var(--font-color);
+}

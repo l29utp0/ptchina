@@ -31,3 +31,7 @@
 	--greentext-color: #789922;
 	--pinktext-color:#E0727F;
 }
+
+.postmenu {
+  border: 1px solid var(--post-outline-color);
+}

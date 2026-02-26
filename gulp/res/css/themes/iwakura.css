@@ -58,3 +58,7 @@ tr {
 hr {
 	margin: 16px 0
 }
+
+.postmenu {
+  border: 1px solid var(--post-outline-color);
+}

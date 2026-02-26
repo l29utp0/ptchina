@@ -13,7 +13,7 @@
 	--darken: #00000010;
 	--highlighted-post-color: #a9d8ff;
 	--highlighted-post-outline-color: #8FCCCD;
-	--board-title: #800000;
+	--board-title: #00637B;
 	--hr: #B7D9C5;
 	--font-color: black;
 	--name-color: #117743;
@@ -28,9 +28,13 @@
 	--input-background: white;
 	--dice-color: darkorange;
 	--title-color: #d70000;
-	--greentext-color: #789922;
+	--greentext-color: #117743;
 	--pinktext-color:#E0727F;
 }
 .post-container, #float .post-container, .stickynav, .pages, #action-menu, .catalog-tile, #livetext, #threadstats, .collapse, .bottom-reply {
 	border-width: 0 1px 1px 0;
+}
+
+.postmenu {
+    border: 1px solid var(--post-outline-color);
 }

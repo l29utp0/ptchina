@@ -35,24 +35,20 @@ block content
 							time.right.reltime(datetime=newsDate.toISOString()) #{newsDate.toLocaleString(pageLanguage, {hourCycle:'h23'})}
 
 	if boards && boards.length > 0
-		+boardtable(true, false)
+		.catalog.board-catalog
 			each board in boards
-				tr
-					td
+				a.no-decoration(href=`/${board._id}/index.html`)
+					.catalog-tile
 						if board.settings.sfw === true
-							span.left
-								span.help(title=__('SFW')) &#x1F4BC;
-								|
-						a(href=`/${board._id}/index.html`) /#{board._id}/ - #{board.settings.name}
-					//-td #{board.settings.description}
-					//-td.nobreak #{board.pph}
-					//-td.nobreak #{board.ppd}
-					//-td.nobreak #{board.ips}
-					td.nobreak #{board.sequence_value-1}
-			if localStats.total-localStats.unlisted > boards.length
-				tr
-					td(colspan=6)
-						a.bold(href='/boards.html') Mais tábuas
+							span.board-sfw(title=__('SFW')) &#x1F4BC;
+						.catalog-info(style='text-align: center;')
+							span.post-subject /#{board._id}/ - #{board.settings.name}
+							if board.settings.description
+								p.no-m-p.board-desc #{board.settings.description}
+							p.no-m-p.board-posts /#/ #{board.sequence_value-1}
+		if localStats.total-localStats.unlisted > boards.length
+			.flex-center.mv-10(style='text-align:center;')
+				a.bold(href='/boards.html') Mais tábuas
 
 	if hotThreads && hotThreads.length > 0
 		.catalog
@@ -62,7 +58,6 @@ block content
 					- const subjectAnchorMatch = thread.subject.match(/^\/\w+\//);
 					if subjectAnchorMatch
 						- anchorSubject = subjectAnchorMatch[0]
-				.hat
 				.catalog-tile(tabindex=i+1
 					data-board=thread.board
 					data-post-id=thread.postId
@@ -81,10 +76,17 @@ block content
 						if thread.country && thread.country.code
 							span(class=`flag flag-${thread.country.code.toLowerCase()}` title=thread.country.name alt=thread.country.name)
 							|
+							|
 						if thread.subject
 							a.no-decoration.post-subject(href=postURL) #{thread.subject}
 						else
-							a.no-decoration.post-subject(href=postURL) ##{thread.postId}
+							a.no-decoration.post-subject(href=postURL) /#/#{thread.postId}
+						br
+						span(title=__n('Replies', 2)) R: #{thread.replyposts}
+						|  /
+						|
+						|
+						span(title=__n('Files', 2)) F: #{thread.replyfiles + thread.files.length}
 					if thread.files.length > 0
 						- const file = thread.files[0]
 						div(style='display: flex; justify-content: center; margin: 5px 0;')

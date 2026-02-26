@@ -8,9 +8,10 @@ block head
 
 block content
 	.board-header
-		h1.board-title #{__('Overboard Index')}
+		h1.board-title
+			a.no-decoration(href=`/overboard.html?${cacheQueryString}`) #{__('Overboard Index')}
 		h4.board-description #{__('Recently bumped threads from multiple boards')}
-			|  
+			|
 			| [
 			a(href=`/catalog.html?${cacheQueryString}`) #{__('Catalog View')}
 			| ]

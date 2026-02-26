@@ -1,149 +1,350 @@
-/* from ptchan with love */
-
 :root {
-	--icon-color:invert(17%)sepia(89%)saturate(7057%)hue-rotate(2deg)brightness(93%)contrast(120%);
-	--alt-label-color: #f0e0d6;
-	--alt-font-color: #fff;
-	--background-top: #fed6af90;
-	--background-rest: #ffe;
-	--navbar-color: #f0e0d6;
-	--post-color: #f0e0d6;
-	--post-outline-color: #d9bfb7;
-	--label-color: #EA8;
-	--box-border-color: #000;
-	--darken: #ead6ca;
-	--highlighted-post-color: #f0c0b0;
-	--highlighted-post-outline-color: #d99f91;
-	--board-title: #af0a0f;
-	--hr: #D9BFB7;
-	--font-color: #800000;
-	--name-color: #117743;
-	--capcode-color: #f00;
-	--subject-color: #f00;
-	--link-color: #800;
-	--post-link-color: navy;
-	--link-hover: #f00;
-	--accent-color: #EA8;
-	--input-borders: #a9a9a9;
-	--input-color: #000;
-	--input-background: white;
-	--dice-color: darkorange;
-	--title-color: #d70000;
-	--greentext-color: #789922;
-	--pinktext-color:#E0727F;
+  --icon-color:invert(17%) sepia(89%) saturate(7057%) hue-rotate(2deg) brightness(93%) contrast(120%);
+  --alt-label-color:#f0e0d6;
+  --alt-font-color:#fff;
+  --background-top:#fed6af90;
+  --background-rest:#ffe;
+  --navbar-color:#f0e0d6;
+  --post-color:#f0e0d6;
+  --post-outline-color:#d9bfb7;
+  --label-color:#EA8;
+  --box-border-color:#000;
+  --darken:#ead6ca;
+  --highlighted-post-color:#f0c0b0;
+  --highlighted-post-outline-color:#d99f91;
+  --board-title:#af0a0f;
+  --hr:#D9BFB7;
+  --font-color:#800000;
+  --name-color:#117743;
+  --capcode-color:#f00;
+  --subject-color:#cc1105;
+  --link-color:#af0a0f;
+  --post-link-color:navy;
+  --link-hover:#f00;
+  --accent-color:#EA8;
+  --input-borders:#a9a9a9;
+  --input-color:#000;
+  --input-background:white;
+  --dice-color:darkorange;
+  --title-color:#d70000;
+  --greentext-color:#789922;
+  --pinktext-color:#E0727F
 }
-
-.post-container, #float .post-container, .stickynav, .pages, .toggle-summary, .catalog-tile, #livetext, #threadstats {
-	border-width: 0 1px 1px 0;
+#float .post-container,
+#livetext,
+#threadstats,
+.catalog-tile,
+.pages,
+.post-container,
+.stickynav,
+.toggle-summary {
+  border-width:0 1px 1px 0
 }
 a.quote {
-    color:var(--post-link-color);
+  color:var(--post-link-color)
 }
-
 .alt {
-    background: var(--label-color);
-    color: var(--font-color);
+  background:var(--label-color);
+  color:var(--font-color)
 }
-
-td, th {
-    padding: 5px;
-    overflow-wrap: anywhere;
-    padding: 6px;
+td,
+th {
+  padding:5px;
+  overflow-wrap:anywhere;
+  padding:6px
 }
-
 table {
-    background: var(--background-rest);
-    border: 1px solid var(--highlighted-post-color);
-    border-radius: 5px;
+  background:var(--background-rest);
+  border:1px solid var(--highlighted-post-color);
+  border-radius:5px
 }
-
-#float .post-container, #livetext, #threadstats, .catalog-tile, .pages, .post-container, .stickynav, .toggle-summary {
-    border-width: 1px 1px 1px 1px;
-    border-radius: 5px;
-}
-
-.post-container {
-    padding: 10px;
-}
-
+#float .post-container,
+#livetext,
+#threadstats,
+.catalog-tile,
+.pages,
+.post-container,
+.stickynav,
 .toggle-summary {
-    padding: 13px;
+  border-width:1px 1px 1px 1px;
+  border-radius:5px
 }
-
+.post-container {
+  padding:10px
+}
+.toggle-summary {
+  padding:13px
+}
 #postform {
-
-    border-radius: 5px;
+  border-radius:5px
 }
-
 #dragHandle {
-
-    border-radius: 5px;
+  border-radius:5px
 }
-
-.label, .rlabel {
-	border: none;
-    border-radius: 5px;
-    padding: 5px;
+.label,
+.rlabel {
+  border:none;
+  border-radius:5px;
+  padding:5px
 }
-
 .modal {
-
-    border-radius: 5px;
-    padding: 5px;
+  border-radius:5px;
+  padding:5px
 }
-
-.post-date{
-    opacity: 0.5;
+.post-date {
+  opacity:.5
 }
-
 img {
-    border-radius: 5px;
+  border-radius:5px
 }
-
 video {
-    border-radius: 5px;
+  border-radius:5px
 }
-
-@media only screen and (max-width: 600px) {
-.post-info {
-    background: var(--darken);
-    margin: -6.5px -6.5px 5px -6.5px;
-    border-bottom: 1px solid var(--post-outline-color);
-    border-radius: 5px;
+@media only screen and (max-width:600px) {
+  .post-info {
+    background:var(--darken);
+    margin:-6.5px -6.5px 5px -6.5px;
+    border-bottom:1px solid var(--post-outline-color);
+    border-radius:5px
+  }
+  .container {
+    padding:5px
+  }
 }
-
-.container {
-    padding: 5px;
-    
-}
-}
-
 .user-id {
-    text-shadow: none;
-    color: #fff;
-    padding: 1px 5px;
-    border: none;
-    border-radius: 5px;
+  text-shadow:none;
+  color:#fff;
+  padding:1px 5px;
+  border:none;
+  border-radius:5px
 }
-
 .bottom-reply {
-    border-radius: 5px;
+  border-radius:5px
 }
-
 .collapse {
-    border-radius: 5px;
+  border-radius:5px
 }
-
 body {
-    background: url(/css/themes/assets/ptchan-bg.png) repeat 0 0 var(--background-rest);
+  background:url(/css/themes/assets/ptchan-bg.png) repeat 0 0 var(--background-rest)
+}
+.postmenu {
+  border-radius:5px
+}
+@media (min-width:600px) {
+  .navbar {
+    background:var(--background-rest)
+  }
+}
+.expand-omitted,
+.postmenu {
+  background-color:var(--board-title);
+  border:1px solid var(--board-title)
+}
+.postmenu:hover {
+  background-color:var(--link-hover);
+  border:1px solid var(--link-hover)
+}
+.expand-omitted {
+  border-radius:4px
+}
+.board-description,
+.close,
+.fw,
+.label,
+.nav-item,
+.nav-item-board,
+.nav-item-faq,
+.nav-item-rules,
+.nav-item-shop,
+.rlabel,
+.score-container {
+  color:var(--board-title)
+}
+.post-info .post-check {
+  opacity:0;
+  margin-right:-1em;
+  transition:opacity .1s,margin-right .1s
+}
+.post-info .post-check:hover {
+  opacity:1;
+  margin-right:unset
+}
+th {
+  color:var(--board-title)
+}
+b {
+  color:var(--board-title)
 }
 
-.postmenu {
+.nav-item-board:hover,
+.nav-item-faq:hover,
+.nav-item-rules:hover,
+.nav-item-shop:hover,
+.nav-item:hover {
+  color:var(--link-hover)!important;
+  border-radius: 5px;
+}
+
+#navbar-restore.show {
+    color: var(--board-title);
     border-radius: 5px;
 }
 
-@media (min-width: 600px) {
-    .navbar {
-      background: var(--background-rest);
-    }
+#navbar-restore.show:hover {
+  background-color: var(--highlighted-post-color);;
+  color: var(--link-hover) !important;
+}
+
+@media (prefers-color-scheme:dark) {
+  :root {
+    --icon-color:invert(17%) sepia(89%) saturate(7057%) hue-rotate(2deg) brightness(93%) contrast(120%);
+    --alt-label-color:#191b1f;
+    --alt-font-color:#e0e0e0;
+    --background-top:#0f1113;
+    --background-rest:#0f1113;
+    --navbar-color:#191b1f;
+    --post-color:#111315;
+    --post-outline-color:#15171a;
+    --label-color:#191b1f;
+    --box-border-color:#111;
+    --darken:#15171a;
+    --highlighted-post-color:#2b1d1f;
+    --highlighted-post-outline-color:#111;
+    --board-title:#e0e0e0;
+    --hr:#191b1f;
+    --font-color:#e0e0e0;
+    --name-color:#e0e0e0;
+    --capcode-color:#f00;
+    --subject-color:#b294bb;
+    --link-color:#e0e0e0;
+    --accent-color:#e0e0e0;
+    --post-link-color:#5f89ac;
+    --link-hover:#81a2be;
+    --input-borders:#111;
+    --input-color:#e0e0e0;
+    --input-background:#1d1d21;
+    --dice-color:darkorange;
+    --title-color:#d70000;
+    --greentext-color:green;
+    --pinktext-color:#e0727f
+  }
+  body {
+    background:url(/css/themes/assets/ptchanfundoescuro.png) repeat 0 0 var(--background-rest)
+  }
+  table {
+    border:1px solid var(--darken);
+    background:#111315
+  }
+  tr:nth-child(2n+1) {
+    background:unset
+  }
+  th {
+    background:var(--darken)
+  }
+  .captcha {
+    filter:invert(90%)
+  }
+  .box-wrap,
+  .tabs li a {
+    border:2px solid #000
+  }
+  .expand-omitted,
+  .postmenu {
+    border:1px solid var(--font-color)
+  }
+  .catalog-tile,
+  .post-container {
+    background:var(--post-color)
+  }
+  .expand-omitted,
+  .postmenu {
+    background-color:var(--background-rest)
+  }
+  .expand-omitted:hover,
+  .postmenu:hover {
+    background-color:var(--darken)
+  }
+  .nav-item-board:hover,
+  .nav-item-faq:hover,
+  .nav-item-rules:hover,
+  .nav-item-shop:hover,
+  .nav-item:hover {
+    background-color: var(--darken);
+    color: var(--link-hover)!important;
+    border-radius: 5px;
+  }
+
+  .anchor:target+.catalog-tile,
+  .anchor:target+.post-container,
+  .anchor:target+table,
+  .anchor:target+table tbody tr th,
+  .post-container.highlighted,
+  .post-container.hoverhighlighted {
+  background-color:var(--darken)!important;
+  border-color:var(--link-hover)!important
+}
+
+  #float .post-container {
+    background-color: var(--darken);
+    border:1px solid var(--link-hover)
+
+  }
+
+  #float {
+  box-shadow:none;
+  max-width:calc(100% - 10px);
+  z-index:3;
+  position:fixed;
+}
+.postmenu {
+  border: 1px solid var(--post-outline-color);
+}
+}
+@media only screen and (max-width:600px) {
+  .post-info {
+    border-bottom:none
+  }
+  .anchor:target+.post-container .post-info,
+  .post-container.highlighted .post-info {
+    border-bottom:none
+  }
+  .catalog .post-check {
+    top:4px;
+    margin-left:2px
+  }
+}
+@media only screen and (min-width:600px) and (prefers-color-scheme:dark) {
+  .collapse.no-decoration.post-button,
+  .thread.bottom-reply.no-decoration.post-button {
+    background:var(--post-outline-color)
+  }
+
+#settings,
+.navbar,
+.navbar-bottom .nav-item:nth-of-type(1),
+.navbar-top .nav-item:nth-of-type(1),
+hr {
+  border-top:1px solid var(--post-outline-color)
+}
+.navbar-top .nav-item:nth-of-type(3) {
+  border-bottom:1px solid var(--post-outline-color)
+}
+.navbar {
+  border-right:1px solid var(--post-outline-color)
+}
+
+#navbar-restore.show {
+    border-radius: 5px;
+}
+
+#navbar-restore.show:hover {
+  background-color: var(--darken);
+  color: var(--link-hover) !important;
+}
+}
+
+@media only screen and (max-width:600px) and (prefers-color-scheme:dark) {
+  .navbar {
+    background:var(--darken);
+  }
 }

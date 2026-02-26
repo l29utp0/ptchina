@@ -59,3 +59,7 @@ tr:nth-child(2n+1) {
 	}
 
 }
+
+.postmenu {
+  border: 1px solid var(--post-outline-color);
+}
