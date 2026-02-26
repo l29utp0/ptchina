@@ -615,6 +615,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`!${paths.scripts.src}/infinitescroll.js`,
 		`!${paths.scripts.src}/renderweb3.js`,
 		`!${paths.scripts.src}/typingindicator.js`,
+		`!${paths.scripts.src}/navbarcollapse.js`,
 	])
 		.pipe(concat('all.js'))
 		.pipe(uglify({compress:true}))
@@ -644,6 +645,7 @@ const extraLocals = ${JSON.stringify({ meta: config.get.meta, reverseImageLinksU
 		`${paths.scripts.src}/hoverexpand.js`,
 		`${paths.scripts.src}/renderweb3.js`,
 		`${paths.scripts.src}/typingindicator.js`,
+		`${paths.scripts.src}/navbarcollapse.js`,
 	])
 		.pipe(concat('render.js'))
 		.pipe(uglify({compress:true}))
