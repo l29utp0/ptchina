@@ -13,7 +13,7 @@
 	--darken: #0000000f;
 	--highlighted-post-color: #EEDACB;
 	--highlighted-post-outline-color: #CA927B;
-	--board-title: #FF6600;
+	--board-title: #34345C;
 	--hr: #CA927B;
 	--font-color: #000;
 	--name-color: #000;
@@ -28,6 +28,10 @@
 	--input-background: #E6CBC0;
 	--dice-color: darkorange;
 	--title-color: #d70000;
-	--greentext-color: #789922;
+	--greentext-color: green;
 	--pinktext-color:#E0727F;
+}
+
+.postmenu {
+  border: 1px solid var(--post-outline-color);
 }

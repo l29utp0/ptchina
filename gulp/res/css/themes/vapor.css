@@ -98,3 +98,7 @@ a:hover {
 .logo {
     content: url(/asset/i/5ba0114fa31dd25b779bdd9b5caa11511eb597ef398130ed68ab744f382a1013.png);
 }
+
+.postmenu {
+  border: 1px solid transparent;
+}

@@ -12,7 +12,7 @@
     --darken: #0000000f;
     --highlighted-post-color: #d6bad0;
     --highlighted-post-outline-color: transparent;
-    --board-title: #b90000;
+    --board-title: #34345c;
     --hr: #DDD;
     --font-color: #333;
     --name-color: #117743;
@@ -40,4 +40,8 @@
 
 tr:nth-child(odd) {
     background: 0 0
+}
+
+.postmenu {
+  border: 1px solid var(--post-outline-color);
 }

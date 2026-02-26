@@ -40,3 +40,6 @@
 	background:none!important;border:none!important
 }
 
+.postmenu {
+  border: 1px solid var(--post-outline-color);
+}

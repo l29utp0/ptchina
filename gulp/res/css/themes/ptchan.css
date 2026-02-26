@@ -185,6 +185,16 @@ b {
   border-radius: 5px;
 }
 
+#navbar-restore.show {
+    color: var(--board-title);
+    border-radius: 5px;
+}
+
+#navbar-restore.show:hover {
+  background-color: var(--highlighted-post-color);;
+  color: var(--link-hover) !important;
+}
+
 @media (prefers-color-scheme:dark) {
   :root {
     --icon-color:invert(17%) sepia(89%) saturate(7057%) hue-rotate(2deg) brightness(93%) contrast(120%);
@@ -286,6 +296,9 @@ b {
   z-index:3;
   position:fixed;
 }
+.postmenu {
+  border: 1px solid var(--post-outline-color);
+}
 }
 @media only screen and (max-width:600px) {
   .post-info {
@@ -319,7 +332,17 @@ hr {
 .navbar {
   border-right:1px solid var(--post-outline-color)
 }
+
+#navbar-restore.show {
+    border-radius: 5px;
 }
+
+#navbar-restore.show:hover {
+  background-color: var(--darken);
+  color: var(--link-hover) !important;
+}
+}
+
 @media only screen and (max-width:600px) and (prefers-color-scheme:dark) {
   .navbar {
     background:var(--darken);

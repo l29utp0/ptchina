@@ -69,3 +69,7 @@ table {
 body, small, .post-file-info, .quote, input, textarea {
 	font-size: 9pt!important;
 }
+
+.postmenu {
+  border: 1px solid var(--post-outline-color);
+}
