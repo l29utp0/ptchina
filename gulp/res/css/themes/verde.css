@@ -42,6 +42,7 @@ tr:nth-child(odd) {
     background: 0 0
 }
 
+.expand-omitted,
 .postmenu {
   border: 1px solid var(--post-outline-color);
 }

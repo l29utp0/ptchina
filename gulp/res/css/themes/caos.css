@@ -92,6 +92,7 @@ a:hover {
   border:	1px	dotted var(--font-color)!important;
 }
 
+.expand-omitted,
 .postmenu {
   border:	1px	dotted var(--font-color);
 }

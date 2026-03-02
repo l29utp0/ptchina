@@ -60,6 +60,7 @@ tr:nth-child(2n+1) {
 
 }
 
+.expand-omitted,
 .postmenu {
   border: 1px solid var(--post-outline-color);
 }

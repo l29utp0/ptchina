@@ -1,4 +1,3 @@
-/*gurochan*/
 :root {
 	--icon-color:invert(17%)sepia(89%)saturate(7057%)hue-rotate(2deg)brightness(93%)contrast(120%);
 	--alt-label-color: #e6cbc0;
@@ -32,6 +31,7 @@
 	--pinktext-color:#E0727F;
 }
 
+.expand-omitted,
 .postmenu {
   border: 1px solid var(--post-outline-color);
 }
