@@ -49,6 +49,7 @@ tr {
 	filter: invert(90%);
 }
 
+.expand-omitted,
 .postmenu {
     border: 1px solid var(--post-outline-color);
 }

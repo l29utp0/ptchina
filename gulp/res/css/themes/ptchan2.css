@@ -268,7 +268,7 @@ table {
 
     .postmenu,
     .expand-omitted {
-        border: 1px solid var(--font-color);
+        border: 1px solid var(--post-outline-color);
     }
 
     .catalog-tile,
